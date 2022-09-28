@@ -9,20 +9,20 @@ def seed_users():
             "first_name": "Demo",
             "last_name": "User",
             "email": "demouser@gmail.com",
-            "password": "password",
+            "password": "password"
         }, 
         {
             "first_name": "John",
             "last_name": "Demo",
             "email": "johndemo@gmail.com",
-            "password": "password",
+            "password": "password"
         }, 
         {
             "first_name": "Ron",
             "last_name": "Demo",
             "email": "rondemo@gmail.com",
-            "password": "password",
-        }, 
+            "password": "password"
+        } 
 
     ]
 
@@ -32,13 +32,13 @@ def seed_users():
             first_name = user["first_name"],
             last_name = user["last_name"],
             email = user["email"],
-            password = user["password"],
+            password = user["password"]
         )
 
         db.session.add(new_user)
 
     db.session.commit()
-    print('Listings were succesfully created')
+    print('Users were succesfully created')
 
 
 # Uses a raw SQL query to TRUNCATE the users table.

@@ -23,8 +23,8 @@ class Apparel(db.Model):
     price_sold = db.Column(db.Integer, nullable=False)
     #what if there have been none sold yet...
     quantity_sold = db.Column(db.Integer)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    updated_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=datetime.now())
+    updated_at = db.Column(db.DateTime, default=datetime.now)
 
     #relationships
     #one-to-many... each item can have many images, an image cannot have many items
