@@ -2,6 +2,7 @@ from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .listings import seed_listings, undo_listings
 from .apparel import seed_apparel, undo_apparel
+from .buying import seed_purchase, undo_purchase
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -15,6 +16,7 @@ def seed():
     # Add other seed functions here
     seed_listings()
     seed_apparel()
+    seed_purchase()
 
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
@@ -23,3 +25,4 @@ def undo():
     # Add other undo functions here
     undo_listings()
     undo_apparel()
+    undo_purchase()
