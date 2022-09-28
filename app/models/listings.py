@@ -16,8 +16,8 @@ class Listings(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    #relationships
-    #one-to-many... user can have many listings, a listing can only have 1 user. 
-    user = db.relationship("User", back_populates="listings")
-    #one-to-many... listings 
-    apparel = db.relationship("Apparel", back_populates="apparel")
+    # #relationships
+    # #one-to-many... user can have many listings, a listing can only have 1 user. 
+    # user = db.relationship("User", back_populates="listings")
+    # #one-to-many... listings 
+    # apparel = db.relationship("Apparel", back_populates="apparel")
