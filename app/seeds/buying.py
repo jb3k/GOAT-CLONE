@@ -8,7 +8,7 @@ def seed_purchase():
         {
             "user_id": 1,
             "listing_id": 1,
-            "address": "123 main street"
+            "address": "123 main street",
             "city": "LA",
             "state": "CA",
             "country": "USA",
@@ -23,7 +23,7 @@ def seed_purchase():
         new_purchases = Purchases(
             user_id = purchase["user_id"],
             listing_id = purchase["listing_id"],
-            address = purchase['address']
+            address = purchase['address'],
             city = purchase["city"],
             state = purchase["state"],
             country = purchase["country"],

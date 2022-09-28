@@ -16,12 +16,12 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
-    shoe_size = db.Column(db.String)
+    # shoe_size = db.Column(db.String)
 
 
     #relationships
     #one-to-many... 
-    listing = db.relationship("Listings", secondary=user_listing, back_populates="user")
+    listing = db.relationship("Listings", back_populates="user")
     #one-to-many
     purchased = user = db.relationship("Purchases", back_populates="user")
 
@@ -39,6 +39,9 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            'username': self.username,
-            'email': self.email
+            'firstName': self.first_name,
+            'lastName': self.last_name,
+            'email': self.email,
+            "createdAt": self.created_at,
+            "updatedAt": self.updated_at,
         }

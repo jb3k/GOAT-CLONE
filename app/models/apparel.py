@@ -1,5 +1,4 @@
 from .db import db
-from datetime import datetime
 
 
 
@@ -11,7 +10,7 @@ class Apparel(db.Model):
     name = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
     #should this be a string?
-    release_date = db.Column(db.DateTime, nullable=False)
+    release_date = db.Column(db.String, nullable=False)
     brand = db.Column(db.String, nullable=False)
     style = db.Column(db.String, nullable=False)
     type = db.Column(db.String, nullable=False)
@@ -28,6 +27,26 @@ class Apparel(db.Model):
 
     #relationships
     #one-to-many... each item can have many images, an image cannot have many items
-    imgs = db.relationship("Images", back_populates="apparel")
+    imgs = db.relationship("Images", back_populates="apparel", cascade="all, delete")
     #one-to-many... apparel can have many listings, but a listing can only be for 1 apparel.
     listing = db.relationship("Listings", back_populates="apparel")
+
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'description': self.description,
+            'releaseDate': self.release_date,
+            'brand': self.brand,
+            'style': self.style,
+            'type': self.type,
+            'colorway': self.colorway,
+            'condition': self.condition,
+            'size': self.size,
+            'retailPrice': self.retail_price,
+            'priceSold': self.price_sold,
+            'quantitySold': self.quantity_sold,
+            "createdAt": self.created_at,
+            "updatedAt": self.updated_at,
+        }

@@ -11,17 +11,28 @@ def seed_users():
             "email": "demouser@gmail.com",
             "password": "password",
         }, 
-
+        {
+            "first_name": "John",
+            "last_name": "Demo",
+            "email": "johndemo@gmail.com",
+            "password": "password",
+        }, 
+        {
+            "first_name": "Ron",
+            "last_name": "Demo",
+            "email": "rondemo@gmail.com",
+            "password": "password",
+        }, 
 
     ]
 
 
-    for user in userss:
+    for user in users:
         new_user = User(
-            first_name = post["first_name"],
-            last_name = post["last_name"],
-            email = post["email"],
-            password = post["password"],
+            first_name = user["first_name"],
+            last_name = user["last_name"],
+            email = user["email"],
+            password = user["password"],
         )
 
         db.session.add(new_user)

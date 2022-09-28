@@ -7,7 +7,9 @@ def seed_image():
     images = [
         {
             "apparel_id": 1,
-            "image_url": ["", ""],
+            "image_url": ["https://cdn.flightclub.com/500/TEMPLATE/803111/4.jpg", 
+            "https://cdn.flightclub.com/500/TEMPLATE/803111/3.jpg",
+            "https://cdn.flightclub.com/500/TEMPLATE/803111/1.jpg"],
         }, 
 
 

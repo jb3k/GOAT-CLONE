@@ -1,7 +1,7 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .buying import seed_purchase, undo_purchase
-from .listing import seed_listings, undo_listings
+from .listings import seed_listings, undo_listings
 from .images import seed_image, undo_image
 from .apparel import seed_apparel, undo_apparel
 
@@ -15,10 +15,10 @@ seed_commands = AppGroup('seed')
 def seed():
     seed_users()
     # Add other seed functions here
+    seed_apparel()
+    seed_image()
     seed_listings()
     seed_purchase()
-    seed_image()
-    seed_apparel()
 
 
 # Creates the `flask seed undo` command
@@ -26,7 +26,7 @@ def seed():
 def undo():
     undo_users()
     # Add other undo functions here
+    undo_apparel()
+    undo_image()
     undo_listings()
     undo_purchase()
-    undo_image()
-    undo_apparel()

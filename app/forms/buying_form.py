@@ -3,12 +3,13 @@ from wtforms import StringField
 from wtforms.validators import DataRequired, ValidationError
 
 
+
 class BuyingForm(FlaskForm):
 
     def valid_zip(form, field):
-    zipcode = field.data
-    if len(zipcode) != 5:
-        raise ValidationError("Invalid Zipcode")
+        zipcode = field.data
+        if len(zipcode) != 5:
+            raise ValidationError("Invalid Zipcode")
 
 
     address = StringField("Address", validators=[DataRequired()])
