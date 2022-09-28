@@ -3,18 +3,31 @@ from app.models import db, User
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    demo = User(
-        username='Demo', email='demo@aa.io', password='password')
-    marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
-    bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
 
-    db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
+    users = [
+        {
+            "first_name": "Demo",
+            "last_name": "User",
+            "email": "demouser@gmail.com",
+            "password": "password",
+        }, 
+
+
+    ]
+
+
+    for user in userss:
+        new_user = User(
+            first_name = post["first_name"],
+            last_name = post["last_name"],
+            email = post["email"],
+            password = post["password"],
+        )
+
+        db.session.add(new_user)
 
     db.session.commit()
+    print('Listings were succesfully created')
 
 
 # Uses a raw SQL query to TRUNCATE the users table.
