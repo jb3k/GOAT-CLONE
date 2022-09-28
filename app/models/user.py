@@ -15,12 +15,11 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
-    shoe_size = db.Column(db.String)
 
 
     #relationships
     #one-to-many... 
-    listings = db.relationship("Listings", back_populates="user")
+    # listings = db.relationship("Listings", back_populates="user")
 
     @property
     def password(self):
