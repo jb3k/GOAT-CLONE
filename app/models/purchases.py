@@ -21,5 +21,5 @@ class Purchases(db.Model):
     #relationships
     #one-to-many... user can have many listings, a listing can only have 1 user. 
     user = db.relationship("User", back_populates="purchased")
-    #one-to-many... listings 
+    #one-to-many... user can only purchase many listings, but a listing can only have 1 purchaser (like user) 
     listing = db.relationship("Listings", back_populates="purchased")

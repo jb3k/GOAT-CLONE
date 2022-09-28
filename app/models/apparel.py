@@ -27,7 +27,7 @@ class Apparel(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     #relationships
-    #one-to-many... user can have many listings, a listing can only have 1 user. 
+    #one-to-many... each item can have many images, an image cannot have many items
     imgs = db.relationship("Images", back_populates="apparel")
-    #one-to-many... listings 
+    #one-to-many... apparel can have many listings, but a listing can only be for 1 apparel.
     listing = db.relationship("Listings", back_populates="apparel")
