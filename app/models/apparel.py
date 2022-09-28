@@ -13,7 +13,7 @@ class Apparel(db.Model):
     release_date = db.Column(db.String, nullable=False)
     brand = db.Column(db.String, nullable=False)
     style = db.Column(db.String, nullable=False)
-    type = db.Column(db.String, nullable=False)
+    brand_type = db.Column(db.String, nullable=False)
     colorway = db.Column(db.String, nullable=False)
     condition = db.Column(db.String, nullable=False)
     size = db.Column(db.Integer)
@@ -40,7 +40,7 @@ class Apparel(db.Model):
             'releaseDate': self.release_date,
             'brand': self.brand,
             'style': self.style,
-            'type': self.type,
+            'brandType': self.brand_type,
             'colorway': self.colorway,
             'condition': self.condition,
             'size': self.size,
