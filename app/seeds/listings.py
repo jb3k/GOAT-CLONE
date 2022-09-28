@@ -7,63 +7,63 @@ def seed_listings():
     listings = [
         {
             "user_id": 1,
-            "apparel_id": 1,
+            # "apparel_id": 1,
             "size": 8,
             "price": 300,
             "quantity":1
         }, 
         {
             "user_id": 1,
-            "apparel_id": 1,
+            # "apparel_id": 1,
             "size": 9,
             "price": 320,
             "quantity":1
         }, 
         {
             "user_id": 1,
-            "apparel_id": 1,
+            # "apparel_id": 1,
             "size": 10,
             "price": 330,
             "quantity":1
         }, 
         {
             "user_id": 2,
-            "apparel_id": 1,
+            # "apparel_id": 1,
             "size": 5,
             "price": 220,
             "quantity":1
         }, 
         {
             "user_id": 2,
-            "apparel_id": 1,
+            # "apparel_id": 1,
             "size": 6,
             "price": 230,
             "quantity":1
         }, 
         {
             "user_id": 2,
-            "apparel_id": 1,
+            # "apparel_id": 1,
             "size": 7,
             "price": 240,
             "quantity":1
         }, 
         {
             "user_id": 3,
-            "apparel_id": 1,
+            # "apparel_id": 1,
             "size": 11,
             "price": 350,
             "quantity":1
         }, 
         {
             "user_id": 3,
-            "apparel_id": 1,
+            # "apparel_id": 1,
             "size": 12,
             "price": 360,
             "quantity":1
         }, 
         {
             "user_id": 3,
-            "apparel_id": 1,
+            # "apparel_id": 1,
             "size": 13,
             "price": 370,
             "quantity":1
@@ -74,7 +74,7 @@ def seed_listings():
     for listing in listings:
         new_listings = Listings(
             user_id = listing["user_id"],
-            apparel_id = listing["apparel_id"],
+            # apparel_id = listing["apparel_id"],
             size = listing["size"],
             price = listing["price"],
             quantity = listing["quantity"],

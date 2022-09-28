@@ -9,7 +9,7 @@ class Listings(db.Model):
 
     id = db.Column(db.Integer, primary_key= True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    apparel_id = db.Column(db.Integer, db.ForeignKey("apparel.id"))
+    # apparel_id = db.Column(db.Integer, db.ForeignKey("apparel.id"))
     size = db.Column(db.Integer)
     price = db.Column(db.Integer)
     quantity = db.Column(db.Integer)
