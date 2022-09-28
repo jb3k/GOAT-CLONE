@@ -8,6 +8,7 @@ from datetime import datetime
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
+
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String, nullable=False)
     last_name = db.Column(db.String, nullable=False)
@@ -20,7 +21,9 @@ class User(db.Model, UserMixin):
 
     #relationships
     #one-to-many... 
-    listings = db.relationship("Listings", back_populates="user")
+    listing = db.relationship("Listings", secondary=user_listing, back_populates="user")
+    #one-to-many
+    purchased = user = db.relationship("Purchases", back_populates="user")
 
     @property
     def password(self):
