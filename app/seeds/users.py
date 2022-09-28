@@ -27,12 +27,19 @@ def seed_users():
     ]
 
 
+
     for user in users:
+        print("ALL THE USERS!!!!!", user["first_name"])
+        print("ALL THE USERS!!!!!", user["last_name"])
+        print("ALL THE USERS!!!!!", user["email"])
+        print("ALL THE USERS!!!!!", user["password"])
+        print("-------------------------------------"*50)
+
         new_user = User(
             first_name = user["first_name"],
             last_name = user["last_name"],
             email = user["email"],
-            password = user["password"]
+            password = user["password"],
         )
 
         db.session.add(new_user)
@@ -47,5 +54,5 @@ def seed_users():
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
 def undo_users():
-    db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
+    db.session.execute('DELETE FROM users;')
     db.session.commit()

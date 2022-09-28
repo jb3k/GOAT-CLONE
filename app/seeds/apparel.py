@@ -51,5 +51,5 @@ def seed_apparel():
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
 def undo_apparel():
-    db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
+    db.session.execute('DELETE FROM apparels;')
     db.session.commit()
