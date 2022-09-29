@@ -23,3 +23,17 @@ class Listing(db.Model):
     apparel = db.relationship("Apparel", back_populates="listing")
     #one-to-many... purchases
     purchased = db.relationship("Purchase", back_populates="listing")
+
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'userId': self.user_id,
+            'apparelId': self.apparel_id,
+            "size": self.size,
+            "price": self.price,
+            'quantity': self.quantity,
+            "createdAt": self.created_at,
+            "updatedAt": self.updated_at
+        }
+        
