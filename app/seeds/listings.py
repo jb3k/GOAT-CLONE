@@ -68,6 +68,27 @@ def seed_listings():
             "price": 370,
             "quantity":1
         }, 
+        {
+            "user_id": 1,
+            "apparel_id": 2,
+            "size": 11,
+            "price": 1000,
+            "quantity":1
+        }, 
+        {
+            "user_id": 1,
+            "apparel_id": 2,
+            "size": 12,
+            "price": 850,
+            "quantity":1
+        }, 
+        {
+            "user_id": 3,
+            "apparel_id": 2,
+            "size": 13,
+            "price": 950,
+            "quantity":1
+        }, 
     ]
 
 

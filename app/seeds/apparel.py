@@ -19,6 +19,20 @@ def seed_apparel():
             "quantity_sold": 1,
 
         }, 
+        {
+            "name": "Air Jordan 1 Black / Red",
+            "description": "The original Air Jordan was Nike's biggest gamble — placing the future of their basketball business (if not the entire company) on the shoulders of a No. 3 pick from North Carolina who dreamed of wearing adidas. In order to lock Michael Jordan down, Nike promised him the world, including his own distinctive line and royalties paid from each pair sold. David Falk, Rob Strasser, Phil Knight and Sonny Vaccaro hashed out the details, Peter Moore drew up the ball and wings logo, and Nike sold an awful lot of shoes. The term 'game changer' just may not be strong enough.",
+            "colorway": "Black / Red",
+            "release_date": "1985",
+            "brand": "Jordan",
+            "style": "mid",
+            "brand_type": "1",
+            "condition": "New",
+            "retail_price": 160,
+            "price_sold": 1000,
+            "quantity_sold": 1,
+
+        }, 
     ]
 
 
