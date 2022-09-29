@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, ValidationError
 
 
 
-class BuyingForm(FlaskForm):
+class PurchaseForm(FlaskForm):
 
     def valid_zip(form, field):
         zipcode = field.data
