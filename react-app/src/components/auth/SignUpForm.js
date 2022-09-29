@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './SignUpForm.css'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
-  const [username, setUsername] = useState('');
+  const [firstName, setFirstname] = useState('');
+  const [lastName, setLastname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -15,15 +17,18 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(firstName, lastName, email, password));
       if (data) {
         setErrors(data)
       }
     }
   };
 
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
+  const updateFirstname = (e) => {
+    setFirstname(e.target.value);
+  };
+  const updateLastname = (e) => {
+    setLastname(e.target.value);
   };
 
   const updateEmail = (e) => {
@@ -43,51 +48,100 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <>
+      <div className='signup-navbar'>
+        <NavLink to='/' exact={true} activeClassName='active' style={{ color: 'rgb(7, 96, 7)', textDecoration: 'none' }}>
+          StockY
+        </NavLink>
       </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
+      <div className='signup-whole-page'>
+        <div className='signup-form-container'>
+          <div className='signup-form-top-buttons-container'>
+            <div className='signup-form-top-lines'>
+              <div className='signup-form-left-lines'>
+                <NavLink to='/sign-up' exact={true} activeClassName='active'>
+                  <button className='signup-form-top-signup-button'>Sign Up </button>
+                </NavLink>
+              </div>
+              <p> </p>
+              <div className='signup-form-right-lines'>
+                <NavLink to='/login' exact={true} activeClassName='active'>
+                  <button className='signup-form-top-login-button'> Login </button>
+                </NavLink>
+              </div>
+            </div>
+          </div>
+          <div className='signup-form-body'>
+            <form onSubmit={onSignUp}>
+              <div style={{ color: "red" }}>
+                {errors.map((error, ind) => (
+                  <div key={ind}>{error}</div>
+                ))}
+              </div>
+              <div className='signup-form-body-container'>
+                <input
+                  className='signup-form-body-boxes'
+                  type='text'
+                  name='firstName'
+                  onChange={updateFirstname}
+                  value={firstName}
+                  placeholder={"   First Name *"}
+                  required={true}
+                >
+                </input>
+              </div>
+              <div className='signup-form-body-container'>
+                <input
+                  className='signup-form-body-boxes'
+                  type='text'
+                  name='lastName'
+                  onChange={updateLastname}
+                  value={lastName}
+                  placeholder={"   Last Name *"}
+                  required={true}
+                ></input>
+              </div>
+              <div className='signup-form-body-container'>
+                <input
+                  className='signup-form-body-boxes'
+                  type='text'
+                  name='email'
+                  onChange={updateEmail}
+                  value={email}
+                  placeholder={"   Email *"}
+                  required={true}
+                ></input>
+              </div>
+              <div className='signup-form-body-container'>
+                <input
+                  className='signup-form-body-boxes'
+                  type='password'
+                  name='password'
+                  onChange={updatePassword}
+                  value={password}
+                  placeholder={"  Password *"}
+                  required={true}
+                ></input>
+              </div>
+              <div className='signup-form-body-container'>
+                <input
+                  className='signup-form-body-boxes'
+                  type='password'
+                  name='repeat_password'
+                  onChange={updateRepeatPassword}
+                  value={repeatPassword}
+                  placeholder={"   Repeat Password *"}
+                  required={true}
+                ></input>
+              </div>
+              <div className='signup-form-body-container'>
+                <button type='submit' className='signup-form-signup-button'>Sign Up</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
-    </form>
+    </>
   );
 };
 
