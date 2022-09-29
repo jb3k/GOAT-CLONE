@@ -14,29 +14,27 @@ const NavBar = () => {
     let loginButtons
     if (!sessionUser) {
       loginButtons = (
-        <div className='navbar-buttons'>
+        <>
           <div>
             <NavLink to='/login' exact={true} activeClassName='active'>
               <button className='navbar-login'> Login </button>
             </NavLink>
           </div>
-          <div>
+          <div style={{ marginLeft: '2px' }}>
             <NavLink to='/sign-up' exact={true} activeClassName='active'>
               <button className='navbar-signup'>Sign Up </button>
             </NavLink>
           </div>
-        </div>
+        </>
       )
     } else {
 
       loginButtons = (
-        <div>
-          <div>
-            <NavLink to='/user' exact={true} activeClassName='active'>
-              <i class="fa-regular fa-circle-user"></i>
-            </NavLink>
-          </div>
-          {/* <div className='dropdown-container'> */}
+
+        <div className='dropdown-container'>
+          <NavLink to='/user' exact={true} activeClassName='active'>
+            <i class="fa-regular fa-circle-user"></i>
+          </NavLink>
           <div className='dropdown-menu'>
             <div className='dropdown-item-container'>
               <div className='dropdown-item-icon-container'>
@@ -94,9 +92,9 @@ const NavBar = () => {
     }
 
     return (
-      <>
+      <div className='navbar-buttons'>
         {loginButtons}
-      </>
+      </div>
     )
 
 
@@ -120,32 +118,31 @@ const NavBar = () => {
           </div>
         </div>
         <div className='navbar-right-container'>
-          <div>
+          <div className='navbar-right-items'>
             <NavLink to='/' rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }}>
               Browse
             </NavLink>
           </div>
-          <div>
+          <div className='navbar-right-items'>
             <a href='https://stockx.com/news/' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
               News
             </a>
           </div>
-          <div>
+          <div className='navbar-right-items'>
             <a href='https://stockx.com/help/home' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
               Help
             </a>
           </div>
-          <div>
+          <div className='navbar-right-items'>
             <a href='https://www.linkedin.com/in/justin-b-kam-4105961a5/' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
               About
             </a>
           </div>
-          <div>
+          <div className='navbar-right-items'>
             <NavLink to='/' style={{ textDecoration: 'none', color: 'black' }}>
               Sell
             </NavLink>
           </div>
-
           {profileMenu()}
         </div>
       </div>

@@ -41,3 +41,36 @@ def add_apparel():
         return 
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+
+
+
+@apparel_routes.route("/<int:apparel_id>/listings", methods=["POST"])
+@login_required
+def new_listing(apparel_id):
+    listingForm = ListingForm()
+    apparelForm = ApparelForm()
+    listingForm['csrf_token'].data = request.cookies['csrf_token']
+
+    shoeId = Apparel.query.get(apparel_id)
+
+    #if the listing of the shoe is not already in the db... then im going to want to submit the form to the db first
+    #or just direct them to the apparel form if the shoe doesnt already exist in the db, IF SO HOW DO I DIRECT THEM TO THE APPAREL FORM (in the frontend?)
+    if shoeId == None:
+        return {"message": "Shoe not in database, please add to database before listing"}
+
+    #if the listing of the shoe is already in the db... then i can just add the listing info and assign it to that shoe's id in the db
+    if listingForm.validate_on_submit():
+
+        new_listing = Listing(
+            price = form.data["price"],
+            size = form.data["size"],
+            quantity = form.data["quantity"],
+            user_id = current_user.id,
+            apparel_id = shoeId
+
+        )
+        db.session.add(new_listing)
+        db.session.commit()
+        return 
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 400
