@@ -1,4 +1,4 @@
-.whole-navbar{
+.whole-navbar {
     display: flex;
     /* justify-content: center; */
     align-items: center;
@@ -22,7 +22,7 @@
 }
 
 
-.navbar-searchbar{
+.navbar-searchbar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,7 +56,7 @@ a {
     width: 55px;
 }
 
-.navbar-signup{
+.navbar-signup {
     background-color: rgb(74, 69, 69);
     color: white;
     border: 1px solid black;
@@ -68,4 +68,62 @@ a {
     display: flex;
     width: 27%;
     justify-content: space-around;
+}
+
+/* .dropdown-container {
+    display: none;
+} */
+
+
+.dropdown-menu {
+    border: 1px solid rgba(55, 43, 43, 0.3);
+    position: absolute;
+    margin-top: 1em;
+    width: 13em;
+    right: 1em;
+    z-index: 1;
+    background-color: white;
+    height: 15em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-item-container {
+    display: flex;
+    height: 60px
+}
+
+.dropdown-item-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+}
+
+.dropdown-item-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dropdown-item-text-top {
+    font-weight: bold;
+    margin-bottom: 3px;
+
+}
+
+.dropdown-item-text-bottom {
+    color: darkgray;
+    font-size: 10px;
+}
+
+
+.dropdown-logout-button {
+    background-color: white;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
 }
