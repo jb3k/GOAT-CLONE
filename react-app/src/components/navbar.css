@@ -79,15 +79,14 @@ a {
     display: none;
 } */
 
-.dropdown-container {
+/* .dropdown-container {
     position: relative;
     display: inline-block;
-}
+} */
 
 .dropdown-menu {
-    display: none;
     border: 1px solid rgba(55, 43, 43, 0.3);
-    position: absolute;
+    /* position: absolute; */
     margin-top: 1em;
     width: 13em;
     right: 1em;
