@@ -13,3 +13,11 @@ class Image(db.Model):
     #relationships
     #one-to-many... each item can have many images, an image cannot have many items
     apparel = db.relationship("Apparel", back_populates="imgs")
+
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "apparelId": self.apparel_id,
+            "imageUrl": self.image_url
+        }
