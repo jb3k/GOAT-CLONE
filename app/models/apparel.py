@@ -17,7 +17,6 @@ class Apparel(db.Model):
     brand_type = db.Column(db.String, nullable=False)
     colorway = db.Column(db.String, nullable=False)
     condition = db.Column(db.String, nullable=False)
-    size = db.Column(db.Integer)
     #something i need to add to the listings for new shoes
     retail_price = db.Column(db.Integer, nullable=False)
     price_sold = db.Column(db.Integer, nullable=False)
@@ -26,11 +25,11 @@ class Apparel(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now)
 
-    #relationships
-    # #one-to-many... each item can have many images, an image cannot have many items
-    # imgs = db.relationship("Images", back_populates="apparel", cascade="all, delete")
-    # #one-to-many... apparel can have many listings, but a listing can only be for 1 apparel.
-    # listing = db.relationship("Listings", back_populates="apparel")
+    # relationships
+    #one-to-many... each item can have many images, an image cannot have many items
+    imgs = db.relationship("Image", back_populates="apparel", cascade="all, delete")
+    #one-to-many... apparel can have many listings, but a listing can only be for 1 apparel.
+    listing = db.relationship("Listing", back_populates="apparel")
 
 
     def to_dict(self):
@@ -44,7 +43,6 @@ class Apparel(db.Model):
             'brandType': self.brand_type,
             'colorway': self.colorway,
             'condition': self.condition,
-            'size': self.size,
             'retailPrice': self.retail_price,
             'priceSold': self.price_sold,
             'quantitySold': self.quantity_sold,

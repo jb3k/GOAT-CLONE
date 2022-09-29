@@ -1,4 +1,4 @@
-from app.models import db, Purchases
+from app.models import db, Purchase
 
 
 # Adds a demo user, you can add other users here if you want
@@ -7,7 +7,7 @@ def seed_purchase():
     purchase_history = [
         {
             "user_id": 1,
-            # "listing_id": 1,
+            "listing_id": 1,
             "address": "123 main street",
             "city": "LA",
             "state": "CA",
@@ -20,9 +20,9 @@ def seed_purchase():
 
 
     for purchase in purchase_history:
-        new_purchases = Purchases(
+        new_purchases = Purchase(
             user_id = purchase["user_id"],
-            # listing_id = purchase["listing_id"],
+            listing_id = purchase["listing_id"],
             address = purchase['address'],
             city = purchase["city"],
             state = purchase["state"],

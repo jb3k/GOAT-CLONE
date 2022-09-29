@@ -1,4 +1,4 @@
-from app.models import db, Images
+from app.models import db, Image
 
 
 # Adds a demo user, you can add other users here if you want
@@ -6,8 +6,16 @@ def seed_image():
 
     images = [
         {
-            # "apparel_id": 1,
+            "apparel_id": 1,
             "image_url": "https://cdn.flightclub.com/500/TEMPLATE/803111/4.jpg"
+        }, 
+        {
+            "apparel_id": 1,
+            "image_url": "https://cdn.flightclub.com/500/TEMPLATE/803111/3.jpg"
+        }, 
+            {
+            "apparel_id": 1,
+            "image_url": "https://cdn.flightclub.com/500/TEMPLATE/803111/1.jpg"
         }, 
 
 
@@ -15,8 +23,8 @@ def seed_image():
 
 
     for image in images:
-        new_image = Images(
-            # apparel_id = image["apparel_id"],
+        new_image = Image(
+            apparel_id = image["apparel_id"],
             image_url = image["image_url"]
         )
 

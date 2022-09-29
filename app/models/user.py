@@ -17,9 +17,12 @@ class User(db.Model, UserMixin):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
 
-    #relationships
-    #one-to-many... 
-    # listings = db.relationship("Listings", back_populates="user")
+    # relationships
+    # one-to-many... 
+    listing = db.relationship("Listing", back_populates="user")
+    # one-to-many... 
+    purchased = db.relationship("Purchase", back_populates="user")
+
 
     @property
     def password(self):
@@ -35,5 +38,7 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
+            'firstName': self.first_name,
+            'lastName': self.last_name,
             'email': self.email
         }

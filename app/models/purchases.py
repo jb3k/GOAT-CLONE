@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 
-class Purchases(db.Model):
+class Purchase(db.Model):
     __tablename__= "purchases"
 
 
@@ -18,8 +18,8 @@ class Purchases(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    # #relationships
-    # #one-to-many... user can have many listings, a listing can only have 1 user. 
-    # user = db.relationship("User", back_populates="purchased")
-    # #one-to-many... user can only purchase many listings, but a listing can only have 1 purchaser (like user) 
-    # listing = db.relationship("Listings", back_populates="purchased")
+    #relationships
+    #one-to-many... user can have many listings, a listing can only have 1 user. 
+    user = db.relationship("User", back_populates="purchased")
+    #one-to-many... user can only purchase many listings, but a listing can only have 1 purchaser (like user) 
+    listing = db.relationship("Listing", back_populates="purchased")
