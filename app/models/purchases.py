@@ -23,3 +23,17 @@ class Purchase(db.Model):
     user = db.relationship("User", back_populates="purchased")
     #one-to-many... user can only purchase many listings, but a listing can only have 1 purchaser (like user) 
     listing = db.relationship("Listing", back_populates="purchased")
+
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "userId": self.user_id,
+            "listingId": self.listing_id,
+            "address": self.address,
+            "city": self.city,
+            "state": self.state,
+            "country": self.country,
+            "zipcode": self.zipcode,
+            "createdAt": self.created_at
+        }

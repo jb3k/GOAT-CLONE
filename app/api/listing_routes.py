@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request, redirect
 from flask_login import login_required, current_user
-from app.models import Listing, Apparel
+from app.models import Listing, Apparel, db
 from app.forms import ListingForm, ApparelForm
 from .auth_routes import validation_errors_to_error_messages
 
@@ -10,6 +10,7 @@ listing_routes = Blueprint('listings', __name__)
 @listing_routes.route('/', methods=['GET'])
 def get_all_listing():
     listings = Listing.query.all()
+    # return { "stuff": listings.to_dict()}
     return {"listings": [items.to_dict() for items in listings] }
 
 
@@ -45,13 +46,14 @@ def get_all_listing():
 
 
 
-@listing_routes.route("/shoe/<int:listing_id>", methods=["PUT"])
+@listing_routes.route("/shoe/<int:id>", methods=["PUT"])
 @login_required
-def update_listing(listing_id):
+def update_listing(id):
     form = ListingForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    updateListing = Listing.query.get(listing_id)
+    updateListing = Listing.query.get(id)
+    
     if updateListing == None:
         return {"errors": "Listing couldn't be found"}, 404
     if updateListing.user_id != current_user.id:
@@ -59,7 +61,6 @@ def update_listing(listing_id):
 
 
     if form.validate_on_submit():
-
         updateListing.price = form.data["price"],
         updateListing.size = form.data["size"],
         updateListing.quantity = form.data["quantity"]
@@ -69,10 +70,10 @@ def update_listing(listing_id):
     return {"errors": validation_errors_to_error_messages(form.errors)}, 400
 
 
-@listing_routes.route("/shoe/<int:listing_id>", methods=["DELETE"])
+@listing_routes.route("/shoe/<int:id>", methods=["DELETE"])
 @login_required
-def delete_listing(listing_id):
-    listing = Listing.query.get(listing_id)
+def delete_listing(id):
+    listing = Listing.query.get(id)
 
     if listing == None:
         return {"errors": "Listing couldn't be found"}, 404

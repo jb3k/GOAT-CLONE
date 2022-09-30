@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, session, request, redirect
 from flask_login import login_required, current_user
-from app.models import Apparel
-from app.forms import ApparelForm
+from app.models import Apparel, Listing, db
+from app.forms import ApparelForm, ListingForm
 from .auth_routes import validation_errors_to_error_messages
 
 
@@ -51,7 +51,7 @@ def new_listing(apparel_id):
     listingForm = ListingForm()
     apparelForm = ApparelForm()
     listingForm['csrf_token'].data = request.cookies['csrf_token']
-
+    listings = Listing.query.all()
     shoeId = Apparel.query.get(apparel_id)
 
     #if the listing of the shoe is not already in the db... then im going to want to submit the form to the db first
@@ -63,14 +63,14 @@ def new_listing(apparel_id):
     if listingForm.validate_on_submit():
 
         new_listing = Listing(
-            price = form.data["price"],
-            size = form.data["size"],
-            quantity = form.data["quantity"],
+            price = listingForm.data["price"],
+            size = listingForm.data["size"],
+            quantity = listingForm.data["quantity"],
             user_id = current_user.id,
-            apparel_id = shoeId
+            apparel_id = shoeId.id
 
         )
         db.session.add(new_listing)
         db.session.commit()
-        return 
-    return {"errors": validation_errors_to_error_messages(form.errors)}, 400
+        return {"listings": [items.to_dict() for items in listings] }
+    return {"errors": validation_errors_to_error_messages(listingForm.errors)}, 400
