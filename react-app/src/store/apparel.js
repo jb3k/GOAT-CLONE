@@ -23,7 +23,6 @@ export const getAllApparelThunk = () => async dispatch => {
     const response = await fetch('/api/apparel/')
     if (response.ok) {
         let apparel = await response.json()
-        console.log("THIS IS WHAT APPARELS SHOULD RETURN", apparel)
         dispatch(getAll(apparel))
         return apparel
     }

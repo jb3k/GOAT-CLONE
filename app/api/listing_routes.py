@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from app.models import Listing, Apparel, db
 from app.forms import ListingForm, ApparelForm
 from .auth_routes import validation_errors_to_error_messages
+from datetime import datetime
 
 
 listing_routes = Blueprint('listings', __name__)

@@ -35,5 +35,18 @@ class Purchase(db.Model):
             "state": self.state,
             "country": self.country,
             "zipcode": self.zipcode,
-            "createdAt": self.created_at
+            "createdAt": str(self.created_at)
+        }
+
+
+    def to_dict_update(self):
+        return {
+            "id": self.id,
+            "userId": self.user_id,
+            "listingId": self.listing_id,
+            "address": self.address,
+            "city": self.city,
+            "state": self.state,
+            "country": self.country,
+            "zipcode": self.zipcode,
         }

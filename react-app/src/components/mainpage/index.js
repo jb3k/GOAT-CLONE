@@ -7,30 +7,30 @@ import './mainpage.css'
 function MainPage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
-    const allApparel = useSelector(state => console.log(state))
+    const allApparel = useSelector(state => Object.values(state.apparel))
+    console.log(allApparel)
 
-    
 
     useEffect(() => {
         dispatch(getAllApparelThunk())
     }, [dispatch])
 
-    // const allItems = allApparel.map((item) => {
+    const allItems = allApparel.map((item) => {
 
-    //     const { images, name, listings } = itemwhene 
+        const { images, name, listings } = item 
 
-    //     let item = (
-    //         <></>
-    //     )
-
-
-    //     return (
-
-    //         <></>
-    //     )
+        // let item = (
+        //     <></>
+        // )
 
 
-    // })
+        return (
+
+            <></>
+        )
+
+
+    })
 
 
 
