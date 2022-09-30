@@ -19,7 +19,7 @@ function MainPage() {
 
         if (!item) return null
 
-        const { images, name, listings } = item
+        const { imageUrl, name, listings } = item
 
         let arr = []
         const filterListing = listings.forEach((price) => {
@@ -27,13 +27,10 @@ function MainPage() {
         })
         let minPrice = Math.min(...arr)
 
-        const shoeImg = images.map((image) => image.imageUrl)
-        let one = shoeImg[2]
-
         let shoes = (
             <div className='mainpage-shoe-listing-container'>
                 <div classname='mainpage-shoe-listing-image-container'>
-                    <img src={one} classname='mainpage-shoe-listing-image' alt="profile"></img>
+                    <img src={imageUrl} classname='mainpage-shoe-listing-image' alt="profile"></img>
                 </div>
                 <div>
                     <h5>{name}</h5>

@@ -24,29 +24,37 @@ function SellPage() {
 
 
 
+//         < select name = 'type' value = { type } onChange = { e => setType(e.target.value)
+// } >
+//                                 <option value='In person'>In Person</option>
+//                                 <option value='Online'>Online</option>
+//                             </select >
+
+
+
     //how can i get the value from the drop down menu
 
 
     return (
-        <div className='signup-whole-page' style={{ flexDirection: 'column' }}>
-            <div>
-                <h1>This will be the header</h1>
-            </div>
-            <div>
-                <select value={apparelId} onChange={setApparelId}>
-                    <option>Select</option>
-                    {allApparel.map((item) => (
-                        <option value={apparelId}>{item.name}</option>
-                    ))}
-                </select>
-            </div>
-            <div>
-                <ApparelForm />
-            </div>
-
-
+    <div>
+        <div>
+            <h1>This will be the header</h1>
         </div>
-    )
+        <div>
+            <select value={apparelId} onChange={(e) => setApparelId(e.target.value)}>
+                <option>Select</option>
+                {allApparel.map((item) => (
+                    <option key={item.id} value={item.id}>{item.name}</option>
+                ))}
+            </select>
+        </div>
+        <div className='signup-whole-page'>
+            <ApparelForm />
+        </div>
+
+
+    </div>
+)
 
 }
 

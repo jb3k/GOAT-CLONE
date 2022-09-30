@@ -50,6 +50,7 @@ class Apparel(db.Model):
             'imageUrl': self.image_url,
             "createdAt": self.created_at,
             "updatedAt": self.updated_at,
-            "images": [img.to_dict() for img in self.imgs],
+            "imageUrl": self.image_url,
+            # "images": [img.to_dict() for img in self.imgs],
             "listings": [listings.to_dict() for listings in self.listing]
         }

@@ -6,11 +6,12 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/User';
+// import User from './components/User';
 import { authenticate } from './store/session';
-import ListingForm from './components/listingform/ListingForm';
+// import ListingForm from './components/listingform/ListingForm';
 import MainPage from './components/mainpage';
 import SellPage from './components/sellpage';
+import ShoeProfilePage from './components/ShoeProfilePage';
 
 
 function App() {
@@ -41,8 +42,8 @@ function App() {
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
+        <ProtectedRoute path='/shoe/:shoeId' exact={true} >
+          <ShoeProfilePage />
         </ProtectedRoute>
         <ProtectedRoute path='/sell' exact={true} >
           <SellPage />

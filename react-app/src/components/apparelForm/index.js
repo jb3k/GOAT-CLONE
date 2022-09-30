@@ -69,16 +69,16 @@ const ApparelForm = () => {
     return (
         // <div className='signup-whole-page'>
             <div className='signup-form-container'>
-                <form onSubmit={handleSubmit}>
+                {/* <form onSubmit={handleSubmit}>
                     <div>
                         {errors.map((error, ind) => (
                             <div key={ind}>{error}</div>
                         ))}
-                    </div>
+                    </div> */}
                     <div>
                         <UploadPicture />
                     </div>
-                    <div>
+                    {/* <div>
                         <input
                             type='text'
                             name='name'
@@ -89,7 +89,7 @@ const ApparelForm = () => {
                     </div>
 
                     <button type='submit'>Sign Up</button>
-                </form>
+                </form> */}
             </div >
         // </div >
     );
