@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import { NavLink, useHistory, Redirect } from 'react-router-dom';
 import { getAllListingsThunk } from '../../store/listings';
+import UploadPicture from '../ImagesForm'
 import './ListingForm.css'
 
 function ListingForm() {
@@ -18,7 +19,9 @@ function ListingForm() {
 
     return (
         <>
-           
+            <div>
+                <UploadPicture />
+            </div>
         </>
     )
 

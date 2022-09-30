@@ -1,18 +1,41 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
+import { getAllApparelThunk } from '../store/apparel';
+
 
 
 const UploadPicture = () => {
+    const dispatch = useDispatch();
     const history = useHistory(); // so that we can redirect after the image upload is successful
     const [image, setImage] = useState(null);
+    const [apparelId, setApparelId] = useState("None")
     const [imageLoading, setImageLoading] = useState(false);
-    
-    
+
+    const allApparel = useSelector(state => Object.values(state.apparel))
+
+    useEffect(() => {
+        dispatch(getAllApparelThunk())
+    }, [dispatch])
+
+    const itemId = allApparel.map((item) => {
+        const { id } = item
+        return (
+            <>
+                <option value={id}>{id}</option>
+            </>
+
+        )
+    })
+
+
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append("image", image);
-        
+
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
         setImageLoading(true);
@@ -33,21 +56,24 @@ const UploadPicture = () => {
             console.log("error");
         }
     }
-    
+
     const updateImage = (e) => {
         const file = e.target.files[0];
         setImage(file);
     }
-    
+
     return (
         <form onSubmit={handleSubmit}>
+            <select>
+                {itemId}
+            </select>
             <input
-              type="file"
-              accept="image/*"
-              onChange={updateImage}
+                type="file"
+                accept="image/*"
+                onChange={updateImage}
             />
             <button type="submit">Submit</button>
-            {(imageLoading)&& <p>Loading...</p>}
+            {(imageLoading) && <p>Loading...</p>}
         </form>
     )
 }

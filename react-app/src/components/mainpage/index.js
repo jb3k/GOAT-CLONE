@@ -6,9 +6,9 @@ import './mainpage.css'
 
 function MainPage() {
     const dispatch = useDispatch();
-    const sessionUser = useSelector((state) => state.session.user);
+    // const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
-    console.log(allApparel)
+    // console.log(allApparel)
 
 
     useEffect(() => {
@@ -17,16 +17,44 @@ function MainPage() {
 
     const allItems = allApparel.map((item) => {
 
-        const { images, name, listings } = item 
+        if (!item) return null
 
-        // let item = (
-        //     <></>
-        // )
+        const { images, name, listings } = item
+
+        let arr = []
+        const filterListing = listings.forEach((price) => {
+            arr.push(price.price)
+        })
+        let minPrice = Math.min(...arr)
+
+        const shoeImg = images.map((image) => image.imageUrl)
+        let one = shoeImg[2]
+
+        let shoes = (
+            <div className='mainpage-shoe-listing-container'>
+                <div classname='mainpage-shoe-listing-image-container'>
+                    <img src={one} classname='mainpage-shoe-listing-image' alt="profile"></img>
+                </div>
+                <div>
+                    <h5>{name}</h5>
+                </div>
+                <div>
+                    <div>lowest ask</div>
+                    <div>{minPrice}</div>
+
+                </div>
+                <div>
+                    last sale:
+                </div>
+            </div>
+        )
 
 
         return (
 
-            <></>
+            <>
+                {shoes}
+            </>
         )
 
 
@@ -34,19 +62,13 @@ function MainPage() {
 
 
 
-
-
-
-
-
-
     return (
         <>
             <div>
-                <h1>My Home Page</h1>
+                <h1>This will be the header</h1>
             </div>
             <div>
-                {/* {allItems()} */}
+                {allItems}
             </div>
 
 

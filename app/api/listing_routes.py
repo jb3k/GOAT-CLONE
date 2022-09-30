@@ -62,8 +62,8 @@ def update_listing(id):
 
 
     if form.validate_on_submit():
-        updateListing.price = form.data["price"],
-        updateListing.size = form.data["size"],
+        updateListing.price = form.data["price"]
+        updateListing.size = form.data["size"]
         updateListing.quantity = form.data["quantity"]
         db.session.commit()
         return updateListing.to_dict()

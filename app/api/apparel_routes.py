@@ -74,3 +74,5 @@ def new_listing(apparel_id):
         db.session.commit()
         return {"listings": [items.to_dict() for items in listings] }
     return {"errors": validation_errors_to_error_messages(listingForm.errors)}, 400
+
+

@@ -67,11 +67,11 @@ def update_purchase(purchase_id):
 
     if form.validate_on_submit():
 
-        updatePurchase.address = str(form.data["address"]),
-        updatePurchase.city = str(form.data["city"]),
-        updatePurchase.state = str(form.data["state"]),
-        updatePurchase.country = str(form.data["country"]),
-        updatePurchase.zipcode = str(form.data["zipcode"])
+        updatePurchase.address = form.data["address"]
+        updatePurchase.city = form.data["city"]
+        updatePurchase.state = form.data["state"]
+        updatePurchase.country = form.data["country"]
+        updatePurchase.zipcode = form.data["zipcode"]
         db.session.commit()
         return updatePurchase.to_dict_update()
 

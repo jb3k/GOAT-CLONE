@@ -6,9 +6,9 @@ from app.aws_upload import (upload_file_to_s3, allowed_file, get_unique_filename
 image_routes = Blueprint("images", __name__)
 
 
-@image_routes.route("", methods=["POST"])
+@image_routes.route("/<int:apparel_id>", methods=["POST"])
 @login_required
-def upload_image():
+def upload_image(apparel_id):
     if "image" not in request.files:
         return {"errors": "image required"}, 400
 
@@ -21,6 +21,8 @@ def upload_image():
 
     upload = upload_file_to_s3(image)
 
+    shoeId = Apparel.query.get(apparel_id)
+
     if "url" not in upload:
         # if the dictionary doesn't have a url key
         # it means that there was an error when we tried to upload
@@ -29,7 +31,7 @@ def upload_image():
 
     url = upload["url"]
     # flask_login allows us to get the current user from the request
-    new_image = Image(user=current_user, url=url)
+    new_image = Image(user=current_user, image_url=url, apparel_id=shoeId.id )
     db.session.add(new_image)
     db.session.commit()
     return {"url": url}
