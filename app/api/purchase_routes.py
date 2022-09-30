@@ -52,33 +52,37 @@ def new_purchase(listing_id):
 
 
 
-# @purchase_routes.route("/shoe/<int:listing_id>", methods=["PUT"])
-# @login_required
-# def update_listing(listing_id):
-#     form = ListingForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
+@purchase_routes.route("/<int:purchase_id>", methods=["PUT"])
+@login_required
+def update_purchase(purchase_id):
+    form = PurchaseForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
-#     updateListing = Listing.query.get(listing_id)
-#     if updateListing == None:
-#         return {"errors": "Listing couldn't be found"}, 404
-#     if updateListing.user_id != current_user.id:
-#         return {"errors": "Forbidden"}, 403
+    updatePurchase = Purchase.query.get(purchase_id)
+    if updatePurchase == None:
+        return {"errors": "Purchase couldn't be found"}, 404
+    if updatePurchase.user_id != current_user.id:
+        return {"errors": "Forbidden"}, 403
 
 
-#     if form.validate_on_submit():
+    if form.validate_on_submit():
 
-#         updateListing.price = form.data["price"],
-#         updateListing.size = form.data["size"],
-#         updateListing.quantity = form.data["quantity"]
-#         db.session.commit()
-#         return updateListing.to_dict()
+        updatePurchase.address = form.data["address"],
+        updatePurchase.city = form.data["city"],
+        updatePurchase.state = form.data["state"],
+        updatePurchase.country = form.data["country"],
+        updatePurchase.zipcode = form.data["zipcode"]
+        db.session.commit()
+        return updatePurchase.to_dict()
 
-#     return {"errors": validation_errors_to_error_messages(form.errors)}, 400
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 400
+
+
 
 
 @purchase_routes.route("/<int:id>", methods=["DELETE"])
 @login_required
-def delete_listing(id):
+def remove_purchase(id):
     remove_purchase = Purchase.query.get(id)
 
     if remove_purchase == None:
