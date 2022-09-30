@@ -7,9 +7,9 @@ import './mainpage.css'
 function MainPage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
-    const allApparel = useSelector(state => state.payload)
+    const allApparel = useSelector(state => console.log(state))
 
-    console.log(allApparel)
+    
 
     useEffect(() => {
         dispatch(getAllApparelThunk())
@@ -17,7 +17,7 @@ function MainPage() {
 
     // const allItems = allApparel.map((item) => {
 
-    //     const { images, name, listings } = item
+    //     const { images, name, listings } = itemwhene 
 
     //     let item = (
     //         <></>

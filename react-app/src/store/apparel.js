@@ -23,6 +23,7 @@ export const getAllApparelThunk = () => async dispatch => {
     const response = await fetch('/api/apparel/')
     if (response.ok) {
         let apparel = await response.json()
+        console.log("THIS IS WHAT APPARELS SHOULD RETURN", apparel)
         dispatch(getAll(apparel))
         return apparel
     }
@@ -46,13 +47,14 @@ const apparelReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_ALL_APPAREL: {
             newState = {}
-            action.payload.Apparel.forEach(apparel => newState[apparel.id] = apparel)
+            action.payload.apparels.forEach(item => newState[item.id] = item)
             return newState
         }
         case CREATE_APPAREL: {
             const newState = { ...state }
             newState[action.payload.id] = action.payload
             return newState
+
         }
         default:
             return state

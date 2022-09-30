@@ -10,7 +10,7 @@ listing_routes = Blueprint('listings', __name__)
 @listing_routes.route('/', methods=['GET'])
 def get_all_listing():
     listings = Listing.query.all()
-    return {"Listing": [items.to_dict() for items in listings] }
+    return {"listings": [items.to_dict() for items in listings] }
 
 
 # @listing_routes.route("/<int:apparel_id>/listings", methods=["POST"])

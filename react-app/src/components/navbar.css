@@ -90,7 +90,7 @@ a {
     z-index: 1;
     background-color: white;
     height: 15em;
-    /* display: flex; */
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
     border-radius: 3px;

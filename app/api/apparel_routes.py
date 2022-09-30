@@ -10,7 +10,7 @@ apparel_routes = Blueprint('apparels', __name__)
 @apparel_routes.route('/', methods=['GET'])
 def get_all_apparel():
     apparel = Apparel.query.all()
-    return {"Apparel": [items.to_dict() for items in apparel] }
+    return {"apparels": [items.to_dict() for items in apparel] }
 
 
 
