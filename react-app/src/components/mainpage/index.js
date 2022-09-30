@@ -7,7 +7,7 @@ import './mainpage.css'
 function MainPage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
-    const allApparel = useSelector(state => state)
+    const allApparel = useSelector(state => state.payload)
 
     console.log(allApparel)
 

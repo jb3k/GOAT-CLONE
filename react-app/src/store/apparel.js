@@ -46,7 +46,7 @@ const apparelReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_ALL_APPAREL: {
             newState = {}
-            action.payload.apparels.forEach(apparel => newState[apparel.id] = apparel)
+            action.payload.Apparel.forEach(apparel => newState[apparel.id] = apparel)
             return newState
         }
         case CREATE_APPAREL: {
