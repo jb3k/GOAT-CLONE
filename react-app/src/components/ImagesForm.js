@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
-import { getAllApparelThunk } from '../store/apparel';
+import { createImageThunk, getAllApparelThunk } from '../store/apparel';
 
 
 
@@ -18,23 +18,14 @@ const UploadPicture = () => {
         dispatch(getAllApparelThunk())
     }, [dispatch])
 
-    const itemId = allApparel.map((item) => {
-        const { id } = item
-        return (
-            <>
-                <option value={id}>{id}</option>
-            </>
-
-        )
-    })
-
-
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
+
         formData.append("image", image);
+        console.log(formData)
+        // dispatch(createImageThunk())
 
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
@@ -64,8 +55,11 @@ const UploadPicture = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <select>
-                {itemId}
+            <select value={apparelId} onChange={setApparelId}>
+                <option>Select</option>
+                {allApparel.map((item) => (
+                    <option value={item.id}>{item.name}</option>
+                ))}
             </select>
             <input
                 type="file"

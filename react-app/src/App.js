@@ -10,6 +10,8 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import ListingForm from './components/listingform/ListingForm';
 import MainPage from './components/mainpage';
+import SellPage from './components/sellpage';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -43,7 +45,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/sell' exact={true} >
-          <ListingForm />
+          <SellPage />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <MainPage />

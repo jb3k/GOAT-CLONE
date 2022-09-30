@@ -1,6 +1,6 @@
 const GET_ALL_APPAREL = 'apparel/getAllApparel'
 const CREATE_APPAREL = 'apparel/createApparel'
-
+const CREATE_IMAGE = 'image/createImage'
 
 
 const getAll = (payload) => {
@@ -13,6 +13,13 @@ const getAll = (payload) => {
 const create = (payload) => {
     return {
         type: CREATE_APPAREL,
+        payload
+    }
+}
+
+const createImage = (id, payload) => {
+    return {
+        type: CREATE_IMAGE,
         payload
     }
 }
@@ -38,6 +45,22 @@ export const createApparelThunk = (payload) => async dispatch => {
         dispatch(create(post))
     }
 }
+
+export const createImageThunk = (id, payload) => async dispatch => {
+    const response = await fetch(`/api/image/${id}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        let image = await response.json()
+        dispatch(createImage(image))
+        return image
+    }
+
+
+}
+
 
 
 const initialState = {}

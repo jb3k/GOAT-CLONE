@@ -17,6 +17,7 @@ def seed_apparel():
             "retail_price": 200,
             "price_sold": 800,
             "quantity_sold": 1,
+            "image_url": "https://cdn.flightclub.com/500/TEMPLATE/803111/1.jpg"
 
         }, 
         {
@@ -31,6 +32,7 @@ def seed_apparel():
             "retail_price": 160,
             "price_sold": 1000,
             "quantity_sold": 1,
+            "image_url": "https://myawsshoepictures.s3.us-west-1.amazonaws.com/40f2d0c493c441c7acacbe0f99b8dd09.png"
 
         }, 
     ]
@@ -49,6 +51,7 @@ def seed_apparel():
             retail_price = item["retail_price"],
             price_sold = item["price_sold"],
             quantity_sold = item["quantity_sold"],
+            image_url = item["image_url"]
         )
 
         db.session.add(new_apparel)
