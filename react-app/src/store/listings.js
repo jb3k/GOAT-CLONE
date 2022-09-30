@@ -35,7 +35,7 @@ const remove = (id) => {
 //thunks
 
 export const getAllListingsThunk = () => async dispatch => {
-    const response = await fetch('/api/shoe/')
+    const response = await fetch('/api/listings/')
     if (response.ok) {
         let listings = await response.json()
         dispatch(getAll(listings))

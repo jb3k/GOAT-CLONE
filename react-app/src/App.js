@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import ListingForm from './components/listingform/ListingForm';
+import MainPage from './components/mainpage/mainpage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -27,14 +28,14 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Route path='/login' exact={true}>
+        <LoginForm />
+      </Route>
+      <Route path='/sign-up' exact={true}>
+        <SignUpForm />
+      </Route>
+      <NavBar />
       <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
-        <NavBar />
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute>
@@ -45,7 +46,7 @@ function App() {
           <ListingForm />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <MainPage />
         </Route>
       </Switch>
     </BrowserRouter>

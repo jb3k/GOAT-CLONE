@@ -95,8 +95,6 @@ const NavBar = () => {
       </div>
     )
 
-
-
   }
 
 
@@ -141,7 +139,7 @@ const NavBar = () => {
                 Sell
               </NavLink>
             </div>
-            {/* {profileMenu()} */}
+            {profileMenu()}
           </div>
         </div>
       </nav>
