@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom';
+import { getApparelThunk } from '../../store/apparel';
+
 
 function ShoeProfilePage() {
     const dispatch = useDispatch()
@@ -8,19 +10,22 @@ function ShoeProfilePage() {
     const [isLoaded, setIsLoaded] = useState(false)
     // const history = useHistory()
     const { shoeId } = useParams();
+    const shoeInfo = useSelector(state => Object.values(state.apparel))
+
+    useEffect(() => {
+        dispatch(getApparelThunk(shoeId))
+    }, [dispatch])
+
+
+    
+
 
 
 
     return (
-        <ul>
-
-            <li>
-                <strong>Username</strong> {user.username}
-            </li>
-            <li>
-                <strong>Email</strong> {user.email}
-            </li>
-        </ul>
+        <div>
+            main container
+        </div>
     );
 }
 export default ShoeProfilePage;

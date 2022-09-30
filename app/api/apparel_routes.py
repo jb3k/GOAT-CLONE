@@ -13,6 +13,12 @@ def get_all_apparel():
     return {"apparels": [items.to_dict() for items in apparel] }
 
 
+@apparel_routes.route('/<int:id>', methods=['GET'])
+def get_apparel(id):
+    apparel = Apparel.query.get(id)
+    return apparel.to_dict()
+
+
 @apparel_routes.route("/", methods=["POST"])
 @login_required
 def upload_image():

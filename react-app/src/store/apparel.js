@@ -1,4 +1,5 @@
 const GET_ALL_APPAREL = 'apparel/getAllApparel'
+const GET_APPAREL = 'apparel/getApparel'
 const CREATE_APPAREL = 'apparel/createApparel'
 const CREATE_IMAGE = 'image/createImage'
 
@@ -9,6 +10,15 @@ const getAll = (payload) => {
         payload
     }
 }
+
+
+const get = (payload) => {
+    return {
+        type: GET_APPAREL,
+        payload
+    }
+}
+
 
 const create = (payload) => {
     return {
@@ -34,6 +44,16 @@ export const getAllApparelThunk = () => async dispatch => {
         return apparel
     }
 }
+
+export const getApparelThunk = (id) => async dispatch => {
+    const response = await fetch(`/api/apparel/${id}`)
+    if (response.ok) {
+        let apparel = await response.json()
+        dispatch(get(apparel))
+        return apparel
+    }
+}
+
 export const createApparelThunk = (payload) => async dispatch => {
     const response = await fetch(`/api/apparel/`, {
         method: "POST",
@@ -70,6 +90,12 @@ const apparelReducer = (state = initialState, action) => {
         case GET_ALL_APPAREL: {
             newState = {}
             action.payload.apparels.forEach(item => newState[item.id] = item)
+            return newState
+        }
+        case GET_APPAREL: {
+            newState = { ...state }
+            // action.payload.apparels.forEach(item => newState[item.id] = item)
+            newState[action.payload.id] = { ...action.payload }
             return newState
         }
         case CREATE_APPAREL: {
