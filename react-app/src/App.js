@@ -9,7 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import ListingForm from './components/listingform/ListingForm';
-import MainPage from './components/mainpage/mainpage';
+import MainPage from './components/mainpage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
