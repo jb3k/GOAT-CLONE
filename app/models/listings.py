@@ -35,8 +35,18 @@ class Listing(db.Model):
             'quantity': self.quantity,
             "createdAt": self.created_at,
             "updatedAt": self.updated_at,
+            "apparelId": self.convert_apparel_to_dict()
             # "sortedSizes": self.to_dict_sort()
         }
     
+    def convert_apparel_to_dict(self):
+        return {
+            "imageUrl": self.apparel.image_url,
+            "name": self.apparel.name,
+            "colorway": self.apparel.colorway,
+
+        }
+
+
     # def to_dict_sort(self):
     #     "sizes": [ {"list": []} for item in self.sizes]

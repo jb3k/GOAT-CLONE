@@ -33,61 +33,16 @@ function ShoeSizePage() {
         allsizes.forEach((item) => {
             list.push(<button className='size-price-container'
                 value={shoeSize}
-                // onClick={}
+            // onClick={}
             >
                 {item}
             </button>)
         })
 
-        const shoePage = shoeInfo.map((shoe) => {
-
-            const { colorway, id, imageUrl, name, listings } = shoe
-
-            let shoeListings = listings.map((item) => {
-                const { size, id, price } = item
-
-
-                return (
-                    <div key={id}>
-                        <div >
-                            {price}
-                        </div>
-                    </div>
-                )
-
-            })
-
-            return (
-                <div key={id}>
-                    <div>
-                        {shoeListings}
-                    </div>
-                </div>
-            )
-
-        })
-
-        return (
-            <div className='shoe-size-prices-grid-container'>
-                {list}
-                <div>
-                    shoe size: {shoeSize}
-                </div>
-            </div>
-        )
-
-
     }
 
     return isLoaded && (
-        <div>
-            <div>
-                {allShoeSizes()}
-                <div>
-                    {/* {shoePage} */}
-                </div>
-            </div>
-        </div>
+        <></>
     );
 }
 
