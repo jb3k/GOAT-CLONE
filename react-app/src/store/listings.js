@@ -1,4 +1,5 @@
 const GET_ALL_LISTINGS = 'listings/getAllListings'
+const GET_LISTING = 'listing/getListings'
 const CREATE_LISTING = 'listings/createListings'
 const UPDATE_LISTING = 'listings/updateListings'
 const DELETE_LISTING = 'listings/deleteListings'
@@ -7,6 +8,13 @@ const DELETE_LISTING = 'listings/deleteListings'
 const getAll = (payload) => {
     return {
         type: GET_ALL_LISTINGS,
+        payload
+    }
+}
+
+const get = (payload) => {
+    return {
+        type: GET_LISTING,
         payload
     }
 }
@@ -42,6 +50,17 @@ export const getAllListingsThunk = () => async dispatch => {
         return listings
     }
 }
+
+export const getListingThunk = (id) => async dispatch => {
+    const response = await fetch(`/api/listing/${id}`)
+    if (response.ok) {
+        let listing = await response.json()
+        dispatch(get(listing))
+        return listing
+    }
+}
+
+
 export const createListingsThunk = (id, payload) => async dispatch => {
     const response = await fetch(`/api/apparel/${id}/listings`, {
         method: "POST",
@@ -88,6 +107,11 @@ const listingReducer = (state = initialState, action) => {
         case GET_ALL_LISTINGS: {
             newState = {}
             action.payload.listings.forEach(post => newState[post.id] = post)
+            return newState
+        }
+        case GET_LISTING: {
+            newState = { ...state }
+            newState[action.payload.id] = { ...newState[action.payload.id], ...action.payload }
             return newState
         }
         case CREATE_LISTING: {

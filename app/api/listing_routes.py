@@ -15,6 +15,12 @@ def get_all_listing():
     return {"listings": [items.to_dict() for items in listings] }
 
 
+@listing_routes.route('/<int:id>', methods=['GET'])
+def get_listing(id):
+    listing = Listing.query.get(id)
+    return listing.to_dict()
+
+
 # @listing_routes.route("/<int:apparel_id>/listings", methods=["POST"])
 # @login_required
 # def new_listing(apparel_id):

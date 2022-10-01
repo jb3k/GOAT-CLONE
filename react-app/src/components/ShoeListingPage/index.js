@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
-import { getAllListingsThunk } from '../../store/listings';
+import { getAllListingsThunk, getListingThunk } from '../../store/listings';
 // import ShoePurchasePage from './ShoePurchase';
 // import ShoeReviewPage from './ShoeReview';
 // import ShoeSizePage from './ShoeSize';
@@ -20,7 +20,7 @@ function ShoeListingPage() {
 
     useEffect(() => {
         dispatch(getApparelThunk(shoeId))
-        dispatch(getAllListingsThunk())
+        dispatch(getListingThunk(shoeId))
             .then(() => setIsLoaded(true))
     }, [dispatch])
 
@@ -112,6 +112,11 @@ function ShoeListingPage() {
                     <div className='shoe-size-list'>
                         {allShoeSizes()}
                     </div>
+                </div>
+                <div>
+                    <NavLink to='/'>
+                        <button> Cancel </button>
+                    </NavLink>
                 </div>
 
 
