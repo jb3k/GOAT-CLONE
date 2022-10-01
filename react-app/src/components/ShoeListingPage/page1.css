@@ -35,12 +35,26 @@
     width: 90%;
     height: 60%;
     border: 1px solid black;
+    justify-content: center;
 }
 
 
 .shoe-size-list {
     display: grid;
     justify-content: space-evenly;
-    grid-template-columns: repeat(4, 60px);
+    grid-template-columns: repeat(4, 65px);
     gap: 10px;
+}
+
+.size-price-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    align-items: center;
+    background-color: white;
+}
+
+.size-price-container-price {
+    color: forestgreen;
 }

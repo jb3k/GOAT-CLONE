@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, Link } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
-import ShoePurchasePage from './ShoePurchase';
-import ShoeReviewPage from './ShoeReview';
-import ShoeSizePage from './ShoeSize';
+import { getAllListingsThunk } from '../../store/listings';
+// import ShoePurchasePage from './ShoePurchase';
+// import ShoeReviewPage from './ShoeReview';
+// import ShoeSizePage from './ShoeSize';
 import './page1.css'
 
 
@@ -12,12 +13,17 @@ function ShoeListingPage() {
     const dispatch = useDispatch()
 
     const { shoeId } = useParams();
+    const [isLoaded, setIsLoaded] = useState(false)
 
     const shoeInfo = useSelector(state => Object.values(state.apparel))
+    const listingInfo = useSelector(state => Object.values(state.listings))
 
     useEffect(() => {
         dispatch(getApparelThunk(shoeId))
+        dispatch(getAllListingsThunk())
+            .then(() => setIsLoaded(true))
     }, [dispatch])
+
 
 
     const shoePage = shoeInfo.map((shoe) => {
@@ -42,21 +48,48 @@ function ShoeListingPage() {
             </>
         )
 
-        let listPrice
-        let listSize
-        const listingPrice = listings.map((listing) => { const { price, size } = listing; listPrice = price; listSize = size })
-
-        console.log(listPrice)
 
         const allShoeSizes = () => {
             let allsizes = [4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 14, 15, 16, 17, 18]
 
+            let priceList = {}
+            const eachListing = listingInfo.map(list => {
+                const { price, size } = list
+                priceList[size] = price
+            })
+
+            let priceListArr = Object.keys(priceList)
+
+            console.log(priceListArr)
+
             const list = []
-            allsizes.forEach((item) => {
-                list.push(<a className='size-price-container'
-                >
-                    {`${item}`}
-                </a>)
+            allsizes.forEach((item1) => {
+                priceListArr.forEach((item2) => {
+                    if (item1 == item2) {
+                        list.push(
+                            <a className='size-price-container'>
+                                <div>
+                                    {item1}
+                                </div>
+                                <div className='size-price-container-price'>
+                                    {`$ ${priceList[`${item1}`]}`}
+                                </div>
+                            </a>
+                        )
+                    }
+
+                })
+                if (!priceList[`${item1}`]) {
+                    list.push(<a className='size-price-container'>
+                        <div>
+                            {item1}
+                        </div>
+                        <div className='size-price-container-price'>
+                            Sold Out
+                        </div>
+                    </a>
+                    )
+                }
             })
 
             return (
@@ -71,7 +104,7 @@ function ShoeListingPage() {
 
                 <div className='right-container-header'>
                     <div>
-                        <h1> Select Size </h1>
+                        <p>Select Size</p>
                         U.S. Men's Shoes
                     </div>
                 </div>
@@ -98,7 +131,7 @@ function ShoeListingPage() {
         )
     })
 
-    return (
+    return isLoaded && (
         <>
             <div>
                 <div className='sell-page-main-container'>

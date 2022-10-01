@@ -35,7 +35,7 @@ const remove = (id) => {
 //thunks
 
 export const getAllListingsThunk = () => async dispatch => {
-    const response = await fetch('/api/listings/')
+    const response = await fetch('/api/listing/')
     if (response.ok) {
         let listings = await response.json()
         dispatch(getAll(listings))
@@ -55,7 +55,7 @@ export const createListingsThunk = (id, payload) => async dispatch => {
 }
 
 export const editListingsThunk = (id, payload) => async dispatch => {
-    const response = await fetch(`/api/listings/shoe/${id}`, {
+    const response = await fetch(`/api/listing/shoe/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
@@ -69,7 +69,7 @@ export const editListingsThunk = (id, payload) => async dispatch => {
 
 
 export const deleteListingsThunk = (id) => async dispatch => {
-    const response = await fetch(`/api/listings/shoe/${id}`, {
+    const response = await fetch(`/api/listing/shoe/${id}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(id)

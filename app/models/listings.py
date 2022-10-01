@@ -35,7 +35,7 @@ class Listing(db.Model):
             'quantity': self.quantity,
             "createdAt": self.created_at,
             "updatedAt": self.updated_at,
-            "apparelId": self.convert_apparel_to_dict()
+            "apparelInfo": self.convert_apparel_to_dict()
             # "sortedSizes": self.to_dict_sort()
         }
     
