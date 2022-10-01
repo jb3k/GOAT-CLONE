@@ -1,0 +1,15 @@
+.shoe-size-prices-grid-container {
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(4, 60px);
+    gap: 10px;
+}
+
+
+.size-price-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    height: 45px;
+}

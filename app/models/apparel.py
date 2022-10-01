@@ -54,3 +54,5 @@ class Apparel(db.Model):
             # "images": [img.to_dict() for img in self.imgs],
             "listings": [listings.to_dict() for listings in self.listing]
         }
+
+    

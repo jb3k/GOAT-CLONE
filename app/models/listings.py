@@ -34,6 +34,9 @@ class Listing(db.Model):
             "price": self.price,
             'quantity': self.quantity,
             "createdAt": self.created_at,
-            "updatedAt": self.updated_at
+            "updatedAt": self.updated_at,
+            # "sortedSizes": self.to_dict_sort()
         }
-        
+    
+    # def to_dict_sort(self):
+    #     "sizes": [ {"list": []} for item in self.sizes]
