@@ -2,7 +2,7 @@
     display: flex;
     border: 1px solid black;
     justify-content: center;
-    height: 550px;
+    height: 500px;
 
 }
 
@@ -14,8 +14,15 @@
 .buy-sell-form-main-container-right-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
+    justify-content: space-evenly;
     align-items: center;
     border: 1px solid black;
     width: 500px;
+}
+
+.buy-sell-form-main-container-bottom-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
 }
