@@ -12,6 +12,7 @@ import { authenticate } from './store/session';
 import MainPage from './components/mainpage';
 import SellPage from './components/sellpage';
 import ShoeProfilePage from './components/ShoeProfilePage';
+import ShoeListingPage from './components/ShoeListingPage';
 
 
 function App() {
@@ -44,6 +45,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/shoe/:shoeId' exact={true} >
           <ShoeProfilePage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/shoe/:shoeId/sell' exact={true} >
+          <ShoeListingPage />
         </ProtectedRoute>
         <ProtectedRoute path='/sell' exact={true} >
           <SellPage />
