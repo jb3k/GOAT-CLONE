@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, Link, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
-import { getAllListingsThunk, getListingThunk } from '../../store/listings';
+import { getAllListingsThunk } from '../../store/listings';
 // import ShoePurchasePage from './ShoePurchase';
 // import ShoeReviewPage from './ShoeReview';
 // import ShoeSizePage from './ShoeSize';
@@ -20,15 +20,13 @@ function ShoeListingPage() {
 
     useEffect(() => {
         dispatch(getApparelThunk(shoeId))
-        dispatch(getListingThunk(shoeId))
+        dispatch(getAllListingsThunk())
             .then(() => setIsLoaded(true))
     }, [dispatch])
 
-
-
     const shoePage = shoeInfo.map((shoe) => {
 
-        const { colorway, id, imageUrl, name, listings, size } = shoe
+        const { colorway, imageUrl, name, listings } = shoe
 
         let leftContainer = (
             <>
@@ -48,46 +46,57 @@ function ShoeListingPage() {
             </>
         )
 
+        // let currList
+        // let currentListing = listings.forEach(ele => {
+        //     console.log(ele)
+
+        // })
 
         const allShoeSizes = () => {
             let allsizes = [4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 14, 15, 16, 17, 18]
 
             let priceList = {}
+
             const eachListing = listingInfo.map(list => {
-                const { price, size } = list
-                priceList[size] = price
+                const { apparelId, price, size, id } = list
+                if (apparelId == shoeId) {
+                    priceList[size] = price
+                }
             })
+
 
             let priceListArr = Object.keys(priceList)
 
-            console.log(priceListArr)
+            // console.log(priceListArr)
 
             const list = []
             allsizes.forEach((item1) => {
                 priceListArr.forEach((item2) => {
                     if (item1 == item2) {
                         list.push(
-                            <a className='size-price-container'>
-                                <div>
-                                    {item1}
+                            <Link to={`/shoe/${shoeId}/sell/${item1}`} style={{ textDecoration: 'none' }}>
+                                <div className='size-price-container'>
+                                    <div>
+                                        {item1}
+                                    </div>
+                                    <div className='size-price-container-price'>
+                                        {`$ ${priceList[`${item1}`]}`}
+                                    </div>
                                 </div>
-                                <div className='size-price-container-price'>
-                                    {`$ ${priceList[`${item1}`]}`}
-                                </div>
-                            </a>
+                            </Link>
                         )
                     }
 
                 })
                 if (!priceList[`${item1}`]) {
-                    list.push(<a className='size-price-container'>
+                    list.push(<div className='size-price-container'>
                         <div>
                             {item1}
                         </div>
                         <div className='size-price-container-price'>
                             Sold Out
                         </div>
-                    </a>
+                    </div>
                     )
                 }
             })

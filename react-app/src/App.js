@@ -13,6 +13,7 @@ import MainPage from './components/mainpage';
 import SellPage from './components/sellpage';
 import ShoeProfilePage from './components/ShoeProfilePage';
 import ShoeListingPage from './components/ShoeListingPage';
+import ShoePurchasePage from './components/ShoeListingPage/ShoePurchase';
 
 
 function App() {
@@ -48,6 +49,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/shoe/:shoeId/sell' exact={true} >
           <ShoeListingPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/shoe/:shoeId/sell/:sizeId' exact={true} >
+          <ShoePurchasePage />
         </ProtectedRoute>
         <ProtectedRoute path='/sell' exact={true} >
           <SellPage />
