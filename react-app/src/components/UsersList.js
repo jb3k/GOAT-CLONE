@@ -24,8 +24,9 @@ function UsersList() {
   return (
     <>
       <div>
-
-        <p> Buying history</p>
+        <Link to={'/users/purchases'} style={{ textDecoration: 'None' }}>
+          <p> Purchase History</p>
+        </Link>
       </div>
       <div>
         <Link to={'/users/listings'} style={{ textDecoration: 'None' }}>

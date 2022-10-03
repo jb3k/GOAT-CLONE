@@ -35,7 +35,13 @@ class Purchase(db.Model):
             "state": self.state,
             "country": self.country,
             "zipcode": self.zipcode,
-            "createdAt": str(self.created_at)
+            "createdAt": self.created_at,
+            'listingInfo': self.listing.to_dict(),
+            "listingImg":self.listing.apparel.image_url,
+            "apparelName": self.listing.apparel.name,
+            "apparelColorway": self.listing.apparel.colorway,
+            "listingSize": self.listing.size,
+
         }
 
 

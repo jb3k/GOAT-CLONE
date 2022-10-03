@@ -8,11 +8,17 @@ from datetime import datetime
 
 purchase_routes = Blueprint('purchases', __name__)
 
-@purchase_routes.route('/', methods=['GET'])
-def get_all_purchases():
-    purchased = Purchase.query.all()
-    return {"purchases": [items.to_dict() for items in purchased] }
+# @purchase_routes.route('/', methods=['GET'])
+# def get_all_purchases():
+#     purchased = Purchase.query.all()
+#     return {"purchases": [items.to_dict() for items in purchased] }
 
+
+@purchase_routes.route('/user', methods=['GET'])
+def get_all_user_purchases():
+    purchase = Purchase.query.filter(Purchase.user_id == current_user.id)
+    # return { "stuff": purchase.to_dict()}
+    return {"purchase": [items.to_dict() for items in purchase] }
 
 
 @purchase_routes.route("/<int:listing_id>", methods=["POST"])
