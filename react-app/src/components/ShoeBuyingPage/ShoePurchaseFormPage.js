@@ -5,6 +5,7 @@ import { getApparelThunk } from '../../store/apparel';
 import { getListingThunk } from '../../store/listings';
 import ShoePurchaseForm from './ShoePurchaseForm';
 import ShoeConfirmationPage from './ShoeConfirmationPage';
+import { getUserPurchasesThunk } from '../../store/purchase';
 
 
 function ShoePurchaseFormPage() {
@@ -14,19 +15,38 @@ function ShoePurchaseFormPage() {
     // const history = useHistory()
     const { shoeId, space, sizeId } = useParams();
     const shoeInfo = useSelector(state => Object.values(state.apparel))
+    const userInfo = useSelector(state => Object.values(state.purchase))
 
     useEffect(() => {
         dispatch(getApparelThunk(shoeId))
+        dispatch(getUserPurchasesThunk())
             .then(() => setIsLoaded(true))
 
     }, [dispatch])
 
 
     const formPages = () => {
+        let userAddy
+        let userCity
+        let userState
+        let userZip
+        const stuff = userInfo.map(ele => {
+            const { address, city, state, country, zipcode } = ele
+            userAddy = address
+            userCity = city
+            userState = state
+            userZip = zipcode
+
+        })
+
+        
+
+
+
         if (page === 0) {
-            return <ShoePurchaseForm />
+            return <ShoePurchaseForm userAddy={userAddy} userCity={userCity} userState={userState} userZip={userZip} />
         } else {
-            return <ShoeConfirmationPage />
+            return <ShoeConfirmationPage userAddy={userAddy} userCity={userCity} userState={userState} userZip={userZip} />
         }
     }
 

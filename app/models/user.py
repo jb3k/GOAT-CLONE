@@ -40,5 +40,11 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'firstName': self.first_name,
             'lastName': self.last_name,
-            'email': self.email
+            'email': self.email,
+            # 'userInfo': self.purchased.to_dict_update()
+            # 'address': self.purchased.address,
+            # 'city': self.purchased.city,
+            # 'state': self.purchased.state,
+            # 'country': self.purchased.country,
+            # 'zipcode': self.purchased.zipcode,
         }

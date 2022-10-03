@@ -4,15 +4,16 @@ import { useParams, useHistory } from 'react-router-dom';
 import { createPurchaseThunk } from '../../store/purchase'
 
 
-function ShoePurchaseForm() {
+function ShoePurchaseForm({ userAddy, userCity, userState, userZip }) {
 
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
-    const [address, setAddress] = useState();
-    const [city, setCity] = useState();
-    const [state, setState] = useState();
-    const [country, setCountry] = useState();
-    const [zipcode, setZipcode] = useState();
+    const [address, setAddress] = useState(userAddy);
+    const [city, setCity] = useState(userCity);
+    const [state, setState] = useState(userState);
+    const [country, setCountry] = useState("USA");
+    const [zipcode, setZipcode] = useState(userZip);
+    const { shoeId, space, sizeId } = useParams();
 
 
     const onSubmit = async (e) => {
@@ -21,8 +22,6 @@ function ShoePurchaseForm() {
         dispatch(createPurchaseThunk(payload))
 
     };
-
-
 
     // if (size === parseInt(sizeId)) 
 
@@ -79,7 +78,7 @@ function ShoePurchaseForm() {
                     value={zipcode}
                 ></input>
             </div>
-            <button type='submit'>Update</button>
+            <button type='submit'>Confirm Shipping</button>
         </form>
     );
 }
