@@ -17,7 +17,18 @@ function CurrentUserPurchases() {
     }, []);
 
     const userPurchases = allUserPurchases.map(item => {
-        const { address, city, country, zipcode, state, listingImg, listingSize, apparelName, apparelColorway, id } = item
+        const { address, city, country, zipcode, state, listingImg, listingSize, apparelName, apparelColorway, id, createdAt } = item
+
+
+        const datePosted = new Date(createdAt)
+        const now = Date.now()
+        const milliseconds = Math.abs(now - datePosted)
+        const minutes = Math.ceil(milliseconds / (1000 * 60))
+        const hours = Math.ceil(milliseconds / (1000 * 60 * 60))
+        const days = Math.ceil(milliseconds / (1000 * 60 * 60 * 24))
+
+        let notShipped = (<></>)
+
 
 
         return (
@@ -29,11 +40,12 @@ function CurrentUserPurchases() {
                                 {apparelName}
                             </div>
                             <div>
-                                {apparelColorway}
+                                Size: {listingSize}
                             </div>
+
                         </div>
                         <div>
-                            img
+                            <img src={listingImg} alt='shoe image' className='purchase-shoe-img'></img>
                         </div>
                     </div>
                     <div className='user-purchase-text-container'>
