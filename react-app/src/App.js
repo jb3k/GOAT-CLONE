@@ -18,6 +18,7 @@ import ShoePurchasePage from './components/ShoeBuyingPage';
 import ShoePurchaseFormPage from './components/ShoeBuyingPage/ShoePurchaseFormPage';
 import CurrentUserListings from './components/usersListings';
 import CurrentUserPurchases from './components/userPurchases';
+import UploadPicture from './components/ImagesForm';
 
 
 function App() {
@@ -77,6 +78,14 @@ function App() {
         </ProtectedRoute>
 
         <ProtectedRoute path='/sell' exact={true} >
+          <UploadPicture />
+        </ProtectedRoute>
+
+
+
+
+
+        <ProtectedRoute path='/broken' exact={true} >
           <SellPage />
         </ProtectedRoute>
 

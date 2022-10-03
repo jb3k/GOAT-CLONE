@@ -66,20 +66,20 @@ export const createApparelThunk = (payload) => async dispatch => {
     }
 }
 
-export const createImageThunk = (id, payload) => async dispatch => {
-    const response = await fetch(`/api/image/${id}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-    })
-    if (response.ok) {
-        let image = await response.json()
-        dispatch(createImage(image))
-        return image
-    }
+// export const createImageThunk = (id, payload) => async dispatch => {
+//     const response = await fetch(`/api/image/${id}`, {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify(payload)
+//     })
+//     if (response.ok) {
+//         let image = await response.json()
+//         dispatch(createImage(image))
+//         return image
+//     }
 
 
-}
+// }
 
 
 

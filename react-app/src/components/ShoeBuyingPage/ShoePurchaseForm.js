@@ -22,6 +22,11 @@ function ShoePurchaseForm() {
 
     };
 
+
+
+    // if (size === parseInt(sizeId)) 
+
+
     return (
         <form onSubmit={onSubmit}>
             <div>

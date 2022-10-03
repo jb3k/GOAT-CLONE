@@ -15,11 +15,9 @@ function ShoePurchasePage() {
     const [isLoaded, setIsLoaded] = useState(false)
 
     const shoeInfo = useSelector(state => Object.values(state.apparel))
-    const listingInfo = useSelector(state => Object.values(state.listings))
 
     useEffect(() => {
         dispatch(getApparelThunk(shoeId))
-        dispatch(getAllListingsThunk())
             .then(() => setIsLoaded(true))
     }, [dispatch])
 
@@ -53,22 +51,8 @@ function ShoePurchasePage() {
 
         const allShoeSizes = () => {
             let allsizes = [4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 14, 15, 16, 17, 18]
-
-            let priceList = {}
-
-            const eachListing = listingInfo.map(list => {
-                const { apparelId, price, size, id } = list
-                if (apparelId == shoeId) {
-                    priceList[size] = price
-                }
-            })
-
-
-            let priceListArr = Object.keys(priceList)
-
-            // console.log(priceListArr)
-
             const list = []
+
             allsizes.forEach((item1) => {
 
                 list.push(<div className='size-price-container'>

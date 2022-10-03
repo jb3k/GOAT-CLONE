@@ -6,31 +6,46 @@ def seed_apparel():
 
     apparels = [
         {
-            "name": "Jordan 3 Black Cement",
-            "description": "No hyperbole, it was the shoe that saved Nike. Designed by a former Nike architect named Tinker Hatfield, the Air Jordan III kept Michael Jordan with Nike when much of his original team had left, and turned an entire industry upside-down. Hatfield had the strange idea of incorporating an athlete's personality into his shoes — making a signature shoe more than just a shoe with a signature on it — an idea that would change forever the relationship between athlete and brand. Even today, the black/cement III retains the perfect balance between tech and style, performance and appearance. The best there ever was, the best there ever will be.",
+            "name": "Jordan 3 Retro Black Cement",
+            "description": "Any year that an Air Jordan 3 releases is a good year for sneakerheads and the Air Jordan 3 'Black Cement' ensured 2011 was a good one for many collectors. You can’t talk about the Jordan 3 without talking about its legendary designer, Tinker Hatfield. Tinker’s superhero status amongst sneaker enthusiasts comes directly from groundbreaking designs like the Air Jordan 3.",
             "colorway": "Black / Cement",
-            "release_date": "1988",
+            "release_date": "2011",
             "brand": "Jordan",
             "style": "mid",
             "brand_type": "3",
             "condition": "New",
-            "retail_price": 200,
+            "retail_price": 160,
             "price_sold": 800,
             "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/500/TEMPLATE/803111/1.jpg"
 
         }, 
         {
-            "name": "Air Jordan 1 Black / Red",
-            "description": "The original Air Jordan was Nike's biggest gamble — placing the future of their basketball business (if not the entire company) on the shoulders of a No. 3 pick from North Carolina who dreamed of wearing adidas. In order to lock Michael Jordan down, Nike promised him the world, including his own distinctive line and royalties paid from each pair sold. David Falk, Rob Strasser, Phil Knight and Sonny Vaccaro hashed out the details, Peter Moore drew up the ball and wings logo, and Nike sold an awful lot of shoes. The term 'game changer' just may not be strong enough.",
+            "name": "Air Jordan 1 Retro High OG",
+            "description": "The Air Jordan 1 High Bred Patent features black and red patent leather upper with signature weaved Nike Air tongue labels. From there, a classic Wings logo on the collar and a white with red Air sole complete the retro design.",
             "colorway": "Black / Red",
-            "release_date": "1985",
+            "release_date": "2021",
             "brand": "Jordan",
-            "style": "mid",
+            "style": "high",
             "brand_type": "1",
             "condition": "New",
-            "retail_price": 160,
+            "retail_price": 170,
             "price_sold": 1000,
+            "quantity_sold": 1,
+            "image_url": "https://myawsshoepictures.s3.us-west-1.amazonaws.com/40f2d0c493c441c7acacbe0f99b8dd09.png"
+
+        }, 
+        {
+            "name": "Nike Dunk Low Retro, Panda",
+            "description": "From the school-spirited College Colors Program to the vibrant Nike CO.JP collection, Nike Dunks have seen many colorways since the design’s inception in 1985. But with each new colorway, the Dunk’s classic color-blocking has remained in some capacity. Nike put its timeless color-blocking to work with the Nike Dunk Low Retro White Black.",
+            "colorway": "White Black Panda",
+            "release_date": "2021",
+            "brand": "Nike",
+            "style": "low",
+            "brand_type": "Dunk",
+            "condition": "New",
+            "retail_price": 110,
+            "price_sold": 300,
             "quantity_sold": 1,
             "image_url": "https://myawsshoepictures.s3.us-west-1.amazonaws.com/40f2d0c493c441c7acacbe0f99b8dd09.png"
 

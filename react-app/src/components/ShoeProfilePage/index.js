@@ -82,7 +82,7 @@ function ShoeProfilePage() {
             </div>
         )
         return isLoaded && (
-            <>
+            <div key={id}>
                 <div>
                     {topContainer}
                 </div>
@@ -98,7 +98,7 @@ function ShoeProfilePage() {
                 <div>
                     {historalStats}
                 </div>
-            </>
+            </div >
         )
 
     })
