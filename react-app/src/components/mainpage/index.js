@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { getAllApparelThunk } from '../../store/apparel';
 import './mainpage.css'
 
@@ -34,7 +34,9 @@ function MainPage() {
             <>
                 <div className='mainpage-shoe-containers'>
                     <div className='mainpage-shoe-listing-image-container'>
-                        <img src={imageUrl} className='mainpage-shoe-listing-image' alt="profile" onClick={() => history.push(`/shoe/${id}`)}></img>
+                        <NavLink to={`/shoe/${id}`}>
+                            <img src={imageUrl} className='mainpage-shoe-listing-image' alt="profile"></img>
+                        </NavLink>
                     </div>
                     <div className='mainpage-shoe-name'>
                         {name}

@@ -93,7 +93,7 @@ const apparelReducer = (state = initialState, action) => {
             return newState
         }
         case GET_APPAREL: {
-            newState = { ...state }
+            newState = {}
             // action.payload.apparels.forEach(item => newState[item.id] = item)
             newState[action.payload.id] = { ...newState[action.payload.id], ...action.payload }
             return newState
