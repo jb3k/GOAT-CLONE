@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
-import { getListingThunk } from '../../store/listings';
+import { getAllListingsThunk } from '../../store/listings';
 import ShoePurchaseForm from './ShoePurchaseForm';
 import ShoeConfirmationPage from './ShoeConfirmationPage';
 import { getUserPurchasesThunk } from '../../store/purchase';
@@ -10,20 +10,56 @@ import { getUserPurchasesThunk } from '../../store/purchase';
 
 function ShoePurchaseFormPage() {
     const dispatch = useDispatch()
-    const [page, setPage] = useState(0);
+
+
+    const [shoeListingId, setShoeListingId] = useState(null)
+    const [shoeSelected, setShoeSelected] = useState(false)
+
+
+
     const [isLoaded, setIsLoaded] = useState(false)
     // const history = useHistory()
     const { shoeId, space, sizeId } = useParams();
     const shoeInfo = useSelector(state => Object.values(state.apparel))
     const userInfo = useSelector(state => Object.values(state.purchase))
+    const listingInfo = useSelector(state => Object.values(state.listings))
+    const info = useSelector(state => state.listings)
+
 
     useEffect(() => {
         dispatch(getApparelThunk(shoeId))
         dispatch(getUserPurchasesThunk())
+        dispatch(getAllListingsThunk())
             .then(() => setIsLoaded(true))
 
     }, [dispatch])
 
+
+
+    let listingFilter = listingInfo.map(ele => {
+        const { id, size, price, apparelId } = ele
+
+        let filtered
+        if (parseInt(shoeId) === apparelId && parseInt(sizeId) === size) {
+            filtered = (
+                <>
+                    <option value={id}
+                        onChange={(e) => {
+                            setShoeListingId(e.target.value)
+                            setShoeSelected(true)
+                        }
+                        }>
+                        Size: {size} ${price}</option>
+                </>
+            )
+        }
+        return (
+            <>
+                {filtered}
+            </>
+        )
+
+    })
 
     const formPages = () => {
         let userAddy
@@ -38,22 +74,13 @@ function ShoePurchaseFormPage() {
             userZip = zipcode
 
         })
-
-        
-
-
-
-        if (page === 0) {
-            return <ShoePurchaseForm userAddy={userAddy} userCity={userCity} userState={userState} userZip={userZip} />
-        } else {
-            return <ShoeConfirmationPage userAddy={userAddy} userCity={userCity} userState={userState} userZip={userZip} />
-        }
+        return <ShoePurchaseForm userAddy={userAddy} userCity={userCity} userState={userState} userZip={userZip} />
     }
 
 
     const shoeImg = shoeInfo.map(item => {
 
-        const { name, imageUrl, colorway } = item
+        const { name, imageUrl, colorway, id } = item
 
         let leftContainer = (
             <>
@@ -73,7 +100,7 @@ function ShoePurchaseFormPage() {
 
         return (
             <>
-                <div>
+                <div key={id}>
                     {leftContainer}
                 </div>
             </>
@@ -89,28 +116,22 @@ function ShoePurchaseFormPage() {
                     {shoeImg}
                 </div>
                 <div>
-                    <div >{formPages()}</div>
-                    <div >
-                        <button
-                            disabled={page === 0}
-                            onClick={() => {
-                                setPage((currPage) => currPage - 1);
-                            }}
-                        >
-                            Prev
-                        </button>
-                        <button
-                            onClick={() => {
-                                if (page === 1) {
-                                    alert('Purchase submitted')
-                                } else {
-                                    setPage((currPage) => currPage + 1);
-                                }
-                            }}
-                        >
-                            {page === 1 ? "Submit" : "Next"}
-                        </button>
+                    <div>
+                        <label> Shoes </label>
+                        <select onChange={(e) => {
+                            setShoeListingId(e.target.value)
+                            setShoeSelected(!shoeSelected)
+                        }} >
+                            <option> Select </option>
+                            {listingFilter}
+                        </select>
                     </div>
+                    {shoeSelected && <ShoeConfirmationPage listingId={shoeListingId} />}
+
+
+
+
+                    <div >{formPages()}</div>
                 </div>
             </div>
         </>

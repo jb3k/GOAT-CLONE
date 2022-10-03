@@ -60,9 +60,9 @@ export const getUserPurchasesThunk = () => async dispatch => {
 }
 
 
-export const createPurchaseThunk = (id, payload) => async dispatch => {
+export const createPurchaseThunk = (listingId, payload) => async dispatch => {
 
-    const response = await fetch(`/api/apparel/${id}/listings`, {
+    const response = await fetch(`/api/purchase/${listingId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)

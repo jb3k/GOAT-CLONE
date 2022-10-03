@@ -11,6 +11,8 @@ function ShoeProfilePage() {
     // const history = useHistory()
     const { shoeId } = useParams();
     const shoeInfo = useSelector(state => Object.values(state.apparel))
+    // const oneShoe = allShoes[Number(shoeId)]
+
 
     useEffect(() => {
         dispatch(getApparelThunk(shoeId))
