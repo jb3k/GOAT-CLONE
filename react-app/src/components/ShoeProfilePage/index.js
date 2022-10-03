@@ -45,7 +45,9 @@ function ShoeProfilePage() {
                     </div>
                     <div>
                         right container
-                        <button>Buy</button>
+                        <NavLink to={`/shoe/${id}/buy`}>
+                            <button> Buy</button>
+                        </NavLink>
                         <NavLink to={`/shoe/${id}/sell`}>
                             <button> Sell</button>
                         </NavLink>

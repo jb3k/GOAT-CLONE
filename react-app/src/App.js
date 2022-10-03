@@ -13,7 +13,8 @@ import MainPage from './components/mainpage';
 import SellPage from './components/sellpage';
 import ShoeProfilePage from './components/ShoeProfilePage';
 import ShoeListingPage from './components/ShoeListingPage';
-import ShoePurchasePage from './components/ShoeListingPage/ShoePurchase';
+import ShoeListingFormPage from './components/ShoeListingPage/ShoeListingFormPage'
+import ShoePurchasePage from './components/ShoeBuyingPage';
 import CurrentUserListings from './components/usersListings';
 import CurrentUserPurchases from './components/userPurchases';
 
@@ -49,21 +50,35 @@ function App() {
         <ProtectedRoute path='/users/listings' exact={true} >
           <CurrentUserListings />
         </ProtectedRoute>
+
         <ProtectedRoute path='/users/purchases' exact={true} >
           <CurrentUserPurchases />
         </ProtectedRoute>
+
         <ProtectedRoute path='/shoe/:shoeId' exact={true} >
           <ShoeProfilePage />
         </ProtectedRoute>
+
         <ProtectedRoute path='/shoe/:shoeId/sell' exact={true} >
           <ShoeListingPage />
         </ProtectedRoute>
+
         <ProtectedRoute path='/shoe/:shoeId/sell/:sizeId' exact={true} >
+          <ShoeListingFormPage />
+        </ProtectedRoute>
+
+        <ProtectedRoute path='/shoe/:shoeId/buy' exact={true} >
           <ShoePurchasePage />
         </ProtectedRoute>
+
+        <ProtectedRoute path='/shoe/:shoeId/buy/:sizeId' exact={true} >
+          {/* <ShoeListingFormPage /> */}
+        </ProtectedRoute>
+
         <ProtectedRoute path='/sell' exact={true} >
           <SellPage />
         </ProtectedRoute>
+
         <Route path='/' exact={true} >
           <MainPage />
         </Route>

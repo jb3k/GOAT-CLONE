@@ -3,11 +3,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
 import { getListingThunk } from '../../store/listings';
-import ShoeListingForm from './ShoeReview';
+import ShoeListingForm from './ShoeListingForm';
 
 
 
-function ShoePurchasePage() {
+function ShoeListingFormPage() {
     const dispatch = useDispatch()
     const [user, setUser] = useState({});
     const [isLoaded, setIsLoaded] = useState(false)
@@ -76,4 +76,4 @@ function ShoePurchasePage() {
     )
 }
 
-export default ShoePurchasePage;
+export default ShoeListingFormPage;
