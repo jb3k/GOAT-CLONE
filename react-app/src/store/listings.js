@@ -60,7 +60,7 @@ export const getAllListingsThunk = () => async dispatch => {
 }
 
 export const getListingThunk = (id) => async dispatch => {
-    const response = await fetch(`/api/listing/${id}`)
+    const response = await fetch(`/api/listing/${id}/shoe`)
     if (response.ok) {
         let listing = await response.json()
         dispatch(get(listing))
@@ -129,8 +129,8 @@ const listingReducer = (state = initialState, action) => {
             return newState
         }
         case GET_LISTING: {
-            newState = { ...state }
-            newState[action.payload.id] = { ...newState[action.payload.id], ...action.payload }
+            newState = {}
+            action.payload.listings.forEach(post => newState[post.id] = post)
             return newState
         }
         case GET_CURR_LISTING: {

@@ -1,32 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom';
-import { getApparelThunk } from '../../store/apparel';
-import { createListingsThunk } from '../../store/listings';
+import { createPurchaseThunk } from '../../store/purchase'
 
 
-function ShoeListingForm() {
+function ShoePurchaseForm() {
 
-    const dispatch = useDispatch()
-    const [isLoaded, setIsLoaded] = useState(false)
-    const history = useHistory()
-    const { shoeId, space, sizeId } = useParams();
-
-
-
+    const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
-    const [size, setSize] = useState(sizeId);
-    const [price, setPrice] = useState('');
-    const [quantity, setQuantity] = useState(1);
+    const [address, setAddress] = useState();
+    const [city, setCity] = useState();
+    const [state, setState] = useState();
+    const [country, setCountry] = useState();
+    const [zipcode, setZipcode] = useState();
 
-    const user = useSelector(state => state.session.user);
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        const payload = { size, price, quantity }
-        dispatch(createListingsThunk(shoeId, payload))
-        alert('Your Listing has been created!')
-        history.push('/users/listings')
+        const payload = { address, city, country, state, zipcode }
+        dispatch(createPurchaseThunk(payload))
 
     };
 
@@ -38,28 +30,53 @@ function ShoeListingForm() {
                 ))}
             </div>
             <div>
-                <label>Size</label>
+                <label>Address</label>
                 <input
                     type='text'
-                    name='size'
-                    onChange={e => setSize(e.target.value)}
-                    value={size}
-                    required={true}
+                    name='address'
+                    onChange={e => setAddress(e.target.value)}
+                    value={address}
                 ></input>
             </div>
             <div>
-                <label>Price</label>
+                <label>City</label>
                 <input
                     type='text'
-                    name='price'
-                    onChange={e => setPrice(e.target.value)}
-                    value={price}
-                    required={true}
+                    name='city'
+                    onChange={e => setCity(e.target.value)}
+                    value={city}
                 ></input>
             </div>
-            <button type='submit'>Create Listing</button>
+            <div>
+                <label>State</label>
+                <input
+                    type='text'
+                    name='state'
+                    onChange={e => setState(e.target.value)}
+                    value={state}
+                ></input>
+            </div>
+            <div>
+                <label>Country</label>
+                <input
+                    type='text'
+                    name='country'
+                    onChange={e => setCountry(e.target.value)}
+                    value={country}
+                ></input>
+            </div>
+            <div>
+                <label>Zipcode</label>
+                <input
+                    type='text'
+                    name='zipcode'
+                    onChange={e => setZipcode(e.target.value)}
+                    value={zipcode}
+                ></input>
+            </div>
+            <button type='submit'>Update</button>
         </form>
     );
 }
 
-export default ShoeListingForm;
+export default ShoePurchaseForm;

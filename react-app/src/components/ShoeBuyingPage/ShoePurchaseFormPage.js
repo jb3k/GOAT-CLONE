@@ -3,77 +3,64 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
 import { getListingThunk } from '../../store/listings';
-import ShoeListingForm from './ShoeListingForm';
+import ShoePurchaseForm from './ShoePurchaseForm';
 
 
-
-function ShoeListingFormPage() {
+function ShoePurchaseFormPage() {
     const dispatch = useDispatch()
-    const [user, setUser] = useState({});
     const [isLoaded, setIsLoaded] = useState(false)
     // const history = useHistory()
     const { shoeId, space, sizeId } = useParams();
-    const shoeInfo = useSelector(state => Object.values(state.apparel))
+    const shoeInfo = useSelector(state => Object.values(state.listings))
+
+
 
     useEffect(() => {
-        dispatch(getApparelThunk(shoeId))
-        dispatch(getListingThunk(sizeId))
+        dispatch(getListingThunk(shoeId))
             .then(() => setIsLoaded(true))
 
     }, [dispatch])
 
-
-
-    const shoePage = shoeInfo.map((shoe) => {
-
-        const { colorway, id, imageUrl, name, listings, size } = shoe
-
-        let leftContainer = (
-            <>
-                <div>
-                    Header
+    const sizeListings = shoeInfo.map(item => {
+        const { size, price, apprelImg, apparelName, apparelColorway } = item
+        let selectedSize
+        if (size === parseInt(sizeId)) {
+            selectedSize = (
+                <>
                     <div>
-                        {name}
+                        Something
                     </div>
-                    <div>
-                        {colorway}
-                    </div>
-                </div>
-                <div>
-                    <img src={imageUrl} alt="shoe"></img>
-                </div>
+                </>
 
-            </>
-        )
+            )
+        }
 
-        let rightContainer = (
-            <>
-                <ShoeBuyingForm />
-            </>
-        )
+
 
         return (
             <>
-                <div className='sell-page-left-container'>
-                    {leftContainer}
+                <div>
+
                 </div>
                 <div>
-                    {rightContainer}
+                    {selectedSize}
                 </div>
             </>
-
         )
+
+
     })
 
     return isLoaded && (
         <>
             <div>
-                <div className='sell-page-main-container'>
-                    {shoePage}
-                </div>
+                Purchase Form page
+            </div>
+            <div>
+                {sizeListings}
             </div>
         </>
     )
 }
 
-export default ShoeListingFormPage;
+export default ShoePurchaseFormPage;

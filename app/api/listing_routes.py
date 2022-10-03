@@ -15,10 +15,10 @@ def get_all_listing():
     return {"listings": [items.to_dict() for items in listings] }
 
 
-@listing_routes.route('/<int:id>', methods=['GET'])
-def get_listing(id):
-    listing = Listing.query.get(id)
-    return listing.to_dict()
+@listing_routes.route('/<int:apparelId>/shoe', methods=['GET'])
+def get_listing(apparelId):
+    listings = Listing.query.filter(Listing.apparel_id == apparelId).all()
+    return {"listings": [items.to_dict() for items in listings] }
 
 
 @listing_routes.route('/user', methods=['GET'])

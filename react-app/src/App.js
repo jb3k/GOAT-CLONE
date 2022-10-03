@@ -15,6 +15,7 @@ import ShoeProfilePage from './components/ShoeProfilePage';
 import ShoeListingPage from './components/ShoeListingPage';
 import ShoeListingFormPage from './components/ShoeListingPage/ShoeListingFormPage'
 import ShoePurchasePage from './components/ShoeBuyingPage';
+import ShoePurchaseFormPage from './components/ShoeBuyingPage/ShoePurchaseFormPage';
 import CurrentUserListings from './components/usersListings';
 import CurrentUserPurchases from './components/userPurchases';
 
@@ -72,7 +73,7 @@ function App() {
         </ProtectedRoute>
 
         <ProtectedRoute path='/shoe/:shoeId/buy/:sizeId' exact={true} >
-          {/* <ShoeListingFormPage /> */}
+          <ShoePurchaseFormPage />
         </ProtectedRoute>
 
         <ProtectedRoute path='/sell' exact={true} >
