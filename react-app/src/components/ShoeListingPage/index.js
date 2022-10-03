@@ -71,34 +71,16 @@ function ShoeListingPage() {
 
             const list = []
             allsizes.forEach((item1) => {
-                priceListArr.forEach((item2) => {
-                    if (item1 == item2) {
-                        list.push(
-                            <Link to={`/shoe/${shoeId}/sell/${item1}`} style={{ textDecoration: 'none' }}>
-                                <div className='size-price-container'>
-                                    <div>
-                                        {item1}
-                                    </div>
-                                    <div className='size-price-container-price'>
-                                        {`$ ${priceList[`${item1}`]}`}
-                                    </div>
-                                </div>
-                            </Link>
-                        )
-                    }
 
-                })
-                if (!priceList[`${item1}`]) {
-                    list.push(<div className='size-price-container'>
+                list.push(<div className='size-price-container'>
+                    <Link to={`/shoe/${shoeId}/sell/${item1}`} style={{ textDecoration: 'none' }}>
                         <div>
                             {item1}
                         </div>
-                        <div className='size-price-container-price'>
-                            Sold Out
-                        </div>
-                    </div>
-                    )
-                }
+                    </Link>
+                </div>
+                )
+
             })
 
             return (

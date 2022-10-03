@@ -21,6 +21,12 @@ def get_listing(id):
     return listing.to_dict()
 
 
+@listing_routes.route('/user', methods=['GET'])
+def get_all_user_listing():
+    listings = Listing.query.filter(Listing.user_id == current_user.id)
+    # return { "stuff": listings.to_dict()}
+    return {"listings": [items.to_dict() for items in listings] }
+
 # @listing_routes.route("/<int:apparel_id>/listings", methods=["POST"])
 # @login_required
 # def new_listing(apparel_id):

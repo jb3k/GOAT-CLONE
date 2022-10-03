@@ -35,7 +35,10 @@ class Listing(db.Model):
             'quantity': self.quantity,
             "createdAt": self.created_at,
             "updatedAt": self.updated_at,
-            "apparelInfo": self.convert_apparel_to_dict()
+            "apparelImg": self.apparel.image_url,
+            "apparelName": self.apparel.name,
+            "apparelColorway": self.apparel.colorway,
+            # "apparelInfo": self.convert_apparel_to_dict(),
             # "sortedSizes": self.to_dict_sort()
         }
     

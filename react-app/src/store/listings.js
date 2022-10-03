@@ -1,5 +1,6 @@
 const GET_ALL_LISTINGS = 'listings/getAllListings'
 const GET_LISTING = 'listing/getListings'
+const GET_CURR_LISTING = 'listing/getCurrListings'
 const CREATE_LISTING = 'listings/createListings'
 const UPDATE_LISTING = 'listings/updateListings'
 const DELETE_LISTING = 'listings/deleteListings'
@@ -15,6 +16,13 @@ const getAll = (payload) => {
 const get = (payload) => {
     return {
         type: GET_LISTING,
+        payload
+    }
+}
+
+const getUserListing = (payload) => {
+    return {
+        type: GET_CURR_LISTING,
         payload
     }
 }
@@ -62,6 +70,7 @@ export const getListingThunk = (id) => async dispatch => {
 
 
 export const createListingsThunk = (id, payload) => async dispatch => {
+
     const response = await fetch(`/api/apparel/${id}/listings`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -70,6 +79,14 @@ export const createListingsThunk = (id, payload) => async dispatch => {
     if (response.ok) {
         const post = await response.json()
         dispatch(create(post))
+    }
+}
+export const getUserListingsThunk = () => async dispatch => {
+    const response = await fetch('/api/listing/user')
+    if (response.ok) {
+        let listings = await response.json()
+        dispatch(getUserListing(listings))
+        return listings
     }
 }
 
@@ -85,6 +102,8 @@ export const editListingsThunk = (id, payload) => async dispatch => {
         dispatch(update(listings))
     }
 }
+
+
 
 
 export const deleteListingsThunk = (id) => async dispatch => {
@@ -112,6 +131,11 @@ const listingReducer = (state = initialState, action) => {
         case GET_LISTING: {
             newState = { ...state }
             newState[action.payload.id] = { ...newState[action.payload.id], ...action.payload }
+            return newState
+        }
+        case GET_CURR_LISTING: {
+            newState = {}
+            action.payload.listings.forEach(post => newState[post.id] = post)
             return newState
         }
         case CREATE_LISTING: {

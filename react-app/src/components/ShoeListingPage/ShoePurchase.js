@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
 import { getListingThunk } from '../../store/listings';
+import ShoeListingForm from './ShoeReview';
 
 
 
@@ -45,6 +46,23 @@ function ShoePurchasePage() {
             </>
         )
 
+        let rightContainer = (
+            <>
+                <ShoeListingForm />
+            </>
+        )
+
+        return (
+            <>
+                <div className='sell-page-left-container'>
+                    {leftContainer}
+                </div>
+                <div>
+                    {rightContainer}
+                </div>
+            </>
+
+        )
     })
 
     return isLoaded && (

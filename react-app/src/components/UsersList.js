@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function UsersList() {
   const [users, setUsers] = useState([]);
@@ -23,8 +23,15 @@ function UsersList() {
 
   return (
     <>
-      <h1>User List: </h1>
-      <ul>{userComponents}</ul>
+      <div>
+
+        <p> Buying history</p>
+      </div>
+      <div>
+        <Link to={'/users/listings'} style={{ textDecoration: 'None' }}>
+          <p> Current Listings</p>
+        </Link>
+      </div>
     </>
   );
 }

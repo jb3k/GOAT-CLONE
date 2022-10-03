@@ -12,7 +12,7 @@ const NavBar = () => {
   const profileMenu = () => {
 
     let loginButtons
-    
+
     if (!sessionUser) {
       loginButtons = (
         <>
@@ -33,7 +33,7 @@ const NavBar = () => {
       loginButtons = (
 
         <div className='dropdown-container'>
-          <NavLink to='/user' exact={true} activeClassName='active'>
+          <NavLink to='/users' exact={true} activeClassName='active'>
             <i class="fa-regular fa-circle-user"></i>
           </NavLink>
           <div className='dropdown-menu'>
@@ -100,49 +100,49 @@ const NavBar = () => {
 
 
   return (
-      <nav>
-        <div className='whole-navbar'>
-          <div className='navbar-logo'>
-            <NavLink to='/' exact={true} activeClassName='active'
-              style={{ textDecoration: "none", color: "black", fontWeight: "bolder", fontSize: '28px' }}>
-              StockY
-            </NavLink>
-          </div>
-          <div className='navbar-searchbar-container'>
-            <div className='navbar-searchbar'>
-              Seach Bar
-            </div>
-          </div>
-          <div className='navbar-right-container'>
-            <div className='navbar-right-items'>
-              <NavLink to='/' rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }}>
-                Browse
-              </NavLink>
-            </div>
-            <div className='navbar-right-items'>
-              <a href='https://stockx.com/news/' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
-                News
-              </a>
-            </div>
-            <div className='navbar-right-items'>
-              <a href='https://stockx.com/help/home' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
-                Help
-              </a>
-            </div>
-            <div className='navbar-right-items'>
-              <a href='https://www.linkedin.com/in/justin-b-kam-4105961a5/' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
-                About
-              </a>
-            </div>
-            <div className='navbar-right-items'>
-              <NavLink to='/sell' style={{ textDecoration: 'none', color: 'black' }}>
-                Sell
-              </NavLink>
-            </div>
-            {profileMenu()}
+    <nav>
+      <div className='whole-navbar'>
+        <div className='navbar-logo'>
+          <NavLink to='/' exact={true} activeClassName='active'
+            style={{ textDecoration: "none", color: "black", fontWeight: "bolder", fontSize: '28px' }}>
+            StockY
+          </NavLink>
+        </div>
+        <div className='navbar-searchbar-container'>
+          <div className='navbar-searchbar'>
+            Seach Bar
           </div>
         </div>
-      </nav>
+        <div className='navbar-right-container'>
+          <div className='navbar-right-items'>
+            <NavLink to='/' rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }}>
+              Browse
+            </NavLink>
+          </div>
+          <div className='navbar-right-items'>
+            <a href='https://stockx.com/news/' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+              News
+            </a>
+          </div>
+          <div className='navbar-right-items'>
+            <a href='https://stockx.com/help/home' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+              Help
+            </a>
+          </div>
+          <div className='navbar-right-items'>
+            <a href='https://www.linkedin.com/in/justin-b-kam-4105961a5/' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+              About
+            </a>
+          </div>
+          <div className='navbar-right-items'>
+            <NavLink to='/sell' style={{ textDecoration: 'none', color: 'black' }}>
+              Sell
+            </NavLink>
+          </div>
+          {profileMenu()}
+        </div>
+      </div>
+    </nav>
   );
 }
 

@@ -14,6 +14,7 @@ import SellPage from './components/sellpage';
 import ShoeProfilePage from './components/ShoeProfilePage';
 import ShoeListingPage from './components/ShoeListingPage';
 import ShoePurchasePage from './components/ShoeListingPage/ShoePurchase';
+import CurrentUserListings from './usersListings';
 
 
 function App() {
@@ -43,6 +44,9 @@ function App() {
       <Switch>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
+        </ProtectedRoute>
+        <ProtectedRoute path='/users/listings' exact={true} >
+          <CurrentUserListings/>
         </ProtectedRoute>
         <ProtectedRoute path='/shoe/:shoeId' exact={true} >
           <ShoeProfilePage />
