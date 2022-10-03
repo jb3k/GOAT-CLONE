@@ -43,13 +43,7 @@ function ShoePurchaseFormPage() {
         if (parseInt(shoeId) === apparelId && parseInt(sizeId) === size) {
             filtered = (
                 <>
-                    <option value={id}
-                        onChange={(e) => {
-                            setShoeListingId(e.target.value)
-                            setShoeSelected(true)
-                        }
-                        }>
-                        Size: {size} ${price}</option>
+                    <option value={id}> Size: {size} ${price}</option>
                 </>
             )
         }
@@ -60,22 +54,6 @@ function ShoePurchaseFormPage() {
         )
 
     })
-
-    const formPages = () => {
-        let userAddy
-        let userCity
-        let userState
-        let userZip
-        const stuff = userInfo.map(ele => {
-            const { address, city, state, country, zipcode } = ele
-            userAddy = address
-            userCity = city
-            userState = state
-            userZip = zipcode
-
-        })
-        return <ShoePurchaseForm userAddy={userAddy} userCity={userCity} userState={userState} userZip={userZip} />
-    }
 
 
     const shoeImg = shoeInfo.map(item => {
@@ -120,7 +98,7 @@ function ShoePurchaseFormPage() {
                         <label> Shoes </label>
                         <select onChange={(e) => {
                             setShoeListingId(e.target.value)
-                            setShoeSelected(!shoeSelected)
+                            setShoeSelected(true)
                         }} >
                             <option> Select </option>
                             {listingFilter}
@@ -128,10 +106,6 @@ function ShoePurchaseFormPage() {
                     </div>
                     {shoeSelected && <ShoeConfirmationPage listingId={shoeListingId} />}
 
-
-
-
-                    <div >{formPages()}</div>
                 </div>
             </div>
         </>

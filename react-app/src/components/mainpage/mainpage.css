@@ -6,13 +6,63 @@
 
 } */
 
-.mainpage-shoe-listing-image-container {
-    width: 50px;
-    height: 50px;
+.mainpage-body-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 1000px;
 }
 
 
+.mainpage-header {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 100%;
+    background-color: lightgray;
+}
+
+
+.mainpage-shoe-listing-container {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid black; */
+    height: 90%;
+    width: 72%
+}
+
+.mainpage-shoe-containers {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    height: 180px;
+    margin-right: 20px;
+    width: 140px;
+}
+
+.mainpage-shoe-listing-image-container {
+    height: 50%;
+    margin-bottom: 20px;
+}
+
 .mainpage-shoe-listing-image {
-    height: 20px;
-    width: 20px;
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+
+.mainpage-shoe-name {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.mainpage-shoe-lowest-ask {
+    font-size: 10px;
+    color: darkgray;
+}
+
+.test {
+    display: flex;
+    margin-top: 15px;
 }

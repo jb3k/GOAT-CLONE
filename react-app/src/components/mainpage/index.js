@@ -31,22 +31,23 @@ function MainPage() {
         let minPrice = Math.min(...arr)
 
         let shoes = (
-            <div className='mainpage-shoe-listing-container'>
-                <div classname='mainpage-shoe-listing-image-container'>
-                    <img src={imageUrl} classname='mainpage-shoe-listing-image' alt="profile" onClick={() => history.push(`/shoe/${id}`)}></img>
+            <>
+                <div className='mainpage-shoe-containers'>
+                    <div className='mainpage-shoe-listing-image-container'>
+                        <img src={imageUrl} className='mainpage-shoe-listing-image' alt="profile" onClick={() => history.push(`/shoe/${id}`)}></img>
+                    </div>
+                    <div className='mainpage-shoe-name'>
+                        {name}
+                    </div>
+                    <div>
+                        <div className='mainpage-shoe-lowest-ask'>lowest ask</div>
+                        <strong><div>${minPrice}</div></strong>
+                    </div>
+                    {/* <div>
+                        last sale:
+                    </div> */}
                 </div>
-                <div>
-                    <h5>{name}</h5>
-                </div>
-                <div>
-                    <div>lowest ask</div>
-                    <div>{minPrice}</div>
-
-                </div>
-                <div>
-                    last sale:
-                </div>
-            </div>
+            </>
         )
 
 
@@ -65,13 +66,22 @@ function MainPage() {
     return (
         <>
             <div>
-                <h1>This will be the header</h1>
+                <h1 className='mainpage-header'>This will be the header</h1>
             </div>
-            <div>
-                {allItems}
+            <div className='mainpage-body-container'>
+                <div>
+                    BIG IMAGE HERE
+                </div>
+                <div className='mainpage-shoe-listing-container'>
+                    <div>
+                        Recomended for you:
+                    </div>
+                    <div className='test'>
+                        {allItems}
+                    </div>
+                </div>
+
             </div>
-
-
         </>
     )
 
