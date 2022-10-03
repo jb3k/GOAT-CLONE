@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
-import { getUserPurchasesThunk, deletePurchaseThunk, editPurchaseThunk } from '../../store/purchase';
+import { getUserPurchasesThunk, deletePurchaseThunk } from '../../store/purchase';
 import './userPurchases.css'
+import EditUserPurchase from '../editUserPurchases';
 
 function CurrentUserPurchases() {
     const dispatch = useDispatch()
@@ -53,7 +54,7 @@ function CurrentUserPurchases() {
                         </div>
                         <button onClick={() => setShowEditTextField(!showEditTextField)}> Edit </button>
                         <button onClick={() => dispatch(deletePurchaseThunk(id))}> Delete </button>
-                        {/* {showEditTextField && <EditUserListing listingId={id} listingPrice={price} listingSize={size} setShowEditTextField={setShowEditTextField} />} */}
+                        {showEditTextField && <EditUserPurchase purchaseId={id} userAddy={address} userCity={city} userZip={zipcode} userState={state} userCountry={country} setShowEditTextField={setShowEditTextField} />}
                     </div>
                 </div>
             </>
