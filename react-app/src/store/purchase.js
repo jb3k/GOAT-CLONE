@@ -50,24 +50,6 @@ const remove = (id) => {
 
 //thunks
 
-// export const getAllListingsThunk = () => async dispatch => {
-//     const response = await fetch('/api/listing/')
-//     if (response.ok) {
-//         let listings = await response.json()
-//         dispatch(getAll(listings))
-//         return listings
-//     }
-// }
-
-// export const getListingThunk = (id) => async dispatch => {
-//     const response = await fetch(`/api/listing/${id}`)
-//     if (response.ok) {
-//         let listing = await response.json()
-//         dispatch(get(listing))
-//         return listing
-//     }
-// }
-
 export const getUserPurchasesThunk = () => async dispatch => {
     const response = await fetch('/api/purchase/user')
     if (response.ok) {

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, Link, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
-import { getAllListingsThunk } from '../../store/listings';
 // import ShoePurchasePage from './ShoePurchase';
 // import ShoeReviewPage from './ShoeReview';
 // import ShoeSizePage from './ShoeSize';
@@ -16,11 +15,9 @@ function ShoeListingPage() {
     const [isLoaded, setIsLoaded] = useState(false)
 
     const shoeInfo = useSelector(state => Object.values(state.apparel))
-    const listingInfo = useSelector(state => Object.values(state.listings))
 
     useEffect(() => {
         dispatch(getApparelThunk(shoeId))
-        dispatch(getAllListingsThunk())
             .then(() => setIsLoaded(true))
     }, [dispatch])
 
@@ -46,32 +43,11 @@ function ShoeListingPage() {
             </>
         )
 
-        // let currList
-        // let currentListing = listings.forEach(ele => {
-        //     console.log(ele)
-
-        // })
-
         const allShoeSizes = () => {
             let allsizes = [4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 14, 15, 16, 17, 18]
 
-            let priceList = {}
-
-            const eachListing = listingInfo.map(list => {
-                const { apparelId, price, size, id } = list
-                if (apparelId == shoeId) {
-                    priceList[size] = price
-                }
-            })
-
-
-            let priceListArr = Object.keys(priceList)
-
-            // console.log(priceListArr)
-
             const list = []
             allsizes.forEach((item1) => {
-
                 list.push(<div className='size-price-container'>
                     <Link to={`/shoe/${shoeId}/sell/${item1}`} style={{ textDecoration: 'none' }}>
                         <div>
@@ -80,9 +56,7 @@ function ShoeListingPage() {
                     </Link>
                 </div>
                 )
-
             })
-
             return (
                 <>
                     {list}
