@@ -9,6 +9,7 @@ import EditUserListing from '../editUserListings';
 function CurrentUserListings() {
     const dispatch = useDispatch()
     const [showEditTextField, setShowEditTextField] = useState(false);
+    const [showEditTextFieldListingId, setShowEditTextFieldListingId] = useState(0);
 
     const allUserListings = useSelector(state => Object.values(state.listings))
     console.log(allUserListings)
@@ -27,24 +28,28 @@ function CurrentUserListings() {
             <>
                 <div className='user-listings-container'>
                     <div className='user-listings-image-container'>
-                        img
+                        <img src={apparelImg} alt='shoe image' className='listing-shoe-img'></img>
                     </div>
                     <div className='user-listings-text-container'>
                         <div>
-                            {apparelName}
+                            Name: {apparelName}
                         </div>
                         <div>
-                            {apparelColorway}
+                            Colorway: {apparelColorway}
                         </div>
                         <div>
-                            {size}
+                            Shoe Size: {size}
                         </div>
                         <div>
-                            {price}
+                            Listing Price: ${price}
                         </div>
-                        <button onClick={() => setShowEditTextField(!showEditTextField)}> Edit </button>
+                        <button onClick={() => {
+                            setShowEditTextField(!showEditTextField)
+                            setShowEditTextFieldListingId(id)
+                        }
+                        }> Edit </button>
                         <button onClick={() => dispatch(deleteListingsThunk(id))}> Delete </button>
-                        {showEditTextField && <EditUserListing listingId={id} listingPrice={price} listingSize={size} setShowEditTextField={setShowEditTextField} />}
+                        {showEditTextField && showEditTextFieldListingId === id && <EditUserListing listingId={id} listingPrice={price} listingSize={size} setShowEditTextField={setShowEditTextField} />}
                     </div>
                 </div>
             </>

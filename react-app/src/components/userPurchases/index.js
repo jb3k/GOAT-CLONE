@@ -8,6 +8,8 @@ import EditUserPurchase from '../editUserPurchases';
 function CurrentUserPurchases() {
     const dispatch = useDispatch()
     const [showEditTextField, setShowEditTextField] = useState(false);
+    const [showEditTextFieldPuchaseId, setShowEditTextFieldPuchaseId] = useState(0);
+
 
     const allUserPurchases = useSelector(state => Object.values(state.purchase))
     console.log(allUserPurchases)
@@ -64,9 +66,12 @@ function CurrentUserPurchases() {
                         <div>
                             Zipcode: {zipcode}
                         </div>
-                        <button onClick={() => setShowEditTextField(!showEditTextField)}> Edit </button>
+                        <button onClick={() => {
+                            setShowEditTextField(!showEditTextField)
+                            setShowEditTextFieldPuchaseId(id)
+                        }}> Edit </button>
                         <button onClick={() => dispatch(deletePurchaseThunk(id))}> Delete </button>
-                        {showEditTextField && <EditUserPurchase purchaseId={id} userAddy={address} userCity={city} userZip={zipcode} userState={state} userCountry={country} setShowEditTextField={setShowEditTextField} />}
+                        {showEditTextField && showEditTextFieldPuchaseId === id && < EditUserPurchase purchaseId={id} userAddy={address} userCity={city} userZip={zipcode} userState={state} userCountry={country} setShowEditTextField={setShowEditTextField} />}
                     </div>
                 </div>
             </>

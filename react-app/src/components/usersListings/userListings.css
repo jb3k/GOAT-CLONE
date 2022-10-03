@@ -10,3 +10,9 @@
     width: 40%;
     border: 1px solid black;
 }
+
+.listing-shoe-img {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
