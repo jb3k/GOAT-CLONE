@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
-import { getUserListingsThunk, deleteListingsThunk } from '../../store/listings';
-import './userListings.css'
-import EditUserListing from '../editUserListings';
-
+import { getUserPurchasesThunk } from '../../store/purchase';
+import './userPurchases.css'
 
 function CurrentUserPurchases() {
     const dispatch = useDispatch()
@@ -14,27 +12,18 @@ function CurrentUserPurchases() {
     console.log(allUserListings)
 
     useEffect(() => {
-        dispatch(getUserListingsThunk())
+        dispatch(getUserPurchasesThunk())
     }, []);
 
 
-    const userListings = allUserListings.map(listing => {
+    
 
-
-
-
-        return (
-            <>
-            </>
-        )
-
-    })
 
 
     return (
         <>
             <div>
-                <h1> current listings</h1>
+                <h1> current purchases</h1>
             </div>
             <div>
             </div>

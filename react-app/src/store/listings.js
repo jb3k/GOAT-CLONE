@@ -135,7 +135,7 @@ const listingReducer = (state = initialState, action) => {
         }
         case GET_CURR_LISTING: {
             newState = {}
-            action.payload.listings.forEach(post => newState[post.id] = post)
+            action.payload.listings.forEach(post => newState[post.id] = post);
             return newState
         }
         case CREATE_LISTING: {

@@ -1,9 +1,9 @@
 // const GET_ALL_PURCHASES = 'listings/getAllListings'
 // const GET_PURCHASE = 'listing/getListings'
-const GET_CURR_PURCHASE = 'listing/getCurrListings'
-const CREATE_PURCHASE = 'listings/createListings'
-const UPDATE_PURCHASE = 'listings/updateListings'
-const DELETE_PURCHASE = 'listings/deleteListings'
+const GET_CURR_PURCHASE = 'purchase/getCurrPurchases'
+const CREATE_PURCHASE = 'purchases/createPurchases'
+const UPDATE_PURCHASE = 'purchases/updatePurchases'
+const DELETE_PURCHASE = 'purchases/deletePurchases'
 
 //actions
 // const getAll = (payload) => {
@@ -78,7 +78,7 @@ export const getUserPurchasesThunk = () => async dispatch => {
 }
 
 
-export const createListingsThunk = (id, payload) => async dispatch => {
+export const createPurchaseThunk = (id, payload) => async dispatch => {
 
     const response = await fetch(`/api/apparel/${id}/listings`, {
         method: "POST",
@@ -93,7 +93,7 @@ export const createListingsThunk = (id, payload) => async dispatch => {
 
 
 
-export const editListingsThunk = (id, payload) => async dispatch => {
+export const editPurchaseThunk = (id, payload) => async dispatch => {
     const response = await fetch(`/api/purchase/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -101,15 +101,15 @@ export const editListingsThunk = (id, payload) => async dispatch => {
     })
 
     if (response.ok) {
-        const listings = await response.json()
-        dispatch(update(listings))
+        const purchase = await response.json()
+        dispatch(update(purchase))
     }
 }
 
 
 
 
-export const deleteListingsThunk = (id) => async dispatch => {
+export const deletePurchaseThunk = (id) => async dispatch => {
     const response = await fetch(`/api/purchase/${id}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
@@ -126,16 +126,6 @@ const initialState = {}
 const purchaseReducer = (state = initialState, action) => {
     let newState
     switch (action.type) {
-        // case GET_ALL_LISTINGS: {
-        //     newState = {}
-        //     action.payload.listings.forEach(post => newState[post.id] = post)
-        //     return newState
-        // }
-        // case GET_LISTING: {
-        //     newState = { ...state }
-        //     newState[action.payload.id] = { ...newState[action.payload.id], ...action.payload }
-        //     return newState
-        // }
         case GET_CURR_PURCHASE: {
             newState = {}
             action.payload.purchase.forEach(item => newState[item.id] = item)
