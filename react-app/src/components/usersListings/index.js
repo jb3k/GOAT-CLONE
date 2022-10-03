@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
-import { getUserListingsThunk, editListingsThunk, deleteListingsThunk } from '../store/listings';
+import { getUserListingsThunk, deleteListingsThunk } from '../../store/listings';
 import './userListings.css'
+import EditUserListing from '../editUserListings';
 
 
 function CurrentUserListings() {
-    const [users, setUsers] = useState([]);
     const dispatch = useDispatch()
+    const [showEditTextField, setShowEditTextField] = useState(false);
 
     const allUserListings = useSelector(state => Object.values(state.listings))
     console.log(allUserListings)
@@ -41,8 +42,9 @@ function CurrentUserListings() {
                         <div>
                             {price}
                         </div>
-                        <button onClick={() => dispatch(editListingsThunk(id))}> Edit </button>
-                        {/* <button onClick={() => dispatch(deleteListingsThunk(id))}> Delete </button> */}
+                        <button onClick={() => setShowEditTextField(!showEditTextField)}> Edit </button>
+                        <button onClick={() => dispatch(deleteListingsThunk(id))}> Delete </button>
+                        {showEditTextField && <EditUserListing listingId={id} listingPrice={price} listingSize={size} setShowEditTextField={setShowEditTextField} />}
                     </div>
                 </div>
             </>

@@ -14,7 +14,7 @@ import SellPage from './components/sellpage';
 import ShoeProfilePage from './components/ShoeProfilePage';
 import ShoeListingPage from './components/ShoeListingPage';
 import ShoePurchasePage from './components/ShoeListingPage/ShoePurchase';
-import CurrentUserListings from './usersListings';
+import CurrentUserListings from './components/usersListings';
 
 
 function App() {
