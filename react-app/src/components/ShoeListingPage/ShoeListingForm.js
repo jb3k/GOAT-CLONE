@@ -1,25 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom';
-import { getApparelThunk } from '../../store/apparel';
 import { createListingsThunk } from '../../store/listings';
 
 
 function ShoeListingForm() {
 
     const dispatch = useDispatch()
-    const [isLoaded, setIsLoaded] = useState(false)
     const history = useHistory()
     const { shoeId, space, sizeId } = useParams();
-
-
-
     const [errors, setErrors] = useState([]);
     const [size, setSize] = useState(sizeId);
     const [price, setPrice] = useState('');
     const [quantity, setQuantity] = useState(1);
 
-    const user = useSelector(state => state.session.user);
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -29,6 +23,7 @@ function ShoeListingForm() {
         history.push('/users/listings')
 
     };
+
 
     return (
         <form onSubmit={onSubmit}>
