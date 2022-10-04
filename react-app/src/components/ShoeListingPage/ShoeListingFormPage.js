@@ -53,7 +53,7 @@ function ShoeListingFormPage() {
                 <div className='sell-page-left-container'>
                     {leftContainer}
                 </div>
-                <div>
+                <div className='sell-page-right-container'>
                     {rightContainer}
                 </div>
             </>
