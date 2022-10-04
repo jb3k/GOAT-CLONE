@@ -27,6 +27,19 @@
     font-weight: bolder;
 }
 
+.sell-page-image-container {
+    /* border: 1px solid black; */
+    height: 350px;
+    width: 97%;
+}
+
+.sell-page-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
 
 .sell-page-right-container {
     display: flex;

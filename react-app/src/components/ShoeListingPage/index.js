@@ -35,8 +35,8 @@ function ShoeListingPage() {
                         {colorway} ({releaseDate})
                     </div>
                 </div>
-                <div>
-                    <img src={imageUrl} alt="shoe"></img>
+                <div className='sell-page-image-container'>
+                    <img src={imageUrl} alt="shoe" className='sell-page-image'></img>
                 </div>
 
             </>
