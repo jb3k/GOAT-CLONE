@@ -2,23 +2,23 @@
     display: flex;
     /* justify-content: center; */
     align-items: center;
-    height: 70px;
-    border-bottom: 1px solid black;
+    height: 50px;
+    /* border-bottom: 1px solid black; */
 }
 
 .navbar-logo {
     display: flex;
     width: 15%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     justify-content: center;
     height: 35px;
 }
 
 .navbar-searchbar-container {
     width: 50%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 35px;
-    background-color: rgb(243, 232, 232);
+    /* background-color: rgb(243, 232, 232); */
 }
 
 
@@ -37,7 +37,7 @@
 .navbar-right-container {
     display: flex;
     width: 35%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 35px;
     align-items: center;
     justify-content: space-evenly;
@@ -90,7 +90,7 @@ a {
     z-index: 1;
     background-color: white;
     height: 15em;
-    /* display: flex; */
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
     border-radius: 3px;
