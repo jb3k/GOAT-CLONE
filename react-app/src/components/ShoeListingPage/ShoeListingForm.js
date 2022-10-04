@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux'
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, NavLink } from 'react-router-dom';
 import { createListingsThunk } from '../../store/listings';
 import './ShoeListingForm.css'
 
@@ -10,10 +10,17 @@ function ShoeListingForm() {
     const dispatch = useDispatch()
     const history = useHistory()
     const { shoeId, space, sizeId } = useParams();
-    const [errors, setErrors] = useState([]);
+    const [errorValidation, setErrorValidation] = useState([])
     const [size, setSize] = useState(sizeId);
     const [price, setPrice] = useState('');
     const [quantity, setQuantity] = useState(1);
+
+
+    // useEffect(() => {
+    //     const errors = []
+    //     if (!Number(price)) errors.push('Need valid price')
+    //     return setErrorValidation(errors)
+    // }, [size, price])
 
 
     const onSubmit = async (e) => {
@@ -30,13 +37,10 @@ function ShoeListingForm() {
         <div className='sell-page-right-container'>
             <form onSubmit={onSubmit}>
                 <div>
-                    {errors.map((error, ind) => (
+                    {errorValidation.map((error, ind) => (
                         <div key={ind}>{error}</div>
                     ))}
                 </div>
-
-
-
                 <div className='sell-form-top-size-box'>
                     <div style={{ marginRight: "4px", marginLeft: '10px' }}> Size: </div>
                     <div> US M {sizeId}</div>
@@ -52,12 +56,12 @@ function ShoeListingForm() {
                 </div>
                 <div className='sell-form-body-box-container'>
                     <div className='sell-form-body-box'>
-                        <button className='sell-now-button' type='submit'>Sell Now</button>
+                        <button className='sell-now-button' type='submit'>List Now</button>
                         <div className='sell-form-price-box'>
                             <label style={{ fontWeight: 'bolder', marginRight: '5px', marginLeft: '10px' }}>$</label>
                             <input
                                 className='price-input-container'
-                                type='text'
+                                type='number'
                                 name='price'
                                 onChange={e => setPrice(e.target.value)}
                                 value={price}
@@ -100,7 +104,11 @@ function ShoeListingForm() {
                         </div>
                     </div>
                 </div>
-
+                <div >
+                    <NavLink to={`/shoe/${shoeId}/sell`}>
+                        <button className='prev-button'> Prev </button>
+                    </NavLink>
+                </div>
             </form>
         </div>
     );

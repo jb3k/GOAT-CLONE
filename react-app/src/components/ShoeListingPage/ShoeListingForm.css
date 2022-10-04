@@ -69,3 +69,9 @@
     justify-content: space-between;
     margin-top: 15px;
 }
+
+.prev-button {
+    margin-top: 10px;
+    height: 25px;
+    width: 50px;
+}
