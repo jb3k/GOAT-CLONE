@@ -13,7 +13,7 @@ function ShoePurchasePage() {
 
     const { shoeId } = useParams();
     const [isLoaded, setIsLoaded] = useState(false)
-
+    const [shoeListing, setShoeListing] = useState(0)
     const shoeInfo = useSelector(state => Object.values(state.apparel))
 
     useEffect(() => {
@@ -62,13 +62,6 @@ function ShoePurchasePage() {
             })
             let priceListArr = Object.keys(priceList)
 
-            console.log(priceList)
-            // let arr = []
-            // const filterListing = listings.forEach((price) => {
-            //     arr.push(price.price)
-            // })
-            // let minPrice = Math.min(...arr)
-
             allsizes.forEach((item1) => {
                 priceListArr.forEach((item2) => {
                     if (item1 == item2) {
@@ -98,16 +91,6 @@ function ShoePurchasePage() {
                     </div>
                     )
                 }
-
-                // list.push(<div className='size-price-container'>
-                //     <Link to={`/shoe/${shoeId}/buy/${item1}`} style={{ textDecoration: 'none' }}>
-                //         <div>
-                //             {item1}
-                //         </div>
-                //     </Link>
-                // </div>
-                // )
-
             })
 
             return (

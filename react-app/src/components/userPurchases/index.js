@@ -16,7 +16,7 @@ function CurrentUserPurchases() {
 
     useEffect(() => {
         dispatch(getUserPurchasesThunk())
-    }, []);
+    }, [dispatch]);
 
     const userPurchases = allUserPurchases.map(item => {
         const { address, city, country, zipcode, state, listingImg, listingSize, apparelName, apparelColorway, id, createdAt } = item
