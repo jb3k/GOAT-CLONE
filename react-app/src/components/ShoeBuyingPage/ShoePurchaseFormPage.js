@@ -13,6 +13,8 @@ function ShoePurchaseFormPage() {
 
 
     const [shoeListingId, setShoeListingId] = useState(null)
+
+
     const [shoeSelected, setShoeSelected] = useState(false)
 
 
@@ -33,6 +35,7 @@ function ShoePurchaseFormPage() {
             .then(() => setIsLoaded(true))
 
     }, [dispatch])
+
 
 
 
@@ -105,6 +108,11 @@ function ShoePurchaseFormPage() {
                         </select>
                     </div>
                     {shoeSelected && <ShoeConfirmationPage listingId={shoeListingId} />}
+                    <div >
+                        <NavLink to={`/shoe/${shoeId}/buy`}>
+                            <button className='prev-button'> Prev </button>
+                        </NavLink>
+                    </div>
 
                 </div>
             </div>

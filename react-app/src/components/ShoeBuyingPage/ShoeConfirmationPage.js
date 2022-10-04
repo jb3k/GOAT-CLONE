@@ -24,36 +24,40 @@ function ShoeConfirmationPage({ listingId }) {
     return (
         <div className="personal-info-container">
             <div>
-                <input
-                    type="text"
-                    placeholder="Purchase Price"
-                // value={formData.firstName}
-                // onChange={(e) => {
-                //     setFormData({ ...formData, firstName: e.target.value });
-                // }}
-                />
+                <div className='sell-form-transaction-fee'>
+                    <div style={{ marginBottom: '7px' }}>
+                        Transaction Fee (10%)
+                    </div>
+                    <div>
+                        -${100 * 0.1}
+                    </div>
+                </div>
+                <div className='sell-form-transaction-fee'>
+                    <div style={{ marginBottom: '7px' }}>
+                        Payment Proc. (3%)
+                    </div>
+                    <div>
+                        -${(100 * 0.03)}
+                    </div>
+                </div>
+                <div className='sell-form-transaction-fee'>
+                    <div style={{ marginBottom: '7px' }}>
+                        Shipping
+                    </div>
+                    <div>
+                        -$10
+                    </div>
+                </div>
+                <div className='sell-form-total'>
+                    <div >
+                        Total
+                    </div>
+                    <div>
+                        <stong>${100 - (100 * 0.03) - (100 * 0.1)}</stong>
+                    </div>
+                </div>
             </div>
-            <div>
-                <input
-                    type="text"
-                    placeholder="Sales Tax"
-                // value={formData.lastName}
-                // onChange={(e) => {
-                //     setFormData({ ...formData, lastName: e.target.value });
-                // }}
-                />
-            </div>
-            <div>
-                <input
-                    type="text"
-                    placeholder="Shipping"
-                // value={formData.username}
-                // onChange={(e) => {
-                //     setFormData({ ...formData, username: e.target.value });
-                // }}
-                />
-            </div>
-        </div>
+        </div >
     );
 }
 

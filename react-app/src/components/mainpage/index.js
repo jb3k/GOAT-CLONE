@@ -31,7 +31,7 @@ function MainPage() {
         let minPrice = Math.min(...arr)
 
         console.log(minPrice)
-        
+
         let longName
         let shoeNameHtml
         if (name.length > 30) {
@@ -86,7 +86,7 @@ function MainPage() {
 
 
 
-    return (
+    return isLoaded && (
         <>
             <div>
                 <h1 className='mainpage-header'>This will be the header</h1>

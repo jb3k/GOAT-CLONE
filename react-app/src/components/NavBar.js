@@ -10,11 +10,6 @@ const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user)
   const [open, setOpen] = useState(false)
 
-  const openDropDown = () => {
-    if (open) return
-    setOpen(true)
-  }
-
   useEffect(() => {
     if (!open) return;
     const closeDropDown = () => {
