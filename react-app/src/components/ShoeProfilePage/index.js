@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
+import './ShoeProfilePage.css'
 
 
 function ShoeProfilePage() {
@@ -22,52 +23,109 @@ function ShoeProfilePage() {
 
     const shoePage = shoeInfo.map((shoe) => {
 
-        const { brand, brandType, colorway, condition, description, id, imageUrl, name, style, retaillPrice, releaseDate } = shoe
+        const { brand, brandType, colorway, condition, description, id, imageUrl, name, style, retailPrice, releaseDate } = shoe
 
         let topContainer = (
             <>
-                <div>
-                    <div>
-                        left container
-                        <div>
-                            url path
+                <div className='shoe-profile-top-container'>
+                    <div className='shoe-profile-top-left-container'>
+                        <div className='shoe-profile-url-header'>
+                            Home / Sneakers / {brand} / {brandType} / {name}
                         </div>
-                        <div>
+                        <div className='shoe-profile-title'>
                             {name}
                         </div>
-                        <div>
+                        <div className='shoe-profile-colorway'>
                             {colorway}
                         </div>
-                        <div>
-                            condtion:{condition}
+                        <div className='shoe-profile-condition'>
+                            Condtion: {condition}
                         </div>
-                        <div>
-                            <img src={imageUrl} alt="shoe image"></img>
+                        <div className='shoe-profile-image-container'>
+                            <img src={imageUrl} alt="shoe image" className='shoe-profile-image' ></img>
                         </div>
                     </div>
-                    <div>
-                        right container
-                        <NavLink to={`/shoe/${id}/buy`}>
-                            <button> Buy</button>
-                        </NavLink>
-                        <NavLink to={`/shoe/${id}/sell`}>
-                            <button> Sell</button>
-                        </NavLink>
+                    <div className='shoe-profile-top-right-container'>
+                            I SHOULD PUT SOMETHING HERE
+                        <div className='shoe-profile-top-right-body'>
+                            <div>
+                                <NavLink to={`/shoe/${id}/buy`}>
+                                    <button className='shoe-profile-buy-button'> Buy</button>
+                                </NavLink>
+                            </div>
+                            <div>
+                                <NavLink to={`/shoe/${id}/sell`}>
+                                    <button className='shoe-profile-sell-button'> Sell</button>
+                                </NavLink>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </>
         )
 
         let relatedProducts = (
-            <div>
-                Related relatedProducts
+            <div className='shoe-profile-related-products-container'>
+                <div style={{ marginBottom: '5px' }}>
+                    Related Products
+                </div>
+                <div className='shoe-profile-related-products'>
+                    <div>
+                        img
+                    </div>
+                    <div>
+                        name
+                    </div>
+                    <div>
+                        lowest ask
+                    </div>
+                    <div>
+                        price
+                    </div>
+                </div>
             </div>
         )
 
 
         let productDetails = (
-            <div>
-                Product Details:
+            <div className='shoe-profile-product-details-container'>
+                <div style={{ marginBottom: '30px', fontWeight: '600' }}>
+                    Product Details:
+                </div>
+                <div className='shoe-profile-product-body-container'>
+                    <div className='shoe-profile-product-body-left-container'>
+                        <div className='shoe-profile-product-body-left-left-container'>
+                            <div>
+                                Colorway
+                            </div>
+                            <div>
+                                Retail Price
+                            </div>
+                            <div>
+                                Release Date
+                            </div>
+                        </div>
+                        <div className='shoe-profile-product-body-left-right-container'>
+                            <div>
+                                {colorway}
+                            </div>
+                            <div>
+                                ${retailPrice}
+                            </div>
+                            <div>
+                                {releaseDate}
+                            </div>
+                        </div>
+                    </div>
+                    <div className='shoe-profile-product-body-right-container'>
+                        <div style={{ marginBottom: '8px', fontWeight: '550' }}>
+                            Product description
+                        </div>
+                        <div className='shoe-profile-product-description'>
+                            {description}
+                        </div>
+                    </div>
+                </div>
 
             </div>
         )
@@ -75,16 +133,43 @@ function ShoeProfilePage() {
         let priceHistory = (
             <div>
                 Price history
+                <div>
+                    Graph...?
+                </div>
             </div>
 
         )
         let historalStats = (
-            <div>
-                Historial stats
+            <div className='shoe-profile-stats'>
+                <div>
+                    Historial stats
+                </div>
+
+                <div className='shoe-profile-stats-box-container'>
+                    <div className='shoe-profile-stats-box'>
+                        12-month Trade Range
+                    </div>
+                    <div className='shoe-profile-stats-box'>
+                        All-Time Trade Range
+                    </div>
+                    <div className='shoe-profile-stats-box'>
+                        Volatility
+                    </div>
+                    <div className='shoe-profile-stats-box'>
+                        Number of Sales
+                    </div>
+                    <div className='shoe-profile-stats-box'>
+                        Price Premium
+                    </div>
+                    <div className='shoe-profile-stats-box'>
+                        Average Sale Price
+                    </div>
+                </div>
+
             </div>
         )
         return isLoaded && (
-            <div key={id}>
+            <div key={id} className='shoe-page-body'>
                 <div>
                     {topContainer}
                 </div>
@@ -109,7 +194,7 @@ function ShoeProfilePage() {
 
 
     return isLoaded && (
-        <div>
+        <div className='shoe-page-body-container'>
             {shoePage}
         </div>
     );

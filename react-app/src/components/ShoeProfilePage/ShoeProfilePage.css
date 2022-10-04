@@ -1,0 +1,202 @@
+.shoe-page-body-container {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shoe-page-body {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px black solid; */
+    width: 72%;
+    height: 1500px;
+}
+
+
+.shoe-profile-top-container {
+    display: flex;
+    border-bottom: 1px solid darkgray;
+    margin-bottom: 10px
+}
+
+.shoe-page-top-left-container {
+    width: 65%;
+}
+
+
+
+.shoe-profile-url-header {
+    font-size: 10px;
+    color: darkgray;
+}
+
+.shoe-profile-title {
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.shoe-profile-colorway {
+    font-size: 16px;
+    color: rgb(132, 122, 122);
+}
+
+.shoe-profile-condition {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    height: 13px;
+    width: 65px;
+    background-color: lightgray;
+    border-radius: 3px;
+}
+
+.shoe-profile-image-container {
+    width: 100%;
+}
+
+.shoe-profile-image {
+    height: 90%;
+    width: 90%;
+    object-fit: cover;
+}
+
+
+
+.shoe-profile-top-right-container {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.shoe-profile-top-right-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid lightgrey;
+    height: 170px;
+    width: 70%;
+    border-radius: 4px;
+}
+
+
+
+
+.shoe-profile-buy-button {
+    border: 1px solid black;
+    height: 30px;
+    width: 8rem;
+    margin-right: 10px;
+    background-color: white;
+    font-weight: 600;
+}
+
+.shoe-profile-sell-button {
+    border: 1px solid black;
+    height: 30px;
+    width: 8rem;
+    color: white;
+    background-color: darkgreen;
+}
+
+
+
+.shoe-profile-related-products-container {
+    margin-top: 10px;
+    height: 200px;
+    border-bottom: 1px solid darkgray;
+    margin-bottom: 10px
+}
+
+
+.shoe-profile-related-products {
+    border: 1px solid black;
+    height: 160px;
+    width: 130px;
+}
+
+
+.shoe-profile-product-details-container {
+    width: 100%;
+    height: 280px;
+    border-bottom: 1px solid darkgray;
+}
+
+.shoe-profile-product-body-container {
+    display: flex;
+}
+
+.shoe-profile-product-body-left-container {
+    display: flex;
+    width: 35%;
+    height: 80px;
+}
+
+.shoe-profile-product-body-left-left-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    margin-right: 30px;
+    color: rgb(99, 99, 99);
+    font-size: 12px;
+}
+
+.shoe-profile-product-body-left-right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+
+
+.shoe-profile-product-body-right-container {
+    width: 60%;
+    height: 100%;
+    margin-left: 20px;
+    font-size: 12px;
+}
+
+.shoe-profile-product-description {
+    color: rgb(104, 104, 104);
+}
+
+
+
+
+
+
+
+
+
+
+
+.shoe-profile-stats {
+    border: 1px solid black;
+    width: 100%;
+    height: 200px;
+}
+
+.shoe-profile-stats-box-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    /* grid-template-columns: repeat(3 220px);
+    grid-template-rows: 2; */
+}
+
+.shoe-profile-stats-box {
+    grid-template-columns: repeat(3 220px);
+    height: 50px;
+    width: 180px;
+    border: 1px solid black;
+    background-color: lightgray;
+}
