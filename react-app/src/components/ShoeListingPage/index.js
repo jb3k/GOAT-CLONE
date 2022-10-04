@@ -65,7 +65,6 @@ function ShoeListingPage() {
 
         let rightContainer = (
             <>
-
                 <div className='right-container-header'>
                     <div className='right-container-header-title'>
                         Select Size
@@ -84,8 +83,6 @@ function ShoeListingPage() {
                         <button className='cancel-button'> Cancel </button>
                     </NavLink>
                 </div>
-
-
             </>
         )
 

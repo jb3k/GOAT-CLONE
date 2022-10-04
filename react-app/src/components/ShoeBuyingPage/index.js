@@ -23,21 +23,20 @@ function ShoePurchasePage() {
 
     const shoePage = shoeInfo.map((shoe) => {
 
-        const { colorway, imageUrl, name, listings } = shoe
+        const { colorway, imageUrl, name, listings, brand, brandType, style, releaseDate } = shoe
 
         let leftContainer = (
             <>
-                <div>
-                    Header
-                    <div>
-                        {name}
+                <div className='formpage-sell-shoe-name-container'>
+                    <div className='formpage-sell-shoe-name'>
+                        {brand} {brandType} {style}
                     </div>
-                    <div>
-                        {colorway}
+                    <div className='formpage-sell-shoe-name'>
+                        {colorway} ({releaseDate})
                     </div>
                 </div>
-                <div>
-                    <img src={imageUrl} alt="shoe"></img>
+                <div className='sell-page-image-container'>
+                    <img src={imageUrl} alt="shoe" className='sell-page-image'></img>
                 </div>
 
             </>
@@ -75,11 +74,12 @@ function ShoePurchasePage() {
 
         let rightContainer = (
             <>
-
                 <div className='right-container-header'>
-                    <div>
-                        <p>Select Size</p>
-                        U.S. Men's Shoes
+                    <div className='right-container-header-title'>
+                        Select Size
+                    </div>
+                    <div className='right-container-header-text'>
+                        U.S Men's Shoes Lowest Asks
                     </div>
                 </div>
                 <div className='shoe-size-list-container'>
@@ -87,13 +87,11 @@ function ShoePurchasePage() {
                         {allShoeSizes()}
                     </div>
                 </div>
-                <div>
-                    <NavLink to='/'>
-                        <button> Cancel </button>
+                <div className='right-container-header'>
+                    <NavLink to={`/shoe/${shoeId}`}>
+                        <button className='cancel-button'> Cancel </button>
                     </NavLink>
                 </div>
-
-
             </>
         )
 

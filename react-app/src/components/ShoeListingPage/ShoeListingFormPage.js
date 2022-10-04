@@ -35,10 +35,9 @@ function ShoeListingFormPage() {
                         {colorway} ({releaseDate})
                     </div>
                 </div>
-                <div>
-                    <img src={imageUrl} alt="shoe"></img>
+                <div className='shoe-profile-image-container'>
+                    <img src={imageUrl} alt="shoe image" className='shoe-profile-image' ></img>
                 </div>
-
             </>
         )
 

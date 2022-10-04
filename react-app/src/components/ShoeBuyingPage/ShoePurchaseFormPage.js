@@ -58,20 +58,20 @@ function ShoePurchaseFormPage() {
 
     const shoeImg = shoeInfo.map(item => {
 
-        const { name, imageUrl, colorway, id } = item
+        const { brand, brandType, style, releaseDate, colorway, imageUrl, name, id } = item
 
         let leftContainer = (
             <>
-                <div>
-                    <div>
-                        {name}
+                <div className='formpage-sell-shoe-name-container'>
+                    <div className='formpage-sell-shoe-name'>
+                        {brand} {brandType} {style}
                     </div>
-                    <div>
-                        {colorway}
+                    <div className='formpage-sell-shoe-name'>
+                        {colorway} ({releaseDate})
                     </div>
                 </div>
-                <div>
-                    <img src={imageUrl} alt="shoe"></img>
+                <div className='shoe-profile-image-container'>
+                    <img src={imageUrl} alt="shoe image" className='shoe-profile-image' ></img>
                 </div>
             </>
         )
@@ -90,7 +90,7 @@ function ShoePurchaseFormPage() {
     return isLoaded && (
         <>
             <div className='sell-page-main-container'>
-                <div>
+                <div className='sell-page-left-container'>
                     {shoeImg}
                 </div>
                 <div>
