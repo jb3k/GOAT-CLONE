@@ -1,10 +1,6 @@
 .sell-page-main-container {
     display: flex;
-    border: 1px solid black;
-    height: 500px;
-    width: 90%;
-    background-color: lightgray;
-    margin-left: 5%;
+
 }
 
 
@@ -12,29 +8,61 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid black;
     width: 50%;
-    height: 100%;
+    height: 800px;
+
 }
+
+.formpage-sell-shoe-name-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+}
+
+.formpage-sell-shoe-name {
+    margin-top: 10px;
+    font-size: 26px;
+    font-weight: bolder;
+}
+
+
 
 .sell-page-right-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid black;
     width: 50%;
-    height: 100%;
+    height: 800px;
+    background-color: rgb(243, 241, 241);
 }
 
 .right-container-header {
-    height: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 80px;
 }
+
+.right-container-header-title {
+    margin-top: 10px;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.right-container-header-text {
+    font-size: 10px;
+    font-weight: 600;
+}
+
 
 .shoe-size-list-container {
     display: flex;
     width: 90%;
-    height: 60%;
-    border: 1px solid black;
+    height: 40%;
+    /* border: 1px solid black; */
     justify-content: center;
 }
 
@@ -42,8 +70,11 @@
 .shoe-size-list {
     display: grid;
     justify-content: space-evenly;
-    grid-template-columns: repeat(4, 65px);
-    gap: 10px;
+    grid-template-columns: repeat(4, 60px);
+    margin-top: 10px;
+    height: 260px;
+    column-gap: 35px;
+    row-gap: 8px;
 }
 
 .size-price-container {
@@ -57,4 +88,9 @@
 
 .size-price-container-price {
     color: forestgreen;
+}
+
+.cancel-button {
+    height: 35px;
+    border: 2px solid black;
 }
