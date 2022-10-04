@@ -44,40 +44,49 @@ function App() {
       <Route path='/sign-up' exact={true}>
         <SignUpForm />
       </Route>
-        <NavBar />
+      {/* <NavBar /> */}
       <Switch>
         <ProtectedRoute path='/users' exact={true} >
+          <NavBar />
           <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/listings' exact={true} >
+          <NavBar />
           <CurrentUserListings />
         </ProtectedRoute>
 
         <ProtectedRoute path='/users/purchases' exact={true} >
+          <NavBar />
           <CurrentUserPurchases />
         </ProtectedRoute>
 
         <ProtectedRoute path='/shoe/:shoeId' exact={true} >
+          <NavBar />
           <ShoeProfilePage />
         </ProtectedRoute>
 
         <ProtectedRoute path='/shoe/:shoeId/sell' exact={true} >
+          <NavBar />
           <ShoeListingPage />
         </ProtectedRoute>
 
         <ProtectedRoute path='/shoe/:shoeId/sell/:sizeId' exact={true} >
+          <NavBar />
           <ShoeListingFormPage />
         </ProtectedRoute>
 
         <ProtectedRoute path='/shoe/:shoeId/buy' exact={true} >
+          <NavBar />
           <ShoePurchasePage />
         </ProtectedRoute>
 
         <ProtectedRoute path='/shoe/:shoeId/buy/:sizeId' exact={true} >
+          <NavBar />
           <ShoePurchaseFormPage />
         </ProtectedRoute>
 
         <ProtectedRoute path='/sell' exact={true} >
+          <NavBar />
           <UploadPicture />
         </ProtectedRoute>
 
@@ -90,6 +99,7 @@ function App() {
         </ProtectedRoute>
 
         <Route path='/' exact={true} >
+          <NavBar />
           <MainPage />
         </Route>
       </Switch>
