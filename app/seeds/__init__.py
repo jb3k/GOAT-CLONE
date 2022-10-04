@@ -16,8 +16,8 @@ def seed():
     seed_users()
     # Add other seed functions here
     seed_apparel()
-    seed_purchase()
     seed_listings()
+    seed_purchase()
     # seed_image()
 
 # Creates the `flask seed undo` command
