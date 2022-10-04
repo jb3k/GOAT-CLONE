@@ -30,7 +30,7 @@ function MainPage() {
         })
         let minPrice = Math.min(...arr)
 
-        console.log(minPrice)
+        // console.log(minPrice)
 
         let longName
         let shoeNameHtml

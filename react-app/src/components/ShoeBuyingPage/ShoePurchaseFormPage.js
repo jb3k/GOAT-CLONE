@@ -42,26 +42,6 @@ function ShoePurchaseFormPage() {
 
         const { brand, brandType, style, releaseDate, colorway, imageUrl, name, id, listings } = item
 
-        // let listingFilter = listings.map(ele => {
-        //     // console.log(ele)
-        //     const { id, size, price, apparelId } = ele
-        //     let filtered
-        //     if (parseInt(shoeId) === apparelId && parseInt(sizeId) === size) {
-        //         filtered = (
-        //             <>
-        //                 <option value={id}> Size: {size} ${price}</option>
-        //             </>
-        //         )
-        //     }
-        //     return (
-        //         <>
-        //             {filtered}
-        //         </>
-        //     )
-
-        // })
-
-
 
         let leftContainer = (
             <>

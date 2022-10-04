@@ -5,6 +5,7 @@ import { getAllListingsThunk } from '../../store/listings';
 
 function ShoeConfirmationPage({ }) {
     const dispatch = useDispatch();
+    const [listingId, setListingId] = useState(0)
     const { shoeId, space, sizeId } = useParams();
     const [shoePrice, setShoePrice] = useState('');
     const [isLoaded, setIsLoaded] = useState(false)
@@ -43,6 +44,7 @@ function ShoeConfirmationPage({ }) {
 
     })
 
+    console.log(listingId)
 
     return (
         <>

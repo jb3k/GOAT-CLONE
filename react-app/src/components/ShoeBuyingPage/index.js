@@ -51,17 +51,62 @@ function ShoePurchasePage() {
         const allShoeSizes = () => {
             let allsizes = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
             const list = []
+            let priceList = {}
+            const eachListing = listings.map(list => {
+                const { apparelId, price, size, id } = list
+
+
+                if (apparelId == shoeId) {
+                    priceList[size] = price
+                }
+            })
+            let priceListArr = Object.keys(priceList)
+
+            console.log(priceList)
+            // let arr = []
+            // const filterListing = listings.forEach((price) => {
+            //     arr.push(price.price)
+            // })
+            // let minPrice = Math.min(...arr)
 
             allsizes.forEach((item1) => {
+                priceListArr.forEach((item2) => {
+                    if (item1 == item2) {
+                        list.push(
+                            <Link to={`/shoe/${shoeId}/buy/${item1}`} style={{ textDecoration: 'none' }}>
+                                <div className='size-price-container'>
+                                    <div>
+                                        {item1}
+                                    </div>
+                                    <div className='size-price-container-price'>
+                                        {`$ ${priceList[`${item1}`]}`}
+                                    </div>
+                                </div>
+                            </Link>
+                        )
+                    }
 
-                list.push(<div className='size-price-container'>
-                    <Link to={`/shoe/${shoeId}/buy/${item1}`} style={{ textDecoration: 'none' }}>
+                })
+                if (!priceList[`${item1}`]) {
+                    list.push(<div className='size-price-container'>
                         <div>
                             {item1}
                         </div>
-                    </Link>
-                </div>
-                )
+                        <div className='size-price-container-price'>
+                            Sold Out
+                        </div>
+                    </div>
+                    )
+                }
+
+                // list.push(<div className='size-price-container'>
+                //     <Link to={`/shoe/${shoeId}/buy/${item1}`} style={{ textDecoration: 'none' }}>
+                //         <div>
+                //             {item1}
+                //         </div>
+                //     </Link>
+                // </div>
+                // )
 
             })
 
