@@ -23,17 +23,16 @@ function ShoeListingFormPage() {
 
     const shoePage = shoeInfo.map((shoe) => {
 
-        const { colorway, imageUrl, name } = shoe
+        const { brand, brandType, style, releaseDate, colorway, imageUrl, name } = shoe
 
         let leftContainer = (
             <>
-                <div>
-                    Header
-                    <div>
-                        {name}
+                <div className='formpage-sell-shoe-name-container'>
+                    <div className='formpage-sell-shoe-name'>
+                        {brand} {brandType} {style}
                     </div>
-                    <div>
-                        {colorway}
+                    <div className='formpage-sell-shoe-name'>
+                        {colorway} ({releaseDate})
                     </div>
                 </div>
                 <div>
