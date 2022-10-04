@@ -39,6 +39,7 @@
     height: 180px;
     margin-right: 20px;
     width: 140px;
+
 }
 
 .mainpage-shoe-listing-image-container {
@@ -55,12 +56,19 @@
 .mainpage-shoe-name {
     font-size: 12px;
     margin-bottom: 10px;
+    margin-left: 3px;
 }
 
 .mainpage-shoe-lowest-ask {
     font-size: 10px;
     color: darkgray;
+    margin-left: 3px;
 }
+
+.mainpage-shoe-lowest-price {
+    margin-left: 3px;
+}
+
 
 .test {
     display: flex;

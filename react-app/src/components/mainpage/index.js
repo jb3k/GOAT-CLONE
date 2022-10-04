@@ -43,7 +43,7 @@ function MainPage() {
                     </div>
                     <div>
                         <div className='mainpage-shoe-lowest-ask'>lowest ask</div>
-                        <strong><div>${minPrice}</div></strong>
+                        <strong><div className='mainpage-shoe-lowest-price'>${minPrice}</div></strong>
                     </div>
                     {/* <div>
                         last sale:

@@ -1,5 +1,5 @@
 import './navbar.css'
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useState } from 'react'
@@ -9,6 +9,23 @@ const NavBar = () => {
 
   const sessionUser = useSelector((state) => state.session.user)
   const [open, setOpen] = useState(false)
+
+  const openDropDown = () => {
+    if (open) return
+    setOpen(true)
+  }
+
+  useEffect(() => {
+    if (!open) return;
+    const closeDropDown = () => {
+      setOpen(false)
+    }
+    document.addEventListener('click', closeDropDown);
+    return () => document.removeEventListener("click", closeDropDown);
+  }, [open])
+
+
+
 
   const profileMenu = () => {
 
