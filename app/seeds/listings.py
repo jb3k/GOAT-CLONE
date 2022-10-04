@@ -88,7 +88,7 @@ def seed_listings():
             "size": 13,
             "price": 950,
             "quantity":1
-        }, 
+        }
     ]
 
 

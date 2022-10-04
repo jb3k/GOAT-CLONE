@@ -33,8 +33,49 @@ def seed_users():
             "last_name": "Demo",
             "email": "rondemo@gmail.com",
             "password": "password"
-        } 
-
+        },
+        {
+            "first_name": "Shawn",
+            "last_name": "Demo",
+            "email": "sdemo@gmail.com",
+            "password": "password"
+        }, 
+        {
+            "first_name": "Sean",
+            "last_name": "Demo",
+            "email": "s1demo@gmail.com",
+            "password": "password"
+        }, 
+        {
+            "first_name": "Steve",
+            "last_name": "Demo",
+            "email": "s2demo@gmail.com",
+            "password": "password"
+        }, 
+        {
+            "first_name": "Sam",
+            "last_name": "Demo",
+            "email": "s3demo@gmail.com",
+            "password": "password"
+        }, 
+        {
+            "first_name": "Samuel",
+            "last_name": "Demo",
+            "email": "s4demo@gmail.com",
+            "password": "password"
+        }, 
+        {
+            "first_name": "Samantha",
+            "last_name": "Demo",
+            "email": "s5demo@gmail.com",
+            "password": "password"
+        }, 
+        {
+            "first_name": "Sammy",
+            "last_name": "Demo",
+            "email": "s6demo@gmail.com",
+            "password": "password"
+        }
     ]
 
     for user in users:
