@@ -14,6 +14,186 @@ def seed_purchase():
             "country": "USA",
             "zipcode": 12345
         }, 
+        {
+            "user_id": 1,
+            "listing_id": 2,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 1,
+            "listing_id": 8,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 1,
+            "listing_id": 12,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 1,
+            "listing_id": 11,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 2,
+            "listing_id": 3,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 5,
+            "listing_id": 4,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 4,
+            "listing_id": 10,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 4,
+            "listing_id": 14,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 4,
+            "listing_id": 15,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 5,
+            "listing_id": 16,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 5,
+            "listing_id": 17,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 5,
+            "listing_id": 18,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 5,
+            "listing_id": 19,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 5,
+            "listing_id": 20,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 5,
+            "listing_id": 21,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 6,
+            "listing_id": 22,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 6,
+            "listing_id": 23,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 6,
+            "listing_id": 24,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 6,
+            "listing_id": 25,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
+        {
+            "user_id": 6,
+            "listing_id": 26,
+            "address": "123 main street",
+            "city": "LA",
+            "state": "CA",
+            "country": "USA",
+            "zipcode": 12345
+        }, 
 
 
     ]

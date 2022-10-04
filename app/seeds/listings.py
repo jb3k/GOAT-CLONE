@@ -88,7 +88,274 @@ def seed_listings():
             "size": 13,
             "price": 950,
             "quantity":1
-        }
+        },
+        {
+            "user_id": 5,
+            "apparel_id": 8,
+            "size": 12,
+            "price": 850,
+            "quantity":1
+        }, 
+        {
+            "user_id": 5,
+            "apparel_id": 10,
+            "size": 12,
+            "price": 850,
+            "quantity":1
+        }, 
+        {
+            "user_id": 5,
+            "apparel_id": 10,
+            "size": 11,
+            "price": 850,
+            "quantity":1
+        }, 
+        {
+            "user_id": 5,
+            "apparel_id": 10,
+            "size": 15,
+            "price": 800,
+            "quantity":1
+        }, 
+        {
+            "user_id": 5,
+            "apparel_id": 5,
+            "size": 10,
+            "price": 850,
+            "quantity":1
+        }, 
+        {
+            "user_id": 6,
+            "apparel_id": 13,
+            "size": 12,
+            "price": 850,
+            "quantity":1
+        }, 
+        {
+            "user_id": 6,
+            "apparel_id": 8,
+            "size": 12,
+            "price": 850,
+            "quantity":1
+        }, 
+        {
+            "user_id": 6,
+            "apparel_id": 8,
+            "size": 4,
+            "price": 850,
+            "quantity":1
+        }, 
+        {
+            "user_id": 6,
+            "apparel_id": 8,
+            "size": 5,
+            "price": 450,
+            "quantity":1
+        },
+        {
+            "user_id": 6,
+            "apparel_id": 8,
+            "size": 7,
+            "price": 450,
+            "quantity":1
+        }, 
+        {
+            "user_id": 6,
+            "apparel_id": 9,
+            "size": 5,
+            "price": 450,
+            "quantity":1
+        }, 
+        {
+            "user_id": 7,
+            "apparel_id": 12,
+            "size": 7,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 7,
+            "apparel_id": 15,
+            "size": 7,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 7,
+            "apparel_id": 13,
+            "size": 7,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 7,
+            "apparel_id": 12,
+            "size": 8,
+            "price": 360,
+            "quantity":1
+        }, 
+        {
+            "user_id": 7,
+            "apparel_id": 13,
+            "size": 7,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 7,
+            "apparel_id": 14,
+            "size": 7,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 7,
+            "apparel_id": 15,
+            "size": 10,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 7,
+            "apparel_id": 15,
+            "size": 4,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 8,
+            "apparel_id": 16,
+            "size": 7,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 8,
+            "apparel_id": 16,
+            "size": 8,
+            "price": 320,
+            "quantity":1
+        }, 
+        {
+            "user_id": 8,
+            "apparel_id": 16,
+            "size": 9,
+            "price": 350,
+            "quantity":1
+        }, 
+        {
+            "user_id": 8,
+            "apparel_id": 17,
+            "size": 7,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 8,
+            "apparel_id": 17,
+            "size": 4,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 8,
+            "apparel_id": 17,
+            "size": 9,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 8,
+            "apparel_id": 17,
+            "size": 10,
+            "price": 320,
+            "quantity":1
+        }, 
+        {
+            "user_id": 9,
+            "apparel_id": 18,
+            "size": 7,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 9,
+            "apparel_id": 18,
+            "size": 6,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 9,
+            "apparel_id": 18,
+            "size": 12,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 9,
+            "apparel_id": 18,
+            "size": 13,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 9,
+            "apparel_id": 18,
+            "size": 14,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 9,
+            "apparel_id": 18,
+            "size": 16,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 9,
+            "apparel_id": 18,
+            "size": 17,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 9,
+            "apparel_id": 19,
+            "size": 7,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 9,
+            "apparel_id": 19,
+            "size": 9,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 9,
+            "apparel_id": 19,
+            "size": 8,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 9,
+            "apparel_id": 19,
+            "size": 4,
+            "price": 300,
+            "quantity":1
+        }, 
+        {
+            "user_id": 9,
+            "apparel_id": 19,
+            "size": 3,
+            "price": 300,
+            "quantity":1
+        }, 
+        
     ]
 
 
