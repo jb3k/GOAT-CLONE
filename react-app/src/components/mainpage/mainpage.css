@@ -39,6 +39,7 @@
     height: 180px;
     margin-right: 20px;
     width: 140px;
+    margin-bottom: 10px;
 
 }
 
@@ -53,8 +54,15 @@
     object-fit: fill;
 }
 
+.mainpage-shoe-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
 .mainpage-shoe-name {
-    font-size: 12px;
+    font-size: 10px;
     margin-bottom: 10px;
     margin-left: 3px;
 }
@@ -73,4 +81,6 @@
 .test {
     display: flex;
     margin-top: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
