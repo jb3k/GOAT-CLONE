@@ -132,7 +132,7 @@ function ShoeConfirmationPage({ }) {
                                     Sales Tax(1%)
                                 </div>
                                 <div>
-                                    ${listingFilter * 0.01}
+                                    ${(listingFilter * 0.01).toFixed(2)}
                                 </div>
                             </div>
                             <div className='sell-form-transaction-fee'>
@@ -140,7 +140,7 @@ function ShoeConfirmationPage({ }) {
                                     Processing Fee (10%)
                                 </div>
                                 <div>
-                                    ${(listingFilter * 0.1)}
+                                    ${(listingFilter * 0.1).toFixed(2)}
                                 </div>
                             </div>
                             <div className='sell-form-transaction-fee'>
@@ -156,7 +156,7 @@ function ShoeConfirmationPage({ }) {
                                     Total
                                 </div>
                                 <div>
-                                    ${(Number(listingFilter) + 10 + (Number(listingFilter * 0.11)))}
+                                    ${(Number(listingFilter) + 10 + (Number(listingFilter * 0.11))).toFixed(2)}
                                 </div>
                             </div>
                         </div>

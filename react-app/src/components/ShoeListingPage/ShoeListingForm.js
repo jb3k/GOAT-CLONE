@@ -75,7 +75,7 @@ function ShoeListingForm() {
                                 Transaction Fee (10%)
                             </div>
                             <div>
-                                -${price * 0.1}
+                                -${(price * 0.1).toFixed(2)}
                             </div>
                         </div>
                         <div className='sell-form-transaction-fee'>
@@ -83,7 +83,7 @@ function ShoeListingForm() {
                                 Payment Proc. (1%)
                             </div>
                             <div>
-                                -${(price * 0.01)}
+                                -${(price * 0.01).toFixed(2)}
                             </div>
                         </div>
                         <div className='sell-form-transaction-fee'>
@@ -99,7 +99,7 @@ function ShoeListingForm() {
                                 Total
                             </div>
                             <div>
-                                <stong>${price - (price * 0.01) - (price * 0.1)}</stong>
+                                <stong>${(price - (price * 0.01) - (price * 0.1)).toFixed(2)}</stong>
                             </div>
                         </div>
                     </div>
