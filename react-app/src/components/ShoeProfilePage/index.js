@@ -28,7 +28,7 @@ function ShoeProfilePage() {
         const { apparelBrandType, price, apparelId, apparelName, apparelImg } = item
 
         if ((apparelBrandType === shoeInfo[0].brandType) && (apparelId !== shoeInfo[0].id) && (apparelName !== shoeInfo[0].name)) {
-            console.log(item)
+            // console.log(item)
             if (apparelName !== shoeInfo[0].name) {
 
                 return (
@@ -52,6 +52,10 @@ function ShoeProfilePage() {
                     </>
                 )
             }
+
+
+
+
         }
 
     })
@@ -67,13 +71,15 @@ function ShoeProfilePage() {
         if (listings.length > 25) {
             allListings = (
                 <div style={{ marginLeft: '8px' }}>
-                    There are currently {listings.length} available listings
+                    This shoe is Hot right now!!!
+                    {/* There are currently {listings.length} available listings */}
                 </div>
             )
         } else if (listings.length < 24 && listings.length >= 1) {
             allListings = (
                 <div style={{ marginLeft: '8px' }}>
-                    Only {listings.length} available listings for this shoe!!!
+                    Only a few listings left for this shoe!
+                    {/* Only {listings.length} available listings for this shoe!!! */}
                 </div>
             )
         } else {
@@ -106,7 +112,7 @@ function ShoeProfilePage() {
                     </div>
                     <div className='shoe-profile-top-right-container'>
                         <div className='shoe-profile-top-right-body-container'>
-                            <i class="fa-solid fa-fire"></i>
+                            <i class="fa-solid fa-fire" style={{ color: 'rgba(255, 111, 0, 0.937)' }}></i>
                             {allListings}
                         </div>
                         <div className='shoe-profile-top-right-body'>
@@ -131,29 +137,12 @@ function ShoeProfilePage() {
 
         let relatedProducts = (
             <div className='shoe-profile-related-products-container'>
-                <div style={{ marginBottom: '5px' }}>
+                <div style={{ marginBottom: '5px', fontWeight: '600' }}>
                     Related Products:
                 </div>
                 <div className='shoe-profile-related-products' >
                     {relatedBrands}
                 </div>
-
-
-
-                {/* <div className='shoe-profile-related-products'>
-                    <div>
-                        img
-                    </div>
-                    <div>
-                        name
-                    </div>
-                    <div>
-                        lowest ask
-                    </div>
-                    <div>
-                        price
-                    </div>
-                </div> */}
             </div>
         )
 
@@ -201,39 +190,71 @@ function ShoeProfilePage() {
             </div>
         )
 
-        let priceHistory = (
-            <div>
-                Price history
-                <div>
-                    Graph...?
-                </div>
-            </div>
+        // let priceHistory = (
+        //     <div>
+        //         Price history
+        //         <div>
+        //             Graph...?
+        //         </div>
+        //     </div>
 
-        )
+        // )
+
+
         let historalStats = (
             <div className='shoe-profile-stats'>
-                <div>
-                    Historial stats
+                <div style={{ marginTop: '12px', fontWeight: '550' }}>
+                    Historial stats:
                 </div>
 
                 <div className='shoe-profile-stats-box-container'>
                     <div className='shoe-profile-stats-box'>
-                        12-month Trade Range
+                        <div>
+
+                        </div>
+                        <div>
+                            12-month Trade Range
+                        </div>
                     </div>
                     <div className='shoe-profile-stats-box'>
-                        All-Time Trade Range
+                        <div>
+
+                        </div>
+                        <div>
+                            All-Time Trade Range
+                        </div>
                     </div>
                     <div className='shoe-profile-stats-box'>
-                        Volatility
+                        <div>
+
+                        </div>
+                        <div>
+                            Volatility
+                        </div>
                     </div>
                     <div className='shoe-profile-stats-box'>
-                        Number of Sales
+                        <div>
+
+                        </div>
+                        <div>
+                            Number of Sales
+                        </div>
                     </div>
                     <div className='shoe-profile-stats-box'>
-                        Price Premium
+                        <div>
+
+                        </div>
+                        <div>
+                            Price Premium
+                        </div>
                     </div>
                     <div className='shoe-profile-stats-box'>
-                        Average Sale Price
+                        <div>
+
+                        </div>
+                        <div>
+                            Average Sale Price
+                        </div>
                     </div>
                 </div>
 
@@ -250,9 +271,9 @@ function ShoeProfilePage() {
                 <div>
                     {productDetails}
                 </div>
-                <div>
+                {/* <div>
                     {priceHistory}
-                </div>
+                </div> */}
                 <div>
                     {historalStats}
                 </div>

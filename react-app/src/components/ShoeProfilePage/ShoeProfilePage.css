@@ -121,6 +121,10 @@
     margin-bottom: 10px
 }
 
+/* 1475 screen width - 6 */
+/* 1272 screen width - 4 */
+/* 1015 screen width -3 */
+
 
 .shoe-profile-related-products {
     margin-top: 15px;
@@ -138,9 +142,13 @@
 }
 
 
+
+
+
 .shoe-profile-product-details-container {
     width: 100%;
-    height: 280px;
+    min-height: 250px;
+    height: 251px;
     border-bottom: 1px solid darkgray;
 }
 
@@ -209,11 +217,13 @@
     grid-template-columns: 240px 240px 240px;
     grid-template-rows: 2;
     row-gap: 10px;
+    justify-content: center;
 }
 
 .shoe-profile-stats-box {
-    grid-template-columns: 220px;
-    height: 50px;
+    display: flex;
+
+    height: 60px;
     width: 230px;
     border: 1px solid black;
     background-color: lightgray;
