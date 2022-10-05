@@ -47,7 +47,7 @@ function MainPage() {
             )
         }
 
-        console.log(name.slice(0, 30) + "..")
+        // console.log(name.slice(0, 30) + "..")
 
         let shoes = (
             <>
