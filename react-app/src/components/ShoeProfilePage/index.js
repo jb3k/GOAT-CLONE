@@ -23,7 +23,9 @@ function ShoeProfilePage() {
 
     const shoePage = shoeInfo.map((shoe) => {
 
-        const { brand, brandType, colorway, condition, description, id, imageUrl, name, style, retailPrice, releaseDate } = shoe
+        const { brand, brandType, colorway, condition, description, id, imageUrl, name, style, retailPrice, releaseDate, listings } = shoe
+
+        let allListings = listings.length
 
         let topContainer = (
             <>
@@ -46,7 +48,12 @@ function ShoeProfilePage() {
                         </div>
                     </div>
                     <div className='shoe-profile-top-right-container'>
-                            I SHOULD PUT SOMETHING HERE
+                        <div className='shoe-profile-top-right-body-container'>
+                            <i class="fa-solid fa-fire"></i>
+                            <div style={{ marginLeft: '8px' }}>
+                                Only {allListings} available listings for this shoe!!!
+                            </div>
+                        </div>
                         <div className='shoe-profile-top-right-body'>
                             <div>
                                 <NavLink to={`/shoe/${id}/buy`}>
@@ -58,16 +65,21 @@ function ShoeProfilePage() {
                                     <button className='shoe-profile-sell-button'> Sell</button>
                                 </NavLink>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </>
         )
 
+
+
+
+
         let relatedProducts = (
             <div className='shoe-profile-related-products-container'>
                 <div style={{ marginBottom: '5px' }}>
-                    Related Products
+                    Related Products:
                 </div>
                 <div className='shoe-profile-related-products'>
                     <div>

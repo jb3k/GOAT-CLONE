@@ -79,17 +79,25 @@
     justify-content: center;
     align-items: center;
     border: 1px solid lightgrey;
-    height: 170px;
-    width: 70%;
-    border-radius: 4px;
+    height: 130px;
+    width: 320px;
+    border-radius: 0 0 6px 6px;
 }
 
 
-
+.shoe-profile-top-right-body-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 322px;
+    height: 40px;
+    background-color: lightgray;
+    border-radius: 6px 6px 0 0;
+}
 
 .shoe-profile-buy-button {
     border: 1px solid black;
-    height: 30px;
+    height: 40px;
     width: 8rem;
     margin-right: 10px;
     background-color: white;
@@ -98,7 +106,7 @@
 
 .shoe-profile-sell-button {
     border: 1px solid black;
-    height: 30px;
+    height: 40px;
     width: 8rem;
     color: white;
     background-color: darkgreen;
