@@ -80,10 +80,10 @@ function ShoeListingForm() {
                         </div>
                         <div className='sell-form-transaction-fee'>
                             <div style={{ marginBottom: '7px' }}>
-                                Payment Proc. (3%)
+                                Payment Proc. (1%)
                             </div>
                             <div>
-                                -${(price * 0.03)}
+                                -${(price * 0.01)}
                             </div>
                         </div>
                         <div className='sell-form-transaction-fee'>
@@ -99,7 +99,7 @@ function ShoeListingForm() {
                                 Total
                             </div>
                             <div>
-                                <stong>${price - (price * 0.03) - (price * 0.1)}</stong>
+                                <stong>${price - (price * 0.01) - (price * 0.1)}</stong>
                             </div>
                         </div>
                     </div>

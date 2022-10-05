@@ -86,7 +86,7 @@ function ShoeProfilePage() {
         total += item
     })
     let average = total / priceArr.length
-    let premium = Math.abs((shoeInfo[0].retailPrice / average) * 100 - 100)
+    let premium = Math.abs((shoeInfo[0]?.retailPrice / average) * 100 - 100)
 
 
 
@@ -256,9 +256,9 @@ function ShoeProfilePage() {
                         </div>
                     </div>
                     <div className='shoe-profile-stats-box'>
-                    <div className='shoe-profile-stats-spacing'>
+                        <div className='shoe-profile-stats-spacing'>
                             <div className='stat'>
-                                {totalSales}
+                                1%
                             </div>
                             <div className='stat-text'>
                                 Volatility

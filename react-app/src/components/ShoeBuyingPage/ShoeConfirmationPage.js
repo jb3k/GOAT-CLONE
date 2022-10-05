@@ -129,18 +129,18 @@ function ShoeConfirmationPage({ }) {
                             </div>
                             <div className='sell-form-transaction-fee'>
                                 <div style={{ marginBottom: '7px' }}>
-                                    Sales Tax(5%)
+                                    Sales Tax(1%)
                                 </div>
                                 <div>
-                                    ${listingFilter * 0.05}
+                                    ${listingFilter * 0.01}
                                 </div>
                             </div>
                             <div className='sell-form-transaction-fee'>
                                 <div style={{ marginBottom: '7px' }}>
-                                    Processing Fee (5%)
+                                    Processing Fee (10%)
                                 </div>
                                 <div>
-                                    ${(listingFilter * 0.05)}
+                                    ${(listingFilter * 0.1)}
                                 </div>
                             </div>
                             <div className='sell-form-transaction-fee'>
@@ -156,7 +156,7 @@ function ShoeConfirmationPage({ }) {
                                     Total
                                 </div>
                                 <div>
-                                    ${(Number(listingFilter) + 10 + (Number(listingFilter * 0.1)))}
+                                    ${(Number(listingFilter) + 10 + (Number(listingFilter * 0.11)))}
                                 </div>
                             </div>
                         </div>

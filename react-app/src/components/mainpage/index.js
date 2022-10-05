@@ -92,7 +92,7 @@ function MainPage() {
     return isLoaded && (
         <>
             <div>
-                <h1 className='mainpage-header'>This will be the header</h1>
+                <h1 className='mainpage-header'></h1>
             </div>
             <div className='mainpage-body-container'>
                 <div>
