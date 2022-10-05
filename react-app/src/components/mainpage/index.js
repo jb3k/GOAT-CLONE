@@ -3,6 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import { getAllApparelThunk } from '../../store/apparel';
 import './mainpage.css'
+import image1 from '../../assets/1.jpeg'
+import image2 from '../../assets/2.jpeg'
+import image3 from '../../assets/3.jpeg'
+import image4 from '../../assets/4.jpeg'
+import image5 from '../../assets/5.jpeg'
+
+
 
 function MainPage() {
     const dispatch = useDispatch();
@@ -11,12 +18,31 @@ function MainPage() {
     // const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
     // console.log(allApparel)
-
+    const [imageNumber, setImageNumber] = useState(0)
+    const images = [image1, image2, image3, image4, image5
+        // <img src={image1} className='actual-rotating-image'></img>,
+        // <img src={image2} className='actual-rotating-image'></img>,
+        // <img src={image3} className='actual-rotating-image'></img>,
+        // <img src={image4} className='actual-rotating-image'></img>,
+        // <img src={image5} className='actual-rotating-image'></img>
+    ]
 
     useEffect(() => {
         dispatch(getAllApparelThunk())
             .then(() => setIsLoaded(true))
     }, [dispatch])
+
+
+    useEffect(() => {
+        const imageInterval = setInterval(() => {
+            setImageNumber((num) => ++num % images.length)
+        }, 4000)
+
+        return () => {
+            clearInterval(imageInterval)
+        }
+
+    }, [])
 
     const allItems = allApparel.map((item) => {
 
@@ -95,12 +121,17 @@ function MainPage() {
                 <h1 className='mainpage-header'></h1>
             </div>
             <div className='mainpage-body-container'>
-                <div>
-                    BIG IMAGE HERE
+                <div className='mainpage-shoe-listing-container'>
+                    <strong> Featured Shoes:</strong>
+                </div>
+                <div className='mainpage-rotating-img-container'>
+                    <img src={images[imageNumber]} className='actual-rotating-image'></img>
+                    {/* <div className='mainpage-rotating-img' style={{ backgroundImage: `url(${images[imageNumber]})` }}>
+                    </div> */}
                 </div>
                 <div className='mainpage-shoe-listing-container'>
-                    <div>
-                        Recomended for you:
+                    <div style={{ marginTop: '30px' }}>
+                        <strong> Recomended for you:</strong>
                     </div>
                     <div className='test'>
                         {allItems}

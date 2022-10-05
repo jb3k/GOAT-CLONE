@@ -67,6 +67,7 @@ function ShoeListingForm() {
                                 value={price}
                                 required={true}
                                 min={1}
+                                max={9999}
                                 placeholder="Enter Price"
                             ></input>
                         </div>
