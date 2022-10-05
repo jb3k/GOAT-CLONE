@@ -3,15 +3,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
 import { getUserPurchasesThunk, createPurchaseThunk } from '../../store/purchase';
-
 import './ShoeConfirmationPage.css'
-import ShoePurchaseForm from './ShoePurchaseForm';
 
 function ShoeConfirmationPage({ }) {
     const dispatch = useDispatch();
     const history = useHistory()
     const { shoeId, space, sizeId } = useParams();
-
     const [isLoaded, setIsLoaded] = useState(false)
     const [errorValidation, setErrorValidation] = useState([])
     const [address, setAddress] = useState('');
@@ -20,10 +17,10 @@ function ShoeConfirmationPage({ }) {
     const [country, setCountry] = useState('USA');
     const [zipcode, setZipcode] = useState('');
 
-    const sessionUser = useSelector(state => state.session.user)
+    // const sessionUser = useSelector(state => state.session.user)
     const shoeInfo = useSelector(state => Object.values(state.apparel))
-    const allUserPurchases = useSelector(state => Object.values(state.purchase))
-    let userInfoObj = allUserPurchases[0]
+    // const allUserPurchases = useSelector(state => Object.values(state.purchase))
+    // let userInfoObj = allUserPurchases[0]
     // const info = useSelector(state => state.listings)
 
 
@@ -32,18 +29,14 @@ function ShoeConfirmationPage({ }) {
         dispatch(getUserPurchasesThunk())
             .then(() => setIsLoaded(true))
 
-    }, [dispatch])
+    }, [dispatch, shoeId])
 
-
-    // function validationCharNums(str) {
-    //     return /^[A-Za-z0-9]*$/.test(str);
-    // }
 
     useEffect(() => {
         const errors = []
         const nums = '1234567890'
-        const specialChar = '[`!@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?~'
-        const letters = 'abcdefghijklmnopqrstuvwxyz'
+        const specialChar = '[`!@#$%^&*()_+={};:"|,.<>?~'
+        // const letters = 'abcdefghijklmnopqrstuvwxyz'
         if (address.length < 2) errors.push('Invalid Address')
         if ((!nums.includes(address))) errors.push('Address needs Numbers')
         if (nums.includes(city) || specialChar.includes(city) || city.length <= 1) errors.push('Invalid City')
@@ -67,7 +60,7 @@ function ShoeConfirmationPage({ }) {
 
         let arr = []
         const filterListing = listings.forEach((item) => {
-            const { id, size, price, apparelId } = item
+            const { size, apparelId } = item
             if (parseInt(shoeId) === apparelId && parseInt(sizeId) === size) {
                 arr.push(item.price)
             }
@@ -85,6 +78,17 @@ function ShoeConfirmationPage({ }) {
     })
 
 
+    /* <select className='price-input-container'
+                            onChange={(e) => {
+                                if (e.target.value === 0) {
+                                    setShoePrice(0)
+                                }
+                                setShoePrice(e.target.value)
+                            }}
+                        >
+                            <option value={0}> Select Listing</option>
+                            {listingFilter}
+                        </select> */
 
     const onSubmit = async (e) => {
         // e.preventDefault();
@@ -103,7 +107,7 @@ function ShoeConfirmationPage({ }) {
 
 
 
-    return (
+    return isLoaded && (
         <>
             <form onSubmit={onSubmit}>
                 <div>
@@ -233,24 +237,6 @@ function ShoeConfirmationPage({ }) {
     );
 }
 
+
+
 export default ShoeConfirmationPage;
-
-
-
-
-
-
-
-
-
-{/* <select className='price-input-container'
-                            onChange={(e) => {
-                                if (e.target.value === 0) {
-                                    setShoePrice(0)
-                                }
-                                setShoePrice(e.target.value)
-                            }}
-                        >
-                            <option value={0}> Select Listing</option>
-                            {listingFilter}
-                        </select> */}

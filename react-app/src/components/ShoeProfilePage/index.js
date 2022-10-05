@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
 import { getAllListingsThunk } from '../../store/listings';
+import { getALLPurchasesThunk } from '../../store/purchase';
 import './ShoeProfilePage.css'
 
 
@@ -14,12 +15,13 @@ function ShoeProfilePage() {
     const { shoeId } = useParams();
     const shoeInfo = useSelector(state => Object.values(state.apparel))
     const shoeListings = useSelector(state => Object.values(state.listings))
-
+    const shoePurchases = useSelector(state => Object.values(state.purchase))
     // console.log(shoeInfo[0].brand)
 
     useEffect(() => {
         dispatch(getApparelThunk(shoeId))
         dispatch(getAllListingsThunk())
+        dispatch(getALLPurchasesThunk())
             .then(() => setIsLoaded(true))
     }, [dispatch, shoeId])
 
@@ -60,7 +62,32 @@ function ShoeProfilePage() {
 
     })
 
-    console.log(relatedBrands)
+    // console.log(relatedBrands)
+
+    let priceArr = []
+    let salesArr = []
+    const shoeStats = shoePurchases.map(item => {
+
+        const { apparelId } = item
+        // const itemArr = Object.values(item)
+        // console.log(apparelId, listingPrice)
+        // console.log(apparelId, shoeId)
+        if (apparelId === Number(shoeId)) {
+            priceArr.push(item.listingPrice)
+            salesArr.push(item.length)
+        }
+
+    })
+    let minPrice = Math.min(...priceArr)
+    let maxPrice = Math.max(...priceArr)
+    let totalSales = salesArr.length
+    let total = 0
+    priceArr.forEach(item => {
+        total += item
+    })
+    let average = total / priceArr.length
+    let premium = Math.abs((shoeInfo[0].retailPrice / average) * 100 - 100)
+
 
 
     const shoePage = shoeInfo.map((shoe) => {
@@ -209,51 +236,63 @@ function ShoeProfilePage() {
 
                 <div className='shoe-profile-stats-box-container'>
                     <div className='shoe-profile-stats-box'>
-                        <div>
-
-                        </div>
-                        <div>
-                            12-month Trade Range
-                        </div>
-                    </div>
-                    <div className='shoe-profile-stats-box'>
-                        <div>
-
-                        </div>
-                        <div>
-                            All-Time Trade Range
+                        <div className='shoe-profile-stats-spacing'>
+                            <div className='stat'>
+                                ${minPrice} - ${maxPrice}
+                            </div>
+                            <div className='stat-text'>
+                                12-month Trade Range
+                            </div>
                         </div>
                     </div>
                     <div className='shoe-profile-stats-box'>
-                        <div>
-
-                        </div>
-                        <div>
-                            Volatility
-                        </div>
-                    </div>
-                    <div className='shoe-profile-stats-box'>
-                        <div>
-
-                        </div>
-                        <div>
-                            Number of Sales
+                        <div className='shoe-profile-stats-spacing'>
+                            <div className='stat'>
+                                ${minPrice} - ${maxPrice}
+                            </div>
+                            <div className='stat-text'>
+                                All Time Trade Range
+                            </div>
                         </div>
                     </div>
                     <div className='shoe-profile-stats-box'>
-                        <div>
-
-                        </div>
-                        <div>
-                            Price Premium
+                    <div className='shoe-profile-stats-spacing'>
+                            <div className='stat'>
+                                {totalSales}
+                            </div>
+                            <div className='stat-text'>
+                                Volatility
+                            </div>
                         </div>
                     </div>
                     <div className='shoe-profile-stats-box'>
-                        <div>
-
+                        <div className='shoe-profile-stats-spacing'>
+                            <div className='stat'>
+                                {totalSales}
+                            </div>
+                            <div className='stat-text'>
+                                Number of Sales
+                            </div>
                         </div>
-                        <div>
-                            Average Sale Price
+                    </div>
+                    <div className='shoe-profile-stats-box'>
+                        <div className='shoe-profile-stats-spacing'>
+                            <div className='stat'>
+                                {Math.floor(premium)}%
+                            </div>
+                            <div className='stat-text'>
+                                Price Premium
+                            </div>
+                        </div>
+                    </div>
+                    <div className='shoe-profile-stats-box'>
+                        <div className='shoe-profile-stats-spacing'>
+                            <div className='stat'>
+                                ${Math.floor(average)}
+                            </div>
+                            <div className='stat-text'>
+                                Sales Average
+                            </div>
                         </div>
                     </div>
                 </div>

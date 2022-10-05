@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { useParams, useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import {  useDispatch } from 'react-redux'
+import {  useHistory } from 'react-router-dom';
 import { createPurchaseThunk } from '../../store/purchase'
 
 

@@ -1,4 +1,4 @@
-// const GET_ALL_PURCHASES = 'listings/getAllListings'
+const GET_ALL_PURCHASES = 'purchases/getAllPurchases'
 // const GET_PURCHASE = 'listing/getListings'
 const GET_CURR_PURCHASE = 'purchase/getCurrPurchases'
 const CREATE_PURCHASE = 'purchases/createPurchases'
@@ -6,12 +6,12 @@ const UPDATE_PURCHASE = 'purchases/updatePurchases'
 const DELETE_PURCHASE = 'purchases/deletePurchases'
 
 //actions
-// const getAll = (payload) => {
-//     return {
-//         type: GET_ALL_LISTINGS,
-//         payload
-//     }
-// }
+const getAll = (payload) => {
+    return {
+        type: GET_ALL_PURCHASES,
+        payload
+    }
+}
 
 // const get = (payload) => {
 //     return {
@@ -49,6 +49,16 @@ const remove = (id) => {
 }
 
 //thunks
+
+export const getALLPurchasesThunk = () => async dispatch => {
+    const response = await fetch('/api/purchase/')
+    if (response.ok) {
+        let purchases = await response.json()
+        dispatch(getAll(purchases))
+        return purchases
+    }
+}
+
 
 export const getUserPurchasesThunk = () => async dispatch => {
     const response = await fetch('/api/purchase/user')
@@ -108,6 +118,11 @@ const initialState = {}
 const purchaseReducer = (state = initialState, action) => {
     let newState
     switch (action.type) {
+        case GET_ALL_PURCHASES: {
+            newState = {}
+            action.payload.purchases.forEach(item => newState[item.id] = item)
+            return newState
+        }
         case GET_CURR_PURCHASE: {
             newState = {}
             action.payload.purchase.forEach(item => newState[item.id] = item)

@@ -41,6 +41,9 @@ class Purchase(db.Model):
             "apparelName": self.listing.apparel.name,
             "apparelColorway": self.listing.apparel.colorway,
             "listingSize": self.listing.size,
+            "listingPrice": self.listing.price,
+            "apparelId": self.listing.apparel.id,
+            "apparelRetail": self.listing.apparel.retail_price,
 
         }
 
