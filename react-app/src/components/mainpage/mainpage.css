@@ -35,26 +35,11 @@
     transition: all 1s ease-in-out;
 }
 
-.mainpage-rotating-img {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    min-height: 350px;
-    width: 100%;
-    object-fit: cover;
-    justify-content: center;
-    align-items: center;
-
-    /* height: 85vh; */
-    /* background-size: cover; */
-    transition: background-image 1s ease-in-out;
-
-}
 
 .mainpage-header {
     display: flex;
     justify-content: center;
-    height: 50px;
+    height: 35px;
     width: 100%;
     background-color: lightgray;
 }
@@ -64,7 +49,7 @@
     display: flex;
     flex-direction: column;
     /* border: 1px solid black; */
-    height: 90%;
+    height: 100%;
     width: 72%
 }
 
