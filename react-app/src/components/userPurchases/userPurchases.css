@@ -104,7 +104,8 @@
 
 .purchase-page-purchase-info {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    min-width: 110px
 }
 
 

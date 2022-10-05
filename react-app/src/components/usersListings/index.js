@@ -26,7 +26,47 @@ function CurrentUserListings() {
 
         return (
             <>
-                <div className='user-listings-container'>
+                <div className='user-purchase-container'>
+                    <div className='user-purchase-right-container'>
+                        <div className='user-purchase-image-container'>
+                            <img src={apparelImg} alt='shoe image' className='purchase-shoe-img'></img>
+                        </div>
+                    </div>
+                    <div className='user-purchase-text-container'>
+                        <div className='user-purchase-right-container-text'>
+                            <div className='user-purchase-right-container-text-name'>
+                                {apparelName}
+                            </div>
+                            <div className='user-purchase-right-container-text-colorway'>
+                                {apparelColorway}
+                            </div>
+                            <div className='user-purchase-right-container-text-size'>
+                                Size: {size}
+                            </div>
+                        </div>
+                        <div className='purchase-page-purchase-info'>
+                            <div className='purchase-page-purchase-info-left'>
+                                Price:
+                            </div>
+                            <div className='purchase-page-purchase-info-right'>
+                                ${price}
+                            </div>
+                        </div>
+                        <div className='purchase-page-crud-buttons'>
+                            <button className='purchase-page-edit-button'
+                                onClick={() => {
+                                    setShowEditTextField(!showEditTextField)
+                                    setShowEditTextFieldListingId(id)
+                                }}> Edit </button>
+                            <div className='purchase-page-delete-button'
+                                onClick={() => dispatch(deleteListingsThunk(id))}>
+                                <i class="fa-regular fa-trash-can"></i>
+                            </div>
+                            {showEditTextField && showEditTextFieldListingId === id && <EditUserListing listingId={id} listingPrice={price} listingSize={size} setShowEditTextField={setShowEditTextField} />}
+                        </div>
+                    </div>
+                </div>
+                {/* <div className='user-listings-container'>
                     <div className='user-listings-image-container'>
                         <img src={apparelImg} alt='shoe image' className='listing-shoe-img'></img>
                     </div>
@@ -51,7 +91,7 @@ function CurrentUserListings() {
                         <button onClick={() => dispatch(deleteListingsThunk(id))}> Delete </button>
                         {showEditTextField && showEditTextFieldListingId === id && <EditUserListing listingId={id} listingPrice={price} listingSize={size} setShowEditTextField={setShowEditTextField} />}
                     </div>
-                </div>
+                </div> */}
             </>
         )
 
@@ -60,13 +100,36 @@ function CurrentUserListings() {
 
     return (
         <>
-            <div>
-                <h1> current listings</h1>
-            </div>
-            <div>
-                {userListings}
+            <div className='whole-user-page-container'>
+                <div className='user-page-purchase-header'>
+                    <h1> Listing History: </h1>
+                </div>
+                <div className='user-page-purchase-search-bar'>
+                    Search name
+                </div>
+                <div className='right-user-purchase-container'>
+                    <div className='right-user-purchase-header-tags'>
+                        <div>
+                            item
+                        </div>
+                        <div>
+                            listing info
+                        </div>
+                    </div>
+                    {userListings}
+                </div>
             </div>
         </>
+
+
+        // <>
+        //     <div>
+        //         <h1> current listings</h1>
+        //     </div>
+        //     <div>
+        //         {userListings}
+        //     </div>
+        // </>
     );
 }
 
