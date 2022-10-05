@@ -126,20 +126,63 @@
 /* 1015 screen width -3 */
 
 
-.shoe-profile-related-products {
-    margin-top: 15px;
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: 170px 170px 170px 170px 170px;
-    /* border: 1px solid black; */
-    height: auto;
-    width: 92%;
-    margin-left: 30px;
-    overflow: hidden;
-
-
-
+@media screen and (max-width: 1015px) {
+    .shoe-profile-related-products {
+        margin-top: 15px;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 170px 170px 170px;
+        /* border: 1px solid black; */
+        height: auto;
+        width: 92%;
+        margin-left: 30px;
+        overflow: hidden;
+    }
 }
+
+@media screen and (min-width: 1016px) and (max-width: 1271px) {
+    .shoe-profile-related-products {
+        margin-top: 15px;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 170px 170px 170px 170px;
+        /* border: 1px solid black; */
+        height: auto;
+        width: 92%;
+        margin-left: 30px;
+        overflow: hidden;
+    }
+}
+
+@media screen and (min-width: 1272px) and (max-width: 1475px) {
+    .shoe-profile-related-products {
+        margin-top: 15px;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 170px 170px 170px 170px 170px;
+        /* border: 1px solid black; */
+        height: auto;
+        width: 92%;
+        margin-left: 30px;
+        overflow: hidden;
+    }
+}
+
+@media screen and (min-width: 1476px) {
+    .shoe-profile-related-products {
+        margin-top: 15px;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 170px 170px 170px 170px 170px 170px;
+        /* border: 1px solid black; */
+        height: auto;
+        width: 92%;
+        margin-left: 30px;
+        overflow: hidden;
+    }
+}
+
+
 
 
 
