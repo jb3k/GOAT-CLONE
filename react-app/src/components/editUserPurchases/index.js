@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { editPurchaseThunk } from "../../store/purchase";
+import { editPurchaseThunk, getUserPurchasesThunk } from "../../store/purchase";
 
 
 
@@ -12,6 +12,7 @@ const EditUserPurchase = ({ purchaseId, userAddy, userCity, userZip, userState, 
     const [state, setState] = useState(userState);
     const [country, setCountry] = useState(userCountry);
     const [zipcode, setZipcode] = useState(userZip);
+    // const [loaded, setLoaded] = useState(false);
 
     const user = useSelector(state => state.session.user);
 
@@ -19,6 +20,7 @@ const EditUserPurchase = ({ purchaseId, userAddy, userCity, userZip, userState, 
         e.preventDefault();
         const payload = { address, city, country, state, zipcode }
         dispatch(editPurchaseThunk(purchaseId, payload))
+            .then(() => dispatch(getUserPurchasesThunk()))
         setShowEditTextField(false)
 
     };

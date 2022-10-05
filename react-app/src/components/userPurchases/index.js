@@ -10,6 +10,7 @@ function CurrentUserPurchases() {
     const [showEditTextField, setShowEditTextField] = useState(false);
     const [showEditTextFieldPuchaseId, setShowEditTextFieldPuchaseId] = useState(0);
     const [pastDate, setPastDate] = useState(true)
+    const [loaded, setLoaded] = useState(false);
 
 
     const allUserPurchases = useSelector(state => Object.values(state.purchase))
@@ -17,6 +18,7 @@ function CurrentUserPurchases() {
 
     useEffect(() => {
         dispatch(getUserPurchasesThunk())
+            .then(() => setLoaded(true))
     }, [dispatch]);
 
     const userPurchases = allUserPurchases.map(item => {
@@ -133,7 +135,7 @@ function CurrentUserPurchases() {
 
 
 
-    return (
+    return loaded && (
         <>
             <div className='whole-user-page-container'>
                 <div className='user-page-purchase-header'>
