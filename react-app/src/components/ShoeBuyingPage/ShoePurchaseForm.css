@@ -1,3 +1,8 @@
-.prev-button {
-    height: 35px;
+.prev-button-container {
+    width: 350px;
+}
+
+.buy-prev-button {
+    margin-top: 10px;
+    height: 30px;
 }

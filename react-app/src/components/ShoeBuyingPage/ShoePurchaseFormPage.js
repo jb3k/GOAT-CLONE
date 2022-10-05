@@ -4,6 +4,7 @@ import { useParams, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
 import ShoeConfirmationPage from './ShoeConfirmationPage';
 import { getUserPurchasesThunk } from '../../store/purchase';
+import './ShoePurchaseForm.css'
 
 
 function ShoePurchaseFormPage() {
@@ -66,9 +67,9 @@ function ShoePurchaseFormPage() {
                     <div>
                         <ShoeConfirmationPage />
                     </div>
-                    <div >
+                    <div className='prev-button-container'>
                         <NavLink to={`/shoe/${shoeId}/buy`}>
-                            <button className='prev-button'> Prev </button>
+                            <button className='buy-prev-button'> Prev </button>
                         </NavLink>
                     </div>
                 </div>

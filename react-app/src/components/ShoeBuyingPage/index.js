@@ -72,7 +72,7 @@ function ShoePurchasePage() {
                                         {item1}
                                     </div>
                                     <div className='size-price-container-price'>
-                                        {`$ ${priceList[`${item1}`]}`}
+                                        {`$${priceList[`${item1}`]}`}
                                     </div>
                                 </div>
                             </Link>
