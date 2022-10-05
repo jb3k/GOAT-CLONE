@@ -38,7 +38,7 @@ class Listing(db.Model):
             "apparelImg": self.apparel.image_url,
             "apparelName": self.apparel.name,
             "apparelColorway": self.apparel.colorway,
-            "apparelBrand": self.apparel.brand
+            "apparelBrandType": self.apparel.brand_type
             # "apparelInfo": self.convert_apparel_to_dict(),
             # "sortedSizes": self.to_dict_sort()
         }

@@ -123,6 +123,7 @@
 
 
 .shoe-profile-related-products {
+    margin-top: 15px;
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 170px 170px 170px 170px 170px;

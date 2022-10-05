@@ -25,9 +25,9 @@ function ShoeProfilePage() {
 
 
     const relatedBrands = shoeListings.map((item) => {
-        const { apparelBrand, price, apparelId, apparelName, apparelImg } = item
+        const { apparelBrandType, price, apparelId, apparelName, apparelImg } = item
 
-        if ((apparelBrand === shoeInfo[0].brand) && (apparelId !== shoeInfo[0].id) && (apparelName !== shoeInfo[0].name)) {
+        if ((apparelBrandType === shoeInfo[0].brandType) && (apparelId !== shoeInfo[0].id) && (apparelName !== shoeInfo[0].name)) {
             console.log(item)
             if (apparelName !== shoeInfo[0].name) {
 
