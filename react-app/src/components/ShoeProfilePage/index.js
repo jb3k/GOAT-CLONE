@@ -1,3 +1,4 @@
+import { min } from 'mocha/lib/reporters';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, NavLink } from 'react-router-dom';
@@ -54,12 +55,7 @@ function ShoeProfilePage() {
                     </>
                 )
             }
-
-
-
-
         }
-
     })
 
     // console.log(relatedBrands)
@@ -227,6 +223,73 @@ function ShoeProfilePage() {
 
         // )
 
+        let tradeRange
+        if ((minPrice === maxPrice)) {
+            tradeRange = (
+                <div className='stat'>
+                    ${minPrice}
+                </div>
+            )
+        } else if (totalSales === 0) {
+            tradeRange = (
+                <div className='stat'>
+                    0
+                </div>
+            )
+        } else {
+            tradeRange = (
+                <div className='stat'>
+                    ${minPrice} - ${maxPrice}
+                </div>
+            )
+        }
+
+        let pricePremium
+        if (totalSales === 0) {
+            pricePremium = (
+                <div className='stat'>
+                    0%
+                </div>
+            )
+        } else {
+            pricePremium = (
+                <div className='stat'>
+                    {Math.floor(premium)}%
+                </div>
+            )
+        }
+
+        let salesAverage
+        if (totalSales === 0) {
+            salesAverage = (
+                <div className='stat'>
+                    0
+                </div>
+            )
+        } else {
+            salesAverage = (
+                <div className='stat'>
+                    ${Math.floor(average)}
+                </div>
+            )
+        }
+
+        let volatility
+        if (totalSales === 0) {
+            volatility = (
+                <div className='stat'>
+                    0%
+                </div>
+            )
+        } else {
+            volatility = (
+                <div className='stat'>
+                    1%
+                </div>
+            )
+
+        }
+
 
         let historalStats = (
             <div className='shoe-profile-stats'>
@@ -237,9 +300,7 @@ function ShoeProfilePage() {
                 <div className='shoe-profile-stats-box-container'>
                     <div className='shoe-profile-stats-box'>
                         <div className='shoe-profile-stats-spacing'>
-                            <div className='stat'>
-                                ${minPrice} - ${maxPrice}
-                            </div>
+                            {tradeRange}
                             <div className='stat-text'>
                                 12-month Trade Range
                             </div>
@@ -248,7 +309,7 @@ function ShoeProfilePage() {
                     <div className='shoe-profile-stats-box'>
                         <div className='shoe-profile-stats-spacing'>
                             <div className='stat'>
-                                ${minPrice} - ${maxPrice}
+                                {tradeRange}
                             </div>
                             <div className='stat-text'>
                                 All Time Trade Range
@@ -257,9 +318,7 @@ function ShoeProfilePage() {
                     </div>
                     <div className='shoe-profile-stats-box'>
                         <div className='shoe-profile-stats-spacing'>
-                            <div className='stat'>
-                                1%
-                            </div>
+                            {volatility}
                             <div className='stat-text'>
                                 Volatility
                             </div>
@@ -277,9 +336,7 @@ function ShoeProfilePage() {
                     </div>
                     <div className='shoe-profile-stats-box'>
                         <div className='shoe-profile-stats-spacing'>
-                            <div className='stat'>
-                                {Math.floor(premium)}%
-                            </div>
+                            {pricePremium}
                             <div className='stat-text'>
                                 Price Premium
                             </div>
@@ -287,9 +344,7 @@ function ShoeProfilePage() {
                     </div>
                     <div className='shoe-profile-stats-box'>
                         <div className='shoe-profile-stats-spacing'>
-                            <div className='stat'>
-                                ${Math.floor(average)}
-                            </div>
+                            {salesAverage}
                             <div className='stat-text'>
                                 Sales Average
                             </div>
