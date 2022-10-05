@@ -66,7 +66,7 @@ function ShoePurchaseFormPage() {
                     <div>
                         <ShoeConfirmationPage />
                     </div>
-                    <div>
+                    <div >
                         <NavLink to={`/shoe/${shoeId}/buy`}>
                             <button className='prev-button'> Prev </button>
                         </NavLink>

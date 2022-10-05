@@ -35,15 +35,26 @@ function ShoeConfirmationPage({ }) {
     }, [dispatch])
 
 
+    // function validationCharNums(str) {
+    //     return /^[A-Za-z0-9]*$/.test(str);
+    // }
+
     useEffect(() => {
         const errors = []
         const nums = '1234567890'
         const specialChar = '[`!@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?~'
-        if (specialChar.includes(address) || address.length < 3) errors.push('Invalid Address')
+        const letters = 'abcdefghijklmnopqrstuvwxyz'
+        if (address.length < 2) errors.push('Invalid Address')
+        if ((!nums.includes(address))) errors.push('Address needs Numbers')
         if (nums.includes(city) || specialChar.includes(city) || city.length <= 1) errors.push('Invalid City')
         if (nums.includes(state) || specialChar.includes(state) || state.length <= 1) errors.push('Invalid State')
-        if (nums.includes(country) || specialChar.includes(country) || country.length <= 1) errors.push('Invalid Country')
-        if (zipcode.length === 0 || zipcode.length !== 5) errors.push('Invalid Zipcode')
+        if (country !== 'USA') errors.push('Shipping is only USA')
+        if (zipcode.length !== 5) errors.push('Invalid Zipcode')
+
+        // if ((validationCharNums(city)) || city.length <= 1) errors.push('Invalid City')
+        // if ((validationCharNums(state)) || state.length <= 1) errors.push('Invalid State')
+        // if (country !== 'USA') errors.push('Shipping is only USA')
+        // if ((validationCharNums(zipcode))|| zipcode.length !== 5) errors.push('Invalid Zipcode')
 
         setErrorValidation(errors)
     }, [address, city, state, country, zipcode])
@@ -148,8 +159,8 @@ function ShoeConfirmationPage({ }) {
                     </div>
                     <div className='buying-form-address-container'>
                         <div className='buying-form-address-body'>
-                            <div >
-                                Shipping information:
+                            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                                <strong> Shipping information: </strong>
                             </div>
                             <div style={{ marginTop: '10px' }}>
 
@@ -162,7 +173,7 @@ function ShoeConfirmationPage({ }) {
                                     onChange={e => setAddress(e.target.value)}
                                     value={address}
                                     required={true}
-                                    placeholder={'Address'}
+                                    placeholder={'Address *'}
                                 ></input>
                             </div>
                             <div >
@@ -173,7 +184,7 @@ function ShoeConfirmationPage({ }) {
                                     onChange={e => setCity(e.target.value)}
                                     value={city}
                                     required={true}
-                                    placeholder={'City'}
+                                    placeholder={'City *'}
                                 ></input>
                             </div>
                             <div>
@@ -184,7 +195,7 @@ function ShoeConfirmationPage({ }) {
                                     onChange={e => setState(e.target.value)}
                                     value={state}
                                     required={true}
-                                    placeholder={'State'}
+                                    placeholder={'State *'}
                                 ></input>
                             </div>
                             <div>
@@ -195,7 +206,7 @@ function ShoeConfirmationPage({ }) {
                                     onChange={e => setCountry(e.target.value)}
                                     value={country}
                                     required={true}
-                                    placeholder={'Country'}
+                                    placeholder={'Country *'}
                                 ></input>
                             </div>
                             <div >
@@ -207,8 +218,11 @@ function ShoeConfirmationPage({ }) {
                                     value={zipcode}
                                     required={true}
                                     maxLength={5}
-                                    placeholder={'Zipcode'}
+                                    placeholder={'Zipcode *'}
                                 ></input>
+                            </div>
+                            <div style={{ display: 'flex', fontSize: '9px', flexDirection: 'row-reverse', marginRight: '20px' }}>
+                                * required fields
                             </div>
                             {/* <button type='submit'>Confirm Shipping</button> */}
                         </div>
