@@ -25,6 +25,9 @@ function MainPage() {
         const { imageUrl, name, listings, id } = item
 
         let arr = []
+        if (listings.length === 0) {
+            arr.push(0)
+        }
         const filterListing = listings.forEach((price) => {
             arr.push(price.price)
         })
