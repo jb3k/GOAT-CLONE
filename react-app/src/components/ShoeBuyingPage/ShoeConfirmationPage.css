@@ -18,3 +18,10 @@
     width: 95%;
     justify-content: space-between;
 }
+
+
+.purchase-form-information {
+    height: 30px;
+    width: 310px;
+    margin-bottom: 8px;
+}

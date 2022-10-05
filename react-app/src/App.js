@@ -60,10 +60,10 @@ function App() {
           <CurrentUserPurchases />
         </ProtectedRoute>
 
-        <ProtectedRoute path='/shoe/:shoeId' exact={true} >
+        <Route path='/shoe/:shoeId' exact={true} >
           <NavBar />
           <ShoeProfilePage />
-        </ProtectedRoute>
+        </Route>
 
         <ProtectedRoute path='/shoe/:shoeId/sell' exact={true} >
           <NavBar />

@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
-import { getUserPurchasesThunk } from '../../store/purchase';
+import { getUserPurchasesThunk, createPurchaseThunk } from '../../store/purchase';
 
 import './ShoeConfirmationPage.css'
 import ShoePurchaseForm from './ShoePurchaseForm';
 
 function ShoeConfirmationPage({ }) {
     const dispatch = useDispatch();
+    const history = useHistory()
     const { shoeId, space, sizeId } = useParams();
 
-    const [open, setOpen] = useState(false)
     const [isLoaded, setIsLoaded] = useState(false)
+    const [errorValidation, setErrorValidation] = useState([])
+    const [address, setAddress] = useState('');
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
+    const [country, setCountry] = useState('USA');
+    const [zipcode, setZipcode] = useState('');
 
     const sessionUser = useSelector(state => state.session.user)
     const shoeInfo = useSelector(state => Object.values(state.apparel))
@@ -27,6 +33,22 @@ function ShoeConfirmationPage({ }) {
             .then(() => setIsLoaded(true))
 
     }, [dispatch])
+
+
+    useEffect(() => {
+        const errors = []
+        const nums = '1234567890'
+        const specialChar = '[`!@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?~'
+        if (specialChar.includes(address) || address.length < 3) errors.push('Invalid Address')
+        if (nums.includes(city) || specialChar.includes(city) || city.length <= 1) errors.push('Invalid City')
+        if (nums.includes(state) || specialChar.includes(state) || state.length <= 1) errors.push('Invalid State')
+        if (nums.includes(country) || specialChar.includes(country) || country.length <= 1) errors.push('Invalid Country')
+        if (zipcode.length === 0 || zipcode.length !== 5) errors.push('Invalid Zipcode')
+
+        setErrorValidation(errors)
+    }, [address, city, state, country, zipcode])
+
+
 
     let numId
     const listingFilter = shoeInfo.map((item) => {
@@ -51,73 +73,148 @@ function ShoeConfirmationPage({ }) {
         return minPrice
     })
 
+
+
+    const onSubmit = async (e) => {
+        // e.preventDefault();
+        if (errorValidation.length >= 1) {
+            errorValidation.map(err => {
+                return alert(err)
+            })
+            return
+        }
+        const payload = { address, city, country, state, zipcode }
+        dispatch(createPurchaseThunk(numId, payload))
+        alert('Your Purchase is Successful! Edits and Cancellations can only be made within 24 hours. ')
+        history.push('/users/purchases')
+
+    };
+
+
+
     return (
         <>
-            <div className='sell-form-top-size-box'>
-                <div style={{ marginRight: "4px", marginLeft: '10px' }}> Size: </div>
-                <div> US M {sizeId}</div>
-            </div>
-            <div className='sell-form-body-box-container'>
-                <div className='sell-form-body-box'>
-                    <button className='sell-now-button' type='submit'>Buy Now</button>
-                    <div className='sell-form-price-box'>
-                        Lowest Current Listing: ${listingFilter}
+            <form onSubmit={onSubmit}>
+                <div>
+                    {/* {errorValidation.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))} */}
+                    <div className='sell-form-top-size-box'>
+                        <div style={{ marginRight: "4px", marginLeft: '10px' }}> Size: </div>
+                        <div> US M {sizeId}</div>
                     </div>
-                    <div>
-                        {/* {open && listingFilter} */}
+                    <div className='sell-form-body-box-container'>
+                        <div className='sell-form-body-box'>
+                            <button className='sell-now-button' type='submit'>Buy Now</button>
+                            <div className='sell-form-price-box'>
+                                Lowest Current Listing: ${listingFilter}
+                            </div>
+                            <div>
+                                {/* {open && listingFilter} */}
+                            </div>
+                            <div className='sell-form-transaction-fee'>
+                                <div style={{ marginBottom: '7px' }}>
+                                    Sales Tax(5%)
+                                </div>
+                                <div>
+                                    ${listingFilter * 0.05}
+                                </div>
+                            </div>
+                            <div className='sell-form-transaction-fee'>
+                                <div style={{ marginBottom: '7px' }}>
+                                    Processing Fee (5%)
+                                </div>
+                                <div>
+                                    ${(listingFilter * 0.05)}
+                                </div>
+                            </div>
+                            <div className='sell-form-transaction-fee'>
+                                <div style={{ marginBottom: '7px' }}>
+                                    Shipping
+                                </div>
+                                <div>
+                                    $10
+                                </div>
+                            </div>
+                            <div className='sell-form-total'>
+                                <div >
+                                    Total
+                                </div>
+                                <div>
+                                    ${(Number(listingFilter) + 10 + (Number(listingFilter * 0.1)))}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className='sell-form-transaction-fee'>
-                        <div style={{ marginBottom: '7px' }}>
-                            Sales Tax(5%)
-                        </div>
-                        <div>
-                            ${listingFilter * 0.05}
-                        </div>
-                    </div>
-                    <div className='sell-form-transaction-fee'>
-                        <div style={{ marginBottom: '7px' }}>
-                            Processing Fee (5%)
-                        </div>
-                        <div>
-                            ${(listingFilter * 0.05)}
-                        </div>
-                    </div>
-                    <div className='sell-form-transaction-fee'>
-                        <div style={{ marginBottom: '7px' }}>
-                            Shipping
-                        </div>
-                        <div>
-                            $10
-                        </div>
-                    </div>
-                    <div className='sell-form-total'>
-                        <div >
-                            Total
-                        </div>
-                        <div>
-                            ${(Number(listingFilter) + 10 + (Number(listingFilter * 0.1)))}
+                    <div className='buying-form-address-container'>
+                        <div className='buying-form-address-body'>
+                            <div >
+                                Shipping information:
+                            </div>
+                            <div style={{ marginTop: '10px' }}>
+
+                            </div>
+                            <div >
+                                <input
+                                    className='purchase-form-information'
+                                    type='text'
+                                    name='address'
+                                    onChange={e => setAddress(e.target.value)}
+                                    value={address}
+                                    required={true}
+                                    placeholder={'Address'}
+                                ></input>
+                            </div>
+                            <div >
+                                <input
+                                    className='purchase-form-information'
+                                    type='text'
+                                    name='city'
+                                    onChange={e => setCity(e.target.value)}
+                                    value={city}
+                                    required={true}
+                                    placeholder={'City'}
+                                ></input>
+                            </div>
+                            <div>
+                                <input
+                                    className='purchase-form-information'
+                                    type='text'
+                                    name='state'
+                                    onChange={e => setState(e.target.value)}
+                                    value={state}
+                                    required={true}
+                                    placeholder={'State'}
+                                ></input>
+                            </div>
+                            <div>
+                                <input
+                                    className='purchase-form-information'
+                                    type='text'
+                                    name='country'
+                                    onChange={e => setCountry(e.target.value)}
+                                    value={country}
+                                    required={true}
+                                    placeholder={'Country'}
+                                ></input>
+                            </div>
+                            <div >
+                                <input
+                                    className='purchase-form-information'
+                                    type='text'
+                                    name='zipcode'
+                                    onChange={e => setZipcode(e.target.value)}
+                                    value={zipcode}
+                                    required={true}
+                                    maxLength={5}
+                                    placeholder={'Zipcode'}
+                                ></input>
+                            </div>
+                            {/* <button type='submit'>Confirm Shipping</button> */}
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className='buying-form-address-container'>
-                <div className='buying-form-address-body'>
-                    <div >
-                        Name: {sessionUser.firstName} {sessionUser.lastName}
-                    </div>
-                    <div className='buying-form-address-address-container'>
-                        <div>
-                            Address: {userInfoObj.address}
-                        </div>
-                        <div onClick={() => setOpen(!open)}>
-                            <i class="fa-sharp fa-solid fa-pen"></i>
-                        </div>
-                    </div>
-                    <div>
-                        {open && <ShoePurchaseForm listingId={numId} userId={sessionUser.id} userAddy={userInfoObj.address} userCity={userInfoObj.city} userZip={userInfoObj.zipcode} userState={userInfoObj.state} userCountry={userInfoObj.country} />}
-                    </div>
-                </div>
-            </div>
+            </form>
         </>
     );
 }

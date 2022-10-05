@@ -4,7 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { createPurchaseThunk } from '../../store/purchase'
 
 
-function ShoePurchaseForm({ listingId, userAddy, userCity, userZip, userState, userCountry, }) {
+function ShoePurchaseForm({ listingId, userAddy, userCity, userZip, userState, userCountry }) {
 
     const dispatch = useDispatch();
     const history = useHistory()
@@ -81,7 +81,7 @@ function ShoePurchaseForm({ listingId, userAddy, userCity, userZip, userState, u
                         value={zipcode}
                     ></input>
                 </div>
-                <button type='submit'>Confirm Shipping</button>
+                {/* <button type='submit'>Confirm Shipping</button> */}
             </form>
         </div>
     );

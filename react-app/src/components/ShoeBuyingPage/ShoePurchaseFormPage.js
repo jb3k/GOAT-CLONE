@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
-import { getAllListingsThunk } from '../../store/listings';
-import ShoePurchaseForm from './ShoePurchaseForm';
 import ShoeConfirmationPage from './ShoeConfirmationPage';
 import { getUserPurchasesThunk } from '../../store/purchase';
 
