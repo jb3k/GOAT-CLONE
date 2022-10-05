@@ -203,6 +203,7 @@
 }
 
 .shoe-profile-stats-box-container {
+    margin-top: 40px;
     display: grid;
     /* flex-wrap: wrap; */
     grid-template-columns: 240px 240px 240px;
