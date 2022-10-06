@@ -103,6 +103,7 @@ function App() {
         <Route path='/' exact={true} >
           <NavBar />
           <MainPage />
+          <Footer />
         </Route>
       </Switch>
     </BrowserRouter>
