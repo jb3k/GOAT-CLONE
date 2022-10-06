@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -11,11 +11,34 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false)
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+
+  useEffect(() => {
+    const errValidation = []
+
+    if (firstName.length > 25 || firstName.length < 2) errValidation.push('Must be between 2 and 25 characters.')
+    if (lastName.length > 25 || lastName.length < 2) errValidation.push('Must be between 2 and 25 characters.')
+    if (!email.includes('@') || !email.includes('.')) errValidation.push('Invalid Email')
+    if (password.length > 25 || password.length < 6) errValidation.push('Must be between 6 and 30 characters.')
+    if (password !== repeatPassword) errValidation.push('Passwords must Match')
+
+    setErrors(errValidation)
+
+  }, [firstName, lastName, email, password])
+
+
+
+
+
   const onSignUp = async (e) => {
     e.preventDefault();
+    setIsSubmitted(true)
+
+    if (errors.length > 0) return
+
     if (password === repeatPassword) {
       const data = await dispatch(signUp(firstName, lastName, email, password));
       if (data) {
@@ -73,8 +96,8 @@ const SignUpForm = () => {
           </div>
           <div className='signup-form-body'>
             <form onSubmit={onSignUp}>
-              <div style={{ color: "red" }}>
-                {errors.map((error, ind) => (
+              <div className='login-form-errors'>
+                {isSubmitted && errors.map((error, ind) => (
                   <div key={ind}>{error}</div>
                 ))}
               </div>
@@ -87,6 +110,7 @@ const SignUpForm = () => {
                   value={firstName}
                   placeholder={"   First Name *"}
                   required={true}
+
                 >
                 </input>
               </div>
@@ -99,6 +123,7 @@ const SignUpForm = () => {
                   value={lastName}
                   placeholder={"   Last Name *"}
                   required={true}
+
                 ></input>
               </div>
               <div className='signup-form-body-container'>
