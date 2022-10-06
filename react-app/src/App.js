@@ -19,7 +19,7 @@ import ShoePurchaseFormPage from './components/ShoeBuyingPage/ShoePurchaseFormPa
 import CurrentUserListings from './components/usersListings';
 import CurrentUserPurchases from './components/userPurchases';
 import UploadPicture from './components/ImagesForm';
-
+import Footer from './components/footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -40,9 +40,11 @@ function App() {
     <BrowserRouter>
       <Route path='/login' exact={true}>
         <LoginForm />
+        <Footer />
       </Route>
       <Route path='/sign-up' exact={true}>
         <SignUpForm />
+        <Footer />
       </Route>
       {/* <NavBar /> */}
       <Switch>
