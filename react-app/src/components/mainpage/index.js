@@ -60,46 +60,27 @@ function MainPage() {
         })
         let minPrice = Math.min(...arr)
 
-        // console.log(minPrice)
-
-        let longName
-        let shoeNameHtml
-        if (name.length > 30) {
-            longName = name.slice(0, 30) + ".."
-            shoeNameHtml = (
-                <>
-                    {longName}
-                </>
-            )
-        } else {
-            shoeNameHtml = (
-                { name }
-            )
-        }
-
-        // console.log(name.slice(0, 30) + "..")
-
         let shoes = (
             <>
-                <div className='mainpage-shoe-containers'>
-                    <div className='mainpage-shoe-listing-image-container'>
-                        <NavLink to={`/shoe/${id}`}>
+                <NavLink to={`/shoe/${id}`} style={{ textDecoration: 'none' }}>
+                    <div className='mainpage-shoe-containers'>
+                        <div className='mainpage-shoe-listing-image-container'>
                             <img src={imageUrl} className='mainpage-shoe-listing-image' alt="profile"></img>
-                        </NavLink>
-                    </div>
-                    <div className='mainpage-shoe-text-container'>
-                        <div className='mainpage-shoe-name'>
-                            {name}
                         </div>
-                        <div>
-                            <div className='mainpage-shoe-lowest-ask'>lowest ask</div>
-                            <strong><div className='mainpage-shoe-lowest-price'>${minPrice}</div></strong>
-                        </div>
-                        {/* <div>
+                        <div className='mainpage-shoe-text-container'>
+                            <div className='mainpage-shoe-name'>
+                                {name}
+                            </div>
+                            <div>
+                                <div className='mainpage-shoe-lowest-ask'>lowest ask</div>
+                                <strong><div className='mainpage-shoe-lowest-price'>{minPrice > 0 ? `$${minPrice}` : 'Sold out'}</div></strong>
+                            </div>
+                            {/* <div>
                         last sale:
                     </div> */}
+                        </div>
                     </div>
-                </div>
+                </NavLink>
             </>
         )
 

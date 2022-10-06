@@ -87,25 +87,29 @@ function App() {
           <NavBar />
           <ShoePurchaseFormPage />
         </ProtectedRoute>
-
+        {/* 
         <ProtectedRoute path='/sell' exact={true} >
           <NavBar />
           <UploadPicture />
         </ProtectedRoute>
 
-
-
-
-
         <ProtectedRoute path='/broken' exact={true} >
           <SellPage />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
 
         <Route path='/' exact={true} >
           <NavBar />
           <MainPage />
           {/* <Footer /> */}
         </Route>
+
+
+        {/* <Route exact path= '/unknown'>
+         <NavBar />
+          <PageNotFound/>
+        </Route> */}
+
+
       </Switch>
     </BrowserRouter>
   );

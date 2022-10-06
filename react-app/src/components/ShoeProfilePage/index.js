@@ -13,7 +13,7 @@ function ShoeProfilePage() {
     const [isLoaded, setIsLoaded] = useState(false)
     // const history = useHistory()
     const { shoeId } = useParams();
-    
+
     const shoeInfo = useSelector(state => Object.values(state.apparel))
     const shoeListings = useSelector(state => Object.values(state.listings))
     const shoePurchases = useSelector(state => Object.values(state.purchase))
@@ -27,33 +27,62 @@ function ShoeProfilePage() {
     }, [dispatch, shoeId])
 
 
-    
 
-    const relatedBrands = shoeListings.map((item) => {
-        const { apparelBrandType, price, apparelId, apparelName, apparelImg } = item
+    // let relatedBrands = shoeListings.filter(shoe => (shoe.apparelBrandType) === shoeInfo[0]?.brandType).slice(0, 5).map(item => {
+    //     return (
+    //         <>
+    //             <div className='mainpage-shoe-containers'>
+    //                 <div className='mainpage-shoe-listing-image-container'>
+    //                     <NavLink to={`/shoe/${item.apparelId}`}>
+    //                         <img src={item.apparelImg} className='mainpage-shoe-listing-image' alt="profile"></img>
+    //                     </NavLink>
+    //                 </div>
+    //                 <div className='mainpage-shoe-text-container'>
+    //                     <div className='mainpage-shoe-name'>
+    //                         {item.apparelName}
+    //                     </div>
+    //                     <div>
+    //                         <div className='mainpage-shoe-lowest-ask'>lowest ask</div>
+    //                         <strong><div className='mainpage-shoe-lowest-price'>${item.price}</div></strong>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //         </>
+    //     )
+    // })
 
-        if ((apparelBrandType === shoeInfo[0]?.brandType) && (apparelId !== shoeInfo[0]?.id) && (apparelName !== shoeInfo[0]?.name)) {
+    let newArr = [];
+    const relatedBrands = shoeListings.map((item, index) => {
+        const { apparelBrandType, price, apparelId, apparelName, apparelImg, apparelColorway } = item
+
+
+        if ((apparelBrandType === shoeInfo[0]?.brandType)) {
             // console.log(item)
-            if (apparelName !== shoeInfo[0].name) {
+            // if (apparelName !== shoeInfo[0].name) {
+            // newArr.push(item)
+            if (!newArr.includes(apparelColorway) && (apparelColorway !== shoeInfo[0]?.colorway)) {
+                newArr.push(apparelColorway)
 
                 return (
                     <>
-                        <div className='mainpage-shoe-containers'>
-                            <div className='mainpage-shoe-listing-image-container'>
-                                <NavLink to={`/shoe/${apparelId}`}>
+                        <NavLink to={`/shoe/${apparelId}`} style={{ textDecoration: 'none' }}>
+                            <div className='mainpage-shoe-containers'>
+                                <div className='mainpage-shoe-listing-image-container'>
+
                                     <img src={apparelImg} className='mainpage-shoe-listing-image' alt="profile"></img>
-                                </NavLink>
-                            </div>
-                            <div className='mainpage-shoe-text-container'>
-                                <div className='mainpage-shoe-name'>
-                                    {apparelName}
+
                                 </div>
-                                <div>
-                                    <div className='mainpage-shoe-lowest-ask'>lowest ask</div>
-                                    <strong><div className='mainpage-shoe-lowest-price'>${price}</div></strong>
+                                <div className='mainpage-shoe-text-container'>
+                                    <div className='mainpage-shoe-name'>
+                                        {apparelName}
+                                    </div>
+                                    <div>
+                                        <div className='mainpage-shoe-lowest-ask'>lowest ask</div>
+                                        <strong><div className='mainpage-shoe-lowest-price'>${price}</div></strong>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </NavLink>
                     </>
                 )
             }
