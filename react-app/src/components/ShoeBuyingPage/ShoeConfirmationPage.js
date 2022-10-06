@@ -42,7 +42,7 @@ function ShoeConfirmationPage({ }) {
         if (address.length < 3 || address.length > 40) errors.push('Invalid Address')
         if (nums.includes(city) || specialChar.includes(city) || city.length <= 1 || city.length > 30) errors.push('Invalid City')
         if (nums.includes(state) || specialChar.includes(state) || state.length !== 2) errors.push('Invalid Abbreviated State name')
-        if (country !== 'USA' || country !== 'usa') errors.push('Shipping is only USA')
+        if (country !== 'USA') errors.push('Shipping is only USA')
         if (zipcode.length !== 5) errors.push('Invalid Zipcode')
 
         // if ((validationCharNums(city)) || city.length <= 1) errors.push('Invalid City')
@@ -210,18 +210,21 @@ function ShoeConfirmationPage({ }) {
                                 ></input>
                             </div>
                             <div>
-                                <select
-                                    style={{ width: "318px", height: '33px', marginBottom: '8px' }}
-                                // type='text'
-                                // name='country'
-                                // onChange={e => setCountry(e.target.value)}
-                                // value={country}
-                                // required={true}
-                                // placeholder={'Country *'}
-                                >
+                                {/* <select style={{ width: "318px", height: '33px', marginBottom: '8px' }}>
                                     <option value={country}> USA </option>
+                                </select> */}
+                                <input
+                                    className='purchase-form-information'
+                                    type='text'
+                                    name='country'
+                                    onChange={e => setCountry(e.target.value)}
+                                    value={country}
+                                    required={true}
+                                    placeholder={'Country *'}
+                                >
+                                </input>
 
-                                </select>
+
                             </div>
                             <div >
                                 <input

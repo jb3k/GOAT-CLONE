@@ -28,13 +28,6 @@ function CurrentUserPurchases() {
     const userPurchases = allUserPurchases.map(item => {
         const { address, city, country, zipcode, state, listingImg, listingSize, apparelName, apparelColorway, id, createdAt, apparelId } = item
 
-        const datePosted = new Date(createdAt)
-        const now = Date.now()
-        console.log(datePosted - now)
-        const milliseconds = Math.abs(now - datePosted)
-        const minutes = Math.ceil(milliseconds / (1000 * 60))
-        const hours = Math.ceil(milliseconds / (1000 * 60 * 60))
-        const days = Math.ceil(milliseconds / (1000 * 60 * 60 * 24))
 
         // if (hours > 24) { setPastDate(false) }
 
@@ -74,6 +67,48 @@ function CurrentUserPurchases() {
                 </>
             )
         }
+
+        const datePosted = new Date(createdAt)
+        const now = Date.now()
+        console.log(datePosted - now)
+        const milliseconds = Math.abs(now - datePosted)
+        // const minutes = Math.ceil(milliseconds / (1000 * 60))
+        const hours = Math.ceil(milliseconds / (1000 * 60 * 60))
+        const days = Math.ceil(milliseconds / (1000 * 60 * 60 * 24))
+        let validTime
+        if (hours > 24) {
+            validTime = (
+                <>
+                    <button className='purchase-page-edit-button'
+                        onClick={() => {
+                            alert("Shoe has already been shipped, you can no longer edit!")
+                        }}> Edit </button>
+                    <div className='purchase-page-delete-button'
+                        onClick={() => alert("Shoe has already been shipped, you can no longer edit!")}>
+                        <i class="fa-regular fa-trash-can"></i>
+                    </div>
+                </>
+            )
+        } else {
+            validTime = (
+                <>
+                    <button className='purchase-page-edit-button'
+                        onClick={() => {
+                            setShowEditTextField(!showEditTextField)
+                            setShowEditTextFieldPuchaseId(id)
+                            setOpen(!open)
+                        }}> Edit </button>
+                    <div className='purchase-page-delete-button'
+                        onClick={() => {
+                            dispatch(deletePurchaseThunk(id))
+                            alert('Your Purchase has been cancelled')
+                        }}>
+                        <i class="fa-regular fa-trash-can"></i>
+                    </div>
+                </>
+            )
+        }
+
 
 
 
@@ -138,16 +173,17 @@ function CurrentUserPurchases() {
                         </div>}
 
                         <div className='purchase-page-crud-buttons'>
-                            <button className='purchase-page-edit-button'
+                            {validTime}
+                            {/* <button className='purchase-page-edit-button'
                                 onClick={() => {
                                     setShowEditTextField(!showEditTextField)
                                     setShowEditTextFieldPuchaseId(id)
                                     setOpen(!open)
                                 }}> Edit </button>
-                            {<div className='purchase-page-delete-button'
+                            <div className='purchase-page-delete-button'
                                 onClick={() => dispatch(deletePurchaseThunk(id))}>
                                 <i class="fa-regular fa-trash-can"></i>
-                            </div>}
+                            </div> */}
                             {showEditTextField && showEditTextFieldPuchaseId === id && < EditUserPurchase purchaseId={id} userAddy={address} userCity={city} userZip={zipcode} userState={state} userCountry={country} setShowEditTextField={setShowEditTextField} />}
 
                         </div>
