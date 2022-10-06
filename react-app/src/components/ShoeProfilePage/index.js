@@ -1,4 +1,3 @@
-import { min } from 'mocha/lib/reporters';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, NavLink } from 'react-router-dom';
