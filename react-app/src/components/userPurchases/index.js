@@ -9,6 +9,7 @@ function CurrentUserPurchases() {
     const dispatch = useDispatch()
     const [showEditTextField, setShowEditTextField] = useState(false);
     const [showEditTextFieldPuchaseId, setShowEditTextFieldPuchaseId] = useState(0);
+    const [open, setOpen] = useState(true)
     const [pastDate, setPastDate] = useState(true)
     const [loaded, setLoaded] = useState(false);
 
@@ -101,11 +102,12 @@ function CurrentUserPurchases() {
                                 onClick={() => {
                                     setShowEditTextField(!showEditTextField)
                                     setShowEditTextFieldPuchaseId(id)
+                                    setOpen(!open)
                                 }}> Edit </button>
-                            <div className='purchase-page-delete-button'
+                            {open && <div className='purchase-page-delete-button'
                                 onClick={() => dispatch(deletePurchaseThunk(id))}>
                                 <i class="fa-regular fa-trash-can"></i>
-                            </div>
+                            </div>}
 
                             {showEditTextField && showEditTextFieldPuchaseId === id && < EditUserPurchase purchaseId={id} userAddy={address} userCity={city} userZip={zipcode} userState={state} userCountry={country} setShowEditTextField={setShowEditTextField} />}
                         </div>
