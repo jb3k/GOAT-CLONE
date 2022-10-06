@@ -30,7 +30,7 @@ const EditUserPurchase = ({ purchaseId, userAddy, userCity, userZip, userState, 
         if (nums.includes(city) || specialChar.includes(city) || city.length <= 1 || city.length > 30) errors.push('Invalid City')
         if (nums.includes(state) || specialChar.includes(state) || state.length !== 2) errors.push('Invalid Abbreviated State name')
         // if (country !== 'USA' || country !== 'usa') errors.push('Shipping is only USA')
-        // if (zipcode.length !== 5) errors.push('Invalid Zipcode')
+        if (zipcode.length !== 5) errors.push('Invalid Zipcode')
 
         // if ((validationCharNums(city)) || city.length <= 1) errors.push('Invalid City')
         // if ((validationCharNums(state)) || state.length <= 1) errors.push('Invalid State')
@@ -111,7 +111,7 @@ const EditUserPurchase = ({ purchaseId, userAddy, userCity, userZip, userState, 
                     </div>
                     <div>
                         <select
-                            style={{ width: '153px' }}
+                            style={{ width: '141px' }}
                         // type='text'
                         // name='country'
                         // onChange={e => setCountry(e.target.value)}
@@ -131,8 +131,7 @@ const EditUserPurchase = ({ purchaseId, userAddy, userCity, userZip, userState, 
                             value={zipcode}
                             required={true}
                             placeholder={'Zipcode *'}
-                            minLength={5}
-                            maxLength={5}
+
                         ></input>
                     </div>
                     {/* <div>
