@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import { getUserPurchasesThunk, deletePurchaseThunk } from '../../store/purchase';
 import './userPurchases.css'
@@ -70,7 +70,7 @@ function CurrentUserPurchases() {
 
         const datePosted = new Date(createdAt)
         const now = Date.now()
-        console.log(datePosted - now)
+        // console.log(datePosted - now)
         const milliseconds = Math.abs(now - datePosted)
         // const minutes = Math.ceil(milliseconds / (1000 * 60))
         const hours = Math.ceil(milliseconds / (1000 * 60 * 60))

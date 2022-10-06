@@ -12,7 +12,7 @@ function CurrentUserListings() {
     const [showEditTextFieldListingId, setShowEditTextFieldListingId] = useState(0);
 
     const allUserListings = useSelector(state => Object.values(state.listings))
-    console.log(allUserListings)
+    // console.log(allUserListings)
 
     useEffect(() => {
         dispatch(getUserListingsThunk())

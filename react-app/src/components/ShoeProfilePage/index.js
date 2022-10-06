@@ -57,9 +57,6 @@ function ShoeProfilePage() {
 
 
         if ((apparelBrandType === shoeInfo[0]?.brandType)) {
-            // console.log(item)
-            // if (apparelName !== shoeInfo[0].name) {
-            // newArr.push(item)
             if (!newArr.includes(apparelColorway) && (apparelColorway !== shoeInfo[0]?.colorway)) {
                 newArr.push(apparelColorway)
 
