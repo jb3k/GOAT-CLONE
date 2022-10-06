@@ -22,6 +22,9 @@ function CurrentUserPurchases() {
             .then(() => setLoaded(true))
     }, [dispatch]);
 
+
+    if (!allUserPurchases) return null
+
     const userPurchases = allUserPurchases.map(item => {
         const { address, city, country, zipcode, state, listingImg, listingSize, apparelName, apparelColorway, id, createdAt, apparelId } = item
 
@@ -35,11 +38,45 @@ function CurrentUserPurchases() {
 
         // if (hours > 24) { setPastDate(false) }
 
+        let addressText
+        let maxAddLength
+        if (address?.length > 15) {
+            maxAddLength = address.slice(0, 15) + '..'
 
-        let leftContainer = (
-            <>
-            </>
-        )
+            addressText = (
+                <>
+                    {maxAddLength}
+                </>
+            )
+        } else {
+            addressText = (
+                <>
+                    {address}
+                </>
+            )
+        }
+
+
+        let cityText
+        let maxCityLength
+        if (city?.length > 15) {
+            maxCityLength = city.slice(0, 15) + '..'
+
+            cityText = (
+                <>
+                    {maxCityLength}
+                </>
+            )
+        } else {
+            cityText = (
+                <>
+                    {city}
+                </>
+            )
+        }
+
+
+
 
         let rightContainer = (
             <>
@@ -83,10 +120,10 @@ function CurrentUserPurchases() {
                             </div>
                             <div className='purchase-page-purchase-info-right'>
                                 <div>
-                                    {address}
+                                    {addressText}
                                 </div>
                                 <div>
-                                    {city}
+                                    {cityText}
                                 </div>
                                 <div>
                                     {state}
@@ -124,9 +161,9 @@ function CurrentUserPurchases() {
 
         return (
             <>
-                <div>
+                {/* <div>
                     {leftContainer}
-                </div>
+                </div> */}
                 <div>
                     {rightContainer}
                 </div>

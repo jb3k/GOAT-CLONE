@@ -2,10 +2,12 @@
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-    height: 280px;
+    min-height: 300px;
     width: 350px;
     background-color: white;
+
 }
+
 
 .buying-form-address-body {
     margin-left: 15px;

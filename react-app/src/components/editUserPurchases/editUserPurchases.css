@@ -3,6 +3,15 @@
     align-items: center;
 }
 
+.update-validations {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    margin-bottom: 10px;
+    margin-left: -25px;
+}
 
 
 

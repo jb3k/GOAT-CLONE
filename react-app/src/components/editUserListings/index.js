@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editListingsThunk } from '../../store/listings';
 
@@ -10,11 +10,25 @@ const EditUserListing = ({ listingId, listingPrice, listingSize, setShowEditText
     const [size, setSize] = useState(listingSize);
     const [price, setPrice] = useState(listingPrice);
     const [quantity, setQuantity] = useState(1);
+    const [isSubmitted, setIsSubmitted] = useState(false)
 
     const user = useSelector(state => state.session.user);
 
+    useEffect(() => {
+        const errorValidation = []
+        if (size < 3 || size > 18 || (!Number(size))) errorValidation.push('Need Valid Size')
+        if (!Number(price) || price > 9999 || price < 1) errorValidation.push('Price must be between 1-9999')
+        return setErrors(errorValidation)
+    }, [size, price])
+
+
     const onSubmit = async (e) => {
         e.preventDefault();
+
+        setIsSubmitted(true)
+
+        if (errors.length > 0) return
+
         const payload = { size, price, quantity }
         dispatch(editListingsThunk(listingId, payload))
         setShowEditTextField(false)
@@ -23,8 +37,8 @@ const EditUserListing = ({ listingId, listingPrice, listingSize, setShowEditText
 
     return (
         <form onSubmit={onSubmit}>
-            <div>
-                {errors.map((error, ind) => (
+            <div className='update-validations'>
+                {isSubmitted && errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
                 ))}
             </div>
