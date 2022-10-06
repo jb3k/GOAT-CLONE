@@ -30,6 +30,25 @@ const NavBar = () => {
         <div className='dropdown-menu'>
           <div className='dropdown-item-container'>
             <div className='dropdown-item-icon-container'>
+              <i style={{ fontSize: "25px" }} class="fa-regular fa-plus"></i>
+            </div>
+            {/* <Link to='/users' style={{ textDecoration: 'None' }}> */}
+            <a href='https://www.linkedin.com/in/justin-b-kam-4105961a5/' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+              <div className='dropdown-item-text-container'>
+                <div className='dropdown-item-text-top' style={{ marginTop: '15px' }}>
+                  {/* Following */}
+                  LinkedIn
+                </div>
+                <div className='dropdown-item-text-bottom'>
+                  {/* Products you're watching */}
+                  About Creator
+                </div>
+              </div>
+            </a>
+            {/* </Link> */}
+          </div>
+          {/* <div className='dropdown-item-container'>
+            <div className='dropdown-item-icon-container'>
               <i class="fa-solid fa-box"></i>
             </div>
             <div className='dropdown-item-text-container'>
@@ -42,8 +61,8 @@ const NavBar = () => {
                 </div>
               </Link>
             </div>
-          </div>
-          <div className='dropdown-item-container'>
+          </div> */}
+          {/* <div className='dropdown-item-container'>
             <div className='dropdown-item-icon-container' style={{ fontSize: "25px" }}>
               $
             </div>
@@ -57,23 +76,25 @@ const NavBar = () => {
                 </div>
               </div>
             </Link>
-          </div>
+          </div> */}
           <div className='dropdown-item-container'>
             <div className='dropdown-item-icon-container'>
               <i style={{ fontSize: "25px" }} class="fa-regular fa-plus"></i>
             </div>
-            <Link to='/users' style={{ textDecoration: 'None' }}>
+            {/* <Link to='/users' style={{ textDecoration: 'None' }}> */}
+            <a href='https://github.com/jb3k/StockX-CLONE' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
               <div className='dropdown-item-text-container'>
                 <div className='dropdown-item-text-top' style={{ marginTop: '15px' }}>
                   {/* Following */}
-                  User
+                  GitHub
                 </div>
                 <div className='dropdown-item-text-bottom'>
                   {/* Products you're watching */}
-                  Profile Page
+                  About Creator
                 </div>
               </div>
-            </Link>
+            </a>
+            {/* </Link> */}
           </div>
           <div className='dropdown-item-container'>
             <div className='dropdown-item-icon-container'>
@@ -130,7 +151,7 @@ const NavBar = () => {
 
 
   return (
-    <nav>
+    <nav style={{borderBottom: "1px solid lightgray"}}>
       <div className='whole-navbar'>
         <div className='navbar-logo'>
           <NavLink to='/' exact={true} activeClassName='active'
@@ -150,14 +171,18 @@ const NavBar = () => {
             </NavLink>
           </div>
           <div className='navbar-right-items'>
-            <a href='https://www.linkedin.com/in/justin-b-kam-4105961a5/' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
-              About
-            </a>
+            {/* <a href='https://www.linkedin.com/in/justin-b-kam-4105961a5/' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}> */}
+            <Link to='/users/purchases' style={{ textDecoration: 'None' }}>
+              Purchases
+            </Link>
+            {/* </a> */}
           </div>
           <div className='navbar-right-items'>
-            <NavLink to='/sell' style={{ textDecoration: 'none', color: 'black' }}>
-              Sell
-            </NavLink>
+            {/* <NavLink to='/sell' style={{ textDecoration: 'none', color: 'black' }}> */}
+            <Link to='/users/listings' style={{ textDecoration: 'None', marginTop: '15px' }}>
+              Listings
+            </Link>
+            {/* </NavLink> */}
           </div>
           {profileMenu()}
         </div>

@@ -15,7 +15,7 @@ function MainPage() {
     const dispatch = useDispatch();
     const history = useHistory()
     const [isLoaded, setIsLoaded] = useState(false)
-    // const sessionUser = useSelector((state) => state.session.user);
+    const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
     // console.log(allApparel)
     const [imageNumber, setImageNumber] = useState(0)
@@ -114,15 +114,29 @@ function MainPage() {
     })
 
 
+    let header
+    if (!sessionUser) {
+        header = (
+            <>
+                <h2 className='mainpage-header'></h2>
+            </>
+        )
+    } else {
+        header = (
+            <>
+                <h2 className='mainpage-header'> Welcome, {sessionUser.firstName} {sessionUser.lastName}</h2>
+            </>
+        )
+    }
 
     return isLoaded && (
         <>
             <div>
-                <h1 className='mainpage-header'></h1>
+                {header}
             </div>
             <div className='mainpage-body-container'>
                 <div className='mainpage-shoe-listing-container'>
-                    <strong> Featured Shoes:</strong>
+                    <strong> Trending Shoes:</strong>
                 </div>
                 <div className='mainpage-rotating-img-container'>
                     <img src={images[imageNumber]} className='actual-rotating-image'></img>
