@@ -51,7 +51,9 @@
 .price-input-container {
     border: none;
     font-size: 16px;
-    color: black
+    color: black;
+    height: 90%;
+    width: 100%;
 }
 
 
@@ -72,6 +74,6 @@
 
 .prev-button {
     margin-top: 10px;
-    height: 25px;
+    height: 35px;
     width: 50px;
 }
