@@ -61,7 +61,7 @@ function CurrentUserPurchases() {
                                 Size: {listingSize}
                             </div>
                         </div>
-                        <div className='purchase-page-purchase-info'>
+                        {<div className='purchase-page-purchase-info'>
                             <div className='purchase-page-purchase-info-left'>
                                 <div>
                                     Address:
@@ -96,7 +96,8 @@ function CurrentUserPurchases() {
                                     {zipcode}
                                 </div>
                             </div>
-                        </div>
+                        </div>}
+
                         <div className='purchase-page-crud-buttons'>
                             <button className='purchase-page-edit-button'
                                 onClick={() => {
@@ -104,12 +105,12 @@ function CurrentUserPurchases() {
                                     setShowEditTextFieldPuchaseId(id)
                                     setOpen(!open)
                                 }}> Edit </button>
-                            {open && <div className='purchase-page-delete-button'
+                            {<div className='purchase-page-delete-button'
                                 onClick={() => dispatch(deletePurchaseThunk(id))}>
                                 <i class="fa-regular fa-trash-can"></i>
                             </div>}
-
                             {showEditTextField && showEditTextFieldPuchaseId === id && < EditUserPurchase purchaseId={id} userAddy={address} userCity={city} userZip={zipcode} userState={state} userCountry={country} setShowEditTextField={setShowEditTextField} />}
+
                         </div>
                     </div>
                 </div>

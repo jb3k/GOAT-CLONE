@@ -32,7 +32,94 @@ const EditUserPurchase = ({ purchaseId, userAddy, userCity, userZip, userState, 
                     <div key={ind}>{error}</div>
                 ))}
             </div>
-            <div>
+
+            <div className="edit-form-text-container">
+                <div >
+                    <div>
+                        Address:
+                    </div>
+                    <div>
+                        City:
+                    </div>
+                    <div>
+                        State:
+                    </div>
+                    <div>
+                        Country:
+                    </div>
+                    <div>
+                        Zipcode:
+                    </div>
+                </div>
+                <div style={{ marginLeft: '10px' }}>
+                    <div>
+
+                        <input
+                            type='text'
+                            name='address'
+                            onChange={e => setAddress(e.target.value)}
+                            value={address}
+                        ></input>
+                    </div>
+                    <div>
+
+                        <input
+                            type='text'
+                            name='city'
+                            onChange={e => setCity(e.target.value)}
+                            value={city}
+                        ></input>
+                    </div>
+                    <div>
+
+                        <input
+                            type='text'
+                            name='state'
+                            onChange={e => setState(e.target.value)}
+                            value={state}
+                        ></input>
+                    </div>
+                    <div>
+
+                        <input
+                            type='text'
+                            name='country'
+                            onChange={e => setCountry(e.target.value)}
+                            value={country}
+                        ></input>
+                    </div>
+                    <div>
+
+                        <input
+                            type='text'
+                            name='zipcode'
+                            onChange={e => setZipcode(e.target.value)}
+                            value={zipcode}
+                        ></input>
+                    </div>
+                </div>
+                <button style={{ marginLeft: '10px' }} className='purchase-page-edit-button' type='submit'>Update</button>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {/* <div>
                 <label>Address</label>
                 <input
                     type='text'
@@ -77,7 +164,7 @@ const EditUserPurchase = ({ purchaseId, userAddy, userCity, userZip, userState, 
                     value={zipcode}
                 ></input>
             </div>
-            <button type='submit'>Update</button>
+            <button type='submit'>Update</button> */}
         </form>
     );
 }

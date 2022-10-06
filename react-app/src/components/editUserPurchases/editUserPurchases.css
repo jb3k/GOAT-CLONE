@@ -6,10 +6,9 @@
 
 
 
-
-
-
-
+.edit-form-text-inputs {
+    margin-left: 10px;
+}
 
 
 
@@ -60,7 +59,7 @@
 
 
 /* old form code */
-            /* <div>
+/* <div>
                 <input
                     type='text'
                     name='address'
