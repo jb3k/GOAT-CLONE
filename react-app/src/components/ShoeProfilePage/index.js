@@ -5,7 +5,7 @@ import { getApparelThunk } from '../../store/apparel';
 import { getAllListingsThunk } from '../../store/listings';
 import { getALLPurchasesThunk } from '../../store/purchase';
 import './ShoeProfilePage.css'
-
+import Footer from '../footer';
 
 function ShoeProfilePage() {
     const dispatch = useDispatch()
@@ -379,9 +379,12 @@ function ShoeProfilePage() {
 
 
     return isLoaded && (
-        <div className='shoe-page-body-container'>
-            {shoePage}
-        </div>
+        <>
+            <div className='shoe-page-body-container'>
+                {shoePage}
+            </div>
+            <Footer />
+        </>
     );
 }
 export default ShoeProfilePage;

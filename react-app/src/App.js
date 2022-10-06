@@ -65,7 +65,7 @@ function App() {
         <Route path='/shoe/:shoeId' exact={true} >
           <NavBar />
           <ShoeProfilePage />
-          <Footer />
+          {/* <Footer /> */}
         </Route>
 
         <ProtectedRoute path='/shoe/:shoeId/sell' exact={true} >
@@ -104,7 +104,7 @@ function App() {
         <Route path='/' exact={true} >
           <NavBar />
           <MainPage />
-          <Footer />
+          {/* <Footer /> */}
         </Route>
       </Switch>
     </BrowserRouter>

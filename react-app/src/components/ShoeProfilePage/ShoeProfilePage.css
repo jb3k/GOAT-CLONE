@@ -1,3 +1,10 @@
+.big-ass-div {
+    height: 3000px;
+    width: 100%;
+    background-color: white;
+    z-index: 1;
+}
+
 .shoe-page-body-container {
     /* border: 1px solid black; */
     display: flex;
