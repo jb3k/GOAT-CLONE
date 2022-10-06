@@ -52,10 +52,6 @@
     /* border: 1px solid black; */
 }
 
-.user-purchase-right-container-text {
-    display: flex;
-    flex-direction: column;
-}
 
 
 .user-purchase-image-container {
@@ -78,9 +74,15 @@
     width: 75%;
 }
 
+.user-purchase-right-container-text {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
 
 .user-purchase-right-container-text-name {
-    font-size: 14px;
+    font-size: 12px;
     color: darkgray;
     margin-bottom: 5px;
 }

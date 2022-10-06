@@ -23,7 +23,7 @@ function CurrentUserPurchases() {
     }, [dispatch]);
 
     const userPurchases = allUserPurchases.map(item => {
-        const { address, city, country, zipcode, state, listingImg, listingSize, apparelName, apparelColorway, id, createdAt } = item
+        const { address, city, country, zipcode, state, listingImg, listingSize, apparelName, apparelColorway, id, createdAt, apparelId } = item
 
         const datePosted = new Date(createdAt)
         const now = Date.now()
@@ -45,9 +45,11 @@ function CurrentUserPurchases() {
             <>
                 <div className='user-purchase-container'>
                     <div className='user-purchase-right-container'>
-                        <div className='user-purchase-image-container'>
-                            <img src={listingImg} alt='shoe image' className='purchase-shoe-img'></img>
-                        </div>
+                        <NavLink to={`/shoe/${apparelId}`}>
+                            <div className='user-purchase-image-container'>
+                                <img src={listingImg} alt='shoe image' className='purchase-shoe-img'></img>
+                            </div>
+                        </NavLink>
                     </div>
                     <div className='user-purchase-text-container'>
                         <div className='user-purchase-right-container-text'>
@@ -144,9 +146,9 @@ function CurrentUserPurchases() {
                 <div className='user-page-purchase-header'>
                     <h1> Purchase History: </h1>
                 </div>
-                <div className='user-page-purchase-search-bar'>
+                {/* <div className='user-page-purchase-search-bar'>
                     Search name
-                </div>
+                </div> */}
                 <div className='right-user-purchase-container'>
                     <div className='right-user-purchase-header-tags'>
                         <div>

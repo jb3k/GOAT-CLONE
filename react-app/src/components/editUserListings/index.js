@@ -28,25 +28,36 @@ const EditUserListing = ({ listingId, listingPrice, listingSize, setShowEditText
                     <div key={ind}>{error}</div>
                 ))}
             </div>
-            <div>
-                <label>Size</label>
-                <input
-                    type='text'
-                    name='size'
-                    onChange={e => setSize(e.target.value)}
-                    value={size}
-                ></input>
+            <div className="edit-form-text-container">
+                <div>
+                    <div>
+                        Size:
+                    </div>
+                    <div>
+                        Price:
+                    </div>
+                </div>
+
+                <div style={{ marginLeft: '10px' }}>
+                    <div>
+                        <input
+                            type='text'
+                            name='size'
+                            onChange={e => setSize(e.target.value)}
+                            value={size}
+                        ></input>
+                    </div>
+                    <div>
+                        <input
+                            type='text'
+                            name='price'
+                            onChange={e => setPrice(e.target.value)}
+                            value={price}
+                        ></input>
+                    </div>
+                </div>
+                <button style={{ marginLeft: '10px' }} className='purchase-page-edit-button' type='submit'>Update</button>
             </div>
-            <div>
-                <label>Price</label>
-                <input
-                    type='text'
-                    name='price'
-                    onChange={e => setPrice(e.target.value)}
-                    value={price}
-                ></input>
-            </div>
-            <button type='submit'>Update</button>
         </form>
     );
 }

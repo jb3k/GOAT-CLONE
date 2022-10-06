@@ -20,7 +20,7 @@ function CurrentUserListings() {
 
 
     const userListings = allUserListings.map(listing => {
-        const { price, size, apparelName, apparelImg, apparelColorway, id } = listing
+        const { price, size, apparelName, apparelImg, apparelColorway, id, apparelId } = listing
 
 
 
@@ -28,9 +28,11 @@ function CurrentUserListings() {
             <>
                 <div className='user-purchase-container'>
                     <div className='user-purchase-right-container'>
-                        <div className='user-purchase-image-container'>
-                            <img src={apparelImg} alt='shoe image' className='purchase-shoe-img'></img>
-                        </div>
+                        <NavLink to={`/shoe/${apparelId}`}>
+                            <div className='user-purchase-image-container'>
+                                <img src={apparelImg} alt='shoe image' className='purchase-shoe-img'></img>
+                            </div>
+                        </NavLink>
                     </div>
                     <div className='user-purchase-text-container'>
                         <div className='user-purchase-right-container-text'>
@@ -104,9 +106,9 @@ function CurrentUserListings() {
                 <div className='user-page-purchase-header'>
                     <h1> Listing History: </h1>
                 </div>
-                <div className='user-page-purchase-search-bar'>
+                {/* <div className='user-page-purchase-search-bar'>
                     Search name
-                </div>
+                </div> */}
                 <div className='right-user-purchase-container'>
                     <div className='right-user-purchase-header-tags'>
                         <div>

@@ -140,7 +140,7 @@ const NavBar = () => {
         </div>
         <div className='navbar-searchbar-container'>
           <div className='navbar-searchbar'>
-            Seach Bar
+            {/* Seach Bar */}
           </div>
         </div>
         <div className='navbar-right-container'>
