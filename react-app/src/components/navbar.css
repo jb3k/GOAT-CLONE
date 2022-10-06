@@ -36,16 +36,16 @@
 
 .navbar-right-container {
     display: flex;
-    width: 35%;
+    width: 40%;
     /* border: 1px solid black; */
     height: 35px;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
 
 }
 
 .navbar-right-items {
-    width: 30px;
+    min-width: 30px;
     object-fit: contain;
 }
 
@@ -71,7 +71,7 @@ a {
 
 .navbar-buttons {
     display: flex;
-    width: 50px;
+    width: 130px;
     justify-content: space-around;
 }
 

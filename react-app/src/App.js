@@ -65,6 +65,7 @@ function App() {
         <Route path='/shoe/:shoeId' exact={true} >
           <NavBar />
           <ShoeProfilePage />
+          <Footer />
         </Route>
 
         <ProtectedRoute path='/shoe/:shoeId/sell' exact={true} >
