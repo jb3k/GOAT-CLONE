@@ -111,3 +111,11 @@
     height: 35px;
     border: 2px solid black;
 }
+
+.tester {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+}

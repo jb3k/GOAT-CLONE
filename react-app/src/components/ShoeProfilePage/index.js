@@ -13,6 +13,7 @@ function ShoeProfilePage() {
     const [isLoaded, setIsLoaded] = useState(false)
     // const history = useHistory()
     const { shoeId } = useParams();
+    
     const shoeInfo = useSelector(state => Object.values(state.apparel))
     const shoeListings = useSelector(state => Object.values(state.listings))
     const shoePurchases = useSelector(state => Object.values(state.purchase))
@@ -25,6 +26,8 @@ function ShoeProfilePage() {
             .then(() => setIsLoaded(true))
     }, [dispatch, shoeId])
 
+
+    
 
     const relatedBrands = shoeListings.map((item) => {
         const { apparelBrandType, price, apparelId, apparelName, apparelImg } = item

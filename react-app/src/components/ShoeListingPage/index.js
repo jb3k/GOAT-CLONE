@@ -49,7 +49,7 @@ function ShoeListingPage() {
             allsizes.forEach((item1) => {
                 list.push(<div className='size-price-container'>
                     <Link to={`/shoe/${shoeId}/sell/${item1}`} style={{ textDecoration: 'none' }}>
-                        <div>
+                        <div className='tester'>
                             {item1}
                         </div>
                     </Link>
