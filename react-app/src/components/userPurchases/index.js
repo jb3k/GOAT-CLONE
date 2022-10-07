@@ -82,7 +82,7 @@ function CurrentUserPurchases() {
                     <button className='purchase-page-edit-button'
                         onClick={() => {
                             alert("Shoe has already been shipped, you can no longer edit!")
-                        }}> Edit </button>
+                        }}> Shipped </button>
                     <div className='purchase-page-delete-button'
                         onClick={() => alert("Shoe has already been shipped, you can no longer edit!")}>
                         <i class="fa-regular fa-trash-can"></i>

@@ -141,6 +141,10 @@
 }
 
 
+.purchase-page-delete-button:hover {
+    cursor: pointer;
+}
+
 .edit-form-text-container {
     display: flex;
     align-items: center;
