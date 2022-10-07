@@ -19,11 +19,11 @@ function ShoePurchasePage() {
     useEffect(() => {
         dispatch(getApparelThunk(shoeId))
             .then(() => setIsLoaded(true))
-    }, [dispatch])
+    }, [dispatch, shoeId])
 
     const shoePage = shoeInfo.map((shoe) => {
 
-        const { colorway, imageUrl, name, listings, brand, brandType, style, releaseDate } = shoe
+        const { colorway, imageUrl, listings, brand, brandType, style, releaseDate } = shoe
 
         let leftContainer = (
             <>
@@ -55,16 +55,16 @@ function ShoePurchasePage() {
             const eachListing = listings.map(list => {
                 const { apparelId, price, size, id } = list
 
-
-                if (apparelId == shoeId) {
+                if (apparelId.toString() === shoeId) {
                     priceList[size] = price
                 }
             })
             let priceListArr = Object.keys(priceList)
 
             allsizes.forEach((item1) => {
+                // console.log(typeof item1)
                 priceListArr.forEach((item2) => {
-                    if (item1 == item2) {
+                    if (item1.toString() === item2) {
                         list.push(
                             <Link to={`/shoe/${shoeId}/buy/${item1}`} style={{ textDecoration: 'none' }}>
                                 <div className='size-price-container'>
