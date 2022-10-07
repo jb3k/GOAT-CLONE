@@ -12,8 +12,6 @@ const EditUserListing = ({ listingId, listingPrice, listingSize, setShowEditText
     const [quantity, setQuantity] = useState(1);
     const [isSubmitted, setIsSubmitted] = useState(false)
 
-    const user = useSelector(state => state.session.user);
-
     useEffect(() => {
         const errorValidation = []
         if (size < 3 || size > 18 || (!Number(size))) errorValidation.push('Need Valid Size')
