@@ -10,7 +10,6 @@ function CurrentUserPurchases() {
     const [showEditTextField, setShowEditTextField] = useState(false);
     const [showEditTextFieldPuchaseId, setShowEditTextFieldPuchaseId] = useState(0);
     const [open, setOpen] = useState(true)
-    const [pastDate, setPastDate] = useState(true)
     const [loaded, setLoaded] = useState(false);
 
 
