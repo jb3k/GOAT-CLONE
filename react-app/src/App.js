@@ -10,7 +10,7 @@ import UsersList from './components/UsersList';
 import { authenticate } from './store/session';
 // import ListingForm from './components/listingform/ListingForm';
 import MainPage from './components/mainpage';
-import SellPage from './components/sellpage';
+// import SellPage from './components/sellpage';
 import ShoeProfilePage from './components/ShoeProfilePage';
 import ShoeListingPage from './components/ShoeListingPage';
 import ShoeListingFormPage from './components/ShoeListingPage/ShoeListingFormPage'
@@ -18,7 +18,7 @@ import ShoePurchasePage from './components/ShoeBuyingPage';
 import ShoePurchaseFormPage from './components/ShoeBuyingPage/ShoePurchaseFormPage';
 import CurrentUserListings from './components/usersListings';
 import CurrentUserPurchases from './components/userPurchases';
-import UploadPicture from './components/ImagesForm';
+// import UploadPicture from './components/ImagesForm';
 import Footer from './components/footer';
 
 function App() {

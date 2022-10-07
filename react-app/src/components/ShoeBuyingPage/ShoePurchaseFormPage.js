@@ -11,10 +11,8 @@ function ShoePurchaseFormPage() {
     const dispatch = useDispatch()
 
 
-    const [shoeListingId, setShoeListingId] = useState(null)
-
-
-    const [shoeSelected, setShoeSelected] = useState(false)
+    // const [shoeListingId, setShoeListingId] = useState(null)
+    // const [shoeSelected, setShoeSelected] = useState(false)
 
 
 
