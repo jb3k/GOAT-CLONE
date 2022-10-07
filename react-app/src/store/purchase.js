@@ -50,7 +50,7 @@ const remove = (id) => {
 
 //thunks
 
-export const getALLPurchasesThunk = () => async dispatch => {
+export const getAllPurchasesThunk = () => async dispatch => {
     const response = await fetch('/api/purchase/')
     if (response.ok) {
         let purchases = await response.json()

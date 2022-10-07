@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
 import { getAllListingsThunk } from '../../store/listings';
-import { getALLPurchasesThunk } from '../../store/purchase';
+import { getAllPurchasesThunk } from '../../store/purchase';
 import './ShoeProfilePage.css'
 import Footer from '../footer';
 
@@ -22,7 +22,7 @@ function ShoeProfilePage() {
     useEffect(() => {
         dispatch(getApparelThunk(shoeId))
         dispatch(getAllListingsThunk())
-        dispatch(getALLPurchasesThunk())
+        dispatch(getAllPurchasesThunk())
             .then(() => setIsLoaded(true))
     }, [dispatch, shoeId])
 

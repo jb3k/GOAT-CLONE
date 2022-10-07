@@ -6,7 +6,7 @@ from .auth_routes import validation_errors_to_error_messages
 from datetime import datetime
 
 
-purchase_routes = Blueprint('purchases', __name__)
+purchase_routes = Blueprint('purchase', __name__)
 
 @purchase_routes.route('/', methods=['GET'])
 def get_all_purchases():
@@ -17,7 +17,6 @@ def get_all_purchases():
 @purchase_routes.route('/user', methods=['GET'])
 def get_all_user_purchases():
     purchase = Purchase.query.filter(Purchase.user_id == current_user.id)
-    # return { "stuff": purchase.to_dict()}
     return {"purchase": [items.to_dict() for items in purchase] }
 
 
