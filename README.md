@@ -75,7 +75,7 @@ Page2
 
 * Once you purchase a shoe, you will be directed to this page and will be allowed 24 hours to edit your address before the item is shipped and you can no longer edit / delete your purchase order. 
 
-![image](./proposal-img/purchase.png)
+![image](./proposal-img/purchasepage.png)
 
 
 
