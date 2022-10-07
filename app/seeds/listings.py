@@ -121,7 +121,7 @@ def seed_listings():
             "user_id": 1,
             "apparel_id": 2,
             "size": 8,
-            "price": 340,
+            "price": 240,
             "quantity":1
         }, 
         {
@@ -184,7 +184,7 @@ def seed_listings():
             "user_id":5, 
             "apparel_id":3,
             "size": 8,
-            "price": 340,
+            "price": 330,
             "quantity":1
         }, 
         {
@@ -247,7 +247,7 @@ def seed_listings():
             "user_id":5, 
             "apparel_id":4, 
             "size": 8,
-            "price": 340,
+            "price": 350,
             "quantity":1
         }, 
         {
@@ -310,7 +310,7 @@ def seed_listings():
             "user_id":  6, 
             "apparel_id": 5,
             "size": 8,
-            "price": 340,
+            "price": 400,
             "quantity":1
         }, 
         {
@@ -373,7 +373,7 @@ def seed_listings():
             "user_id":  6, 
             "apparel_id": 7,
             "size": 8,
-            "price": 340,
+            "price": 320,
             "quantity":1
         }, 
         {
@@ -443,7 +443,7 @@ def seed_listings():
             "user_id":  6, 
             "apparel_id": 8,
             "size": 8,
-            "price": 340,
+            "price": 345,
             "quantity":1
         }, 
         {
@@ -506,7 +506,7 @@ def seed_listings():
             "user_id":  6, 
             "apparel_id": 9,
             "size": 8,
-            "price": 340,
+            "price": 420,
             "quantity":1
         }, 
         {
@@ -592,7 +592,7 @@ def seed_listings():
             "user_id":  6, 
             "apparel_id": 11, 
             "size": 8,
-            "price": 340,
+            "price": 390,
             "quantity":1
         }, 
         {
@@ -655,7 +655,7 @@ def seed_listings():
             "user_id":  6, 
             "apparel_id": 12, 
             "size": 8,
-            "price": 340,
+            "price": 400,
             "quantity":1
         }, 
         {
@@ -718,7 +718,7 @@ def seed_listings():
             "user_id":  6, 
             "apparel_id": 13, 
             "size": 8,
-            "price": 340,
+            "price": 290,
             "quantity":1
         }, 
         {
@@ -781,7 +781,7 @@ def seed_listings():
             "user_id":  6, 
             "apparel_id": 14, 
             "size": 8,
-            "price": 340,
+            "price": 270,
             "quantity":1
         }, 
         {
@@ -844,7 +844,7 @@ def seed_listings():
             "user_id": 3, 
             "apparel_id": 15,
             "size": 8,
-            "price": 340,
+            "price": 265,
             "quantity":1
         }, 
         {
@@ -907,7 +907,7 @@ def seed_listings():
             "user_id":  6, 
             "apparel_id": 16,
             "size": 8,
-            "price": 340,
+            "price": 351,
             "quantity":1
         }, 
         {
@@ -970,7 +970,7 @@ def seed_listings():
             "user_id":  6, 
             "apparel_id": 17,
             "size": 8,
-            "price": 340,
+            "price": 245,
             "quantity":1
         }, 
         {
@@ -1033,7 +1033,7 @@ def seed_listings():
             "user_id": 9,
             "apparel_id": 18, 
             "size": 8,
-            "price": 340,
+            "price": 285,
             "quantity":1
         }, 
         {
@@ -1096,7 +1096,7 @@ def seed_listings():
             "user_id":  6, 
             "apparel_id": 20,
             "size": 8,
-            "price": 340,
+            "price": 330,
             "quantity":1
         }, 
         {
@@ -1159,7 +1159,7 @@ def seed_listings():
             "user_id":  6, 
             "apparel_id": 21,
             "size": 8,
-            "price": 340,
+            "price": 320,
             "quantity":1
         }, 
         {
@@ -1222,7 +1222,7 @@ def seed_listings():
             "user_id":  6, 
             "apparel_id": 22,
             "size": 8,
-            "price": 340,
+            "price": 430,
             "quantity":1
         }, 
         {
@@ -1348,7 +1348,7 @@ def seed_listings():
             "user_id": 9,
             "apparel_id": 25,
             "size": 8,
-            "price": 340,
+            "price": 345,
             "quantity":1
         }, 
         {
