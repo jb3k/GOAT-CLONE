@@ -20,6 +20,7 @@ import CurrentUserListings from './components/usersListings';
 import CurrentUserPurchases from './components/userPurchases';
 // import UploadPicture from './components/ImagesForm';
 import Footer from './components/footer';
+import PageNotFound from './components/pageNotFound';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -102,14 +103,10 @@ function App() {
           <MainPage />
           {/* <Footer /> */}
         </Route>
-
-
-        {/* <Route exact path= '/unknown'>
-         <NavBar />
-          <PageNotFound/>
-        </Route> */}
-
-
+        <Route>
+          <NavBar />
+          <PageNotFound />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
