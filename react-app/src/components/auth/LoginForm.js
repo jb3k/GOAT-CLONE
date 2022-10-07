@@ -8,11 +8,16 @@ const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false)
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onLogin = async (e) => {
     e.preventDefault();
+    setIsSubmitted(true)
+
+    if (errors.legnth > 0) return
+
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
@@ -59,9 +64,7 @@ const LoginForm = () => {
           <div className='signup-form-body'>
             <form onSubmit={onLogin}>
               <div className='login-form-errors'>
-                {errors.map((error, ind) => (
-                  <div key={ind}>{error}</div>
-                ))}
+                {isSubmitted && <div> Incorrect Login Information</div>}
               </div>
               <div className='signup-form-body-container'>
                 <input
