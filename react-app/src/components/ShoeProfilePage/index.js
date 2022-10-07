@@ -9,7 +9,7 @@ import Footer from '../footer';
 
 function ShoeProfilePage() {
     const dispatch = useDispatch()
-    const [user, setUser] = useState({});
+    // const [user, setUser] = useState({});
     const [isLoaded, setIsLoaded] = useState(false)
     // const history = useHistory()
     const { shoeId } = useParams();

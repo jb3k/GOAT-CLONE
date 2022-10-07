@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, Link, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
-import { getAllListingsThunk } from '../../store/listings';
+// import { getAllListingsThunk } from '../../store/listings';
 // import ShoePurchasePage from './ShoePurchase';
 // import ShoeReviewPage from './ShoeReview';
 // import ShoeSizePage from './ShoeSize';
@@ -13,7 +13,7 @@ function ShoePurchasePage() {
 
     const { shoeId } = useParams();
     const [isLoaded, setIsLoaded] = useState(false)
-    const [shoeListing, setShoeListing] = useState(0)
+    // const [shoeListing, setShoeListing] = useState(0)
     const shoeInfo = useSelector(state => Object.values(state.apparel))
 
     useEffect(() => {

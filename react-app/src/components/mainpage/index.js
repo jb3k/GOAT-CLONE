@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getAllApparelThunk } from '../../store/apparel';
 import './mainpage.css'
 import image1 from '../../assets/1.jpeg'
@@ -14,7 +14,7 @@ import Footer from '../footer';
 
 function MainPage() {
     const dispatch = useDispatch();
-    const history = useHistory()
+    // const history = useHistory()
     const [isLoaded, setIsLoaded] = useState(false)
     const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
