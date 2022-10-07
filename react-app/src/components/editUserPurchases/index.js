@@ -30,7 +30,7 @@ const EditUserPurchase = ({ purchaseId, userAddy, userCity, userZip, userState, 
         if (nums.includes(city) || specialChar.includes(city) || city.length <= 1 || city.length > 30) errors.push('Invalid City')
         if (nums.includes(state) || specialChar.includes(state) || state.length !== 2) errors.push('Invalid Abbreviated State name')
         // if (country !== 'USA' || country !== 'usa') errors.push('Shipping is only USA')
-        if (zipcode.toString().length !== 5) errors.push('Invalid Zipcode')
+        // if (zipcode.toString().length !== 5) errors.push('Invalid Zipcode')
         // console.log(zipcode, zipcode.toString().length, (12345).length)
 
         setErrors(errors)
