@@ -343,6 +343,20 @@ def seed_apparel():
             "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/281433/1.jpg"
         }, 
+        {
+            "name": "Jordan 3 Retro Fire Red",
+            "description": "The Air Jordan 3 Retro 'Fire Red' sees one of the original colors of the silhouette return, true to form. A white leather upper is paired with grey elephant print overlays on the toe and heel, while Fire Red accents on the midsole and collor offers a pop of contrast. Designed by Tinker Hatfield, the Air Jordan 3 was the first to feature a visible Nike Air unit, along with the Jumpman logo. This 2022 edition sees the return of the 'Nike Air' logo on the back heel, along with the 'Nike' wordmark on the outsole.",
+            "colorway": "White / Fire Red",
+            "release_date": "2022",
+            "brand": "Jordan",
+            "style": "mid",
+            "brand_type": "3",
+            "condition": "New",
+            "retail_price": 160,
+            "price_sold": 800,
+            "quantity_sold": 1,
+            "image_url": "https://cdn.flightclub.com/1250/TEMPLATE/314576/1.jpg"
+        }, 
     ]
 
 

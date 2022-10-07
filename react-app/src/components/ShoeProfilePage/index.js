@@ -74,7 +74,7 @@ function ShoeProfilePage() {
                                         {apparelName}
                                     </div>
                                     <div>
-                                        <div className='mainpage-shoe-lowest-ask'>lowest ask</div>
+                                        <div className='mainpage-shoe-lowest-ask'>highest ask</div>
                                         <strong><div className='mainpage-shoe-lowest-price'>${price}</div></strong>
                                     </div>
                                 </div>
