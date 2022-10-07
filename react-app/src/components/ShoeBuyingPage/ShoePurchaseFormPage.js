@@ -18,7 +18,7 @@ function ShoePurchaseFormPage() {
 
     const [isLoaded, setIsLoaded] = useState(false)
     // const history = useHistory()
-    const { shoeId, space, sizeId } = useParams();
+    const { shoeId} = useParams();
     const shoeInfo = useSelector(state => Object.values(state.apparel))
     // const userInfo = useSelector(state => Object.values(state.purchase))
     // const listingInfo = useSelector(state => Object.values(state.listings))
@@ -37,7 +37,7 @@ function ShoePurchaseFormPage() {
 
     const shoeImg = shoeInfo.map(item => {
 
-        const { brand, brandType, style, releaseDate, colorway, imageUrl, name, id, listings } = item
+        const { brand, brandType, style, releaseDate, colorway, imageUrl, id } = item
 
 
         let leftContainer = (
@@ -51,7 +51,7 @@ function ShoePurchaseFormPage() {
                     </div>
                 </div>
                 <div className='shoe-profile-image-container'>
-                    <img src={imageUrl} alt="shoe image" className='shoe-profile-image' ></img>
+                    <img src={imageUrl} alt="shoe" className='shoe-profile-image' ></img>
                 </div>
             </>
         )
@@ -88,17 +88,3 @@ function ShoePurchaseFormPage() {
 
 export default ShoePurchaseFormPage;
 
-
-{/* <div>
-<select
-    onChange={(e) => {
-        if (e.target.value === 0) {
-            setShoeSelected(false)
-        }
-        setShoeSelected(true)
-    }}
->
-    <option value={0}> Select </option>
-    { shoeSelected && <ShoeConfirmationPage/> && listingFilter}
-</select>
-</div> */}

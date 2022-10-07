@@ -87,9 +87,9 @@ function MainPage() {
 
         return (
 
-            <>
+            <div key={id}>
                 {shoes}
-            </>
+            </div>
         )
 
 
