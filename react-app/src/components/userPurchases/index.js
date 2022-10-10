@@ -208,7 +208,14 @@ function CurrentUserPurchases() {
 
     })
 
-
+    // console.log(allUserPurchases)
+    let noPurchases = (
+        <>
+            <div className='user-purchase-container' style={{ justifyContent: 'center', alignItems: 'center' }}>
+                No Purchases
+            </div>
+        </>
+    )
 
 
 
@@ -230,7 +237,7 @@ function CurrentUserPurchases() {
                             purchase info
                         </div>
                     </div>
-                    {userPurchases}
+                    {allUserPurchases.length === 0 ? noPurchases : userPurchases}
                 </div>
             </div>
         </>

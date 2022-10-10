@@ -14,8 +14,10 @@ const EditUserListing = ({ listingId, listingPrice, listingSize, setShowEditText
 
     useEffect(() => {
         const errorValidation = []
-        if (size < 3 || size > 18 || (!Number(size))) errorValidation.push('Need Valid Size')
+        if (size < 3 || size > 18 || (!Number(size))) errorValidation.push('Need Valid Size, 3-18')
+        if (size.toString().includes('.')) errorValidation.push('Size must be a whole number')
         if (!Number(price) || price > 9999 || price < 1) errorValidation.push('Price must be between 1-9999')
+        if (price.toString().includes('.')) errorValidation.push('Price must be a whole number')
         return setErrors(errorValidation)
     }, [size, price])
 

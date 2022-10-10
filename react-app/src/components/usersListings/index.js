@@ -10,12 +10,15 @@ function CurrentUserListings() {
     const dispatch = useDispatch()
     const [showEditTextField, setShowEditTextField] = useState(false);
     const [showEditTextFieldListingId, setShowEditTextFieldListingId] = useState(0);
+    const [loaded, setLoaded] = useState(false);
+
 
     const allUserListings = useSelector(state => Object.values(state.listings))
     // console.log(allUserListings)
 
     useEffect(() => {
         dispatch(getUserListingsThunk())
+            .then(() => setLoaded(true))
     }, []);
 
 
@@ -61,7 +64,10 @@ function CurrentUserListings() {
                                     setShowEditTextFieldListingId(id)
                                 }}> Edit </button>
                             <div className='purchase-page-delete-button'
-                                onClick={() => dispatch(deleteListingsThunk(id))}>
+                                onClick={() => {
+                                    dispatch(deleteListingsThunk(id))
+                                    alert('Your Listing has been removed')
+                                }}>
                                 <i class="fa-regular fa-trash-can"></i>
                             </div>
                             {showEditTextField && showEditTextFieldListingId === id && <EditUserListing listingId={id} listingPrice={price} listingSize={size} setShowEditTextField={setShowEditTextField} />}
@@ -100,7 +106,17 @@ function CurrentUserListings() {
     })
 
 
-    return (
+
+    let noListings = (
+        <>
+            <div className='user-purchase-container' style={{ justifyContent: 'center', alignItems: 'center' }}>
+                No Listings
+            </div>
+        </>
+    )
+
+
+    return loaded && (
         <>
             <div className='whole-user-page-container'>
                 <div className='user-page-purchase-header'>
@@ -118,7 +134,7 @@ function CurrentUserListings() {
                             listing info
                         </div>
                     </div>
-                    {userListings}
+                    {allUserListings.length === 0 ? noListings : userListings}
                 </div>
             </div>
         </>

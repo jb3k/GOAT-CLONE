@@ -133,3 +133,8 @@ a {
     font-size: 14px;
     font-weight: 600;
 }
+
+
+.navbar-profile-icon:hover {
+    cursor: pointer;
+}

@@ -130,8 +130,8 @@ const NavBar = () => {
 
         <div className='dropdown-container'>
           {/* <NavLink to='/users' exact={true} activeClassName='active'> */}
-          <div onClick={() => setOpen(!open)}>
-            <i class="fa-regular fa-circle-user"></i>
+          <div className='navbar-profile-icon' onClick={() => setOpen(!open)}>
+            <i style={{}} class="fa-regular fa-circle-user"></i>
           </div>
           {/* </NavLink> */}
           {open && dropdownBar}
