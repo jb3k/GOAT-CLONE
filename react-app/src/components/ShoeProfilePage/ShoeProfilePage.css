@@ -123,10 +123,14 @@
 
 
 .shoe-profile-related-products-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-top: 10px;
     height: 240px;
     border-bottom: 1px solid darkgray;
-    margin-bottom: 10px
+    margin-bottom: 10px;
+    /* max-width: 900px; */
 }
 
 /* 1475 screen width - 5 */
@@ -136,9 +140,9 @@
 .shoe-profile-related-products {
     margin-top: 15px;
     display: grid;
-    grid-auto-flow: column;
+    /* grid-auto-flow: column;
+    grid-column: 5; */
     grid-template-columns: repeat(5, 170px);
-    /* border: 1px solid black; */
     height: auto;
     width: 92%;
     margin-left: 30px;
@@ -146,12 +150,11 @@
 }
 
 
-/* @media screen and (max-width: 1015px) {
+@media screen and (max-width: 1015px) {
     .shoe-profile-related-products {
         margin-top: 15px;
         display: grid;
-        grid-auto-flow: column;
-        grid-template-columns: 170px 170px 170px;
+        grid-template-columns: repeat(3, 170px);
         height: auto;
         width: 92%;
         margin-left: 30px;
@@ -163,8 +166,7 @@
     .shoe-profile-related-products {
         margin-top: 15px;
         display: grid;
-        grid-auto-flow: column;
-        grid-template-columns: 170px 170px 170px 170px;
+        grid-template-columns: repeat(4, 170px);
         height: auto;
         width: 92%;
         margin-left: 30px;
@@ -172,31 +174,18 @@
     }
 }
 
-@media screen and (min-width: 1272px) and (max-width: 1475px) {
-    .shoe-profile-related-products {
-        margin-top: 15px;
-        display: grid;
-        grid-auto-flow: column;
-        grid-template-columns: 170px 170px 170px 170px 170px;
-        height: auto;
-        width: 92%;
-        margin-left: 30px;
-        overflow: hidden;
-    }
-}
 
 @media screen and (min-width: 1476px) {
     .shoe-profile-related-products {
         margin-top: 15px;
         display: grid;
-        grid-auto-flow: column;
-        grid-template-columns: 170px 170px 170px 170px 170px 170px;
+        grid-template-columns: repeat(6, 170px);
         height: auto;
         width: 92%;
         margin-left: 30px;
         overflow: hidden;
     }
-} */
+}
 
 
 
