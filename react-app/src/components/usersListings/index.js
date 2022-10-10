@@ -64,7 +64,10 @@ function CurrentUserListings() {
                                     setShowEditTextFieldListingId(id)
                                 }}> Edit </button>
                             <div className='purchase-page-delete-button'
-                                onClick={() => dispatch(deleteListingsThunk(id))}>
+                                onClick={() => {
+                                    dispatch(deleteListingsThunk(id))
+                                    alert('Your Purchase has been cancelled')
+                                }}>
                                 <i class="fa-regular fa-trash-can"></i>
                             </div>
                             {showEditTextField && showEditTextFieldListingId === id && <EditUserListing listingId={id} listingPrice={price} listingSize={size} setShowEditTextField={setShowEditTextField} />}
