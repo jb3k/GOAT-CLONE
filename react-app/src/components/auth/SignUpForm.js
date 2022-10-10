@@ -23,7 +23,7 @@ const SignUpForm = () => {
     if (lastName.length > 25 || lastName.length < 2) errValidation.push('Must be between 2 and 25 characters.')
     if (!email.includes('@') || !email.includes('.')) errValidation.push('Invalid Email')
     if (password.length > 25 || password.length < 6) errValidation.push('Must be between 6 and 30 characters.')
-    if (password !== repeatPassword) errValidation.push('Passwords must Match')
+    // if (password !== repeatPassword) errValidation.push('Passwords must Match')
 
     setErrors(errValidation)
 
@@ -44,6 +44,8 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors(['Passwords must Match'])
     }
   };
 
