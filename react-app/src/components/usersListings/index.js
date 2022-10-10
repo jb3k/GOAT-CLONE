@@ -66,7 +66,7 @@ function CurrentUserListings() {
                             <div className='purchase-page-delete-button'
                                 onClick={() => {
                                     dispatch(deleteListingsThunk(id))
-                                    alert('Your Purchase has been cancelled')
+                                    alert('Your Listing has been removed')
                                 }}>
                                 <i class="fa-regular fa-trash-can"></i>
                             </div>
