@@ -1,0 +1,23 @@
+.search-bar-container {
+    margin-left: 8px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    width: 95%;
+}
+
+.search-bar-input-container {
+    width: 100%;
+}
+
+.search-bar-input {
+    height: 28px;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.clear-button {
+    background-color: white;
+    border: none;
+}

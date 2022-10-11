@@ -18,15 +18,8 @@ function MainPage() {
     const [isLoaded, setIsLoaded] = useState(false)
     const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
-    // console.log(allApparel)
     const [imageNumber, setImageNumber] = useState(0)
-    const images = [image1, image2, image3, image4, image5
-        // <img src={image1} className='actual-rotating-image'></img>,
-        // <img src={image2} className='actual-rotating-image'></img>,
-        // <img src={image3} className='actual-rotating-image'></img>,
-        // <img src={image4} className='actual-rotating-image'></img>,
-        // <img src={image5} className='actual-rotating-image'></img>
-    ]
+    const images = [image1, image2, image3, image4, image5]
 
     useEffect(() => {
         dispatch(getAllApparelThunk())
@@ -38,11 +31,9 @@ function MainPage() {
         const imageInterval = setInterval(() => {
             setImageNumber((num) => ++num % images.length)
         }, 4000)
-
         return () => {
             clearInterval(imageInterval)
         }
-
     }, [])
 
     const allItems = allApparel.map((item) => {
@@ -83,38 +74,18 @@ function MainPage() {
                 </NavLink>
             </>
         )
-
-
         return (
 
             <div key={id}>
                 {shoes}
             </div>
         )
-
-
     })
-
-
-    let header
-    if (!sessionUser) {
-        header = (
-            <>
-                <h2 className='mainpage-header'></h2>
-            </>
-        )
-    } else {
-        header = (
-            <>
-                <h2 className='mainpage-header'> Welcome, {sessionUser.firstName} {sessionUser.lastName}</h2>
-            </>
-        )
-    }
 
     return isLoaded && (
         <>
             <div>
-                {header}
+                {!sessionUser ? <h2 className='mainpage-header'></h2> : <h2 className='mainpage-header'> Welcome, {sessionUser.firstName} {sessionUser.lastName}</h2>}
             </div>
             <div className='mainpage-body-container'>
                 <div className='mainpage-shoe-listing-container'>
@@ -122,8 +93,6 @@ function MainPage() {
                 </div>
                 <div className='mainpage-rotating-img-container'>
                     <img src={images[imageNumber]} className='actual-rotating-image'></img>
-                    {/* <div className='mainpage-rotating-img' style={{ backgroundImage: `url(${images[imageNumber]})` }}>
-                    </div> */}
                 </div>
                 <div className='mainpage-shoe-listing-container'>
                     <div style={{ marginTop: '30px' }}>

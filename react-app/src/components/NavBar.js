@@ -4,6 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useState } from 'react'
 import LogoutButton from './auth/LogoutButton';
+import SearchBar from './SearchBar';
 
 const NavBar = () => {
 
@@ -151,7 +152,7 @@ const NavBar = () => {
 
 
   return (
-    <nav style={{borderBottom: "1px solid lightgray"}}>
+    <nav style={{ borderBottom: "1px solid lightgray" }}>
       <div className='whole-navbar'>
         <div className='navbar-logo'>
           <NavLink to='/' exact={true} activeClassName='active'
@@ -161,7 +162,8 @@ const NavBar = () => {
         </div>
         <div className='navbar-searchbar-container'>
           <div className='navbar-searchbar'>
-            {/* Seach Bar */}
+            <i class="fa-solid fa-magnifying-glass" style={{ marginLeft: '8px' }}></i>
+            {<SearchBar />}
           </div>
         </div>
         <div className='navbar-right-container'>
