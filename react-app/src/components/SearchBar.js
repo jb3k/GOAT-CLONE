@@ -46,22 +46,23 @@ const SearchBar = () => {
             </form>
             <div>
                 <button className="clear-button"
-                    onClick={search.length !== 0 ? clearSearchInput : () => setSearch(false)}>
+                    onClick={() => { if (search.length !== 0) setSearch('') }}>
                     X
                 </button>
             </div>
-            {/* <div className='bookResultsDiv'>
-                {filterBooks && (
-                    filterBooks.slice(0, 5).map((book, idx) => (
-                        <NavLink to={`/shoe/${shoe.id}`} className="bookSearchList">
+            <div className='shoe-search-results'>
+                {
+                    filterShoes.slice(0, 10).map((shoe, idx) => (
+                        <NavLink to={`/shoe/${shoe.id}`}>
                             <div className='searchBookBarResult'
-                                key={idx}
-                                onClick={() => setSearchBar(false)}>
+                                key={idx}>
+                                <div>{shoe.name}</div>
+                                <div>{shoe.colorway}</div>
                             </div>
                         </NavLink>
                     ))
-                )}
-            </div> */}
+                }
+            </div>
         </div>
     )
 }

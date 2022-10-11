@@ -15,9 +15,17 @@
     width: 100%;
     border: none;
     outline: none;
+    background-color: rgb(249, 249, 249);
 }
 
 .clear-button {
-    background-color: white;
+    background-color: rgb(249, 249, 249);
     border: none;
+}
+
+.search-shoe-results {
+    position: absolute;
+    height: 400px;
+    background-color: white;
+    width: 400px;
 }
