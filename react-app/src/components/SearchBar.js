@@ -1,11 +1,10 @@
 import { useState } from "react"
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import './SearchBar.css'
 
 const SearchBar = () => {
 
-    const history = useHistory()
     const allApparel = useSelector(state => state.apparel)
     const [filterShoes, setFilterShoes] = useState([])
     const [search, setSearch] = useState('')
@@ -21,16 +20,10 @@ const SearchBar = () => {
     }
 
     const handleSubmit = () => {
-        // history.push(`/books/${searchable}`)
+        // history.push(`/shoe/${search}`)
         setFilterShoes([])
         setSearch(false)
     }
-
-    const clearSearchInput = () => {
-        setFilterShoes([])
-        setSearch('')
-    }
-
 
     return (
         <div className='search-bar-container'>
@@ -45,14 +38,11 @@ const SearchBar = () => {
                 />
             </form>
             <div>
-                <button className="clear-button"
-                    onClick={() => { if (search.length !== 0) setSearch('') }}>
-                    X
-                </button>
+                {search.length !== 0 ? <button className="clear-button" onClick={() => { if (search.length !== 0) setSearch('') }}>X</button> : <button style={{ border: 'none' }}></button>}
             </div>
             <div className='shoe-search-results'>
                 {
-                    filterShoes.slice(0, 10).map((shoe, idx) => (
+                    filterShoes.slice(0, 8).map((shoe, idx) => (
                         <NavLink to={`/shoe/${shoe.id}`}>
                             <div className='searchBookBarResult'
                                 key={idx}>
