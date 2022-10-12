@@ -41,17 +41,14 @@ function MainPage() {
     const allItems = allApparel.map((item) => {
 
         if (!item) return null
-
         const { imageUrl, name, listings, id } = item
 
+
         let arr = []
-        if (listings.length === 0) {
-            arr.push(0)
-        }
-        const filterListing = listings.forEach((price) => {
-            arr.push(price.price)
-        })
+        if (listings.length === 0) arr.push(0)
+        const filterListing = listings.forEach((shoe) => { arr.push(shoe.price) })
         let minPrice = Math.min(...arr)
+
 
         let shoes = (
             <>
@@ -68,16 +65,12 @@ function MainPage() {
                                 <div className='mainpage-shoe-lowest-ask'>lowest ask</div>
                                 <strong><div className='mainpage-shoe-lowest-price'>{minPrice > 0 ? `$${minPrice}` : 'Sold out'}</div></strong>
                             </div>
-                            {/* <div>
-                        last sale:
-                    </div> */}
                         </div>
                     </div>
                 </NavLink>
             </>
         )
         return (
-
             <div key={id}>
                 {shoes}
             </div>
