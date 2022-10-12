@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams, Link, NavLink } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
 import { searchAllApparelThunk } from '../../store/searchbar'
-// import { getAllListingsThunk } from '../../store/listings';
-// import ShoePurchasePage from './ShoePurchase';
-// import ShoeReviewPage from './ShoeReview';
-// import ShoeSizePage from './ShoeSize';
+import AllSizesFunc from './allSizesFunc';
 
 
 function ShoePurchasePage() {
@@ -14,7 +11,6 @@ function ShoePurchasePage() {
 
     const { shoeId } = useParams();
     const [isLoaded, setIsLoaded] = useState(false)
-    // const [shoeListing, setShoeListing] = useState(0)
     const shoeInfo = useSelector(state => Object.values(state.apparel))
 
     useEffect(() => {
@@ -44,64 +40,6 @@ function ShoePurchasePage() {
             </>
         )
 
-        // let currList
-        // let currentListing = listings.forEach(ele => {
-        //     console.log(ele)
-
-        // })
-
-        const allShoeSizes = () => {
-            let allsizes = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
-            const list = []
-            let priceList = {}
-            const eachListing = listings.map(list => {
-                const { apparelId, price, size, id } = list
-
-                if (apparelId.toString() === shoeId) {
-                    priceList[size] = price
-                }
-            })
-            let priceListArr = Object.keys(priceList)
-
-            allsizes.forEach((item1) => {
-                // console.log(typeof item1)
-                priceListArr.forEach((item2) => {
-                    if (item1.toString() === item2) {
-                        list.push(
-                            <Link to={`/shoe/${shoeId}/buy/${item1}`} style={{ textDecoration: 'none' }}>
-                                <div className='size-price-container'>
-                                    <div>
-                                        {item1}
-                                    </div>
-                                    <div className='size-price-container-price'>
-                                        {`$${priceList[`${item1}`]}`}
-                                    </div>
-                                </div>
-                            </Link>
-                        )
-                    }
-
-                })
-                if (!priceList[`${item1}`]) {
-                    list.push(<div className='size-price-container'>
-                        <div>
-                            {item1}
-                        </div>
-                        <div className='size-price-container-price'>
-                            Sold Out
-                        </div>
-                    </div>
-                    )
-                }
-            })
-
-            return (
-                <>
-                    {list}
-                </>
-            )
-        }
-
         let rightContainer = (
             <>
                 <div className='right-container-header'>
@@ -114,7 +52,7 @@ function ShoePurchasePage() {
                 </div>
                 <div className='shoe-size-list-container'>
                     <div className='shoe-size-list'>
-                        {allShoeSizes()}
+                        <AllSizesFunc listings={listings} shoeId={shoeId} />
                     </div>
                 </div>
                 <div className='right-container-header'>
@@ -140,10 +78,8 @@ function ShoePurchasePage() {
 
     return isLoaded && (
         <>
-            <div>
-                <div className='sell-page-main-container'>
-                    {shoePage}
-                </div>
+            <div className='sell-page-main-container'>
+                {shoePage}
             </div>
         </>
     )

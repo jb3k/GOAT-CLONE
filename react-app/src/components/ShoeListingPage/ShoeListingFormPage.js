@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
 import ShoeListingForm from './ShoeListingForm';
 import { searchAllApparelThunk } from '../../store/searchbar';
@@ -25,7 +25,7 @@ function ShoeListingFormPage() {
 
     const shoePage = shoeInfo.map((shoe) => {
 
-        const { brand, brandType, style, releaseDate, colorway, imageUrl, name } = shoe
+        const { brand, brandType, style, releaseDate, colorway, imageUrl } = shoe
 
         let leftContainer = (
             <>
