@@ -157,7 +157,7 @@ function ShoeProfilePage() {
                             {colorway}
                         </div>
                         <div className='shoe-profile-condition'>
-                            Condtion: {condition}
+                            Condition: {condition}
                         </div>
                         <div className='shoe-profile-image-container'>
                             <img src={imageUrl} alt="shoe image" className='shoe-profile-image' ></img>
