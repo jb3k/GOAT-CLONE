@@ -7,7 +7,7 @@
 }
 
 .search-bar-input-container {
-    width: 100%;
+    width: 8000%;
 }
 
 .search-bar-input {
@@ -23,10 +23,41 @@
     border: none;
 }
 
+
+/* .shoe-search-results-container {
+    border: 1px solid black;
+    width: 500px;
+} */
+
+
 .shoe-search-results {
     position: fixed;
+    display: flex;
+    flex-direction: column;
     top: 60px;
-    left: 195px;
+    left: 13%;
     background-color: white;
-    width: 42%;
+    width: 48.5%;
+}
+
+.dropdown-searchbar-results {
+    display: flex;
+}
+
+.searchbar-image-container {
+    height: 60px;
+    width: 60px;
+    margin-right: 10px;
+}
+
+.searchbar-image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.searchbar-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

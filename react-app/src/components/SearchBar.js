@@ -13,7 +13,7 @@ const SearchBar = () => {
         const shoeSearch = e.target.value
         setSearch(shoeSearch)
         const findShoe = Object.values(allApparel).filter(shoe => {
-            return ((shoe.name.toLowerCase().includes(shoeSearch.toLowerCase())) || shoe.colorway.toLowerCase().includes(shoeSearch.toLowerCase()))
+            return ((shoe.name.toLowerCase().includes(shoeSearch.toLowerCase())) || shoe.brand.toLowerCase().includes(shoeSearch.toLowerCase()))
         })
         shoeSearch === '' ? setFilterShoes([]) : setFilterShoes(findShoe)
 
@@ -23,6 +23,10 @@ const SearchBar = () => {
         // history.push(`/shoe/${search}`)
         setFilterShoes([])
         setSearch(false)
+    }
+    const clearSearch = () => {
+        setFilterShoes([])
+        setSearch('')
     }
 
     return (
@@ -38,22 +42,26 @@ const SearchBar = () => {
                 />
             </form>
             <div>
-                {search.length !== 0 ? <button className="clear-button" onClick={() => { if (search.length !== 0) setSearch('') }}>X</button> : <button style={{ border: 'none' }}></button>}
+                {search.length !== 0 ? <button className="clear-button" onClick={clearSearch}>X</button> : <button style={{ border: 'none' }}></button>}
             </div>
             <div className='shoe-search-results'>
                 {
-                    filterShoes.slice(0, 8).map((shoe, idx) => (
-                        <NavLink to={`/shoe/${shoe.id}`}>
-                            <div className='searchBookBarResult'
-                                key={idx}>
-                                <div>{shoe.name}</div>
-                                <div>{shoe.colorway}</div>
+                    filterShoes.slice(0, 10).map((shoe, idx) => (
+                        <NavLink to={`/shoe/${shoe.id}`} style={{ textDecoration: 'none' }}>
+                            <div className='dropdown-searchbar-results' key={idx} onClick={clearSearch} >
+                                <div className='searchbar-image-container'>
+                                    <img src={shoe.imageUrl} alt='shoe' className="searchbar-image"></img>
+                                </div>
+                                <div className="searchbar-text-container">
+                                    <div>{shoe.name}</div>
+                                    <div>{shoe.colorway}</div>
+                                </div>
                             </div>
                         </NavLink>
                     ))
                 }
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 
