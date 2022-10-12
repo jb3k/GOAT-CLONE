@@ -4,6 +4,7 @@ import { useParams, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
 import { getAllListingsThunk } from '../../store/listings';
 import { getAllPurchasesThunk } from '../../store/purchase';
+import { searchAllApparelThunk } from '../../store/searchbar';
 import './ShoeProfilePage.css'
 import Footer from '../footer';
 
@@ -23,6 +24,8 @@ function ShoeProfilePage() {
         dispatch(getApparelThunk(shoeId))
         dispatch(getAllListingsThunk())
         dispatch(getAllPurchasesThunk())
+        dispatch(searchAllApparelThunk())
+
             .then(() => setIsLoaded(true))
     }, [dispatch, shoeId])
 

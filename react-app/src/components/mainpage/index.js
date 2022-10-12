@@ -9,6 +9,7 @@ import image3 from '../../assets/3.jpeg'
 import image4 from '../../assets/4.jpeg'
 import image5 from '../../assets/5.jpeg'
 import Footer from '../footer';
+import { searchAllApparelThunk } from '../../store/searchbar';
 
 
 
@@ -23,6 +24,7 @@ function MainPage() {
 
     useEffect(() => {
         dispatch(getAllApparelThunk())
+        dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
     }, [dispatch])
 
