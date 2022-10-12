@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
 import ShoeListingForm from './ShoeListingForm';
+import { searchAllApparelThunk } from '../../store/searchbar';
 
 
 
@@ -15,6 +16,7 @@ function ShoeListingFormPage() {
 
     useEffect(() => {
         dispatch(getApparelThunk(shoeId))
+        dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
 
     }, [dispatch])

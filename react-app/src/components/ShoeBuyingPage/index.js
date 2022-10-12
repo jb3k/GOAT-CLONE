@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, Link, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
+import { searchAllApparelThunk } from '../../store/searchbar'
 // import { getAllListingsThunk } from '../../store/listings';
 // import ShoePurchasePage from './ShoePurchase';
 // import ShoeReviewPage from './ShoeReview';
@@ -18,6 +19,7 @@ function ShoePurchasePage() {
 
     useEffect(() => {
         dispatch(getApparelThunk(shoeId))
+        dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
     }, [dispatch, shoeId])
 

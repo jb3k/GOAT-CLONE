@@ -25,7 +25,6 @@ function ShoeProfilePage() {
         dispatch(getAllListingsThunk())
         dispatch(getAllPurchasesThunk())
         dispatch(searchAllApparelThunk())
-
             .then(() => setIsLoaded(true))
     }, [dispatch, shoeId])
 

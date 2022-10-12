@@ -4,6 +4,7 @@ import { useParams, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
 import ShoeConfirmationPage from './ShoeConfirmationPage';
 import { getUserPurchasesThunk } from '../../store/purchase';
+import { searchAllApparelThunk } from '../../store/searchbar';
 import './ShoePurchaseForm.css'
 
 
@@ -18,7 +19,7 @@ function ShoePurchaseFormPage() {
 
     const [isLoaded, setIsLoaded] = useState(false)
     // const history = useHistory()
-    const { shoeId} = useParams();
+    const { shoeId } = useParams();
     const shoeInfo = useSelector(state => Object.values(state.apparel))
     // const userInfo = useSelector(state => Object.values(state.purchase))
     // const listingInfo = useSelector(state => Object.values(state.listings))
@@ -28,6 +29,7 @@ function ShoePurchaseFormPage() {
     useEffect(() => {
         dispatch(getApparelThunk(shoeId))
         dispatch(getUserPurchasesThunk())
+        dispatch(searchAllApparelThunk())
             // dispatch(getAllListingsThunk())
             .then(() => setIsLoaded(true))
 
@@ -87,4 +89,3 @@ function ShoePurchaseFormPage() {
 }
 
 export default ShoePurchaseFormPage;
-
