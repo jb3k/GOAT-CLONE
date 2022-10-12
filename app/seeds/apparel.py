@@ -357,6 +357,175 @@ def seed_apparel():
             "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1250/TEMPLATE/314576/1.jpg"
         }, 
+        {
+            "name": "AIR JORDAN 11 RETRO 'COOL GREY' 2021",
+            "description": "Released in December 2021, the Air Jordan 11 Retro 'Cool Grey' 2021 brings back a colorway from 2001 and 2010. Faithful to the OG, the shoe's upper is built with leather, finished in grey and supported by a darker grey patent leather mudguard. Tonal webbing eyelets are worked into the lacing system to secure the fit, while underfoot, a contrasting white phylon midsole houses full-length Air for cushioning, with a carbon fiber plate included for added support. An icy translucent rubber outsole provides traction.",
+            "colorway": "White / Cool Grey",
+            "release_date": "2021",
+            "brand": "Jordan",
+            "style": "mid",
+            "brand_type": "11",
+            "condition": "New",
+            "retail_price": 225,
+            "price_sold": 600,
+            "quantity_sold": 1,
+            "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/248952/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 11 RETRO 'JUBILEE'",
+            "description": "Releasing to celebrate 25 years of the iconic silhouette, the Air Jordan 11 Retro 'Jubilee / 25th Anniversary' emerges with a classic look. The shoe's upper is built with a ballistic mesh base, overlaid by patent leather, with both elements finished in black. The 3D metallic Jumpman and '23' heel branding accent the look in silver, with a similar finish on the 'Jordan' that marks the eyelets. Underfoot, a white Air midsole provides cushioning and contrast, giving way to a translucent rubber outsole for traction.",
+            "colorway": "White / Cool Grey",
+            "release_date": "2020",
+            "brand": "Jordan",
+            "style": "mid",
+            "brand_type": "11",
+            "condition": "New",
+            "retail_price": 225,
+            "price_sold": 600,
+            "quantity_sold": 1,
+            "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/162081/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 11 RETRO 'BRED' 2019",
+            "description": "Bringing back an OG colorway, the Air Jordan 11 Retro 'Bred' 2019 features a familiar Chicago Bulls look. The shoe's upper is built with a mix of mesh and patent leather, all finished in black, save for the Varsity Red Jumpman and white '23.' Underfoot, a contrasting white midsole houses Air and a midfoot plate, while a Varsity Red rubber outsole provides traction and completes the look.",
+            "colorway": "Black / White / Varsity Red",
+            "release_date": "2020",
+            "brand": "Jordan",
+            "style": "mid",
+            "brand_type": "11",
+            "condition": "New",
+            "retail_price": 225,
+            "price_sold": 600,
+            "quantity_sold": 1,
+            "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/152814/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 11 RETRO 'CONCORD' 2018",
+            "description": "The 2018 version of the Air Jordan 11 Retro ‘Concord’ shows off ‘45’ imprinted on the black heel tab in honor of the jersey number that Michael Jordan wore when he returned to the NBA after his first retirement. The shoe’s other signature details remain intact, including a white ballistic mesh upper, black patent leather overlays, and an icy translucent outsole.",
+            "colorway": "Black / White / Concord",
+            "release_date": "2018",
+            "brand": "Jordan",
+            "style": "mid",
+            "brand_type": "11",
+            "condition": "New",
+            "retail_price": 225,
+            "price_sold": 600,
+            "quantity_sold": 1,
+            "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/805882/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 11 RETRO 'LEGEND BLUE' 2014",
+            "description": "Bringing back a 1996 OG colorway, the Air Jordan 11 Retro 'Legend Blue' 2014 dropped in 2014. Originally worn by Michael Jordan in his first All-Star Game after his first retirement, the shoe's upper emerges with a white leather base, highlighted by Legend Blue hits drawn from his University of North Carolina alma mater. The usual patent leather mudguard supports the fit, while underfoot, full-length Air in the phylon midsole provides cushioning.",
+            "colorway": "White / Legend Blue",
+            "release_date": "2014",
+            "brand": "Jordan",
+            "style": "mid",
+            "brand_type": "11",
+            "condition": "New",
+            "retail_price": 225,
+            "price_sold": 600,
+            "quantity_sold": 1,
+            "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/012088/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 11 RETRO 'SPACE JAM' 2016",
+            "description": "The 2016 reissue of the Air Jordan 11 Retro ‘Space Jam’ was successful enough that it surpassed all previous releases in Nike history to become the brand’s highest grossing sneaker to date. The retro launch, marking the 20th anniversary of the shoe’s namesake film, features a design that’s true to Michael Jordan’s original PE colorway, including the ‘45’ printed in white on the heel tab.",
+            "colorway": "White / Legend Blue",
+            "release_date": "2016",
+            "brand": "Jordan",
+            "style": "mid",
+            "brand_type": "11",
+            "condition": "New",
+            "retail_price": 225,
+            "price_sold": 600,
+            "quantity_sold": 1,
+            "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/012597/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 4 RETRO OG 'BRED' 2019",
+            "description": "The Air Jordan 4 Retro OG 'Bred' 2019 released to help celebrate the 30th annivesary of the silhouette. Featuring the same OG colorway that Michael Jordan wore while hitting 'The Shot' in 1989, the shoe features a black nubuck upper complemented by hits of Cement Grey. Fire Red accents emerge on the tongue and outsole, while Air in the heel provides cushioning.",
+            "colorway": "Black / White / Fire-red",
+            "release_date": "2019",
+            "brand": "Jordan"
+            "style": "mid",
+            "brand_type": "4",
+            "condition": "New",
+            "retail_price": 200,
+            "price_sold": 600,
+            "quantity_sold": 1,
+            "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/139813/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 4 RETRO OG 'WHITE CEMENT' 2016",
+            "description": "The Air Jordan 4 Retro OG ‘White Cement’ returned to store shelves in 2016, featuring a design that’s true to the original 1989 release. The build makes use of a white leather upper, accented with speckled Cement Grey hits on the shoe’s structural wings, midsole and heel panel, the latter adorned with Nike Air branding. A red Jumpman logo on the woven Flight tongue tag offers a contrasting pop of color.",
+            "colorway": "Black / White ",
+            "release_date": "2016",
+            "brand": "Jordan"
+            "style": "mid",
+            "brand_type": "4",
+            "condition": "New",
+            "retail_price": 200,
+            "price_sold": 600,
+            "quantity_sold": 1,
+            "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/804168/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 4 RETRO 'MOTORSPORTS'",
+            "description": "Launching in 2017, the Air Jordan 4 Retro ‘Motorsports’ is modeled after an extremely limited pair that was gifted to the 16 members of MJ’s motorcycle racing team back in 2006. Unlike its predecessor, there is no Mars Blackmon graphic on the lateral heel, but the larger design remains the same, highlighted by a white leather upper with black and Game Royal accents.",
+            "colorway": "Black / White / Blue ",
+            "release_date": "2014",
+            "brand": "Jordan"
+            "style": "mid",
+            "brand_type": "4",
+            "condition": "New",
+            "retail_price": 200,
+            "price_sold": 600,
+            "quantity_sold": 1,
+            "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/800490/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 4 RETRO SE 'WHAT THE 4'",
+            "description": "The Air Jordan 4 Retro SE 'What The 4' combines the silhouette’s four OG colorways on a single pair. The mismatched designs on the left and right shoe both make use of a white leather upper, complete with original details that include a woven flight tongue tag, quarter panel netting, visible Air cushioning on the midsole and Nike Air branding on the heel panel.",
+            "colorway": "Black / White / Blue / Red",
+            "release_date": "2019",
+            "brand": "Jordan"
+            "style": "mid",
+            "brand_type": "4",
+            "condition": "New",
+            "retail_price": 200,
+            "price_sold": 600,
+            "quantity_sold": 1,
+            "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/138143/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 4 RETRO 'UNIVERSITY BLUE'",
+            "description": "The Air Jordan 4 Retro 'University Blue' looks to Michael Jordan's college days to inform its classic look. Built with suede, the shoe's upper appears primarily in University Blue, with cement detailing on the classic wings and heel overlay. Tonal mesh inserts emerge at the vamp and quarter panel, while the tongue tag is designed to look like a jock tag on the bottom hem of Jordan jerseys. Visible Air in the heel of the speckled midsole provides cushioning.",
+            "colorway": "Black / White / Blue ",
+            "release_date": "2021",
+            "brand": "Jordan"
+            "style": "mid",
+            "brand_type": "4",
+            "condition": "New",
+            "retail_price": 200,
+            "price_sold": 600,
+            "quantity_sold": 1,
+            "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/186212/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 4 RETRO 'LIGHTNING' 2021",
+            "description": "Bringing back a 2006 colorway, which released alongside the 'Thunder,' the Air Jordan 4 Retro 'Lightning' 2021 features inspiration from Michael Jordan's motorsports team. The shoe's upper is built with nubuck, finished in Tour Yellow and contrasted by the mesh netting and signature wings. Underfoot, a white PU midsole houses visible Air in the heel to provide cushioning, giving way to a herringbone rubber outsole for traction.",
+            "colorway": "Dark Grey / White / Yellow ",
+            "release_date": "2021",
+            "brand": "Jordan"
+            "style": "mid",
+            "brand_type": "4",
+            "condition": "New",
+            "retail_price": 200,
+            "price_sold": 600,
+            "quantity_sold": 1,
+            "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/248963/1.jpg"
+        }, 
+        
     ]
 
 
