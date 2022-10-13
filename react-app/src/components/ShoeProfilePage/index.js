@@ -187,6 +187,7 @@ function ShoeProfilePage() {
         )
 
 
+        // console.log('HELLO',relatedBrands.length)
 
         let relatedProducts = (
             <div className='shoe-profile-related-products-container'>

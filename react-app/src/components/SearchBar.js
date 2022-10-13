@@ -1,11 +1,11 @@
 import { useState } from "react"
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import './SearchBar.css'
 
 const SearchBar = () => {
 
-    // const history = useHistory()
+    const history = useHistory()
     const allApparel = useSelector(state => state.search)
     const [filterShoes, setFilterShoes] = useState([])
     const [search, setSearch] = useState('')
@@ -19,11 +19,10 @@ const SearchBar = () => {
         shoeSearch === '' ? setFilterShoes([]) : setFilterShoes(findShoe)
 
     }
-
     const handleSubmit = () => {
-        // history.push(`/shoe/${search}`)
+        history.push(`/shoe/${filterShoes[0].id}`)
         setFilterShoes([])
-        setSearch(false)
+        setSearch('')
     }
     const clearSearch = () => {
         setFilterShoes([])
