@@ -21,6 +21,7 @@ import CurrentUserPurchases from './components/userPurchases';
 // import UploadPicture from './components/ImagesForm';
 import Footer from './components/footer';
 import PageNotFound from './components/pageNotFound';
+import ApparelForm from './components/apparelForm/ApparelForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -82,15 +83,13 @@ function App() {
           <NavBar />
           <ShoePurchaseFormPage />
         </ProtectedRoute>
-
-
-        {/* 
-        <ProtectedRoute path='/sell' exact={true} >
+        <ProtectedRoute path='/add' exact={true} >
           <NavBar />
-          <UploadPicture />
+          <ApparelForm />
         </ProtectedRoute>
 
-        <ProtectedRoute path='/broken' exact={true} >
+
+        {/* <ProtectedRoute path='/broken' exact={true} >
           <SellPage />
         </ProtectedRoute> */}
 

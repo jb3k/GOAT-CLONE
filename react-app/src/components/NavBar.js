@@ -186,6 +186,11 @@ const NavBar = () => {
             </Link>
             {/* </NavLink> */}
           </div>
+          <div className='navbar-right-items'>
+            <NavLink to='/add' style={{ textDecoration: 'none', color: 'black' }}>
+              Add Shoe
+            </NavLink>
+          </div>
           {profileMenu()}
         </div>
       </div>
