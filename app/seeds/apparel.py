@@ -15,8 +15,6 @@ def seed_apparel():
             "brand_type": "3",
             "condition": "New",
             "retail_price": 160,
-            "price_sold": 800,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/500/TEMPLATE/803111/1.jpg"
 
         }, 
@@ -30,8 +28,6 @@ def seed_apparel():
             "brand_type": "1",
             "condition": "New",
             "retail_price": 170,
-            "price_sold": 1000,
-            "quantity_sold": 1,
             "image_url": "https://myawsshoepictures.s3.us-west-1.amazonaws.com/40f2d0c493c441c7acacbe0f99b8dd09.png"
 
         }, 
@@ -45,8 +41,6 @@ def seed_apparel():
             "brand_type": "Dunk",
             "condition": "New",
             "retail_price": 110,
-            "price_sold": 300,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1000/TEMPLATE/174219/1.jpg"
         }, 
         {
@@ -59,8 +53,6 @@ def seed_apparel():
             "brand_type": "Yeezy Boost",
             "condition": "New",
             "retail_price": 220,
-            "price_sold": 300,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1000/TEMPLATE/169516/1.jpg"
         }, 
         {
@@ -73,8 +65,6 @@ def seed_apparel():
             "brand_type": "Air Force 1",
             "condition": "New",
             "retail_price": 160,
-            "price_sold": 1000,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/311965/1.jpg"
         }, 
         {
@@ -87,8 +77,6 @@ def seed_apparel():
             "brand_type": "Air Force 1",
             "condition": "New",
             "retail_price": 160,
-            "price_sold": 900,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/145083/1.jpg"
         }, 
         {
@@ -101,8 +89,6 @@ def seed_apparel():
             "brand_type": "AIR PRESTO",
             "condition": "New",
             "retail_price": 120,
-            "price_sold": 560,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/804113/1.jpg"
         }, 
         {
@@ -115,8 +101,6 @@ def seed_apparel():
             "brand_type": "AIR MAX",
             "condition": "New",
             "retail_price": 180,
-            "price_sold": 740,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/805150/1.jpg"
         }, 
         {
@@ -129,8 +113,6 @@ def seed_apparel():
             "brand_type": "Dunk",
             "condition": "New",
             "retail_price": 100,
-            "price_sold": 300,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/323910/1.jpg"
         }, 
         {
@@ -143,8 +125,6 @@ def seed_apparel():
             "brand_type": "Dunk",
             "condition": "New",
             "retail_price": 100,
-            "price_sold": 320,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/295857/1.jpg"
         }, 
         {
@@ -157,8 +137,6 @@ def seed_apparel():
             "brand_type": "Dunk",
             "condition": "New",
             "retail_price": 100,
-            "price_sold": 500,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/292478/1.jpg"
         }, 
         {
@@ -171,8 +149,6 @@ def seed_apparel():
             "brand_type": "Dunk",
             "condition": "New",
             "retail_price": 100,
-            "price_sold": 500,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/261743/1.jpg"
         }, 
         {
@@ -185,8 +161,6 @@ def seed_apparel():
             "brand_type": "KD",
             "condition": "New",
             "retail_price": 160,
-            "price_sold": 500,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1000/TEMPLATE/294004/1.jpg"
         }, 
         {
@@ -199,8 +173,6 @@ def seed_apparel():
             "brand_type": "KD",
             "condition": "New",
             "retail_price": 160,
-            "price_sold": 500,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/168071/1.jpg"
         }, 
         {
@@ -213,8 +185,6 @@ def seed_apparel():
             "brand_type": "KD",
             "condition": "New",
             "retail_price": 160,
-            "price_sold": 500,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/158242/1.jpg"
         }, 
         {
@@ -227,8 +197,6 @@ def seed_apparel():
             "brand_type": "Yeezy Boost",
             "condition": "New",
             "retail_price": 220,
-            "price_sold": 400,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/800389/1.jpg"
         }, 
         {
@@ -241,8 +209,6 @@ def seed_apparel():
             "brand_type": "Yeezy Boost",
             "condition": "New",
             "retail_price": 220,
-            "price_sold": 400,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/308404/1.jpg"
         }, 
         {
@@ -255,8 +221,6 @@ def seed_apparel():
             "brand_type": "Yeezy Boost",
             "condition": "New",
             "retail_price": 220,
-            "price_sold": 400,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/800502/1.jpg"
         }, 
         {
@@ -269,8 +233,6 @@ def seed_apparel():
             "brand_type": "Yeezy Boost",
             "condition": "New",
             "retail_price": 220,
-            "price_sold": 400,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/289333/1.jpg"
         }, 
         {
@@ -283,8 +245,6 @@ def seed_apparel():
             "brand_type": "Yeezy Boost",
             "condition": "New",
             "retail_price": 300,
-            "price_sold": 400,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/802501/1.jpg"
         }, 
         {
@@ -297,8 +257,6 @@ def seed_apparel():
             "brand_type": "Yeezy Boost",
             "condition": "New",
             "retail_price": 300,
-            "price_sold": 400,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/277780/1.jpg"
         }, 
         {
@@ -311,8 +269,6 @@ def seed_apparel():
             "brand_type": "Yeezy Boost",
             "condition": "New",
             "retail_price": 220,
-            "price_sold": 400,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/293584/1.jpg"
         }, 
         {
@@ -325,8 +281,6 @@ def seed_apparel():
             "brand_type": "Yeezy Boost",
             "condition": "New",
             "retail_price": 220,
-            "price_sold": 400,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/251736/1.jpg"
         }, 
         {
@@ -339,8 +293,6 @@ def seed_apparel():
             "brand_type": "Yeezy Boost",
             "condition": "New",
             "retail_price": 220,
-            "price_sold": 400,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/2200/TEMPLATE/281433/1.jpg"
         }, 
         {
@@ -353,8 +305,6 @@ def seed_apparel():
             "brand_type": "3",
             "condition": "New",
             "retail_price": 160,
-            "price_sold": 800,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1250/TEMPLATE/314576/1.jpg"
         }, 
         {
@@ -367,8 +317,6 @@ def seed_apparel():
             "brand_type": "11",
             "condition": "New",
             "retail_price": 225,
-            "price_sold": 600,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/248952/1.jpg"
         }, 
         {
@@ -381,8 +329,6 @@ def seed_apparel():
             "brand_type": "11",
             "condition": "New",
             "retail_price": 225,
-            "price_sold": 600,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/162081/1.jpg"
         }, 
         {
@@ -395,8 +341,6 @@ def seed_apparel():
             "brand_type": "11",
             "condition": "New",
             "retail_price": 225,
-            "price_sold": 600,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/152814/1.jpg"
         }, 
         {
@@ -409,8 +353,6 @@ def seed_apparel():
             "brand_type": "11",
             "condition": "New",
             "retail_price": 225,
-            "price_sold": 600,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/805882/1.jpg"
         }, 
         {
@@ -423,8 +365,6 @@ def seed_apparel():
             "brand_type": "11",
             "condition": "New",
             "retail_price": 225,
-            "price_sold": 600,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/012088/1.jpg"
         }, 
         {
@@ -437,8 +377,6 @@ def seed_apparel():
             "brand_type": "11",
             "condition": "New",
             "retail_price": 225,
-            "price_sold": 600,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/012597/1.jpg"
         }, 
         {
@@ -451,8 +389,6 @@ def seed_apparel():
             "brand_type": "4",
             "condition": "New",
             "retail_price": 200,
-            "price_sold": 600,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/139813/1.jpg"
         }, 
         {
@@ -465,8 +401,6 @@ def seed_apparel():
             "brand_type": "4",
             "condition": "New",
             "retail_price": 200,
-            "price_sold": 600,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/804168/1.jpg"
         }, 
         {
@@ -479,8 +413,6 @@ def seed_apparel():
             "brand_type": "4",
             "condition": "New",
             "retail_price": 200,
-            "price_sold": 600,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/800490/1.jpg"
         }, 
         {
@@ -493,8 +425,6 @@ def seed_apparel():
             "brand_type": "4",
             "condition": "New",
             "retail_price": 200,
-            "price_sold": 600,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/138143/1.jpg"
         }, 
         {
@@ -507,8 +437,6 @@ def seed_apparel():
             "brand_type": "4",
             "condition": "New",
             "retail_price": 200,
-            "price_sold": 600,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/186212/1.jpg"
         }, 
         {
@@ -521,8 +449,6 @@ def seed_apparel():
             "brand_type": "4",
             "condition": "New",
             "retail_price": 200,
-            "price_sold": 600,
-            "quantity_sold": 1,
             "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/248963/1.jpg"
         }, 
         
@@ -540,8 +466,8 @@ def seed_apparel():
             brand_type = item["brand_type"],
             condition = item["condition"],
             retail_price = item["retail_price"],
-            price_sold = item["price_sold"],
-            quantity_sold = item["quantity_sold"],
+            # price_sold = item["price_sold"],
+            # quantity_sold = item["quantity_sold"],
             image_url = item["image_url"]
         )
 
