@@ -5,6 +5,7 @@ import './SearchBar.css'
 
 const SearchBar = () => {
 
+    // const history = useHistory()
     const allApparel = useSelector(state => state.search)
     const [filterShoes, setFilterShoes] = useState([])
     const [search, setSearch] = useState('')
