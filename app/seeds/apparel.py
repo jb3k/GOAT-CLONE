@@ -446,7 +446,7 @@ def seed_apparel():
             "description": "The Air Jordan 4 Retro OG 'Bred' 2019 released to help celebrate the 30th annivesary of the silhouette. Featuring the same OG colorway that Michael Jordan wore while hitting 'The Shot' in 1989, the shoe features a black nubuck upper complemented by hits of Cement Grey. Fire Red accents emerge on the tongue and outsole, while Air in the heel provides cushioning.",
             "colorway": "Black / White / Fire-red",
             "release_date": "2019",
-            "brand": "Jordan"
+            "brand": "Jordan",
             "style": "mid",
             "brand_type": "4",
             "condition": "New",
@@ -460,7 +460,7 @@ def seed_apparel():
             "description": "The Air Jordan 4 Retro OG ‘White Cement’ returned to store shelves in 2016, featuring a design that’s true to the original 1989 release. The build makes use of a white leather upper, accented with speckled Cement Grey hits on the shoe’s structural wings, midsole and heel panel, the latter adorned with Nike Air branding. A red Jumpman logo on the woven Flight tongue tag offers a contrasting pop of color.",
             "colorway": "Black / White ",
             "release_date": "2016",
-            "brand": "Jordan"
+            "brand": "Jordan",
             "style": "mid",
             "brand_type": "4",
             "condition": "New",
@@ -474,7 +474,7 @@ def seed_apparel():
             "description": "Launching in 2017, the Air Jordan 4 Retro ‘Motorsports’ is modeled after an extremely limited pair that was gifted to the 16 members of MJ’s motorcycle racing team back in 2006. Unlike its predecessor, there is no Mars Blackmon graphic on the lateral heel, but the larger design remains the same, highlighted by a white leather upper with black and Game Royal accents.",
             "colorway": "Black / White / Blue ",
             "release_date": "2014",
-            "brand": "Jordan"
+            "brand": "Jordan",
             "style": "mid",
             "brand_type": "4",
             "condition": "New",
@@ -488,7 +488,7 @@ def seed_apparel():
             "description": "The Air Jordan 4 Retro SE 'What The 4' combines the silhouette’s four OG colorways on a single pair. The mismatched designs on the left and right shoe both make use of a white leather upper, complete with original details that include a woven flight tongue tag, quarter panel netting, visible Air cushioning on the midsole and Nike Air branding on the heel panel.",
             "colorway": "Black / White / Blue / Red",
             "release_date": "2019",
-            "brand": "Jordan"
+            "brand": "Jordan",
             "style": "mid",
             "brand_type": "4",
             "condition": "New",
@@ -502,7 +502,7 @@ def seed_apparel():
             "description": "The Air Jordan 4 Retro 'University Blue' looks to Michael Jordan's college days to inform its classic look. Built with suede, the shoe's upper appears primarily in University Blue, with cement detailing on the classic wings and heel overlay. Tonal mesh inserts emerge at the vamp and quarter panel, while the tongue tag is designed to look like a jock tag on the bottom hem of Jordan jerseys. Visible Air in the heel of the speckled midsole provides cushioning.",
             "colorway": "Black / White / Blue ",
             "release_date": "2021",
-            "brand": "Jordan"
+            "brand": "Jordan",
             "style": "mid",
             "brand_type": "4",
             "condition": "New",
@@ -516,7 +516,7 @@ def seed_apparel():
             "description": "Bringing back a 2006 colorway, which released alongside the 'Thunder,' the Air Jordan 4 Retro 'Lightning' 2021 features inspiration from Michael Jordan's motorsports team. The shoe's upper is built with nubuck, finished in Tour Yellow and contrasted by the mesh netting and signature wings. Underfoot, a white PU midsole houses visible Air in the heel to provide cushioning, giving way to a herringbone rubber outsole for traction.",
             "colorway": "Dark Grey / White / Yellow ",
             "release_date": "2021",
-            "brand": "Jordan"
+            "brand": "Jordan",
             "style": "mid",
             "brand_type": "4",
             "condition": "New",
