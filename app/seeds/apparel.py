@@ -524,6 +524,18 @@ def seed_apparel():
             "image_url": "https://cdn.flightclub.com/2600/TEMPLATE/805962/1.jpg"
         }, 
         {
+            "name": "AIR JORDAN 3 RETRO 'RACER BLUE'",
+            "description": "Featuring 'Fire Red'-style color-blocking, the Air Jordan 3 Retro 'Racer Blue' released in July 2021. The shoe's tumbled leather upper appears in white, highlighted by Racer Blue on the eyelets, collar and branding. The forefoot and heel elephant print overlays add a crackle effect, while underfoot, more Racer Blue accents the polyurethane midsole, which houses visible Air in the heel for cushioning.",
+            "colorway": "White / Blue",
+            "release_date": "2021",
+            "brand": "Jordan",
+            "style": "mid",
+            "brand_type": "3",
+            "condition": "New",
+            "retail_price": 160,
+            "image_url": "https://cdn.flightclub.com/1250/TEMPLATE/248961/1.jpg"
+        }, 
+        {
             "name": "AIR JORDAN 3 RETRO OG 'TRUE BLUE' 2016",
             "description": "The 2016 edition of the Air Jordan 3 Retro OG ‘True Blue’ brings back one of the silhouette’s OG colorways from 1988. This remastered edition of the iconic mid-top is true to the original, highlighted by a white leather upper with True Blue hits on the eyelets, collar lining and Nike Air branding at the heel. Elephant print detailing and a red Jumpman logo hit on the tongue make up the finishing touches.",
             "colorway": "White / True Blue",
