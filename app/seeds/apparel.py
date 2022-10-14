@@ -451,6 +451,150 @@ def seed_apparel():
             "retail_price": 200,
             "image_url": "https://cdn.flightclub.com/1500/TEMPLATE/248963/1.jpg"
         }, 
+        {
+            "name": "AIR JORDAN 1 RETRO HIGH OG 'CHICAGO' 2015",
+            "description": "The Air Jordan 1 Retro High OG 'Chicago' 2015 colorway features full-leather uppers in Bulls team colors. The 'Chicago' was first retroed in 1994 and stayed true to the 1985 design. Further retros were released in 2013 with small changes to the design, and again in 2015 with the original branding details: the Nike Air logo on the tongue and the original clean heel without the Jumpman logo.",
+            "colorway": "Black / White / Red ",
+            "release_date": "2015",
+            "brand": "Jordan",
+            "style": "high",
+            "brand_type": "1",
+            "condition": "New",
+            "retail_price": 170,
+            "image_url": "https://cdn.flightclub.com/2600/TEMPLATE/012234/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 1 RETRO HIGH OG 'UNIVERSITY BLUE'",
+            "description": "Paying tribute to Michael Jordan's college alma mater, the Air Jordan 1 Retro High OG 'University Blue' features a University of North Carolina look. Built entirely with leather, the shoe's upper appears in a mix of white and University Blue, contrasted by black on the Swoosh, collar, laces and 'Wings' logo. Perforations on the toe box provide breathability, while underfoot, the Air midsole gives way to a concentric outsole with a brighter shade of blue.",
+            "colorway": "Black / White / Blue ",
+            "release_date": "2021",
+            "brand": "Jordan",
+            "style": "high",
+            "brand_type": "1",
+            "condition": "New",
+            "retail_price": 170,
+            "image_url": "https://cdn.flightclub.com/2600/TEMPLATE/172524/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 1 RETRO HIGH OG 'HYPER ROYAL'",
+            "description": "The Air Jordan 1 Retro High OG 'Hyper Royal' brings a weathered look to the basketball classic. The shoe's upper features a white leather base, overlaid by suede that sports a faded blue aesthetic. Light Smoke Grey complements the Swoosh and padded collar, while underfoot, a white Air midsole is included for cushioning. Further Light Smoke Grey emerges on the concentric rubber outsole.",
+            "colorway": "Black / White / Blue ",
+            "release_date": "2021",
+            "brand": "Jordan",
+            "style": "high",
+            "brand_type": "1",
+            "condition": "New",
+            "retail_price": 170,
+            "image_url": "https://cdn.flightclub.com/2600/TEMPLATE/189347/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 1 RETRO HIGH OG 'OBSIDIAN'",
+            "description": "The Air Jordan 1 Retro High OG 'Obsidian' arrives with classic color blocking on a traditional all-leather build. A crisp white base with complementary overlays in University Blue and Midnight Navy combine as an homage to Michael Jordan’s UNC alma mater. Details include perforated detailing on the toe box, a Nike woven tag atop the padded nylon tongue, and the Jordan ‘Wings’ logo on the collar flap.",
+            "colorway": "Obsidian / White / Blue ",
+            "release_date": "2021",
+            "brand": "Jordan",
+            "style": "high",
+            "brand_type": "1",
+            "condition": "New",
+            "retail_price": 170,
+            "image_url": "https://cdn.flightclub.com/2600/TEMPLATE/152035/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 1 RETRO HIGH OG 'DARK MOCHA'",
+            "description": "Featuring a look similar to Travis Scott's 2019 Air Jordan 1 collaboration, the Air Jordan 1 Retro High OG 'Dark Mocha' released in October 2020. The shoe's upper is built with leather, sporting a white base overlaid by black leather. The heel and collar incorporate Dark Mocha nubuck, while a nylon tongue and perforations on the toe box maintain the classic aesthetic. Air in the heel of the midsole provides cushioning.",
+            "colorway": "Black / White / Mocha ",
+            "release_date": "2020",
+            "brand": "Jordan",
+            "style": "high",
+            "brand_type": "1",
+            "condition": "New",
+            "retail_price": 170,
+            "image_url": "https://cdn.flightclub.com/2600/TEMPLATE/162310/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 3 RETRO 'MOCHA' 2018",
+            "description": "The Air Jordan 3 Retro ‘Mocha’ 2018 resurrects the unique colorway initially released in 2001. The mid top retains the original construction, showcasing a white tumbled leather upper accentuated with contrasting bursts of Dark Mocha on the shoe’s recognizable elephant-print overlays. The brown tone also emerges on the outsole and Jumpman branding emblems that decorate the tongue and heel panel.",
+            "colorway": "White / Mocha",
+            "release_date": "2018",
+            "brand": "Jordan",
+            "style": "mid",
+            "brand_type": "3",
+            "condition": "New",
+            "retail_price": 160,
+            "image_url": "https://cdn.flightclub.com/2600/TEMPLATE/805962/1.jpg"
+        }, 
+        {
+            "name": "AIR JORDAN 3 RETRO OG 'TRUE BLUE' 2016",
+            "description": "The 2016 edition of the Air Jordan 3 Retro OG ‘True Blue’ brings back one of the silhouette’s OG colorways from 1988. This remastered edition of the iconic mid-top is true to the original, highlighted by a white leather upper with True Blue hits on the eyelets, collar lining and Nike Air branding at the heel. Elephant print detailing and a red Jumpman logo hit on the tongue make up the finishing touches.",
+            "colorway": "White / True Blue",
+            "release_date": "2016",
+            "brand": "Jordan",
+            "style": "mid",
+            "brand_type": "3",
+            "condition": "New",
+            "retail_price": 160,
+            "image_url": "https://cdn.flightclub.com/2600/TEMPLATE/012588/1.jpg"
+        }, 
+        {
+            "name": "OFF-WHITE X AIR PRESTO 'BLACK'",
+            "description": "The second collaboration between Virgil Abloh and Nike on the Air Presto, the OFF-WHITE x Air Presto 'Black' features the designer's signature deconstructed aesthetic. Released shortly after its predecessor's release as part of The Ten collection, the shoe's black mesh upper is accented by a white Swoosh with prominent stitching. 'Air' branding appears on the heel, with branding text on the medial quarter panel. Supported by a lacing cage, a tonal Phylon midsole provides cushioning.",
+            "colorway": "Black",
+            "release_date": "2018",
+            "brand": "Nike x OFF-WHITE",
+            "style": "Low",
+            "brand_type": "AIR PRESTO",
+            "condition": "New",
+            "retail_price": 120,
+            "image_url": "https://cdn.flightclub.com/2600/TEMPLATE/803977/1.jpg"
+        }, 
+        {
+            "name": "OFF-WHITE X AIR PRESTO 'THE TEN'",
+            "description": "Part of The Ten capsule from Virgil Abloh and Nike, the OFF-WHITE x Air Presto 'The Ten' emerges with a deconstructed look. The shoe's breathable upper features prominent seams, with an exposed tongue and a sitched-on Swoosh, which emerges underneath the white lacing cage. The heel strap and medial side quarter panel sport prominent branding, with a zip tie hang-tag adding a hit of red on the left shoe.",
+            "colorway": "Black / Muslin",
+            "release_date": "2017",
+            "brand": "Nike x OFF-WHITE",
+            "style": "Low",
+            "brand_type": "AIR PRESTO",
+            "condition": "New",
+            "retail_price": 120,
+            "image_url": "https://cdn.flightclub.com/2600/TEMPLATE/801820/1.jpg"
+        }, 
+        {
+            "name": "SEAN WOTHERSPOON X AIR MAX 1/97",
+            "description": "As winner of the ‘Vote Forward’ campaign, this Sean Wotherspoon-designed hybrid blends the upper of an Air Max 97 with the sole of an Air Max 1, and was (naturally) released on Air Max Day in 2018. The sneaker’s multicolored upper and pull tabs are decked in corduroy, and completing the look are Velcro tongue patches and an Infrared Air unit.",
+            "colorway": "Blue / Lemon",
+            "release_date": "2018",
+            "brand": "Nike x WOTHERSPOON",
+            "style": "97",
+            "brand_type": "AIR MAX",
+            "condition": "New",
+            "retail_price": 180,
+            "image_url": "https://cdn.flightclub.com/1250/TEMPLATE/803324/1.jpg"
+        }, 
+        {
+            "name": "OFF-WHITE X AIR MAX 97 OG 'THE TEN'",
+            "description": "Part of The Ten collection, the OFF-WHITE x Air Max 97 OG 'The Ten' deconstructs the Air Max 97. Featuring a translucent upper that tones down the signature wavy lines, the shoe's shape comes to the forefront. A black Swoosh stands out on the side wall, matched by the 'Air' branding above the full-length cushioning. The medial side sports branding that calls out the shoe's release year.",
+            "colorway": "White",
+            "release_date": "2017",
+            "brand": "Nike x OFF WHITE",
+            "style": "97",
+            "brand_type": "AIR MAX",
+            "condition": "New",
+            "retail_price": 180,
+            "image_url": "https://cdn.flightclub.com/2600/TEMPLATE/802441/1.jpg"
+        }, 
+        {
+            "name": "OFF-WHITE X AIR MAX 97 'BLACK'",
+            "description": "The OFF-WHITE x Air Max 97 in black, which debuted on the runway at the Paris Fashion Week in June 2018, sees Virgil Abloh outfit the retro runner with a translucent textile upper. A white Swoosh and 'AIR' lettering decorate the lateral side while more lines of Virgil's signature text are printed on the medial side of the quarter panel. The reconstructed look of the shoe is completed with pushed to the side with a woven Nike tongue tag.",
+            "colorway": "Black",
+            "release_date": "2018",
+            "brand": "Nike x OFF WHITE",
+            "style": "97",
+            "brand_type": "AIR MAX",
+            "condition": "New",
+            "retail_price": 180,
+            "image_url": "https://cdn.flightclub.com/2600/TEMPLATE/804892/1.jpg"
+        }
         
     ]
 
