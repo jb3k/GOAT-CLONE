@@ -27,14 +27,21 @@ ChartJS.register(
 export const options = {
     responsive: true,
     plugins: {
-        // legend: {
-        //     position: 'top',
-        // },
-        // title: {
-        //     display: true,
-        //     text: 'Price Line History Chart',
-        // },
+        legend: {
+            display: false,
+        },
     },
+    maintainAspectRatio: false,
+    scales: {
+        y: {
+            ticks: {
+                // Include a dollar sign in the ticks
+                callback: function (value, index, ticks) {
+                    return '$' + value;
+                }
+            }
+        }
+    }
 };
 
 //chartInfo is Obj from the Purchase Table for the specific shoe I am on. 
@@ -56,7 +63,8 @@ function PriceChart({ chartInfo }) {
         priceArr.push(item.listingPrice)
     })
 
-
+    let sales
+    if (priceArr) { }
 
     const labels = ['April', 'May', 'June', 'July', 'August', 'September', 'October'];
 
@@ -65,7 +73,6 @@ function PriceChart({ chartInfo }) {
         datasets: [
             {
                 fill: true,
-                label: 'Price',
                 data: priceArr,
                 borderColor: 'green',
                 backgroundColor: 'rgba(0, 255, 0, 0.1)',
