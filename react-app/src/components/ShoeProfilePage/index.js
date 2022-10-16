@@ -158,7 +158,7 @@ function ShoeProfilePage() {
                             {colorway}
                         </div>
                         <div className='shoe-profile-condition'>
-                            Condition: {condition}
+                            Condition: {<div style={{ color: 'green', marginLeft: '3px' }}>{condition}</div>}
                         </div>
                         <div className='shoe-profile-image-container'>
                             <img src={imageUrl} alt="shoe image" className='shoe-profile-image' ></img>
