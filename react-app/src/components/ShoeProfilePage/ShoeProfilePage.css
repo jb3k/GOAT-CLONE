@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 1500px;
 }
 
 .shoe-page-body {
@@ -18,7 +19,7 @@
     flex-direction: column;
     /* border: 1px black solid; */
     width: 72%;
-    height: 1500px;
+    min-height: 1500px;
 }
 
 
@@ -258,7 +259,8 @@
     /* display: flex;
     flex-direction: column; */
     width: 100%;
-    height: 200px;
+    height: 250px;
+    border-top: 1px solid darkgray;
 }
 
 .shoe-profile-stats-box-container {
@@ -285,6 +287,11 @@
 .shoe-profile-stats-spacing {
     margin-left: 20px;
 }
+
+.shoe-historical-stats {
+    height: 500px;
+}
+
 
 .stat {
     font-weight: bold;

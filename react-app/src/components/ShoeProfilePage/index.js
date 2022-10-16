@@ -246,11 +246,12 @@ function ShoeProfilePage() {
         )
 
         let chartInfo = shoePurchases.filter(shoe => id === shoe.apparelId)
+        console.log(chartInfo)
 
         let priceHistory = (
-            <div className='shoe-profile-stats' style={{ marginTop: '12px', fontWeight: '550' }}>
+            <div className='shoe-historical-stats' style={{ marginTop: '12px', fontWeight: '550' }}>
                 Price history
-                <div>
+                <div className='historical-shoe-chart'>
                     <PriceChart chartInfo={chartInfo} />
                 </div>
             </div>

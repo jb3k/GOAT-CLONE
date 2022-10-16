@@ -24,63 +24,62 @@ ChartJS.register(
     Legend
 );
 
-// export const options = {
-//     responsive: true,
-//     plugins: {
-//         legend: {
-//             position: 'top',
-//         },
-//         title: {
-//             display: true,
-//             text: 'Chart.js Line Chart',
-//         },
-//     },
-// };
-
-// const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-// export const data = {
-//   labels,
-//   datasets: [
-//     {
-//       fill: true,
-//       label: 'Dataset 2',
-//       data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-//       borderColor: 'rgb(53, 162, 235)',
-//       backgroundColor: 'rgba(53, 162, 235, 0.5)',
-//     },
-//   ],
-// };
+export const options = {
+    responsive: true,
+    plugins: {
+        // legend: {
+        //     position: 'top',
+        // },
+        // title: {
+        //     display: true,
+        //     text: 'Price Line History Chart',
+        // },
+    },
+};
 
 //chartInfo is Obj from the Purchase Table for the specific shoe I am on. 
 // Now, I can grab all of the purchases from a certain date and price of the listing.
 function PriceChart({ chartInfo }) {
+
     const [chartData, setChartData] = useState({
         datasets: [],
     });
-
     const [chartOptions, setChartOptions] = useState();
-    
 
-    const datePosted = new Date(createdAt)
-    const now = Date.now()
-    // console.log(datePosted - now)
-    const milliseconds = Math.abs(now - datePosted)
-    // const minutes = Math.ceil(milliseconds / (1000 * 60))
-    const hours = Math.ceil(milliseconds / (1000 * 60 * 60))
-    const days = Math.ceil(milliseconds / (1000 * 60 * 60 * 24))
+    let dateArr = []
+    let priceArr = []
+    chartInfo.forEach((item) => {
+        let date = item.createdAt
+        const options = { month: 'long' };
+        let month = new Date(date).toLocaleString('en-us', options)
+        dateArr.push(month)
+        priceArr.push(item.listingPrice)
+    })
 
+
+
+    const labels = ['April', 'May', 'June', 'July', 'August', 'September', 'October'];
+
+    const data = {
+        labels,
+        datasets: [
+            {
+                fill: true,
+                label: 'Price',
+                data: priceArr,
+                borderColor: 'green',
+                backgroundColor: 'rgba(0, 255, 0, 0.1)',
+            },
+        ],
+    };
 
 
 
     return (
         <>
-            <div>
-                HELLO
-            </div>
+            <Line options={options} data={data} />
         </>
     )
-    // return <Line options={chartOptions} data={chartData} />;
 }
 
 export default PriceChart
