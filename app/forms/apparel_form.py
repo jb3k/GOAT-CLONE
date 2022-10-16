@@ -13,5 +13,3 @@ class ApparelForm(FlaskForm):
     release_date = DateField('09-18-2015', validators=[DataRequired()])
     condition = StringField("condition", validators=[DataRequired()])    
     retail_price = IntegerField(100, validators=[DataRequired()])
-    price_sold = IntegerField(100, validators=[DataRequired()])
-    quantity_sold = IntegerField(0, validators=[DataRequired()])

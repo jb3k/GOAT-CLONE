@@ -21,6 +21,7 @@ import CurrentUserPurchases from './components/userPurchases';
 // import UploadPicture from './components/ImagesForm';
 import Footer from './components/footer';
 import PageNotFound from './components/pageNotFound';
+import ApparelForm from './components/apparelForm/ApparelForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -39,16 +40,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Route path='/login' exact={true}>
-        <LoginForm />
-        <Footer />
-      </Route>
-      <Route path='/sign-up' exact={true}>
-        <SignUpForm />
-        <Footer />
-      </Route>
-      {/* <NavBar /> */}
       <Switch>
+        <Route path='/login' exact={true}>
+          <LoginForm />
+          <Footer />
+        </Route>
+        <Route path='/sign-up' exact={true}>
+          <SignUpForm />
+          <Footer />
+        </Route>
         <ProtectedRoute path='/users' exact={true} >
           <NavBar />
           <UsersList />
@@ -57,12 +57,10 @@ function App() {
           <NavBar />
           <CurrentUserListings />
         </ProtectedRoute>
-
         <ProtectedRoute path='/users/purchases' exact={true} >
           <NavBar />
           <CurrentUserPurchases />
         </ProtectedRoute>
-
         <Route path='/shoe/:shoeId' exact={true} >
           <NavBar />
           <ShoeProfilePage />
@@ -73,30 +71,28 @@ function App() {
           <NavBar />
           <ShoeListingPage />
         </ProtectedRoute>
-
         <ProtectedRoute path='/shoe/:shoeId/sell/:sizeId' exact={true} >
           <NavBar />
           <ShoeListingFormPage />
         </ProtectedRoute>
-
         <ProtectedRoute path='/shoe/:shoeId/buy' exact={true} >
           <NavBar />
           <ShoePurchasePage />
         </ProtectedRoute>
-
         <ProtectedRoute path='/shoe/:shoeId/buy/:sizeId' exact={true} >
           <NavBar />
           <ShoePurchaseFormPage />
         </ProtectedRoute>
-        {/* 
-        <ProtectedRoute path='/sell' exact={true} >
+        <ProtectedRoute path='/add' exact={true} >
           <NavBar />
-          <UploadPicture />
+          <ApparelForm />
         </ProtectedRoute>
 
-        <ProtectedRoute path='/broken' exact={true} >
+
+        {/* <ProtectedRoute path='/broken' exact={true} >
           <SellPage />
         </ProtectedRoute> */}
+
 
         <Route path='/' exact={true} >
           <NavBar />

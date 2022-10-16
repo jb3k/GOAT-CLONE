@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import apparelReducer from './apparel';
 import listingReducer from './listings';
 import purchaseReducer from './purchase';
+import searchReducer from './searchbar';
 import session from './session'
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   apparel: apparelReducer,
   listings: listingReducer,
   purchase: purchaseReducer,
+  search: searchReducer,
 });
 
 

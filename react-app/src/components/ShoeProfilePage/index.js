@@ -4,6 +4,8 @@ import { useParams, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
 import { getAllListingsThunk } from '../../store/listings';
 import { getAllPurchasesThunk } from '../../store/purchase';
+import { searchAllApparelThunk } from '../../store/searchbar';
+import PriceChart from './priceChart';
 import './ShoeProfilePage.css'
 import Footer from '../footer';
 
@@ -23,6 +25,7 @@ function ShoeProfilePage() {
         dispatch(getApparelThunk(shoeId))
         dispatch(getAllListingsThunk())
         dispatch(getAllPurchasesThunk())
+        dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
     }, [dispatch, shoeId])
 
@@ -155,7 +158,7 @@ function ShoeProfilePage() {
                             {colorway}
                         </div>
                         <div className='shoe-profile-condition'>
-                            Condtion: {condition}
+                            Condition: {<div style={{ color: 'green', marginLeft: '3px' }}>{condition}</div>}
                         </div>
                         <div className='shoe-profile-image-container'>
                             <img src={imageUrl} alt="shoe image" className='shoe-profile-image' ></img>
@@ -185,6 +188,7 @@ function ShoeProfilePage() {
         )
 
 
+        // console.log('HELLO',relatedBrands.length)
 
         let relatedProducts = (
             <div className='shoe-profile-related-products-container'>
@@ -241,15 +245,18 @@ function ShoeProfilePage() {
             </div>
         )
 
-        // let priceHistory = (
-        //     <div>
-        //         Price history
-        //         <div>
-        //             Graph...?
-        //         </div>
-        //     </div>
+        let chartInfo = shoePurchases.filter(shoe => id === shoe.apparelId)
+        console.log(chartInfo)
 
-        // )
+        let priceHistory = (
+            <div className='shoe-historical-stats' style={{ marginTop: '12px', fontWeight: '550' }}>
+                Price history
+                <div className='historical-shoe-chart'>
+                    <PriceChart chartInfo={chartInfo} />
+                </div>
+            </div>
+
+        )
 
         let tradeRange
         if ((minPrice === maxPrice)) {
@@ -270,52 +277,6 @@ function ShoeProfilePage() {
                     ${minPrice} - ${maxPrice}
                 </div>
             )
-        }
-
-        let pricePremium
-        if (totalSales === 0) {
-            pricePremium = (
-                <div className='stat'>
-                    0%
-                </div>
-            )
-        } else {
-            pricePremium = (
-                <div className='stat'>
-                    {Math.floor(premium)}%
-                </div>
-            )
-        }
-
-        let salesAverage
-        if (totalSales === 0) {
-            salesAverage = (
-                <div className='stat'>
-                    0
-                </div>
-            )
-        } else {
-            salesAverage = (
-                <div className='stat'>
-                    ${Math.floor(average)}
-                </div>
-            )
-        }
-
-        let volatility
-        if (totalSales === 0) {
-            volatility = (
-                <div className='stat'>
-                    0%
-                </div>
-            )
-        } else {
-            volatility = (
-                <div className='stat'>
-                    1%
-                </div>
-            )
-
         }
 
 
@@ -346,7 +307,7 @@ function ShoeProfilePage() {
                     </div>
                     <div className='shoe-profile-stats-box'>
                         <div className='shoe-profile-stats-spacing'>
-                            {volatility}
+                            {totalSales === 0 ? <div className="stat"> 0% </div> : <div className='stat'> 1%</div>}
                             <div className='stat-text'>
                                 Volatility
                             </div>
@@ -364,7 +325,7 @@ function ShoeProfilePage() {
                     </div>
                     <div className='shoe-profile-stats-box'>
                         <div className='shoe-profile-stats-spacing'>
-                            {pricePremium}
+                            {totalSales === 0 ? <div className="stat"> 0% </div> : <div className='stat'> {Math.floor(premium)}% </div>}
                             <div className='stat-text'>
                                 Price Premium
                             </div>
@@ -372,7 +333,7 @@ function ShoeProfilePage() {
                     </div>
                     <div className='shoe-profile-stats-box'>
                         <div className='shoe-profile-stats-spacing'>
-                            {salesAverage}
+                            {totalSales === 0 ? <div className="stat"> 0% </div> : <div className='stat'> ${Math.floor(average)}</div>}
                             <div className='stat-text'>
                                 Sales Average
                             </div>
@@ -393,9 +354,9 @@ function ShoeProfilePage() {
                 <div>
                     {productDetails}
                 </div>
-                {/* <div>
+                <div>
                     {priceHistory}
-                </div> */}
+                </div>
                 <div>
                     {historalStats}
                 </div>

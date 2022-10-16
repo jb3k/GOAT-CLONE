@@ -15,7 +15,7 @@
 }
 
 .navbar-searchbar-container {
-    width: 50%;
+    width: 65%;
     /* border: 1px solid black; */
     height: 35px;
     /* background-color: rgb(243, 232, 232); */
@@ -26,9 +26,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid black; */
-    width: 90%;
+    border: 1px solid black;
+    width: 95%;
     height: 30px;
+    background-color: rgb(249, 249, 249);
 
 }
 
@@ -47,6 +48,7 @@
 .navbar-right-items {
     min-width: 30px;
     object-fit: contain;
+    font-size: 13px;
 }
 
 a {

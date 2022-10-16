@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import { getUserPurchasesThunk, deletePurchaseThunk } from '../../store/purchase';
+import { searchAllApparelThunk } from '../../store/searchbar';
 import './userPurchases.css'
 import EditUserPurchase from '../editUserPurchases';
 
@@ -18,6 +19,7 @@ function CurrentUserPurchases() {
 
     useEffect(() => {
         dispatch(getUserPurchasesThunk())
+        dispatch(searchAllApparelThunk())
             .then(() => setLoaded(true))
     }, [dispatch]);
 

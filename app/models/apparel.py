@@ -10,21 +10,19 @@ class Apparel(db.Model):
     id = db.Column(db.Integer, primary_key= True)
     name = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
-    #should this be a string?
     release_date = db.Column(db.String, nullable=False)
     brand = db.Column(db.String, nullable=False)
     style = db.Column(db.String, nullable=False)
     brand_type = db.Column(db.String, nullable=False)
     colorway = db.Column(db.String, nullable=False)
     condition = db.Column(db.String, nullable=False)
-    #something i need to add to the listings for new shoes
     retail_price = db.Column(db.Integer, nullable=False)
-    price_sold = db.Column(db.Integer, nullable=False)
     image_url = db.Column(db.String, nullable= False)
-    #what if there have been none sold yet...
-    quantity_sold = db.Column(db.Integer)
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now)
+    #what if there have been none sold yet...
+    # price_sold = db.Column(db.Integer, nullable=False)
+    # quantity_sold = db.Column(db.Integer)
 
     # relationships
     #one-to-many... each item can have many images, an image cannot have many items
@@ -45,8 +43,8 @@ class Apparel(db.Model):
             'colorway': self.colorway,
             'condition': self.condition,
             'retailPrice': self.retail_price,
-            'priceSold': self.price_sold,
-            'quantitySold': self.quantity_sold,
+            # 'priceSold': self.price_sold,
+            # 'quantitySold': self.quantity_sold,
             'imageUrl': self.image_url,
             "createdAt": self.created_at,
             "updatedAt": self.updated_at,

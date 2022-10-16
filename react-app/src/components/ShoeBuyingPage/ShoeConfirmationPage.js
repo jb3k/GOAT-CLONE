@@ -79,18 +79,6 @@ function ShoeConfirmationPage({ }) {
     })
 
 
-    /* <select className='price-input-container'
-                            onChange={(e) => {
-                                if (e.target.value === 0) {
-                                    setShoePrice(0)
-                                }
-                                setShoePrice(e.target.value)
-                            }}
-                        >
-                            <option value={0}> Select Listing</option>
-                            {listingFilter}
-                        </select> */
-
     const onSubmit = async (e) => {
         e.preventDefault();
 

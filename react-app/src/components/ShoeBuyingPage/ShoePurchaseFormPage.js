@@ -3,32 +3,20 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams, NavLink } from 'react-router-dom';
 import { getApparelThunk } from '../../store/apparel';
 import ShoeConfirmationPage from './ShoeConfirmationPage';
-import { getUserPurchasesThunk } from '../../store/purchase';
+import { searchAllApparelThunk } from '../../store/searchbar';
 import './ShoePurchaseForm.css'
 
 
 function ShoePurchaseFormPage() {
     const dispatch = useDispatch()
-
-
-    // const [shoeListingId, setShoeListingId] = useState(null)
-    // const [shoeSelected, setShoeSelected] = useState(false)
-
-
-
     const [isLoaded, setIsLoaded] = useState(false)
     // const history = useHistory()
-    const { shoeId} = useParams();
+    const { shoeId } = useParams();
     const shoeInfo = useSelector(state => Object.values(state.apparel))
-    // const userInfo = useSelector(state => Object.values(state.purchase))
-    // const listingInfo = useSelector(state => Object.values(state.listings))
-    // const info = useSelector(state => state.listings)
-
 
     useEffect(() => {
         dispatch(getApparelThunk(shoeId))
-        dispatch(getUserPurchasesThunk())
-            // dispatch(getAllListingsThunk())
+        dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
 
     }, [dispatch])
@@ -87,4 +75,3 @@ function ShoePurchaseFormPage() {
 }
 
 export default ShoePurchaseFormPage;
-
