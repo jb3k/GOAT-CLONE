@@ -150,7 +150,6 @@ const NavBar = () => {
   }
 
 
-
   return (
     <nav style={{ borderBottom: "1px solid lightgray" }}>
       <div className='whole-navbar'>
@@ -168,7 +167,7 @@ const NavBar = () => {
         </div>
         <div className='navbar-right-container'>
           <div className='navbar-right-items'>
-            <NavLink to='/' rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }}>
+            <NavLink to='/shoes' rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }}>
               Browse
             </NavLink>
           </div>
