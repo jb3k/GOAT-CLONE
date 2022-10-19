@@ -185,7 +185,7 @@ function MainPage() {
                     </div>
                 </div>
                 <div className='mainpage-shoe-listing-container'>
-                    <div style={{ marginTop: '30px' }}>
+                    <div style={{ marginTop: '45px', marginBottom: '30px' }}>
                         <a href='https://www.linkedin.com/in/justin-j-b-kam-4105961a5/' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
                             <img src={ad} className='ad-image'></img>
                         </a>
