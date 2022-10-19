@@ -126,7 +126,7 @@
 .shoe-profile-related-products-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     margin-top: 10px;
     height: 240px;
     border-bottom: 1px solid darkgray;

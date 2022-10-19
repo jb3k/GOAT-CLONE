@@ -370,10 +370,12 @@ function ShoeProfilePage() {
 
     return isLoaded && (
         <>
-            <div className='shoe-page-body-container'>
-                {shoePage}
+            <div className='navbar-spacing'>
+                <div className='shoe-page-body-container'>
+                    {shoePage}
+                </div>
+                <Footer />
             </div>
-            <Footer />
         </>
     );
 }

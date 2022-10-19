@@ -67,8 +67,10 @@ function ShoePurchaseFormPage() {
 
     return isLoaded && (
         <>
-            <div className='sell-page-main-container'>
-                {shoeImg}
+            <div className='navbar-spacing'>
+                <div className='sell-page-main-container'>
+                    {shoeImg}
+                </div>
             </div>
         </>
     )

@@ -85,6 +85,7 @@ const ApparelForm = () => {
 
     return (
         <div>
+            <div className='navbar-spacing'></div>
             <div>
                 Submit New Arrivals here:
             </div>

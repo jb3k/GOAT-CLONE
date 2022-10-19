@@ -60,13 +60,15 @@ function BrowsePage() {
 
     return isLoaded && (
         <>
-            <div className='mainpage-body-container'>
-                <div className='mainpage-shoe-listing-container'>
-                    <div style={{ marginTop: '30px' }}>
-                        <strong> Search All:</strong>
-                    </div>
-                    <div className='browse-page'>
-                        {allItems}
+            <div className='navbar-spacing'>
+                <div className='mainpage-body-container'>
+                    <div className='mainpage-shoe-listing-container'>
+                        <div style={{ marginTop: '30px' }}>
+                            <strong> Search All:</strong>
+                        </div>
+                        <div className='browse-page'>
+                            {allItems}
+                        </div>
                     </div>
                 </div>
             </div>
