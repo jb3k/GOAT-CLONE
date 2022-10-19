@@ -8,6 +8,7 @@ import image2 from '../../assets/2.jpeg'
 import image3 from '../../assets/3.jpeg'
 import image4 from '../../assets/4.jpeg'
 import image5 from '../../assets/5.jpeg'
+import ad from '../../assets/ad.png'
 import Footer from '../footer';
 import { searchAllApparelThunk } from '../../store/searchbar';
 
@@ -185,13 +186,20 @@ function MainPage() {
                 </div>
                 <div className='mainpage-shoe-listing-container'>
                     <div style={{ marginTop: '30px' }}>
+                        <a href='https://www.linkedin.com/in/justin-j-b-kam-4105961a5/' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+                            <img src={ad} className='ad-image'></img>
+                        </a>
+                    </div>
+                </div>
+                <div className='mainpage-shoe-listing-container'>
+                    <div style={{ marginTop: '30px' }}>
                         <strong> Popular Jordan Brand Shoes:</strong>
                     </div>
                     <div className='test'>
                         {jordanShoes.slice(6, 11)}
                     </div>
                 </div>
-                <div className='mainpage-shoe-listing-container'>
+                <div className='mainpage-shoe-listing-container' style={{ marginBottom: '100px' }} >
                     <div style={{ marginTop: '30px' }}>
                         <strong> Popular Nike Brand Shoes:</strong>
                     </div>

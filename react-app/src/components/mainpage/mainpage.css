@@ -115,3 +115,9 @@ button:hover {
     justify-content: center;
     width: 100%;
 }
+
+.ad-image {
+    height: 200px;
+    width: 97%;
+    object-fit: fill;
+}
