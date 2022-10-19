@@ -173,7 +173,7 @@ function MainPage() {
                         <strong> Recomended for you:</strong>
                     </div>
                     <div className='test'>
-                        {allItems.slice(0, 5)}
+                        {allItems.slice(0, 6)}
                     </div>
                 </div>
                 <div className='mainpage-shoe-listing-container'>
@@ -181,7 +181,7 @@ function MainPage() {
                         <strong> Recently Viewed:</strong>
                     </div>
                     <div className='test'>
-                        {allItems.slice(5, 10)}
+                        {allItems.slice(6, 12)}
                     </div>
                 </div>
                 <div className='mainpage-shoe-listing-container'>
@@ -196,7 +196,7 @@ function MainPage() {
                         <strong> Popular Jordan Brand Shoes:</strong>
                     </div>
                     <div className='test'>
-                        {jordanShoes.slice(6, 11)}
+                        {jordanShoes.slice(6, 12)}
                     </div>
                 </div>
                 <div className='mainpage-shoe-listing-container' style={{ marginBottom: '100px' }} >
@@ -204,7 +204,7 @@ function MainPage() {
                         <strong> Popular Nike Brand Shoes:</strong>
                     </div>
                     <div className='test'>
-                        {nikeShoes.slice(0, 5)}
+                        {nikeShoes.slice(0, 6)}
                     </div>
                 </div>
             </div>
