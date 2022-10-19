@@ -6,6 +6,10 @@
 
 } */
 
+.navbar-spacing {
+    margin-top: 71px;
+}
+
 
 button:hover {
     cursor: pointer;

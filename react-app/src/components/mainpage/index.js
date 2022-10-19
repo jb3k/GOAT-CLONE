@@ -9,6 +9,7 @@ import image3 from '../../assets/3.jpeg'
 import image4 from '../../assets/4.jpeg'
 import image5 from '../../assets/5.jpeg'
 import ad from '../../assets/ad.png'
+import Navbar from '../NavBar'
 import Footer from '../footer';
 import { searchAllApparelThunk } from '../../store/searchbar';
 
@@ -158,53 +159,55 @@ function MainPage() {
 
     return isLoaded && (
         <>
-            <div>
-                {!sessionUser ? <h2 className='mainpage-header'></h2> : <h2 className='mainpage-header'> Welcome, {sessionUser.firstName} {sessionUser.lastName}</h2>}
-            </div>
-            <div className='mainpage-body-container'>
-                <div className='mainpage-shoe-listing-container'>
-                    <strong> Trending Shoes:</strong>
+            <div className='navbar-spacing'>
+                <div>
+                    {!sessionUser ? <h2 className='mainpage-header'></h2> : <h2 className='mainpage-header'> Welcome, {sessionUser.firstName} {sessionUser.lastName}</h2>}
                 </div>
-                <div className='mainpage-rotating-img-container'>
-                    <img src={images[imageNumber]} className='actual-rotating-image'></img>
-                </div>
-                <div className='mainpage-shoe-listing-container'>
-                    <div style={{ marginTop: '30px' }}>
-                        <strong> Recomended for you:</strong>
+                <div className='mainpage-body-container'>
+                    <div className='mainpage-shoe-listing-container'>
+                        <strong> Trending Shoes:</strong>
                     </div>
-                    <div className='test'>
-                        {allItems.slice(0, 6)}
+                    <div className='mainpage-rotating-img-container'>
+                        <img src={images[imageNumber]} className='actual-rotating-image'></img>
                     </div>
-                </div>
-                <div className='mainpage-shoe-listing-container'>
-                    <div style={{ marginTop: '30px' }}>
-                        <strong> Recently Viewed:</strong>
+                    <div className='mainpage-shoe-listing-container'>
+                        <div style={{ marginTop: '30px' }}>
+                            <strong> Recomended for you:</strong>
+                        </div>
+                        <div className='test'>
+                            {allItems.slice(0, 6)}
+                        </div>
                     </div>
-                    <div className='test'>
-                        {allItems.slice(6, 12)}
+                    <div className='mainpage-shoe-listing-container'>
+                        <div style={{ marginTop: '30px' }}>
+                            <strong> Recently Viewed:</strong>
+                        </div>
+                        <div className='test'>
+                            {allItems.slice(6, 12)}
+                        </div>
                     </div>
-                </div>
-                <div className='mainpage-shoe-listing-container'>
-                    <div style={{ marginTop: '45px', marginBottom: '30px' }}>
-                        <a href='https://www.linkedin.com/in/justin-j-b-kam-4105961a5/' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
-                            <img src={ad} className='ad-image'></img>
-                        </a>
+                    <div className='mainpage-shoe-listing-container'>
+                        <div style={{ marginTop: '45px', marginBottom: '30px' }}>
+                            <a href='https://www.linkedin.com/in/justin-j-b-kam-4105961a5/' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+                                <img src={ad} className='ad-image'></img>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div className='mainpage-shoe-listing-container'>
-                    <div style={{ marginTop: '30px' }}>
-                        <strong> Popular Jordan Brand Shoes:</strong>
+                    <div className='mainpage-shoe-listing-container'>
+                        <div style={{ marginTop: '30px' }}>
+                            <strong> Popular Jordan Brand Shoes:</strong>
+                        </div>
+                        <div className='test'>
+                            {jordanShoes.slice(6, 12)}
+                        </div>
                     </div>
-                    <div className='test'>
-                        {jordanShoes.slice(6, 12)}
-                    </div>
-                </div>
-                <div className='mainpage-shoe-listing-container' style={{ marginBottom: '100px' }} >
-                    <div style={{ marginTop: '30px' }}>
-                        <strong> Popular Nike Brand Shoes:</strong>
-                    </div>
-                    <div className='test'>
-                        {nikeShoes.slice(0, 6)}
+                    <div className='mainpage-shoe-listing-container' style={{ marginBottom: '100px' }} >
+                        <div style={{ marginTop: '30px' }}>
+                            <strong> Popular Nike Brand Shoes:</strong>
+                        </div>
+                        <div className='test'>
+                            {nikeShoes.slice(0, 6)}
+                        </div>
                     </div>
                 </div>
             </div>
