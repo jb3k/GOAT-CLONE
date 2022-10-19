@@ -36,7 +36,11 @@ function MainPage() {
         return () => {
             clearInterval(imageInterval)
         }
-    }, [])
+    }, [images])
+
+
+    let jordanBrand = []
+    let nikeBrand = []
 
     const allItems = allApparel.map((item) => {
 
@@ -48,7 +52,12 @@ function MainPage() {
         if (listings.length === 0) arr.push(0)
         const filterListing = listings.forEach((shoe) => { arr.push(shoe.price) })
         let minPrice = Math.min(...arr)
-
+        for (const jordan in item) {
+            if (item[jordan] === "Jordan") jordanBrand.push(item)
+        }
+        for (const nike in item) {
+            if (item[nike] === "Nike") nikeBrand.push(item)
+        }
 
         let shoes = (
             <>
@@ -77,6 +86,75 @@ function MainPage() {
         )
     })
 
+
+
+
+    const jordanShoes = jordanBrand.map((item) => {
+        if (!item) return null
+        const { imageUrl, name, listings, id } = item
+
+        let arr = []
+        if (listings.length === 0) arr.push(0)
+        const filterListing = listings.forEach((shoe) => { arr.push(shoe.price) })
+        let minPrice = Math.min(...arr)
+
+        return (
+            <div key={id}>
+                <NavLink to={`/shoe/${id}`} style={{ textDecoration: 'none' }}>
+                    <div className='mainpage-shoe-containers'>
+                        <div className='mainpage-shoe-listing-image-container'>
+                            <img src={imageUrl} className='mainpage-shoe-listing-image' alt="profile"></img>
+                        </div>
+                        <div className='mainpage-shoe-text-container'>
+                            <div className='mainpage-shoe-name'>
+                                {name}
+                            </div>
+                            <div>
+                                <div className='mainpage-shoe-lowest-ask'>lowest ask</div>
+                                <strong><div className='mainpage-shoe-lowest-price'>{minPrice > 0 ? `$${minPrice}` : 'Sold out'}</div></strong>
+                            </div>
+                        </div>
+                    </div>
+                </NavLink>
+            </div>
+        )
+    })
+
+
+    const nikeShoes = nikeBrand.map((item) => {
+        if (!item) return null
+        const { imageUrl, name, listings, id } = item
+
+        let arr = []
+        if (listings.length === 0) arr.push(0)
+        const filterListing = listings.forEach((shoe) => { arr.push(shoe.price) })
+        let minPrice = Math.min(...arr)
+
+        return (
+            <div key={id}>
+                <NavLink to={`/shoe/${id}`} style={{ textDecoration: 'none' }}>
+                    <div className='mainpage-shoe-containers'>
+                        <div className='mainpage-shoe-listing-image-container'>
+                            <img src={imageUrl} className='mainpage-shoe-listing-image' alt="profile"></img>
+                        </div>
+                        <div className='mainpage-shoe-text-container'>
+                            <div className='mainpage-shoe-name'>
+                                {name}
+                            </div>
+                            <div>
+                                <div className='mainpage-shoe-lowest-ask'>lowest ask</div>
+                                <strong><div className='mainpage-shoe-lowest-price'>{minPrice > 0 ? `$${minPrice}` : 'Sold out'}</div></strong>
+                            </div>
+                        </div>
+                    </div>
+                </NavLink>
+            </div>
+        )
+    })
+
+
+
+
     return isLoaded && (
         <>
             <div>
@@ -94,7 +172,31 @@ function MainPage() {
                         <strong> Recomended for you:</strong>
                     </div>
                     <div className='test'>
-                        {allItems}
+                        {allItems.slice(0, 5)}
+                    </div>
+                </div>
+                <div className='mainpage-shoe-listing-container'>
+                    <div style={{ marginTop: '30px' }}>
+                        <strong> Recently Viewed:</strong>
+                    </div>
+                    <div className='test'>
+                        {allItems.slice(5, 10)}
+                    </div>
+                </div>
+                <div className='mainpage-shoe-listing-container'>
+                    <div style={{ marginTop: '30px' }}>
+                        <strong> Popular Jordan Brand Shoes:</strong>
+                    </div>
+                    <div className='test'>
+                        {jordanShoes.slice(6, 11)}
+                    </div>
+                </div>
+                <div className='mainpage-shoe-listing-container'>
+                    <div style={{ marginTop: '30px' }}>
+                        <strong> Popular Nike Brand Shoes:</strong>
+                    </div>
+                    <div className='test'>
+                        {nikeShoes.slice(0, 5)}
                     </div>
                 </div>
             </div>

@@ -69,8 +69,8 @@ function PriceChart({ chartInfo }) {
     const labels = ['April', 'May', 'June', 'July', 'August', 'September', 'October'];
 
     const data = {
-        // labels,
-        dateArr,
+        labels,
+        // dateArr,
         datasets: [
             {
                 fill: true,
