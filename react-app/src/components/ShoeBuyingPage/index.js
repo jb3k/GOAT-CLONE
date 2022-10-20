@@ -78,8 +78,10 @@ function ShoePurchasePage() {
 
     return isLoaded && (
         <>
-            <div className='sell-page-main-container'>
-                {shoePage}
+            <div className='navbar-spacing'>
+                <div className='sell-page-main-container'>
+                    {shoePage}
+                </div>
             </div>
         </>
     )

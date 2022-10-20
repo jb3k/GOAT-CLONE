@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 // import ListingForm from './components/listingform/ListingForm';
 import MainPage from './components/mainpage';
 // import SellPage from './components/sellpage';
+import BrowsePage from './components/browsePage';
 import ShoeProfilePage from './components/ShoeProfilePage';
 import ShoeListingPage from './components/ShoeListingPage';
 import ShoeListingFormPage from './components/ShoeListingPage/ShoeListingFormPage'
@@ -92,7 +93,10 @@ function App() {
         {/* <ProtectedRoute path='/broken' exact={true} >
           <SellPage />
         </ProtectedRoute> */}
-
+        <Route path='/shoes' exact={true} >
+          <NavBar />
+          <BrowsePage />
+        </Route>
 
         <Route path='/' exact={true} >
           <NavBar />

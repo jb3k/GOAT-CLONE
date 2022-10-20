@@ -120,6 +120,7 @@ function CurrentUserListings() {
 
     return loaded && (
         <>
+            <div className='navbar-spacing'></div>
             <div className='whole-user-page-container'>
                 <div className='user-page-purchase-header'>
                     <h1> Listing History: </h1>

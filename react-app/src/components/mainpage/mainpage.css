@@ -6,6 +6,10 @@
 
 } */
 
+.navbar-spacing {
+    margin-top: 71px;
+}
+
 
 button:hover {
     cursor: pointer;
@@ -109,9 +113,63 @@ button:hover {
 
 
 .test {
-    display: flex;
+    display: grid;
+    grid-row: 1;
+    grid-template-columns: repeat(6, 170px);
     margin-top: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
     width: 100%;
+    max-height: 200px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 944px) {
+    .test {
+        display: grid;
+        grid-row: 1;
+        grid-template-columns: repeat(3, 170px);
+        margin-top: 15px;
+        width: 100%;
+        max-height: 197px;
+        overflow: hidden;
+
+    }
+}
+
+@media screen and (min-width: 945px) and (max-width: 1220px) {
+    .test {
+        display: grid;
+        grid-row: 1;
+        grid-template-columns: repeat(4, 170px);
+        margin-top: 15px;
+        width: 100%;
+        max-height: 197px;
+        overflow: hidden;
+
+    }
+}
+
+@media screen and (min-width: 1221px) and (max-width: 1416px) {
+    .test {
+        display: grid;
+        grid-row: 1;
+        grid-template-columns: repeat(5, 170px);
+        margin-top: 15px;
+        width: 100%;
+        max-height: 197px;
+        overflow: hidden;
+
+    }
+}
+
+
+
+
+
+
+
+.ad-image {
+    height: 250px;
+    width: 92%;
+    max-width: 999px;
+    object-fit: fill;
 }

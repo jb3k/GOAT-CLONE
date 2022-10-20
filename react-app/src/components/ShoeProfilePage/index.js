@@ -252,7 +252,7 @@ function ShoeProfilePage() {
             <div className='shoe-historical-stats' style={{ marginTop: '12px', fontWeight: '550' }}>
                 Price history
                 <div className='historical-shoe-chart'>
-                    <PriceChart chartInfo={chartInfo} />
+                    {chartInfo.length === 0 ? 'No purchases' : <PriceChart chartInfo={chartInfo} />}
                 </div>
             </div>
 
@@ -370,10 +370,12 @@ function ShoeProfilePage() {
 
     return isLoaded && (
         <>
-            <div className='shoe-page-body-container'>
-                {shoePage}
+            <div className='navbar-spacing'>
+                <div className='shoe-page-body-container'>
+                    {shoePage}
+                </div>
+                <Footer />
             </div>
-            <Footer />
         </>
     );
 }

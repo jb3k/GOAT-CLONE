@@ -70,6 +70,7 @@ function PriceChart({ chartInfo }) {
 
     const data = {
         labels,
+        // dateArr,
         datasets: [
             {
                 fill: true,

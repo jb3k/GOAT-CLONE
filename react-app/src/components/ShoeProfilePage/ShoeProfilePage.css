@@ -126,7 +126,7 @@
 .shoe-profile-related-products-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     margin-top: 10px;
     height: 240px;
     border-bottom: 1px solid darkgray;
@@ -151,7 +151,7 @@
 }
 
 
-@media screen and (max-width: 1015px) {
+@media screen and (max-width: 1022px) {
     .shoe-profile-related-products {
         margin-top: 15px;
         display: grid;
@@ -163,7 +163,7 @@
     }
 }
 
-@media screen and (min-width: 1016px) and (max-width: 1271px) {
+@media screen and (min-width: 1023px) and (max-width: 1271px) {
     .shoe-profile-related-products {
         margin-top: 15px;
         display: grid;

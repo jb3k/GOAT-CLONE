@@ -64,7 +64,7 @@ function ShoeListingFormPage() {
 
     return isLoaded && (
         <>
-            <div>
+            <div className='navbar-spacing'>
                 <div className='sell-page-main-container'>
                     {shoePage}
                 </div>
