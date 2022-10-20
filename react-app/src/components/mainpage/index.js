@@ -22,6 +22,7 @@ function MainPage() {
     const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
     const [imageNumber, setImageNumber] = useState(0)
+    const [recentView, setRecentView] = useState([])
     const images = [image1, image2, image3, image4, image5]
 
     useEffect(() => {
