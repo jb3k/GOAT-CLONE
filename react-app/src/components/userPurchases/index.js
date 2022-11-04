@@ -26,7 +26,11 @@ function CurrentUserPurchases() {
 
     if (!allUserPurchases) return null
 
-    const userPurchases = allUserPurchases.map(item => {
+
+    const tester = allUserPurchases.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+
+
+    const userPurchases = tester.map(item => {
         const { address, city, country, zipcode, state, listingImg, listingSize, apparelName, apparelColorway, id, createdAt, apparelId } = item
 
 

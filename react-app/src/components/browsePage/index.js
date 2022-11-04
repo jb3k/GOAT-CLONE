@@ -19,11 +19,14 @@ function BrowsePage() {
             .then(() => setIsLoaded(true))
     }, [dispatch])
 
+    const tester = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
-    const allItems = allApparel.map((item) => {
+
+    const allItems = tester.map((item) => {
 
         if (!item) return null
         const { imageUrl, name, listings, id } = item
+
 
 
         let arr = []
