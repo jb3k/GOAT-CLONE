@@ -62,7 +62,7 @@ const ApparelForm = () => {
         // some sort of loading message is a good idea
         setImageLoading(true);
 
-        const res = await fetch('/api/apparel/', {
+        const res = await fetch('/api/image/', {
             method: "POST",
             body: formData,
         });
@@ -70,7 +70,6 @@ const ApparelForm = () => {
         console.log('HELLO', res)
         if (res.ok) {
             await res.json();
-            console.log('HELLOOOOOOOO', formData)
             setImageLoading(false);
             history.push("/shoes");
         }
