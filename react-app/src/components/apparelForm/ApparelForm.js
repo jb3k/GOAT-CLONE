@@ -113,7 +113,7 @@ const ApparelForm = () => {
                                 Product Description:
                             </div>
                             <textarea
-                                className='apparel-form-body-boxes'
+                                className='apparel-form-description-box'
                                 type='text'
                                 name='description'
                                 onChange={e => setDescription(e.target.value)}
