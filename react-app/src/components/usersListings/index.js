@@ -23,8 +23,10 @@ function CurrentUserListings() {
             .then(() => setLoaded(true))
     }, []);
 
+    const tester = allUserListings.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
-    const userListings = allUserListings.map(listing => {
+
+    const userListings = tester.map(listing => {
         const { price, size, apparelName, apparelImg, apparelColorway, id, apparelId } = listing
 
 
