@@ -66,8 +66,11 @@ const ApparelForm = () => {
             method: "POST",
             body: formData,
         });
+
+        console.log('HELLO', res)
         if (res.ok) {
             await res.json();
+            console.log('HELLOOOOOOOO', formData)
             setImageLoading(false);
             history.push("/shoes");
         }

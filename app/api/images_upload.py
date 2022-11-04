@@ -26,7 +26,6 @@ def upload_image():
 
     if "image" not in request.files:
         return {"errors": "image required"}, 400
-    image = request.files["image"]
     if not allowed_file(image.filename):
         return {"errors": "file type not permitted"}, 400
     
