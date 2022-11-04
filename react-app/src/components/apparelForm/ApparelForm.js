@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import './ApparelForm.css'
 
 
 const ApparelForm = () => {
@@ -68,7 +69,7 @@ const ApparelForm = () => {
         if (res.ok) {
             await res.json();
             setImageLoading(false);
-            history.push("/");
+            history.push("/shoes");
         }
         else {
             setImageLoading(false);
@@ -86,124 +87,134 @@ const ApparelForm = () => {
     return (
         <div>
             <div className='navbar-spacing'></div>
-            <div>
-                Submit New Arrivals here:
+            <div className="apparel-whole-page">
+                <div className="apparel-form-container">
+                    <div className="apparel-form-top-container">
+                        Submit New Arrivals:
+                    </div>
+                    <form onSubmit={handleSubmit}>
+                        {submitted && validationErrors.map(((error, i) => <div className='errors' key={i}><li>{error}</li></div>))}
+                        <div>
+                            <div>
+                                Shoe Name:
+                            </div>
+                            <input
+                                className='apparel-form-body-boxes'
+                                type='text'
+                                name='name'
+                                onChange={e => setName(e.target.value)}
+                                value={name}
+                                required={true}
+                                placeholder={'Ex: Jordan 1 Retro High "Chicago"'}
+                            ></input>
+                        </div>
+                        <div >
+                            <div>
+                                Product Description:
+                            </div>
+                            <textarea
+                                className='apparel-form-body-boxes'
+                                type='text'
+                                name='description'
+                                onChange={e => setDescription(e.target.value)}
+                                value={description}
+                                required={true}
+                                placeholder={'Shoe details / description*'}
+                            />
+                        </div>
+                        <div >
+                            <div> Colorway: </div>
+                            <input
+                                className='apparel-form-body-boxes'
+                                type='text'
+                                name='colorway'
+                                onChange={e => setColorway(e.target.value)}
+                                value={colorway}
+                                required={true}
+                                placeholder={'Shoe colorway *'}
+                            ></input>
+                        </div>
+                        <div >
+                            <div> Release Date (Year):  </div>
+                            <input
+                                className='apparel-form-body-boxes'
+                                type='text'
+                                name='release_date'
+                                onChange={e => setRelease_date(e.target.value)}
+                                value={release_date}
+                                required={true}
+                                placeholder={'Release Date Year*'}
+                            ></input>
+                        </div>
+                        <div >
+                            <div> Brand: </div>
+                            <input
+                                className='apparel-form-body-boxes'
+                                type='text'
+                                name='brand'
+                                onChange={e => setBrand(e.target.value)}
+                                value={brand}
+                                required={true}
+                                placeholder={'Ex. Nike, Adidas, Jordan, etc..'}
+                            ></input>
+                        </div>
+                        <div >
+                            <div> Style:  </div>
+                            <select value={style} onChange={e => setStyle(e.target.value)} className='apparel-form-select-boxes'>
+                                <option value=''> Select</option>
+                                <option value='low'> Low</option>
+                                <option value='mid'> Mid</option>
+                                <option value='high'> High</option>
+                            </select>
+                        </div>
+                        <div >
+                            <div> Brand Type: </div>
+                            <input
+                                className='apparel-form-body-boxes'
+                                type='text'
+                                name='brand_type'
+                                onChange={e => setBrand_type(e.target.value)}
+                                value={brand_type}
+                                required={true}
+                                placeholder={'Ex: "1" for Jordan 1, "dunk" for nike dunk '}
+                            ></input>
+                        </div>
+                        <div >
+                            <div> Condition: </div>
+                            <select value={condition} onChange={e => setCondition(e.target.value)} className='apparel-form-select-boxes'
+                            >
+                                <option value=''> Select</option>
+                                <option value='new'> New </option>
+                                <option value='used'> Used </option>
+                            </select>
+                        </div>
+                        <div >
+                            <div> Retail Price: </div>
+                            <input
+                                className='apparel-form-body-boxes'
+                                type='number'
+                                name='retail_price'
+                                onChange={e => setRetail_price(e.target.value)}
+                                value={retail_price}
+                                required={true}
+                                min={1}
+                                max={10000}
+                            ></input>
+                        </div>
+                        <div>
+                            <div style={{ marginBottom: '5px' }}> Upload Image: </div>
+                            <input
+                                className='apparel-form-upload-button'
+                                type="file"
+                                accept="image/*"
+                                onChange={updateImage}
+                            />
+                        </div>
+                        <button type="submit" className='signup-form-signup-button'>Submit</button>
+                        {(imageLoading) && <p>Loading...</p>}
+                    </form>
+                </div>
             </div>
-            <form onSubmit={handleSubmit}>
-                {submitted && validationErrors.map(((error, i) => <div className='errors' key={i}><li>{error}</li></div>))}
-                <div>
-                    <label> Shoe Name: </label>
-                    <input
-                        className=''
-                        type='text'
-                        name='name'
-                        onChange={e => setName(e.target.value)}
-                        value={name}
-                        required={true}
-                        placeholder={'Ex: Jordan 1 Retro High "Chicago"'}
-                    ></input>
-                </div>
-                <div >
-                    <label> Product Description: </label>
-                    <textarea
-                        className=''
-                        type='text'
-                        name='description'
-                        onChange={e => setDescription(e.target.value)}
-                        value={description}
-                        required={true}
-                        placeholder={'Shoe details / description*'}
-                    />
-                </div>
-                <div >
-                    <label> Colorway: </label>
-                    <input
-                        className=''
-                        type='text'
-                        name='colorway'
-                        onChange={e => setColorway(e.target.value)}
-                        value={colorway}
-                        required={true}
-                        placeholder={'Shoe colorway *'}
-                    ></input>
-                </div>
-                <div >
-                    <label> Release Date (Year):  </label>
-                    <input
-                        className=''
-                        type='text'
-                        name='release_date'
-                        onChange={e => setRelease_date(e.target.value)}
-                        value={release_date}
-                        required={true}
-                        placeholder={'Release Date Year*'}
-                    ></input>
-                </div>
-                <div >
-                    <label> Brand </label>
-                    <input
-                        className=''
-                        type='text'
-                        name='brand'
-                        onChange={e => setBrand(e.target.value)}
-                        value={brand}
-                        required={true}
-                        placeholder={'Ex. Nike, Adidas, Jordan, etc..'}
-                    ></input>
-                </div>
-                <div >
-                    <label> Style:  </label>
-                    <select value={style} onChange={e => setStyle(e.target.value)}>
-                        <option value=''> Select</option>
-                        <option value='low'> Low</option>
-                        <option value='mid'> Mid</option>
-                        <option value='high'> High</option>
-                    </select>
-                </div>
-                <div >
-                    <label> Brand </label>
-                    <input
-                        className=''
-                        type='text'
-                        name='brand_type'
-                        onChange={e => setBrand_type(e.target.value)}
-                        value={brand_type}
-                        required={true}
-                        placeholder={'Ex: "1" for Jordan 1, "dunk" for nike dunk '}
-                    ></input>
-                </div>
-                <div >
-                    <label> Condition: </label>
-                    <select value={condition} onChange={e => setCondition(e.target.value)}>
-                        <option value=''> Select</option>
-                        <option value='new'> New </option>
-                        <option value='used'> Used </option>
-                    </select>
-                </div>
-                <div >
-                    <label> Retail Price: </label>
-                    <input
-                        className=''
-                        type='number'
-                        name='retail_price'
-                        onChange={e => setRetail_price(e.target.value)}
-                        value={retail_price}
-                        required={true}
-                        min={1}
-                        max={10000}
-                    ></input>
-                </div>
-                <div>
-                    <label> Upload Image </label>
-                    <input
-                        type="file"
-                        accept="image/*"
-                        onChange={updateImage}
-                    />
-                </div>
-                <button type="submit">Submit</button>
-                {(imageLoading) && <p>Loading...</p>}
-            </form>
         </div>
     )
 }

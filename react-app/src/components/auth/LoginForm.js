@@ -64,7 +64,7 @@ const LoginForm = () => {
           <div className='signup-form-body'>
             <form onSubmit={onLogin}>
               <div className='login-form-errors'>
-                {isSubmitted && <div> Incorrect Login Information</div>}
+                {isSubmitted && errors.length >= 1 && <div> Incorrect Login Information</div>}
               </div>
               <div className='signup-form-body-container'>
                 <input
