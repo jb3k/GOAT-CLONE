@@ -62,7 +62,7 @@ const ApparelForm = () => {
         // some sort of loading message is a good idea
         setImageLoading(true);
 
-        const res = await fetch('/api/image/', {
+        const res = await fetch('/api/apparel/', {
             method: "POST",
             body: formData,
         });
@@ -113,7 +113,7 @@ const ApparelForm = () => {
                                 Product Description:
                             </div>
                             <textarea
-                                className='apparel-form-body-boxes'
+                                className='apparel-form-description-box'
                                 type='text'
                                 name='description'
                                 onChange={e => setDescription(e.target.value)}

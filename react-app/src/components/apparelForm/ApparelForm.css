@@ -17,7 +17,7 @@
     align-items: center;
     width: 350px;
     border: 1px #DBDBDB solid;
-    height: 800px;
+    height: 900px;
     border-radius: 2px;
     background-color: white;
 
@@ -46,6 +46,12 @@
     margin-bottom: 8px;
 }
 
+.apparel-form-description-box {
+    border: 1px #DBDBDB solid;
+    height: 150px;
+    width: 300px;
+    margin-bottom: 8px;
+}
 
 .apparel-form-select-boxes {
     border: 1px #DBDBDB solid;
