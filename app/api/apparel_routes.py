@@ -96,32 +96,32 @@ def delete_apparel(id):
 #     return {"url": url}
 
 
-# @apparel_routes.route("/<int:apparel_id>/listings", methods=["POST"])
-# @login_required
-# def new_listing(apparel_id):
-#     listingForm = ListingForm()
-#     apparelForm = ApparelForm()
-#     listingForm['csrf_token'].data = request.cookies['csrf_token']
-#     listings = Listing.query.all()
-#     shoeId = Apparel.query.get(apparel_id)
+@apparel_routes.route("/<int:apparel_id>/listings", methods=["POST"])
+@login_required
+def new_listing(apparel_id):
+    listingForm = ListingForm()
+    apparelForm = ApparelForm()
+    listingForm['csrf_token'].data = request.cookies['csrf_token']
+    listings = Listing.query.all()
+    shoeId = Apparel.query.get(apparel_id)
 
-#     #if the listing of the shoe is not already in the db... then im going to want to submit the form to the db first
-#     #or just direct them to the apparel form if the shoe doesnt already exist in the db, IF SO HOW DO I DIRECT THEM TO THE APPAREL FORM (in the frontend?)
-#     if shoeId == None:
-#         return {"message": "Shoe not in database, please add to database before listing"}
+    #if the listing of the shoe is not already in the db... then im going to want to submit the form to the db first
+    #or just direct them to the apparel form if the shoe doesnt already exist in the db, IF SO HOW DO I DIRECT THEM TO THE APPAREL FORM (in the frontend?)
+    if shoeId == None:
+        return {"message": "Shoe not in database, please add to database before listing"}
 
-#     #if the listing of the shoe is already in the db... then i can just add the listing info and assign it to that shoe's id in the db
-#     if listingForm.validate_on_submit():
+    #if the listing of the shoe is already in the db... then i can just add the listing info and assign it to that shoe's id in the db
+    if listingForm.validate_on_submit():
 
-#         new_listing = Listing(
-#             price = listingForm.data["price"],
-#             size = listingForm.data["size"],
-#             quantity = listingForm.data["quantity"],
-#             user_id = current_user.id,
-#             apparel_id = shoeId.id
+        new_listing = Listing(
+            price = listingForm.data["price"],
+            size = listingForm.data["size"],
+            quantity = listingForm.data["quantity"],
+            user_id = current_user.id,
+            apparel_id = shoeId.id
 
-#         )
-#         db.session.add(new_listing)
-#         db.session.commit()
-#         return {"listings": [items.to_dict() for items in listings] }
-#     return {"errors": validation_errors_to_error_messages(listingForm.errors)}, 400
+        )
+        db.session.add(new_listing)
+        db.session.commit()
+        return {"listings": [items.to_dict() for items in listings] }
+    return {"errors": validation_errors_to_error_messages(listingForm.errors)}, 400
