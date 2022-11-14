@@ -1,8 +1,8 @@
 const GET_ALL_APPAREL = 'apparel/getAllApparel'
 const GET_APPAREL = 'apparel/getApparel'
 const CREATE_APPAREL = 'apparel/createApparel'
-const CREATE_IMAGE = 'image/createImage'
-
+// const CREATE_IMAGE = 'image/createImage'
+const DELETE_APPAREL = 'apparel/deleteApparel'
 
 const getAll = (payload) => {
     return {
@@ -27,12 +27,19 @@ const create = (payload) => {
     }
 }
 
-const createImage = (id, payload) => {
+const remove = (id) => {
     return {
-        type: CREATE_IMAGE,
-        payload
+        type: DELETE_APPAREL,
+        id
     }
 }
+
+// const createImage = (id, payload) => {
+//     return {
+//         type: CREATE_IMAGE,
+//         payload
+//     }
+// }
 
 
 //thunks
@@ -63,6 +70,18 @@ export const createApparelThunk = (payload) => async dispatch => {
     if (response.ok) {
         const post = await response.json()
         dispatch(create(post))
+    }
+}
+
+
+export const deleteApparelThunk = (id) => async dispatch => {
+    const response = await fetch(`/api/apparel/${id}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(id)
+    })
+    if (response.ok) {
+        dispatch(remove(id))
     }
 }
 
@@ -103,6 +122,11 @@ const apparelReducer = (state = initialState, action) => {
             newState[action.payload.id] = action.payload
             return newState
 
+        }
+        case DELETE_APPAREL: {
+            const newState = { ...state }
+            delete newState[action.id]
+            return newState
         }
         default:
             return state

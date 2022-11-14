@@ -79,7 +79,7 @@ function CurrentUserPurchases() {
         const milliseconds = Math.abs(now - datePosted)
         // const minutes = Math.ceil(milliseconds / (1000 * 60))
         const hours = Math.ceil(milliseconds / (1000 * 60 * 60))
-        const days = Math.ceil(milliseconds / (1000 * 60 * 60 * 24))
+        // const days = Math.ceil(milliseconds / (1000 * 60 * 60 * 24))
         let validTime
         if (hours > 24) {
             validTime = (
@@ -124,7 +124,7 @@ function CurrentUserPurchases() {
                     <div className='user-purchase-right-container'>
                         <NavLink to={`/shoe/${apparelId}`}>
                             <div className='user-purchase-image-container'>
-                                <img src={listingImg} alt='shoe image' className='purchase-shoe-img'></img>
+                                <img src={listingImg} alt='shoe' className='purchase-shoe-img'></img>
                             </div>
                         </NavLink>
                     </div>

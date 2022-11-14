@@ -20,8 +20,7 @@ function ShoePurchasePage() {
     }, [dispatch, shoeId])
 
     const shoePage = shoeInfo.map((shoe) => {
-
-        const { colorway, imageUrl, listings, brand, brandType, style, releaseDate } = shoe
+        const { colorway, imageUrl, listings, brand, brandType, style, releaseDate, id } = shoe
 
         let leftContainer = (
             <>
@@ -65,14 +64,14 @@ function ShoePurchasePage() {
 
 
         return (
-            <>
+            <div style={{ display: 'flex' }} key={id}>
                 <div className='sell-page-left-container'>
                     {leftContainer}
                 </div>
                 <div className='sell-page-right-container'>
                     {rightContainer}
                 </div>
-            </>
+            </div>
         )
     })
 

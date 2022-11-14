@@ -4,19 +4,22 @@ import { Link } from 'react-router-dom';
 
 function AllSizesFunc({ listings, shoeId }) {
 
-    console.log(listings)
-
     let allsizes = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
     const list = []
     let priceList = {}
+    let priceArr = []
 
-    const eachListing = listings.map(list => {
-        const { apparelId, price, size, id } = list
-
+    listings.map(list => {
+        const { apparelId, price, size } = list
         if (apparelId.toString() === shoeId) {
-            priceList[size] = price
+            priceArr.push(price)
+            priceArr.sort((a, b) => { if (a > b) return 1; if (a < b) return -1; return 0 })
+            priceList[size] = priceArr[0]
         }
+
+        return priceList
     })
+
 
 
     let priceListArr = Object.keys(priceList)
@@ -41,7 +44,7 @@ function AllSizesFunc({ listings, shoeId }) {
 
         })
         if (!priceList[`${item1}`]) {
-            list.push(<div className='size-price-container'>
+            list.push(<div className='size-price-container' key={item1.toString()} >
                 <div>
                     {item1}
                 </div>

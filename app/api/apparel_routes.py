@@ -19,87 +19,81 @@ def get_apparel(id):
     return apparel.to_dict()
 
 
-@apparel_routes.route("/", methods=["POST"])
+@apparel_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
-def upload_image():
-    if "image" not in request.files:
-        return {"errors": "image required"}, 400
-    image = request.files["image"]
-    if not allowed_file(image.filename):
-        return {"errors": "file type not permitted"}, 400
+def delete_apparel(id):
+    shoe = Apparel.query.get(id)
     
-    image.filename = get_unique_filename(image.filename)
+    if shoe == None:
+        return {"errors": "shoe couldn't be found"}, 404
 
-    upload = upload_file_to_s3(image)
-
-    if "url" not in upload:
-        # if the dictionary doesn't have a url key
-        # it means that there was an error when we tried to upload
-        # so we send back that error message
-        return upload, 400
-
-    url = upload["url"]
+    db.session.delete(shoe)
+    db.session.commit()
+    return {"message": "Successfully deleted"}
 
 
-    form = ApparelForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-
-    if form.validate_on_submit():
-    
-        new_apparel = Apparel(
-            user=current_user, 
-            image_url=url,
-            name = item["name"],
-            description = item["description"],
-            colorway = item["colorway"],
-            release_date = item["release_date"],
-            brand = item["brand"],
-            style = item["style"],
-            brand_type = item["brand_type"],
-            condition = item["condition"],
-            retail_price = item["retail_price"],
-            price_sold = item["price_sold"],
-            quantity_sold = item["quantity_sold"],
-            size = item["size"]
-        )
-        db.session.add(new_apparel)
-        db.session.commit()
-        return {"url": url}
 
 
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+
 
 
 
 # @apparel_routes.route("/", methods=["POST"])
 # @login_required
-# def add_apparel():
-#     form = ApparelForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
+# def upload_image():
+#     image = request.files['image']
+#     name = request.form['name']
+#     description = request.form['description']
+#     release_date = request.form['release_date']
+#     brand = request.form['brand']
+#     style = request.form['style']
+#     brand_type = request.form['brand_type']
+#     colorway = request.form['colorway']
+#     condition = request.form['condition']
+#     retail_price = request.form['retail_price']
 
-#     if form.validate_on_submit():
+
+
+#     if "image" not in request.files:
+#         return {"errors": "image required"}, 400
+#     if not allowed_file(image.filename):
+#         return {"errors": "file type not permitted"}, 400
     
-#         new_apparel = Apparel(
-#             name = item["name"],
-#             description = item["description"],
-#             colorway = item["colorway"],
-#             release_date = item["release_date"],
-#             brand = item["brand"],
-#             style = item["style"],
-#             brand_type = item["brand_type"],
-#             condition = item["condition"],
-#             retail_price = item["retail_price"],
-#             price_sold = item["price_sold"],
-#             quantity_sold = item["quantity_sold"],
-#             size = item["size"]
-#         )
-#         db.session.add(new_apparel)
-#         db.session.commit()
-#         return 
+#     image.filename = get_unique_filename(image.filename)
 
-#     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+#     upload = upload_file_to_s3(image)
+
+#     if "url" not in upload:
+#         # if the dictionary doesn't have a url key
+#         # it means that there was an error when we tried to upload
+#         # so we send back that error message
+#         return upload, 400
+
+#     url = upload["url"]
 
 
+#     # form = ApparelForm()
+#     # form['csrf_token'].data = request.cookies['csrf_token']
+
+#     # if form.validate_on_submit():
+    
+#     new_apparel = Apparel(
+#             # user=current_user, 
+#         image_url=url,
+#         name = name,
+#         description = description,
+#         colorway = colorway,
+#         release_date = release_date,
+#         brand = brand,
+#         style = style,
+#         brand_type = brand_type,
+#         condition = condition,
+#         retail_price = retail_price,
+#     )
+#     db.session.add(new_apparel)
+#     db.session.commit()
+#     return {"url": url}
 
 
 @apparel_routes.route("/<int:apparel_id>/listings", methods=["POST"])

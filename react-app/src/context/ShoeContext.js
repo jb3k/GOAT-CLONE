@@ -1,5 +1,5 @@
-import React, { useContext, useRef, useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useRef, useState, useEffect } from 'react';
+// import ReactDOM from 'react-dom';
 import './Modal.css';
 
 export const ShoeContext = React.createContext();

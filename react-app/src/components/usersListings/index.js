@@ -21,7 +21,7 @@ function CurrentUserListings() {
         dispatch(getUserListingsThunk())
         dispatch(searchAllApparelThunk())
             .then(() => setLoaded(true))
-    }, []);
+    }, [dispatch]);
 
     const tester = allUserListings.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
@@ -37,7 +37,7 @@ function CurrentUserListings() {
                     <div className='user-purchase-right-container'>
                         <NavLink to={`/shoe/${apparelId}`}>
                             <div className='user-purchase-image-container'>
-                                <img src={apparelImg} alt='shoe image' className='purchase-shoe-img'></img>
+                                <img src={apparelImg} alt='shoe' className='purchase-shoe-img'></img>
                             </div>
                         </NavLink>
                     </div>

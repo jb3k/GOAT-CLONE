@@ -19,7 +19,7 @@ function ShoePurchaseFormPage() {
         dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
 
-    }, [dispatch])
+    }, [dispatch, shoeId])
 
 
 

@@ -10,7 +10,7 @@ import './BrowsePage.css'
 function BrowsePage() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false)
-    const sessionUser = useSelector((state) => state.session.user);
+    // const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
 
     useEffect(() => {
@@ -31,7 +31,7 @@ function BrowsePage() {
 
         let arr = []
         if (listings.length === 0) arr.push(0)
-        const filterListing = listings.forEach((shoe) => { arr.push(shoe.price) })
+        listings.forEach((shoe) => { arr.push(shoe.price) })
         let minPrice = Math.min(...arr)
 
         let shoes = (

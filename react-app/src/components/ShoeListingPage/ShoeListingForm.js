@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { useParams, useHistory, NavLink } from 'react-router-dom';
 import { createListingsThunk } from '../../store/listings';
@@ -11,17 +11,16 @@ function ShoeListingForm() {
     const history = useHistory()
     const { shoeId, space, sizeId } = useParams();
     const [errorValidation, setErrorValidation] = useState([])
-    const [size, setSize] = useState(sizeId);
+    // const [size, setSize] = useState(sizeId);
+    let size = sizeId
     const [price, setPrice] = useState('');
-    const [quantity, setQuantity] = useState(1);
+    let quantity = 1
 
-
-    // useEffect(() => {
-    //     const errors = []
-    //     if (!Number(price)) errors.push('Need valid price')
-    //     return setErrorValidation(errors)
-    // }, [size, price])
-
+    useEffect(() => {
+        const errors = []
+        if (!Number(price)) errors.push('Need valid price')
+        return setErrorValidation(errors)
+    }, [price])
 
     const onSubmit = async (e) => {
         e.preventDefault();
