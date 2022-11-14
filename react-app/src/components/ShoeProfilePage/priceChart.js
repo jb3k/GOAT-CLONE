@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -48,10 +48,10 @@ export const options = {
 // Now, I can grab all of the purchases from a certain date and price of the listing.
 function PriceChart({ chartInfo }) {
 
-    const [chartData, setChartData] = useState({
-        datasets: [],
-    });
-    const [chartOptions, setChartOptions] = useState();
+    // const [chartData, setChartData] = useState({
+    //     datasets: [],
+    // });
+    // const [chartOptions, setChartOptions] = useState();
 
     let dateArr = []
     let priceArr = []
@@ -63,7 +63,7 @@ function PriceChart({ chartInfo }) {
         priceArr.push(item.listingPrice)
     })
 
-    let sales
+    // let sales
     if (priceArr) { }
 
     const labels = ['April', 'May', 'June', 'July', 'August', 'September', 'October'];

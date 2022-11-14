@@ -67,7 +67,7 @@ const ApparelForm = () => {
             body: formData,
         });
 
-        console.log('HELLO', res)
+        // console.log('HELLO', res)
         if (res.ok) {
             await res.json();
             setImageLoading(false);

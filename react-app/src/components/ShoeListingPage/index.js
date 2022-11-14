@@ -21,11 +21,11 @@ function ShoeListingPage() {
         dispatch(getApparelThunk(shoeId))
         dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
-    }, [dispatch])
+    }, [dispatch, shoeId])
 
     const shoePage = shoeInfo.map((shoe) => {
 
-        const { colorway, imageUrl, brand, brandType, style, listings, releaseDate } = shoe
+        const { colorway, imageUrl, brand, brandType, style, releaseDate } = shoe
 
         let leftContainer = (
             <>

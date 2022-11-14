@@ -19,7 +19,7 @@ function ShoeListingFormPage() {
         dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
 
-    }, [dispatch])
+    }, [dispatch, shoeId])
 
 
 
@@ -38,7 +38,7 @@ function ShoeListingFormPage() {
                     </div>
                 </div>
                 <div className='shoe-profile-image-container'>
-                    <img src={imageUrl} alt="shoe image" className='shoe-profile-image' ></img>
+                    <img src={imageUrl} alt='shoe'className='shoe-profile-image' ></img>
                 </div>
             </>
         )

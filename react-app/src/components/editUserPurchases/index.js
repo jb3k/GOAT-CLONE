@@ -110,7 +110,7 @@ const EditUserPurchase = ({ purchaseId, userAddy, userCity, userZip, userState, 
                             style={{ width: '142px' }}
                         // type='text'
                         // name='country'
-                        // onChange={e => setCountry(e.target.value)}
+                        onChange={e => setCountry(e.target.value)}
                         // value={country}
                         // required={true}
                         // placeholder={'Country *'}

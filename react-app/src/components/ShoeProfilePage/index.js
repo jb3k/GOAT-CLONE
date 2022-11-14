@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams, NavLink } from 'react-router-dom';
-import { getApparelThunk } from '../../store/apparel';
+import { useParams, NavLink, useHistory } from 'react-router-dom';
+import { deleteApparelThunk, getApparelThunk } from '../../store/apparel';
 import { getAllListingsThunk } from '../../store/listings';
 import { getAllPurchasesThunk } from '../../store/purchase';
 import { searchAllApparelThunk } from '../../store/searchbar';
@@ -15,6 +15,7 @@ function ShoeProfilePage() {
     const [isLoaded, setIsLoaded] = useState(false)
     // const history = useHistory()
     const { shoeId } = useParams();
+    const history = useHistory()
 
     const shoeInfo = useSelector(state => Object.values(state.apparel))
     const shoeListings = useSelector(state => Object.values(state.listings))
@@ -55,7 +56,7 @@ function ShoeProfilePage() {
     // })
 
     let newArr = [];
-    const relatedBrands = shoeListings.map((item, index) => {
+    const relatedBrands = shoeListings.map((item) => {
         const { apparelBrandType, price, apparelId, apparelName, apparelImg, apparelColorway } = item
 
 
@@ -87,13 +88,14 @@ function ShoeProfilePage() {
                 )
             }
         }
+        return
     })
 
     // console.log(relatedBrands)
 
     let priceArr = []
     let salesArr = []
-    const shoeStats = shoePurchases.map(item => {
+    shoePurchases.map(item => {
 
         const { apparelId } = item
         // const itemArr = Object.values(item)
@@ -105,6 +107,8 @@ function ShoeProfilePage() {
         }
 
     })
+
+
     let minPrice = Math.min(...priceArr)
     let maxPrice = Math.max(...priceArr)
     let totalSales = salesArr.length
@@ -119,7 +123,7 @@ function ShoeProfilePage() {
 
     const shoePage = shoeInfo.map((shoe) => {
 
-        const { brand, brandType, colorway, condition, description, id, imageUrl, name, style, retailPrice, releaseDate, listings } = shoe
+        const { brand, brandType, colorway, condition, description, id, imageUrl, name, retailPrice, releaseDate, listings } = shoe
 
         let allListings
         if (listings.length > 25) {
@@ -161,7 +165,7 @@ function ShoeProfilePage() {
                             Condition: {<div style={{ color: 'green', marginLeft: '3px' }}>{condition}</div>}
                         </div>
                         <div className='shoe-profile-image-container'>
-                            <img src={imageUrl} alt="shoe image" className='shoe-profile-image' ></img>
+                            <img src={imageUrl} alt="shoe" className='shoe-profile-image' ></img>
                         </div>
                     </div>
                     <div className='shoe-profile-top-right-container'>
@@ -246,7 +250,7 @@ function ShoeProfilePage() {
         )
 
         let chartInfo = shoePurchases.filter(shoe => id === shoe.apparelId)
-        console.log(chartInfo)
+        // console.log(chartInfo)
 
         let priceHistory = (
             <div className='shoe-historical-stats' style={{ marginTop: '12px', fontWeight: '550' }}>
@@ -342,7 +346,24 @@ function ShoeProfilePage() {
                 </div>
 
             </div>
+
+
+
         )
+
+
+        let deleteApparel
+        if (listings.length === 0) {
+            deleteApparel = (
+                <div className='delete-apparel'>
+                    <button className='delete-apparel-button' onClick={() => { dispatch(deleteApparelThunk(id)); history.push('/shoes') }}> Delete Product</button>
+                </div>
+            )
+
+        }
+
+
+
         return isLoaded && (
             <div key={id} className='shoe-page-body'>
                 <div>
@@ -359,6 +380,9 @@ function ShoeProfilePage() {
                 </div>
                 <div>
                     {historalStats}
+                </div>
+                <div>
+                    {deleteApparel}
                 </div>
             </div >
         )

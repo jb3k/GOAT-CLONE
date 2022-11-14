@@ -5,7 +5,7 @@ import { getApparelThunk } from '../../store/apparel';
 import { getUserPurchasesThunk, createPurchaseThunk } from '../../store/purchase';
 import './ShoeConfirmationPage.css'
 
-function ShoeConfirmationPage({ }) {
+function ShoeConfirmationPage() {
     const dispatch = useDispatch();
     const history = useHistory()
     const { shoeId, space, sizeId } = useParams();
@@ -17,7 +17,7 @@ function ShoeConfirmationPage({ }) {
     const [country, setCountry] = useState('USA');
     const [zipcode, setZipcode] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false)
-
+    
 
     // const sessionUser = useSelector(state => state.session.user)
     const shoeInfo = useSelector(state => Object.values(state.apparel))
@@ -60,15 +60,15 @@ function ShoeConfirmationPage({ }) {
         const { listings } = item
 
         let arr = []
-        const filterListing = listings.forEach((item) => {
+        listings.forEach((item) => {
             const { size, apparelId } = item
             if (parseInt(shoeId) === apparelId && parseInt(sizeId) === size) {
                 arr.push(item.price)
             }
-
+            
         })
         let minPrice = Math.min(...arr)
-        const listingId = listings.forEach(shoe => {
+        listings.forEach(shoe => {
             const { id, size, price, apparelId } = shoe
             if (parseInt(shoeId) === apparelId && parseInt(sizeId) === size && price === minPrice) {
                 numId = id

@@ -9,7 +9,8 @@ const EditUserListing = ({ listingId, listingPrice, listingSize, setShowEditText
     const [errors, setErrors] = useState([]);
     const [size, setSize] = useState(listingSize);
     const [price, setPrice] = useState(listingPrice);
-    const [quantity, setQuantity] = useState(1);
+    let quantity = 1
+    // const [quantity, setQuantity] = useState(1);
     const [isSubmitted, setIsSubmitted] = useState(false)
 
     useEffect(() => {
