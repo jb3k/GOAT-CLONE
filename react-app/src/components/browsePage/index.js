@@ -12,7 +12,7 @@ function BrowsePage() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
-    const [postsPerPage, setPostsPerPage] = useState(20)
+    const [postsPerPage, setPostsPerPage] = useState(16)
     // const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
 
@@ -72,7 +72,7 @@ function BrowsePage() {
     return isLoaded && (
         <>
             <div className='navbar-spacing'>
-                <div className='mainpage-body-container'>
+                <div className='browsepage-body-container'>
                     <div className='mainpage-shoe-listing-container'>
                         <div style={{ marginTop: '30px' }}>
                             <strong> Search All:</strong>
@@ -80,11 +80,13 @@ function BrowsePage() {
                         <div className='browse-page'>
                             {allItems}
                         </div>
+                    </div>
+                    <div>
                         <Pagination totalPosts={allApparel.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
                     </div>
                 </div>
+                <Footer />
             </div>
-            <Footer />
         </>
     )
 
