@@ -1,8 +1,56 @@
 .browse-page {
-    display: flex;
+    /* display: flex;
     margin-top: 15px;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    margin-bottom: 50px; */
+
+    display: grid;
+    grid-template-columns: repeat(4, 160px);
+    justify-content: center;
+    margin-top: 20px;
     margin-bottom: 50px;
+
+}
+
+.browsepage-body-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-boxes {
+    background-color: transparent;
+    font: 16px;
+    border: none;
+    margin-right: 10px;
+    margin-left: 10px;
+    /* text-decoration: underline; */
+}
+
+.pagination-next {
+    background-color: transparent;
+    border: none;
+
+}
+
+button.active {
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    color: green;
+    text-decoration: underline;
+    margin-right: 10px;
+    margin-left: 10px;
+
 }
