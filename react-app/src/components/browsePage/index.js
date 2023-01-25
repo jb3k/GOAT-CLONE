@@ -6,6 +6,7 @@ import Footer from '../footer';
 import { searchAllApparelThunk } from '../../store/searchbar';
 import './BrowsePage.css'
 import Pagination from '../pagination';
+import FilterForm from './filterForm'
 
 
 function BrowsePage() {
@@ -69,7 +70,7 @@ function BrowsePage() {
         )
     })
 
-    
+
 
 
 
@@ -77,11 +78,17 @@ function BrowsePage() {
         <>
             <div className='navbar-spacing'>
                 <div className='browsepage-body-container'>
-                    <div className='mainpage-shoe-listing-container'>
-                        <div style={{ marginTop: '30px' }}>
-                            <strong> Search All:</strong>
+                    <div className='browsepage-header'>
+                        <h2 style={{ marginLeft: '30px' }}> Sneakers</h2>
+                        <p className='browsepage-header-text'>
+                            Every sneaker you want is always available and verified by StockX. Buy and sell new sneakers & shoes from Jordan, adidas, Nike, Yeezy and more!
+                        </p>
+                    </div>
+                    <div className='browsepage-body'>
+                        <div className='browsepage-filter'>
+                            <FilterForm />
                         </div>
-                        <div className='browse-page'>
+                        <div className='browsepage-grid'>
                             {allItems}
                         </div>
                     </div>
