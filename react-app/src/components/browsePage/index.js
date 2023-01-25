@@ -39,9 +39,7 @@ function BrowsePage() {
         return false
     }
 
-    // the problem is that i'm still returning all of the shoes.. but... the ones that dont make the requirement are listed as undefined which is why i cant use the .length method on listings..
     const sortedShoe = sortedShoes.filter(tester)
-    console.log(sortedShoe)
 
 
     let lastPostIndex = currentPage * postsPerPage
