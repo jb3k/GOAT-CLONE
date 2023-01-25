@@ -15,6 +15,7 @@ const FilterForm = ({ filter }) => {
         let val = document.getElementById('jordan')
         filter(val.value)
       }
+      if (jordan === false) filter('')
       setJordan(!jordan)
     }
     if (data === 'nike') {
@@ -22,6 +23,7 @@ const FilterForm = ({ filter }) => {
         let val = document.getElementById('nike')
         filter(val.value)
       }
+      if (nike === false) filter('')
       setNike(!nike)
     }
     if (data === 'adidas') {
@@ -29,6 +31,7 @@ const FilterForm = ({ filter }) => {
         let val = document.getElementById('adidas')
         filter(val.value)
       }
+      if (adidas === false) filter('')
       setAdidas(!adidas)
     }
   }
