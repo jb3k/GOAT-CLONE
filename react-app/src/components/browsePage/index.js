@@ -7,6 +7,7 @@ import { searchAllApparelThunk } from '../../store/searchbar';
 import './BrowsePage.css'
 import Pagination from '../pagination';
 import FilterForm from './filterForm'
+import { test } from 'mocha';
 
 
 function BrowsePage() {
@@ -14,10 +15,8 @@ function BrowsePage() {
     const [isLoaded, setIsLoaded] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
-    const [filter, setFilter] = useState(false)
-    const [jordan, setJordan] = useState(false)
-    const [nike, setNike] = useState(false)
-    const [adidas, setAdidas] = useState(false)
+    const [filter, setFilter] = useState('')
+
 
 
     // const sessionUser = useSelector((state) => state.session.user);
@@ -27,20 +26,34 @@ function BrowsePage() {
         dispatch(getAllApparelThunk())
         dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
-    }, [dispatch])
+    }, [dispatch, filter])
 
     const sortedShoes = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
+    let tester = (data) => {
+        if (filter) {
+            if (data.brand === filter) {
+                return true
+            }
+        }
+        return false
+    }
+
+    // the problem is that i'm still returning all of the shoes.. but... the ones that dont make the requirement are listed as undefined which is why i cant use the .length method on listings..
+    const sortedShoe = sortedShoes.filter(tester)
+    console.log(sortedShoe)
+
+
     let lastPostIndex = currentPage * postsPerPage
     let firstPostIndex = lastPostIndex - postsPerPage
-    let currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
-
+    let currentPosts
+    sortedShoe.length > 0 ? currentPosts = sortedShoe.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
 
 
     const allItems = currentPosts.map((item) => {
 
         if (!item) return null
-        const { imageUrl, name, listings, id } = item
+        const { imageUrl, name, listings, id, brand } = item
 
 
 
@@ -48,6 +61,8 @@ function BrowsePage() {
         if (listings.length === 0) arr.push(0)
         listings.forEach((shoe) => { arr.push(shoe.price) })
         let minPrice = Math.min(...arr)
+
+
 
         let shoes = (
             <>
@@ -69,6 +84,7 @@ function BrowsePage() {
                 </NavLink>
             </>
         )
+
         return (
             <div key={id}>
                 {shoes}
@@ -76,7 +92,8 @@ function BrowsePage() {
         )
     })
 
-    console.log(filter)
+
+
 
     return isLoaded && (
         <>
