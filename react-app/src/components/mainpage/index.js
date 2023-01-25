@@ -46,6 +46,7 @@ function MainPage() {
     let jordanBrand = []
     let nikeBrand = []
 
+
     const allItems = allApparel.map((item) => {
 
         if (!item) return null
