@@ -19,11 +19,15 @@ const FilterForm = ({ filter, page }) => {
       }
       if (jordan === false) filter('')
       setJordan(!jordan)
+
       if (jordan === false) {
         setChecked('')
       }
-      if (jordan) setChecked('jordan')
-
+      if (jordan) {
+        setChecked('jordan')
+        setNike(true)
+        setAdidas(true)
+      }
     }
     if (data === 'nike') {
       if (nike === true) {
@@ -33,10 +37,15 @@ const FilterForm = ({ filter, page }) => {
       }
       if (nike === false) filter('')
       setNike(!nike)
+
       if (nike === false) {
         setChecked('')
       }
-      if (nike) setChecked('nike')
+      if (nike) {
+        setChecked('nike')
+        setJordan(true)
+        setAdidas(true)
+      }
 
     }
     if (data === 'adidas') {
@@ -50,7 +59,11 @@ const FilterForm = ({ filter, page }) => {
       if (adidas === false) {
         setChecked('')
       }
-      if (adidas) setChecked('adidas')
+      if (adidas) {
+        setChecked('adidas')
+        setJordan(true)
+        setNike(true)
+      }
     }
   }
 

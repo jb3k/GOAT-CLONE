@@ -102,7 +102,7 @@ function BrowsePage() {
                     <div className='browsepage-header'>
                         <h2 style={{ marginLeft: '30px' }}> Sneakers</h2>
                         <p className='browsepage-header-text'>
-                            Every sneaker you want is always available and verified by StockX. Buy and sell new sneakers & shoes from Jordan, adidas, Nike, Yeezy and more!
+                            Every sneaker you want is always available and verified by StockY. Buy and sell new sneakers & shoes from Jordan, adidas, Nike, Yeezy and more!
                         </p>
                     </div>
                     <div className='browsepage-body'>
