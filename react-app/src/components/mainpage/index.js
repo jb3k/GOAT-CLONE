@@ -19,7 +19,7 @@ function MainPage() {
     const dispatch = useDispatch();
     // const history = useHistory()
     const [isLoaded, setIsLoaded] = useState(false)
-    const sessionUser = useSelector((state) => state.session.user);
+    // const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
     const [imageNumber, setImageNumber] = useState(0)
     // const [recentView, setRecentView] = useState([])
@@ -45,6 +45,7 @@ function MainPage() {
 
     let jordanBrand = []
     let nikeBrand = []
+
 
     const allItems = allApparel.map((item) => {
 
@@ -163,7 +164,8 @@ function MainPage() {
         <>
             <div className='navbar-spacing'>
                 <div>
-                    {!sessionUser ? <h2 className='mainpage-header'> </h2> : <h2 className='mainpage-header'> Welcome, {sessionUser.firstName} {sessionUser.lastName}</h2>}
+                    <h2 className='mainpage-header'> Jordan Nike Adidas </h2>
+                    {/* {!sessionUser ? <h2 className='mainpage-header'> </h2> : <h2 className='mainpage-header'> Welcome, {sessionUser.firstName} {sessionUser.lastName}</h2>} */}
                 </div>
                 <div className='mainpage-body-container'>
                     <div className='mainpage-shoe-listing-container'>
