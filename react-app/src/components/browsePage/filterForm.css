@@ -1,0 +1,15 @@
+.filter-brands {
+    display: flex;
+    margin-top: 5px;
+    width: 90%;
+
+}
+
+.label-spacer {
+    margin-left: 5px;
+
+}
+
+input {
+    cursor: pointer;
+}

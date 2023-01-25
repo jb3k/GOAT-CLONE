@@ -6,6 +6,8 @@ import Footer from '../footer';
 import { searchAllApparelThunk } from '../../store/searchbar';
 import './BrowsePage.css'
 import Pagination from '../pagination';
+import FilterForm from './filterForm'
+import { test } from 'mocha';
 
 
 function BrowsePage() {
@@ -13,6 +15,10 @@ function BrowsePage() {
     const [isLoaded, setIsLoaded] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
+    const [filter, setFilter] = useState('')
+
+
+
     // const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
 
@@ -20,20 +26,34 @@ function BrowsePage() {
         dispatch(getAllApparelThunk())
         dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
-    }, [dispatch])
+    }, [dispatch, filter])
 
     const sortedShoes = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
+    let tester = (data) => {
+        if (filter) {
+            if (data.brand === filter) {
+                return true
+            }
+        }
+        return false
+    }
+
+    const sortedShoe = sortedShoes.filter(tester)
+
+    let paginationLength
+    sortedShoe.length > 0 ? paginationLength = sortedShoe.length : paginationLength = allApparel.length
+
     let lastPostIndex = currentPage * postsPerPage
     let firstPostIndex = lastPostIndex - postsPerPage
-    let currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
-
+    let currentPosts
+    sortedShoe.length > 0 ? currentPosts = sortedShoe.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
 
 
     const allItems = currentPosts.map((item) => {
 
         if (!item) return null
-        const { imageUrl, name, listings, id } = item
+        const { imageUrl, name, listings, id, brand } = item
 
 
 
@@ -41,6 +61,8 @@ function BrowsePage() {
         if (listings.length === 0) arr.push(0)
         listings.forEach((shoe) => { arr.push(shoe.price) })
         let minPrice = Math.min(...arr)
+
+
 
         let shoes = (
             <>
@@ -62,6 +84,7 @@ function BrowsePage() {
                 </NavLink>
             </>
         )
+
         return (
             <div key={id}>
                 {shoes}
@@ -69,20 +92,29 @@ function BrowsePage() {
         )
     })
 
+
+
+
     return isLoaded && (
         <>
             <div className='navbar-spacing'>
                 <div className='browsepage-body-container'>
-                    <div className='mainpage-shoe-listing-container'>
-                        <div style={{ marginTop: '30px' }}>
-                            <strong> Search All:</strong>
+                    <div className='browsepage-header'>
+                        <h2 style={{ marginLeft: '30px' }}> Sneakers</h2>
+                        <p className='browsepage-header-text'>
+                            Every sneaker you want is always available and verified by StockY. Buy and sell new sneakers & shoes from Jordan, adidas, Nike, Yeezy and more!
+                        </p>
+                    </div>
+                    <div className='browsepage-body'>
+                        <div className='browsepage-filter'>
+                            <FilterForm filter={setFilter} page={setCurrentPage} />
                         </div>
-                        <div className='browse-page'>
+                        <div className='browsepage-grid'>
                             {allItems}
                         </div>
                     </div>
                     <div>
-                        <Pagination totalPosts={allApparel.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
+                        <Pagination totalPosts={paginationLength} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
                     </div>
                 </div>
                 <Footer />
