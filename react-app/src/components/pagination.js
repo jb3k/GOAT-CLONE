@@ -7,7 +7,6 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
         pages.push(i)
     }
 
-    console.log(pages)
     return (
         <div className="pagination-container">
             <button className="pagination-next" onClick={() => { if (currentPage > 1) setCurrentPage(currentPage - 1) }}>{'<'}</button>

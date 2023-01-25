@@ -14,6 +14,12 @@ function BrowsePage() {
     const [isLoaded, setIsLoaded] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
+    const [filter, setFilter] = useState(false)
+    const [jordan, setJordan] = useState(false)
+    const [nike, setNike] = useState(false)
+    const [adidas, setAdidas] = useState(false)
+
+
     // const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
 
@@ -70,9 +76,7 @@ function BrowsePage() {
         )
     })
 
-
-
-
+    console.log(filter)
 
     return isLoaded && (
         <>
@@ -86,7 +90,7 @@ function BrowsePage() {
                     </div>
                     <div className='browsepage-body'>
                         <div className='browsepage-filter'>
-                            <FilterForm />
+                            <FilterForm filter={setFilter} />
                         </div>
                         <div className='browsepage-grid'>
                             {allItems}
