@@ -7,6 +7,7 @@ const FilterForm = ({ filter }) => {
   const [jordan, setJordan] = useState(true)
   const [nike, setNike] = useState(true)
   const [adidas, setAdidas] = useState(true)
+  const [checked, setChecked] = useState('')
 
 
   const handleChange = (data) => {
@@ -17,6 +18,11 @@ const FilterForm = ({ filter }) => {
       }
       if (jordan === false) filter('')
       setJordan(!jordan)
+      if (jordan === false) {
+        setChecked('')
+      }
+      if (jordan) setChecked('jordan')
+
     }
     if (data === 'nike') {
       if (nike === true) {
@@ -25,6 +31,11 @@ const FilterForm = ({ filter }) => {
       }
       if (nike === false) filter('')
       setNike(!nike)
+      if (nike === false) {
+        setChecked('')
+      }
+      if (nike) setChecked('nike')
+
     }
     if (data === 'adidas') {
       if (adidas === true) {
@@ -33,6 +44,10 @@ const FilterForm = ({ filter }) => {
       }
       if (adidas === false) filter('')
       setAdidas(!adidas)
+      if (adidas === false) {
+        setChecked('')
+      }
+      if (adidas) setChecked('adidas')
     }
   }
 
@@ -45,8 +60,10 @@ const FilterForm = ({ filter }) => {
             type="checkbox"
             id="jordan"
             value={'Jordan'}
-            // checked={jordan}
-            onChange={() => handleChange('jordan')}
+            checked={checked === 'jordan'}
+            onChange={() => {
+              handleChange('jordan')
+            }}
           />
           <label className="label-spacer"> Jordan </label>
         </div>
@@ -55,8 +72,10 @@ const FilterForm = ({ filter }) => {
             type="checkbox"
             id='nike'
             value={'Nike'}
-            // checked={nike}
-            onChange={() => handleChange('nike')}
+            checked={checked === 'nike'}
+            onChange={() => {
+              handleChange('nike')
+            }}
           />
           <label className="label-spacer"> Nike </label>
         </div>
@@ -65,8 +84,10 @@ const FilterForm = ({ filter }) => {
             type="checkbox"
             id='adidas'
             value={'Adidas'}
-            // checked={adidas}
-            onChange={() => handleChange('adidas')}
+            checked={checked === "adidas"}
+            onChange={() => {
+              handleChange('adidas')
+            }}
           />
           <label className="label-spacer"> Adidas </label>
         </div>
