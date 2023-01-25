@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './filterForm.css'
 
 
-const FilterForm = ({ filter }) => {
+const FilterForm = ({ filter, page }) => {
 
   const [jordan, setJordan] = useState(true)
   const [nike, setNike] = useState(true)
@@ -15,6 +15,7 @@ const FilterForm = ({ filter }) => {
       if (jordan === true) {
         let val = document.getElementById('jordan')
         filter(val.value)
+        page(1)
       }
       if (jordan === false) filter('')
       setJordan(!jordan)
@@ -28,6 +29,7 @@ const FilterForm = ({ filter }) => {
       if (nike === true) {
         let val = document.getElementById('nike')
         filter(val.value)
+        page(1)
       }
       if (nike === false) filter('')
       setNike(!nike)
@@ -41,6 +43,7 @@ const FilterForm = ({ filter }) => {
       if (adidas === true) {
         let val = document.getElementById('adidas')
         filter(val.value)
+        page(1)
       }
       if (adidas === false) filter('')
       setAdidas(!adidas)

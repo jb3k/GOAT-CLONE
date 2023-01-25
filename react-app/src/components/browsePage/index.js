@@ -41,6 +41,8 @@ function BrowsePage() {
 
     const sortedShoe = sortedShoes.filter(tester)
 
+    let paginationLength
+    sortedShoe.length > 0 ? paginationLength = sortedShoe.length : paginationLength = allApparel.length
 
     let lastPostIndex = currentPage * postsPerPage
     let firstPostIndex = lastPostIndex - postsPerPage
@@ -105,14 +107,14 @@ function BrowsePage() {
                     </div>
                     <div className='browsepage-body'>
                         <div className='browsepage-filter'>
-                            <FilterForm filter={setFilter} />
+                            <FilterForm filter={setFilter} page={setCurrentPage} />
                         </div>
                         <div className='browsepage-grid'>
                             {allItems}
                         </div>
                     </div>
                     <div>
-                        <Pagination totalPosts={allApparel.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
+                        <Pagination totalPosts={paginationLength} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
                     </div>
                 </div>
                 <Footer />
