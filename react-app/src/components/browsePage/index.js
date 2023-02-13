@@ -30,7 +30,7 @@ function BrowsePage() {
 
     const sortedShoes = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
-    let tester = (data) => {
+    let formFilter = (data) => {
         if (filter) {
             if (data.brand === filter) {
                 return true
@@ -39,15 +39,15 @@ function BrowsePage() {
         return false
     }
 
-    const sortedShoe = sortedShoes.filter(tester)
+    const filteredShoes = sortedShoes.filter(formFilter)
 
     let paginationLength
-    sortedShoe.length > 0 ? paginationLength = sortedShoe.length : paginationLength = allApparel.length
+    filteredShoes.length > 0 ? paginationLength = filteredShoes.length : paginationLength = allApparel.length
 
     let lastPostIndex = currentPage * postsPerPage
     let firstPostIndex = lastPostIndex - postsPerPage
     let currentPosts
-    sortedShoe.length > 0 ? currentPosts = sortedShoe.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
+    filteredShoes.length > 0 ? currentPosts = filteredShoes.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
 
 
     const allItems = currentPosts.map((item) => {
