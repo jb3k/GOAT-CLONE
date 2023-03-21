@@ -158,13 +158,32 @@ function MainPage() {
     })
 
 
+    const menuBar = (
+        <>
+            <div className='mainpage-header'>
+                <NavLink to={'/shoes'} className='mainpage-header-text'>
+                    <div>Shoes</div>
+                </NavLink>
+                <NavLink to={'/shoes'} className='mainpage-header-text'>
+                    <div>Jordan</div>
+                </NavLink>
+                <NavLink to={'/shoes'} className='mainpage-header-text'>
+                    <div>Nike</div>
+                </NavLink>
+                <NavLink to={'/shoes'} className='mainpage-header-text'>
+                    <div>Adidas</div>
+                </NavLink>
+            </div>
+        </>
+
+    )
 
 
     return isLoaded && (
         <>
             <div className='navbar-spacing'>
                 <div>
-                    {!sessionUser ? <h2 className='mainpage-header'> </h2> : <h2 className='mainpage-header'> Welcome, {sessionUser.firstName} {sessionUser.lastName}</h2>}
+                    {menuBar}
                 </div>
                 <div className='mainpage-body-container'>
                     <div className='mainpage-shoe-listing-container'>

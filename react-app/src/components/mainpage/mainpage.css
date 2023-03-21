@@ -56,6 +56,14 @@ button:hover {
     background-color: rgb(231, 229, 229);
 }
 
+.mainpage-header-text {
+    text-decoration: none;
+    margin: 0 40px;
+    font-size: 18px;
+    font-weight: 600;
+    
+}
+
 
 .mainpage-shoe-listing-container {
     display: flex;
