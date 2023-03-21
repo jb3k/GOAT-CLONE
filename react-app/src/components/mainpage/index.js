@@ -12,6 +12,7 @@ import ad from '../../assets/ad.png'
 // import Navbar from '../NavBar'
 import Footer from '../footer';
 import { searchAllApparelThunk } from '../../store/searchbar';
+import BrowsePage from '../browsePage';
 
 
 
@@ -19,11 +20,11 @@ function MainPage() {
     const dispatch = useDispatch();
     // const history = useHistory()
     const [isLoaded, setIsLoaded] = useState(false)
-    const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
     const [imageNumber, setImageNumber] = useState(0)
     // const [recentView, setRecentView] = useState([])
     const images = [image1, image2, image3, image4, image5]
+    const [headerTag, setHeaderTag] = useState('')
 
 
 
@@ -31,7 +32,7 @@ function MainPage() {
         dispatch(getAllApparelThunk())
         dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
-    }, [dispatch])
+    }, [dispatch, headerTag])
 
     useEffect(() => {
         const imageInterval = setInterval(() => {
@@ -41,6 +42,11 @@ function MainPage() {
             clearInterval(imageInterval)
         }
     }, [images])
+
+
+    // useEffect(() => {
+    //     setHeaderTag()
+    // }, [headerTag])
 
 
     let jordanBrand = []
@@ -157,6 +163,12 @@ function MainPage() {
         )
     })
 
+    let sendHeader = (str) => {
+        setHeaderTag(str);
+        console.log(headerTag);
+        < BrowsePage headerTag={headerTag} />
+
+    }
 
     const menuBar = (
         <>
@@ -164,7 +176,8 @@ function MainPage() {
                 <NavLink to={'/shoes'} className='mainpage-header-text'>
                     <div>Shoes</div>
                 </NavLink>
-                <NavLink to={'/shoes'} className='mainpage-header-text'>
+                <NavLink to={'/shoes'} className='mainpage-header-text'
+                    onClick={() => sendHeader('Jordan')}>
                     <div>Jordan</div>
                 </NavLink>
                 <NavLink to={'/shoes'} className='mainpage-header-text'>

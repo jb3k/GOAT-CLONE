@@ -7,17 +7,15 @@ import { searchAllApparelThunk } from '../../store/searchbar';
 import './BrowsePage.css'
 import Pagination from '../pagination';
 import FilterForm from './filterForm'
-import { test } from 'mocha';
+// import { test } from 'mocha';
 
 
-function BrowsePage() {
+function BrowsePage({ headerTag }) {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
     const [filter, setFilter] = useState('')
-
-
 
     // const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
@@ -107,7 +105,12 @@ function BrowsePage() {
                     </div>
                     <div className='browsepage-body'>
                         <div className='browsepage-filter'>
-                            <FilterForm filter={setFilter} page={setCurrentPage} />
+                            <div>
+                                <FilterForm filter={setFilter} page={setCurrentPage} />
+                            </div>
+                            <div>
+                                
+                            </div>
                         </div>
                         <div className='browsepage-grid'>
                             {allItems}
