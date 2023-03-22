@@ -10,7 +10,7 @@ import FilterForm from './filterForm'
 // import { test } from 'mocha';
 
 
-function BrowsePage({ headerTag }) {
+function BrowsePage() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
@@ -106,10 +106,10 @@ function BrowsePage({ headerTag }) {
                     <div className='browsepage-body'>
                         <div className='browsepage-filter'>
                             <div>
-                                <FilterForm filter={setFilter} page={setCurrentPage} />
+                                <FilterForm filter={setFilter} page={setCurrentPage} curFilter={filter} />
                             </div>
                             <div>
-                                
+
                             </div>
                         </div>
                         <div className='browsepage-grid'>

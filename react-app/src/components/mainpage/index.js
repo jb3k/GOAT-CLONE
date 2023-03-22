@@ -163,12 +163,6 @@ function MainPage() {
         )
     })
 
-    let sendHeader = (str) => {
-        setHeaderTag(str);
-        console.log(headerTag);
-        < BrowsePage headerTag={headerTag} />
-
-    }
 
     const menuBar = (
         <>
@@ -176,8 +170,7 @@ function MainPage() {
                 <NavLink to={'/shoes'} className='mainpage-header-text'>
                     <div>Shoes</div>
                 </NavLink>
-                <NavLink to={'/shoes'} className='mainpage-header-text'
-                    onClick={() => sendHeader('Jordan')}>
+                <NavLink to={'/shoes'} className='mainpage-header-text' >
                     <div>Jordan</div>
                 </NavLink>
                 <NavLink to={'/shoes'} className='mainpage-header-text'>
