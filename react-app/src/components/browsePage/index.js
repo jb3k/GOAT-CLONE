@@ -7,6 +7,8 @@ import { searchAllApparelThunk } from '../../store/searchbar';
 import './BrowsePage.css'
 import Pagination from '../pagination';
 import FilterForm from './filterForm'
+import FilterSize from './filterSize';
+import FilterPrice from './filterPrice';
 // import { test } from 'mocha';
 
 
@@ -15,7 +17,9 @@ function BrowsePage() {
     const [isLoaded, setIsLoaded] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
-    const [filter, setFilter] = useState('')
+    const [brandFilter, setBrandFilter] = useState('')
+    const [sizeFilter, setSizeFilter] = useState('')
+    const [priceFilter, setPriceFilter] = useState('')
 
     // const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
@@ -24,13 +28,13 @@ function BrowsePage() {
         dispatch(getAllApparelThunk())
         dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
-    }, [dispatch, filter])
+    }, [dispatch, brandFilter])
 
     const sortedShoes = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
     let formFilter = (data) => {
-        if (filter) {
-            if (data.brand === filter) {
+        if (brandFilter) {
+            if (data.brand === brandFilter) {
                 return true
             }
         }
@@ -51,7 +55,7 @@ function BrowsePage() {
     const allItems = currentPosts.map((item) => {
 
         if (!item) return null
-        const { imageUrl, name, listings, id, brand } = item
+        const { imageUrl, name, listings, id } = item
 
 
 
@@ -105,11 +109,14 @@ function BrowsePage() {
                     </div>
                     <div className='browsepage-body'>
                         <div className='browsepage-filter'>
-                            <div>
-                                <FilterForm filter={setFilter} page={setCurrentPage} curFilter={filter} />
+                            <div style={{ marginBottom: '50px' }}>
+                                <FilterForm filter={setBrandFilter} page={setCurrentPage} />
                             </div>
-                            <div>
-
+                            <div style={{ marginBottom: '50px' }}>
+                                <FilterSize filter={setSizeFilter} page={setCurrentPage} />
+                            </div>
+                            <div style={{ marginBottom: '50px' }}>
+                                <FilterPrice filter={setPriceFilter} page={setCurrentPage} apparel={allApparel} />
                             </div>
                         </div>
                         <div className='browsepage-grid'>

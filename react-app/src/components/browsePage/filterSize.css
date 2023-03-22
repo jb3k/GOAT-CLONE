@@ -1,0 +1,13 @@
+.filterSize-box {
+    display: grid;
+    grid-template-columns: repeat(4, 40px);
+    margin-top: 10px;
+}
+
+.filterSize-brands {
+    margin-bottom: 10px;
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border: 1px solid lightgray;
+}

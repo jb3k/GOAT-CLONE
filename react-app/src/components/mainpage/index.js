@@ -164,21 +164,31 @@ function MainPage() {
     })
 
 
+    const setTag = (str) => setHeaderTag(str)
+    console.log(headerTag)
     const menuBar = (
         <>
             <div className='mainpage-header'>
-                <NavLink to={'/shoes'} className='mainpage-header-text'>
-                    <div>Shoes</div>
-                </NavLink>
-                <NavLink to={'/shoes'} className='mainpage-header-text' >
-                    <div>Jordan</div>
-                </NavLink>
-                <NavLink to={'/shoes'} className='mainpage-header-text'>
-                    <div>Nike</div>
-                </NavLink>
-                <NavLink to={'/shoes'} className='mainpage-header-text'>
-                    <div>Adidas</div>
-                </NavLink>
+                <div className='mainpage-header-text'>
+                    <NavLink to={'/shoes'} style={{ textDecoration: 'none' }} >
+                        <div>Shoes</div>
+                    </NavLink>
+                </div>
+                <div className='mainpage-header-text'>
+                    <NavLink to={'/shoes'} style={{ textDecoration: 'none' }} >
+                        <div>Jordan</div>
+                    </NavLink>
+                </div>
+                <div className='mainpage-header-text'>
+                    <NavLink to={'/shoes'} style={{ textDecoration: 'none' }}>
+                        <div>Nike</div>
+                    </NavLink>
+                </div>
+                <div className='mainpage-header-text'>
+                    <NavLink to={'/shoes'} style={{ textDecoration: 'none' }}>
+                        <div>Adidas</div>
+                    </NavLink>
+                </div>
             </div>
         </>
 
