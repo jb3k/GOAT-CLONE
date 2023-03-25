@@ -202,9 +202,9 @@ function MainPage() {
                     {menuBar}
                 </div>
                 <div className='mainpage-body-container'>
-                    <div className='mainpage-shoe-listing-container'>
+                    {/* <div className='mainpage-shoe-listing-container'>
                         <strong> Trending Shoes:</strong>
-                    </div>
+                    </div> */}
                     <div className='mainpage-rotating-img-container'>
                         <img src={images[imageNumber]} className='actual-rotating-image' alt='rotating-shoes'></img>
                     </div>
