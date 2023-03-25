@@ -5,11 +5,18 @@ import './filterSize.css'
 
 const FilterSize = ({ filter, page }) => {
 
-    const [checked, setChecked] = useState('')
+    const [size, setSize] = useState('')
+    const [checked, setChecked] = useState(false)
+    const [] = useState('')
 
 
     const handleChange = (data) => {
-
+        if (data) {
+            setSize(data)
+            filter(size)
+            page(1)
+            setChecked(true)
+        }
     }
 
     return (
@@ -19,195 +26,21 @@ const FilterSize = ({ filter, page }) => {
                 <div className="filterSize-box" >
                     <div>
                         <input
-                            className="filterSize-brands"
+                            className={size === 8 && checked ? "filterSize-brands-checked" : "filterSize-brands"}
                             type="button"
-                            id="jordan"
-                            value={3}
-                            checked={checked === 'jordan'}
-                            onChange={() => {
-                                handleChange('jordan')
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            className="filterSize-brands"
-                            type="button"
-                            id='nike'
-                            value={4}
-                            checked={checked === 'nike'}
-                            onChange={() => {
-                                handleChange('nike')
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            className="filterSize-brands"
-                            type="button"
-                            id='adidas'
-                            value={5}
-                            checked={checked === "adidas"}
-                            onChange={() => {
-                                handleChange('adidas')
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            className="filterSize-brands"
-                            type="button"
-                            id='adidas'
-                            value={6}
-                            checked={checked === "adidas"}
-                            onChange={() => {
-                                handleChange('adidas')
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            className="filterSize-brands"
-                            type="button"
-                            id='adidas'
-                            value={7}
-                            checked={checked === "adidas"}
-                            onChange={() => {
-                                handleChange('adidas')
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            className="filterSize-brands"
-                            type="button"
-                            id="jordan"
                             value={8}
-                            checked={checked === 'jordan'}
-                            onChange={() => {
-                                handleChange('jordan')
+                            onClick={() => {
+                                handleChange(8)
                             }}
                         />
                     </div>
                     <div>
                         <input
-                            className="filterSize-brands"
+                            className={size === 4 && checked ? "filterSize-brands-checked" : "filterSize-brands"}
                             type="button"
-                            id='nike'
-                            value={9}
-                            checked={checked === 'nike'}
-                            onChange={() => {
-                                handleChange('nike')
-                            }}
-                        />
-                    </div>
-
-                    <div>
-                        <input
-                            className="filterSize-brands"
-                            type="button"
-                            id="jordan"
-                            value={10}
-                            checked={checked === 'jordan'}
-                            onChange={() => {
-                                handleChange('jordan')
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            className="filterSize-brands"
-                            type="button"
-                            id='nike'
-                            value={11}
-                            checked={checked === 'nike'}
-                            onChange={() => {
-                                handleChange('nike')
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            className="filterSize-brands"
-                            type="button"
-                            id='adidas'
-                            value={12}
-                            checked={checked === "adidas"}
-                            onChange={() => {
-                                handleChange('adidas')
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            className="filterSize-brands"
-                            type="button"
-                            id='adidas'
-                            value={13}
-                            checked={checked === "adidas"}
-                            onChange={() => {
-                                handleChange('adidas')
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            className="filterSize-brands"
-                            type="button"
-                            id='adidas'
-                            value={14}
-                            checked={checked === "adidas"}
-                            onChange={() => {
-                                handleChange('adidas')
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            className="filterSize-brands"
-                            type="button"
-                            id="jordan"
-                            value={15}
-                            checked={checked === 'jordan'}
-                            onChange={() => {
-                                handleChange('jordan')
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            className="filterSize-brands"
-                            type="button"
-                            id='nike'
-                            value={16}
-                            checked={checked === 'nike'}
-                            onChange={() => {
-                                handleChange('nike')
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            className="filterSize-brands"
-                            type="button"
-                            id='adidas'
-                            value={17}
-                            checked={checked === "adidas"}
-                            onChange={() => {
-                                handleChange('adidas')
-                            }}
-
-                        />
-                    </div>
-                    <div>
-                        <input
-                            className="filterSize-brands"
-                            type="button"
-                            id='adidas'
-                            value={18}
-                            checked={checked === "adidas"}
-                            onChange={() => {
-                                handleChange('adidas')
+                            value={4}
+                            onClick={() => {
+                                handleChange(4)
                             }}
                         />
                     </div>

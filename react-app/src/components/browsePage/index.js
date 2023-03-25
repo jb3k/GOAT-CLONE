@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getAllApparelThunk } from '../../store/apparel';
+import { getAllListingsThunk } from '../../store/listings';
 import Footer from '../footer';
 import { searchAllApparelThunk } from '../../store/searchbar';
 import './BrowsePage.css'
@@ -23,26 +24,59 @@ function BrowsePage() {
 
     // const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
+    const allListings = useSelector(state => Object.values(state.listings))
 
     useEffect(() => {
         dispatch(getAllApparelThunk())
+        dispatch(getAllListingsThunk())
         dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
     }, [dispatch, brandFilter])
 
     const sortedShoes = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
+
+    let listingsFilter = (data) => {
+
+
+    }
+
+    // console.log(sizeFilter)
     let formFilter = (data) => {
-        if (brandFilter) {
-            if (data.brand === brandFilter) {
+        if (brandFilter && sizeFilter && priceFilter) {
+            if (data.brand === brandFilter && data.listings.size === sizeFilter && data.listings.price === priceFilter) {
                 return true
             }
+        }
+        if (brandFilter && sizeFilter) {
+            if (data.brand === brandFilter && data.listings.size === sizeFilter) {
+                return true
+            }
+        }
+        if (brandFilter && priceFilter) {
+            if (data.brand === brandFilter && data.listings.price === priceFilter) {
+                return true
+            }
+        }
+        if (sizeFilter && priceFilter) {
+            if (data.listings.size === sizeFilter && data.listings.price === priceFilter) {
+                return true
+            }
+        }
+        if (brandFilter) {
+            if (data.brand === brandFilter) return true
+        }
+        if (sizeFilter) {
+            if (data.listings.size === sizeFilter) return true
+        }
+        if (priceFilter) {
+            if (data.listings.price === priceFilter) return true
         }
         return false
     }
 
-    const filteredShoes = sortedShoes.filter(formFilter)
 
+    const filteredShoes = sortedShoes.filter((formFilter))
     let paginationLength
     filteredShoes.length > 0 ? paginationLength = filteredShoes.length : paginationLength = allApparel.length
 

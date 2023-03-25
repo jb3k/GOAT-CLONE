@@ -11,3 +11,12 @@
     background-color: white;
     border: 1px solid lightgray;
 }
+
+.filterSize-brands-checked {
+    margin-bottom: 10px;
+    height: 30px;
+    width: 30px;
+    background-color: darkgray;
+    border: 1px solid lightgray;
+
+}
