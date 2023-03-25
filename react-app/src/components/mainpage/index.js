@@ -13,7 +13,7 @@ import ad from '../../assets/ad.png'
 import Footer from '../footer';
 import { searchAllApparelThunk } from '../../store/searchbar';
 import BrowsePage from '../browsePage';
-
+import DataContext from '../../context';
 
 
 function MainPage() {
@@ -24,15 +24,12 @@ function MainPage() {
     const [imageNumber, setImageNumber] = useState(0)
     // const [recentView, setRecentView] = useState([])
     const images = [image1, image2, image3, image4, image5]
-    const [headerTag, setHeaderTag] = useState('')
-
-
 
     useEffect(() => {
         dispatch(getAllApparelThunk())
         dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
-    }, [dispatch, headerTag])
+    }, [dispatch])
 
     useEffect(() => {
         const imageInterval = setInterval(() => {
@@ -42,11 +39,6 @@ function MainPage() {
             clearInterval(imageInterval)
         }
     }, [images])
-
-
-    // useEffect(() => {
-    //     setHeaderTag()
-    // }, [headerTag])
 
 
     let jordanBrand = []
@@ -164,29 +156,27 @@ function MainPage() {
     })
 
 
-    const setTag = (str) => setHeaderTag(str)
-    console.log(headerTag)
     const menuBar = (
         <>
             <div className='mainpage-header'>
+                <div className='mainpage-header-text'>
+                    <NavLink to={'/shoes'} style={{ textDecoration: 'none' }} >
+                        <div>Sneakers</div>
+                    </NavLink>
+                </div>
                 <div className='mainpage-header-text'>
                     <NavLink to={'/shoes'} style={{ textDecoration: 'none' }} >
                         <div>Shoes</div>
                     </NavLink>
                 </div>
                 <div className='mainpage-header-text'>
-                    <NavLink to={'/shoes'} style={{ textDecoration: 'none' }} >
-                        <div>Jordan</div>
+                    <NavLink to={'/shoes'} style={{ textDecoration: 'none' }}>
+                        <div>Apparel</div>
                     </NavLink>
                 </div>
                 <div className='mainpage-header-text'>
                     <NavLink to={'/shoes'} style={{ textDecoration: 'none' }}>
-                        <div>Nike</div>
-                    </NavLink>
-                </div>
-                <div className='mainpage-header-text'>
-                    <NavLink to={'/shoes'} style={{ textDecoration: 'none' }}>
-                        <div>Adidas</div>
+                        <div>Browse All</div>
                     </NavLink>
                 </div>
             </div>
