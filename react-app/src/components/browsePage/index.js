@@ -56,7 +56,6 @@ function BrowsePage() {
 
     const filteredShoes = sortedShoes.filter(formFilter)
 
-    const filteredShoes = sortedShoes.filter((formFilter))
     let paginationLength
     filteredShoes.length > 0 ? paginationLength = filteredShoes.length : paginationLength = allApparel.length
 
