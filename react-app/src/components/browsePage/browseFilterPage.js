@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import { getAllApparelThunk } from '../../store/apparel';
+import { NavLink, useParams } from 'react-router-dom';
 import { getAllListingsThunk } from '../../store/listings';
 import Footer from '../footer';
 import { searchAllApparelThunk } from '../../store/searchbar';
@@ -21,64 +20,24 @@ function BrowseFilterPage() {
     const [brandFilter, setBrandFilter] = useState('')
     const [sizeFilter, setSizeFilter] = useState('')
     const [priceFilter, setPriceFilter] = useState('')
+    const { id } = useParams()
 
     // const sessionUser = useSelector((state) => state.session.user);
-    const allApparel = useSelector(state => Object.values(state.apparel))
     const allListings = useSelector(state => Object.values(state.listings))
 
     useEffect(() => {
-        dispatch(getAllApparelThunk())
         dispatch(getAllListingsThunk())
         dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
     }, [dispatch, brandFilter])
 
-    const sortedShoes = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    const sortedShoes = allListings.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+
+    const filteredShoes = sortedShoes.filter((shoe) => shoe.size == id)
 
 
-    let listingsFilter = (data) => {
-
-
-    }
-
-    // console.log(sizeFilter)
-    let formFilter = (data) => {
-        if (brandFilter && sizeFilter && priceFilter) {
-            if (data.brand === brandFilter && data.listings.size === sizeFilter && data.listings.price === priceFilter) {
-                return true
-            }
-        }
-        if (brandFilter && sizeFilter) {
-            if (data.brand === brandFilter && data.listings.size === sizeFilter) {
-                return true
-            }
-        }
-        if (brandFilter && priceFilter) {
-            if (data.brand === brandFilter && data.listings.price === priceFilter) {
-                return true
-            }
-        }
-        if (sizeFilter && priceFilter) {
-            if (data.listings.size === sizeFilter && data.listings.price === priceFilter) {
-                return true
-            }
-        }
-        if (brandFilter) {
-            if (data.brand === brandFilter) return true
-        }
-        if (sizeFilter) {
-            if (data.listings.size === sizeFilter) return true
-        }
-        if (priceFilter) {
-            if (data.listings.price === priceFilter) return true
-        }
-        return false
-    }
-
-
-    const filteredShoes = sortedShoes.filter((formFilter))
     let paginationLength
-    filteredShoes.length > 0 ? paginationLength = filteredShoes.length : paginationLength = allApparel.length
+    filteredShoes.length > 0 ? paginationLength = filteredShoes.length : paginationLength = allListings.length
 
     let lastPostIndex = currentPage * postsPerPage
     let firstPostIndex = lastPostIndex - postsPerPage
@@ -89,15 +48,11 @@ function BrowseFilterPage() {
     const allItems = currentPosts.map((item) => {
 
         if (!item) return null
-        const { imageUrl, name, listings, id } = item
+        const { apparelImg, apparelName, price, id } = item
 
 
-
-        let arr = []
-        if (listings.length === 0) arr.push(0)
-        listings.forEach((shoe) => { arr.push(shoe.price) })
+        let arr = [price]
         let minPrice = Math.min(...arr)
-
 
 
         let shoes = (
@@ -105,11 +60,11 @@ function BrowseFilterPage() {
                 <NavLink to={`/shoe/${id}`} style={{ textDecoration: 'none' }}>
                     <div className='mainpage-shoe-containers'>
                         <div className='mainpage-shoe-listing-image-container'>
-                            <img src={imageUrl} className='mainpage-shoe-listing-image' alt="profile"></img>
+                            <img src={apparelImg} className='mainpage-shoe-listing-image' alt="profile"></img>
                         </div>
                         <div className='mainpage-shoe-text-container'>
                             <div className='mainpage-shoe-name'>
-                                {name}
+                                {apparelName}
                             </div>
                             <div>
                                 <div className='mainpage-shoe-lowest-ask'>lowest ask</div>
@@ -150,7 +105,7 @@ function BrowseFilterPage() {
                                 <FilterSize filter={setSizeFilter} page={setCurrentPage} />
                             </div>
                             <div style={{ marginBottom: '50px' }}>
-                                <FilterPrice filter={setPriceFilter} page={setCurrentPage} apparel={allApparel} />
+                                <FilterPrice filter={setPriceFilter} page={setCurrentPage} apparel={allListings} />
                             </div>
                         </div>
                         <div className='browsepage-grid'>

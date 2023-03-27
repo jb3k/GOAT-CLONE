@@ -10,7 +10,6 @@ const FilterSize = ({ filter, page }) => {
     const [checked, setChecked] = useState(false)
     const [] = useState('')
 
-
     const shoeSizes = () => {
 
         let sizeArr = []
@@ -18,9 +17,13 @@ const FilterSize = ({ filter, page }) => {
             sizeArr.push(
                 <NavLink to={`/shoes/${i}`}>
                     <input
-                        className={size === 8 && checked ? "filterSize-brands-checked" : "filterSize-brands"}
+                        className={size === i ? "filterSize-brands-checked" : "filterSize-brands"}
                         type="button"
                         value={i}
+                        onClick={() => {
+                            setSize(i)
+                            page(1)
+                        }}
                     />
                 </NavLink >
             )
