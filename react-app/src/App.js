@@ -12,6 +12,7 @@ import { authenticate } from './store/session';
 import MainPage from './components/mainpage';
 // import SellPage from './components/sellpage';
 import BrowsePage from './components/browsePage';
+import BrowseFilterPage from './components/browsePage/browseFilterPage';
 import ShoeProfilePage from './components/ShoeProfilePage';
 import ShoeListingPage from './components/ShoeListingPage';
 import ShoeListingFormPage from './components/ShoeListingPage/ShoeListingFormPage'
@@ -88,7 +89,10 @@ function App() {
           <NavBar />
           <ApparelForm />
         </ProtectedRoute>
-
+        <Route path='/shoes/:id' exact={true} >
+          <NavBar />
+          <BrowseFilterPage />
+        </Route>
 
         {/* <ProtectedRoute path='/broken' exact={true} >
           <SellPage />

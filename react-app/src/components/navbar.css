@@ -4,10 +4,10 @@
     align-items: center;
     height: 80px;
     position: fixed;
-    width: 99%;
+    width: 100%;
     background-color: white;
     margin-top: -10px;
-    border-bottom: 1px solid rgb(222, 222, 222);
+    border-bottom: 1px solid rgb(206, 204, 204);
 
     /* border-bottom: 1px solid black; */
 }

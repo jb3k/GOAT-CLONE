@@ -5,6 +5,7 @@ import listingReducer from './listings';
 import purchaseReducer from './purchase';
 import searchReducer from './searchbar';
 import session from './session'
+import browsePageReducer from './browsePage';
 
 const rootReducer = combineReducers({
   session,
@@ -12,6 +13,8 @@ const rootReducer = combineReducers({
   listings: listingReducer,
   purchase: purchaseReducer,
   search: searchReducer,
+  browse: browsePageReducer
+
 });
 
 
@@ -23,7 +26,7 @@ if (process.env.NODE_ENV === 'production') {
   // const logger = require('redux-logger').default;
   const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-    enhancer = composeEnhancers(applyMiddleware(thunk));
+  enhancer = composeEnhancers(applyMiddleware(thunk));
   // enhancer = composeEnhancers(applyMiddleware(thunk, logger));
 }
 

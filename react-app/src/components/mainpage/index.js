@@ -12,20 +12,18 @@ import ad from '../../assets/ad.png'
 // import Navbar from '../NavBar'
 import Footer from '../footer';
 import { searchAllApparelThunk } from '../../store/searchbar';
-
+import BrowsePage from '../browsePage';
+import DataContext from '../../context';
 
 
 function MainPage() {
     const dispatch = useDispatch();
     // const history = useHistory()
     const [isLoaded, setIsLoaded] = useState(false)
-    const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
     const [imageNumber, setImageNumber] = useState(0)
     // const [recentView, setRecentView] = useState([])
     const images = [image1, image2, image3, image4, image5]
-
-
 
     useEffect(() => {
         dispatch(getAllApparelThunk())
@@ -158,18 +156,45 @@ function MainPage() {
     })
 
 
+    const menuBar = (
+        <>
+            <div className='mainpage-header'>
+                <div className='mainpage-header-text'>
+                    <NavLink to={'/shoes'} style={{ textDecoration: 'none' }} >
+                        <div>Sneakers</div>
+                    </NavLink>
+                </div>
+                <div className='mainpage-header-text'>
+                    <NavLink to={'/shoes'} style={{ textDecoration: 'none' }} >
+                        <div>Shoes</div>
+                    </NavLink>
+                </div>
+                <div className='mainpage-header-text'>
+                    <NavLink to={'/shoes'} style={{ textDecoration: 'none' }}>
+                        <div>Apparel</div>
+                    </NavLink>
+                </div>
+                <div className='mainpage-header-text'>
+                    <NavLink to={'/shoes'} style={{ textDecoration: 'none' }}>
+                        <div>Browse All</div>
+                    </NavLink>
+                </div>
+            </div>
+        </>
+
+    )
 
 
     return isLoaded && (
         <>
             <div className='navbar-spacing'>
                 <div>
-                    {!sessionUser ? <h2 className='mainpage-header'> </h2> : <h2 className='mainpage-header'> Welcome, {sessionUser.firstName} {sessionUser.lastName}</h2>}
+                    {menuBar}
                 </div>
                 <div className='mainpage-body-container'>
-                    <div className='mainpage-shoe-listing-container'>
+                    {/* <div className='mainpage-shoe-listing-container'>
                         <strong> Trending Shoes:</strong>
-                    </div>
+                    </div> */}
                     <div className='mainpage-rotating-img-container'>
                         <img src={images[imageNumber]} className='actual-rotating-image' alt='rotating-shoes'></img>
                     </div>
