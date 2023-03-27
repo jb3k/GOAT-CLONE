@@ -36,30 +36,9 @@ function BrowsePage() {
     const sortedShoes = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
 
-    let listingsFilter = (data) => {
-
-
-    }
-
-    // console.log(sizeFilter)
     let formFilter = (data) => {
-        if (brandFilter && sizeFilter && priceFilter) {
-            if (data.brand === brandFilter && data.listings.size === sizeFilter && data.listings.price === priceFilter) {
-                return true
-            }
-        }
-        if (brandFilter && sizeFilter) {
-            if (data.brand === brandFilter && data.listings.size === sizeFilter) {
-                return true
-            }
-        }
-        if (brandFilter && priceFilter) {
-            if (data.brand === brandFilter && data.listings.price === priceFilter) {
-                return true
-            }
-        }
-        if (sizeFilter && priceFilter) {
-            if (data.listings.size === sizeFilter && data.listings.price === priceFilter) {
+        if (filter) {
+            if (data.brand === filter) {
                 return true
             }
         }
@@ -75,6 +54,7 @@ function BrowsePage() {
         return false
     }
 
+    const filteredShoes = sortedShoes.filter(formFilter)
 
     const filteredShoes = sortedShoes.filter((formFilter))
     let paginationLength
