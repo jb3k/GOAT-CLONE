@@ -37,11 +37,6 @@ function BrowsePage() {
 
 
     let formFilter = (data) => {
-        if (filter) {
-            if (data.brand === filter) {
-                return true
-            }
-        }
         if (brandFilter) {
             if (data.brand === brandFilter) return true
         }
