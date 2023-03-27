@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import './filterForm.css'
 import './filterSize.css'
 
@@ -10,40 +11,37 @@ const FilterSize = ({ filter, page }) => {
     const [] = useState('')
 
 
-    const handleChange = (data) => {
-        if (data) {
-            setSize(data)
-            filter(size)
-            page(1)
-            setChecked(true)
+    const shoeSizes = () => {
+
+        let sizeArr = []
+        for (let i = 3; i <= 18; i++) {
+            sizeArr.push(
+                <NavLink to={`/shoes/${i}`}>
+                    <input
+                        className={size === 8 && checked ? "filterSize-brands-checked" : "filterSize-brands"}
+                        type="button"
+                        value={i}
+                    />
+                </NavLink >
+            )
         }
+
+
+        return (
+            <>
+                {sizeArr}
+            </>
+        )
+
     }
+
 
     return (
         <>
             <div className="filterForm-brands">
                 Size:
                 <div className="filterSize-box" >
-                    <div>
-                        <input
-                            className={size === 8 && checked ? "filterSize-brands-checked" : "filterSize-brands"}
-                            type="button"
-                            value={8}
-                            onClick={() => {
-                                handleChange(8)
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            className={size === 4 && checked ? "filterSize-brands-checked" : "filterSize-brands"}
-                            type="button"
-                            value={4}
-                            onClick={() => {
-                                handleChange(4)
-                            }}
-                        />
-                    </div>
+                    {shoeSizes()}
                 </div>
             </div>
         </>
