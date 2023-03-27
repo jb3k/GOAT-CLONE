@@ -16,36 +16,30 @@ const FilterForm = ({ filter, page }) => {
         let val = document.getElementById('jordan')
         filter(val.value)
         page(1)
-      }
-      if (jordan === false) filter('')
-      setJordan(!jordan)
-
-      if (jordan === false) {
-        setChecked('')
-      }
-      if (jordan) {
         setChecked('jordan')
         setNike(true)
         setAdidas(true)
       }
+      if (jordan === false) {
+        filter('')
+        setChecked('')
+      }
+      setJordan(!jordan)
     }
     if (data === 'nike') {
       if (nike === true) {
         let val = document.getElementById('nike')
         filter(val.value)
         page(1)
-      }
-      if (nike === false) filter('')
-      setNike(!nike)
-
-      if (nike === false) {
-        setChecked('')
-      }
-      if (nike) {
         setChecked('nike')
         setJordan(true)
         setAdidas(true)
       }
+      if (nike === false) {
+        filter('')
+        setChecked('')
+      }
+      setNike(!nike)
 
     }
     if (data === 'adidas') {
@@ -53,17 +47,16 @@ const FilterForm = ({ filter, page }) => {
         let val = document.getElementById('adidas')
         filter(val.value)
         page(1)
-      }
-      if (adidas === false) filter('')
-      setAdidas(!adidas)
-      if (adidas === false) {
-        setChecked('')
-      }
-      if (adidas) {
         setChecked('adidas')
         setJordan(true)
         setNike(true)
       }
+      if (adidas === false) {
+        filter('')
+        setChecked('')
+      }
+      setAdidas(!adidas)
+
     }
   }
 
