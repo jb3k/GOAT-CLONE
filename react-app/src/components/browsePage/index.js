@@ -120,12 +120,12 @@ function BrowsePage() {
                             <div style={{ marginBottom: '50px' }}>
                                 <FilterForm filter={setBrandFilter} page={setCurrentPage} />
                             </div>
-                            <div style={{ marginBottom: '50px' }}>
+                            {/* <div style={{ marginBottom: '50px' }}>
                                 <FilterSize filter={setSizeFilter} page={setCurrentPage} />
                             </div>
                             <div style={{ marginBottom: '50px' }}>
                                 <FilterPrice filter={setPriceFilter} page={setCurrentPage} apparel={allApparel} />
-                            </div>
+                            </div> */}
                         </div>
                         <div className='browsepage-grid'>
                             {allItems}
