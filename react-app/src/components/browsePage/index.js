@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import { getAllApparelThunk } from '../../store/apparel';
 import { getAllListingsThunk } from '../../store/listings';
 import Footer from '../footer';
@@ -10,6 +9,7 @@ import Pagination from '../pagination';
 import FilterForm from './filterForm'
 import FilterSize from './filterSize';
 import FilterPrice from './filterPrice';
+import ShoeList from './shoeList';
 // import { test } from 'mocha';
 
 
@@ -36,12 +36,7 @@ function BrowsePage() {
     const sortedShoes = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
 
-    let listingsFilter = (data) => {
 
-
-    }
-
-    // console.log(sizeFilter)
     let formFilter = (data) => {
         if (brandFilter && sizeFilter && priceFilter) {
             if (data.brand === brandFilter && data.listings.size === sizeFilter && data.listings.price === priceFilter) {
@@ -86,51 +81,6 @@ function BrowsePage() {
     filteredShoes.length > 0 ? currentPosts = filteredShoes.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
 
 
-    const allItems = currentPosts.map((item) => {
-
-        if (!item) return null
-        const { imageUrl, name, listings, id } = item
-
-
-
-        let arr = []
-        if (listings.length === 0) arr.push(0)
-        listings.forEach((shoe) => { arr.push(shoe.price) })
-        let minPrice = Math.min(...arr)
-
-
-
-        let shoes = (
-            <>
-                <NavLink to={`/shoe/${id}`} style={{ textDecoration: 'none' }}>
-                    <div className='mainpage-shoe-containers'>
-                        <div className='mainpage-shoe-listing-image-container'>
-                            <img src={imageUrl} className='mainpage-shoe-listing-image' alt="profile"></img>
-                        </div>
-                        <div className='mainpage-shoe-text-container'>
-                            <div className='mainpage-shoe-name'>
-                                {name}
-                            </div>
-                            <div>
-                                <div className='mainpage-shoe-lowest-ask'>lowest ask</div>
-                                <strong><div className='mainpage-shoe-lowest-price'>{minPrice > 0 ? `$${minPrice}` : 'Sold out'}</div></strong>
-                            </div>
-                        </div>
-                    </div>
-                </NavLink>
-            </>
-        )
-
-        return (
-            <div key={id}>
-                {shoes}
-            </div>
-        )
-    })
-
-
-
-
     return isLoaded && (
         <>
             <div className='navbar-spacing'>
@@ -147,14 +97,14 @@ function BrowsePage() {
                                 <FilterForm filter={setBrandFilter} page={setCurrentPage} />
                             </div>
                             <div style={{ marginBottom: '50px' }}>
-                                <FilterSize filter={setSizeFilter} page={setCurrentPage} />
+                                <FilterSize filter={setSizeFilter} page={setCurrentPage} allListings={allListings} />
                             </div>
                             <div style={{ marginBottom: '50px' }}>
-                                <FilterPrice filter={setPriceFilter} page={setCurrentPage} apparel={allApparel} />
+                                <FilterPrice filter={setPriceFilter} page={setCurrentPage} allListings={allListings} />
                             </div>
                         </div>
                         <div className='browsepage-grid'>
-                            {allItems}
+                            <ShoeList currentPosts={currentPosts} />
                         </div>
                     </div>
                     <div>

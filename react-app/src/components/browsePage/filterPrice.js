@@ -2,16 +2,13 @@ import React, { useEffect, useState } from "react";
 import './filterForm.css'
 
 
-const FilterPrice = ({ filter, page, apparel }) => {
+const FilterPrice = ({ filter, page, allListings }) => {
 
     const [price, setPrice] = useState('')
     const [checked, setChecked] = useState('')
 
 
     //all shoees
-    let filteredShoes = apparel.filter(() => {
-
-    })
 
 
     const handleChange = (data) => {
@@ -32,7 +29,7 @@ const FilterPrice = ({ filter, page, apparel }) => {
                             handleChange('jordan')
                         }}
                     />
-                    <label className="label-spacer"> Under 100 </label>
+                    <label className="label-spacer"> Under $100 </label>
                 </div>
                 <div className="filter-brands">
                     <input
@@ -44,7 +41,7 @@ const FilterPrice = ({ filter, page, apparel }) => {
                             handleChange('nike')
                         }}
                     />
-                    <label className="label-spacer"> 101-500 </label>
+                    <label className="label-spacer"> $101 - $500 </label>
                 </div>
                 <div className="filter-brands">
                     <input
@@ -56,7 +53,7 @@ const FilterPrice = ({ filter, page, apparel }) => {
                             handleChange('adidas')
                         }}
                     />
-                    <label className="label-spacer"> 501 - 1000 </label>
+                    <label className="label-spacer"> $501 - $1000 </label>
                 </div>
                 <div className="filter-brands">
                     <input
@@ -68,7 +65,7 @@ const FilterPrice = ({ filter, page, apparel }) => {
                             handleChange('adidas')
                         }}
                     />
-                    <label className="label-spacer"> 1001 - 2000 </label>
+                    <label className="label-spacer"> $1001 - $2000 </label>
                 </div>
                 <div className="filter-brands">
                     <input
@@ -80,7 +77,7 @@ const FilterPrice = ({ filter, page, apparel }) => {
                             handleChange('adidas')
                         }}
                     />
-                    <label className="label-spacer"> Over 2000 </label>
+                    <label className="label-spacer"> +$2000 </label>
                 </div>
             </div>
         </>

@@ -4,7 +4,7 @@ import './filterForm.css'
 import './filterSize.css'
 
 
-const FilterSize = ({ filter, page }) => {
+const FilterSize = ({ filter, page, allListings }) => {
 
     const [size, setSize] = useState('')
     const [checked, setChecked] = useState(false)
