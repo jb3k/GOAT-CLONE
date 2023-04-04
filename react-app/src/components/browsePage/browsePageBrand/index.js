@@ -1,0 +1,121 @@
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllApparelThunk } from '../../../store/apparel';
+import { getAllListingsThunk } from '../../../store/listings';
+import Footer from '../../footer';
+import { searchAllApparelThunk } from '../../../store/searchbar';
+import '../BrowsePage.css'
+import Pagination from '../../pagination';
+import FilterForm from '../filterForm'
+import FilterSize from '../filterSize';
+import FilterPrice from '../filterPrice';
+import ShoeList from '../shoeList';
+// import { test } from 'mocha';
+
+
+function BrowsePageBrand() {
+    const dispatch = useDispatch();
+    const [isLoaded, setIsLoaded] = useState(false)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [postsPerPage, setPostsPerPage] = useState(16)
+    const [brandFilter, setBrandFilter] = useState('')
+    const [sizeFilter, setSizeFilter] = useState('')
+    const [priceFilter, setPriceFilter] = useState('')
+
+    // const sessionUser = useSelector((state) => state.session.user);
+    const allApparel = useSelector(state => Object.values(state.apparel))
+    const allListings = useSelector(state => Object.values(state.listings))
+
+    useEffect(() => {
+        dispatch(getAllApparelThunk())
+        dispatch(getAllListingsThunk())
+        dispatch(searchAllApparelThunk())
+            .then(() => setIsLoaded(true))
+    }, [dispatch, brandFilter])
+
+    const sortedShoes = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+
+
+
+    let formFilter = (data) => {
+        if (brandFilter && sizeFilter && priceFilter) {
+            if (data.brand === brandFilter && data.listings.size === sizeFilter && data.listings.price === priceFilter) {
+                return true
+            }
+        }
+        if (brandFilter && sizeFilter) {
+            if (data.brand === brandFilter && data.listings.size === sizeFilter) {
+                return true
+            }
+        }
+        if (brandFilter && priceFilter) {
+            if (data.brand === brandFilter && data.listings.price === priceFilter) {
+                return true
+            }
+        }
+        if (sizeFilter && priceFilter) {
+            if (data.listings.size === sizeFilter && data.listings.price === priceFilter) {
+                return true
+            }
+        }
+        if (brandFilter) {
+            if (data.brand === brandFilter) return true
+        }
+        if (sizeFilter) {
+            if (data.listings.size === sizeFilter) return true
+        }
+        if (priceFilter) {
+            if (data.listings.price === priceFilter) return true
+        }
+        return false
+    }
+
+
+    const filteredShoes = sortedShoes.filter((formFilter))
+    let paginationLength
+    filteredShoes.length > 0 ? paginationLength = filteredShoes.length : paginationLength = allApparel.length
+
+    let lastPostIndex = currentPage * postsPerPage
+    let firstPostIndex = lastPostIndex - postsPerPage
+    let currentPosts
+    filteredShoes.length > 0 ? currentPosts = filteredShoes.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
+
+
+    return isLoaded && (
+        <>
+            <div className='navbar-spacing'>
+                <div className='browsepage-body-container'>
+                    <div className='browsepage-header'>
+                        <h2 style={{ marginLeft: '30px' }}> Sneakers</h2>
+                        <p className='browsepage-header-text'>
+                            Every sneaker you want is always available and verified by StockY. Buy and sell new sneakers & shoes from Jordan, adidas, Nike, Yeezy and more!
+                        </p>
+                    </div>
+                    <div className='browsepage-body'>
+                        <div className='browsepage-filter'>
+                            <div style={{ marginBottom: '50px' }}>
+                                <FilterForm filter={setBrandFilter} page={setCurrentPage} />
+                            </div>
+                            <div style={{ marginBottom: '50px' }}>
+                                <FilterSize filter={setSizeFilter} page={setCurrentPage} allListings={allListings} />
+                            </div>
+                            <div style={{ marginBottom: '50px' }}>
+                                <FilterPrice filter={setPriceFilter} page={setCurrentPage} allListings={allListings} />
+                            </div>
+                        </div>
+                        <div className='browsepage-grid'>
+                            <ShoeList currentPosts={currentPosts} />
+                        </div>
+                    </div>
+                    <div>
+                        <Pagination totalPosts={paginationLength} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        </>
+    )
+
+}
+
+export default BrowsePageBrand;
