@@ -47,7 +47,7 @@ function BrowsePage() {
     test.length > 0 ? currentPosts = test.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
 
     // console.log(test, currentPosts)
-    console.log(priceFilter)
+    // console.log(priceFilter)
 
     return isLoaded && (
         <>
