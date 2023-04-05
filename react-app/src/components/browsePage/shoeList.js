@@ -2,7 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 
-export default function ShoeList({ currentPosts }) {
+export default function ShoeList({ currentPosts, filteredPosts, priceFilter }) {
+
+
+    // console.log(currentPosts, filteredPosts)
+
 
     const allItems = currentPosts.map((item) => {
 
@@ -47,9 +51,44 @@ export default function ShoeList({ currentPosts }) {
     })
 
 
+    const filteredItems = filteredPosts.map((item) => {
+
+        if (!item) return null
+        const { apparelImg, apparelName, id, price } = item
+
+
+        let shoes = (
+            <>
+                <NavLink to={`/shoe/${id}`} style={{ textDecoration: 'none' }}>
+                    <div className='mainpage-shoe-containers'>
+                        <div className='mainpage-shoe-listing-image-container'>
+                            <img src={apparelImg} className='mainpage-shoe-listing-image' alt="profile"></img>
+                        </div>
+                        <div className='mainpage-shoe-text-container'>
+                            <div className='mainpage-shoe-name'>
+                                {apparelName}
+                            </div>
+                            <div>
+                                <div className='mainpage-shoe-lowest-ask'>lowest ask</div>
+                                <strong><div className='mainpage-shoe-lowest-price'>{price > 0 ? price : 'Sold out'}</div></strong>
+                            </div>
+                        </div>
+                    </div>
+                </NavLink>
+            </>
+        )
+
+        return (
+            <div key={id}>
+                {shoes}
+            </div>
+        )
+    })
+
+
     return (
         <>
-            {allItems}
+            {priceFilter === true ? filteredItems : allItems}
         </>
 
 

@@ -18,15 +18,14 @@ function BrowsePage() {
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
     const [brandFilter, setBrandFilter] = useState([])
-    const [sizeFilter, setSizeFilter] = useState('')
-    const [priceFilter, setPriceFilter] = useState('')
+    const [priceFilter, setPriceFilter] = useState(false)
 
     const allApparel = useSelector(state => Object.values(state.apparel))
-    const allListings = useSelector(state => Object.values(state.listings))
+    // const allListings = useSelector(state => Object.values(state.listings))
 
     useEffect(() => {
         dispatch(getAllApparelThunk())
-        dispatch(getAllListingsThunk())
+        // dispatch(getAllListingsThunk())
         dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
     }, [dispatch, brandFilter])
@@ -44,9 +43,12 @@ function BrowsePage() {
     let test
     brandFilter.length > 0 ? test = brandFilter : test = sortedShoes
 
-    let currentPosts
-    brandFilter.length > 0 ? currentPosts = brandFilter?.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
 
+    let currentPosts
+    test.length > 0 ? currentPosts = test.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
+
+    // console.log(test, currentPosts)
+    console.log(priceFilter)
 
     return isLoaded && (
         <>
@@ -66,12 +68,12 @@ function BrowsePage() {
                             <div style={{ marginBottom: '50px' }}>
                                 <FilterSize filter={setBrandFilter} page={setCurrentPage} currentPosts={test} />
                             </div>
-                            <div style={{ marginBottom: '50px' }}>
-                                <FilterPrice filter={setBrandFilter} page={setCurrentPage} currentPosts={test} />
-                            </div>
+                            {/* <div style={{ marginBottom: '50px' }}>
+                                <FilterPrice filter={setBrandFilter} page={setCurrentPage} currentPosts={test} setPriceFilter={setPriceFilter} priceFilter={priceFilter} />
+                            </div> */}
                         </div>
                         <div className='browsepage-grid'>
-                            <ShoeList currentPosts={currentPosts} />
+                            <ShoeList currentPosts={currentPosts} filteredPosts={test} priceFilter={priceFilter} />
                         </div>
                     </div>
                     <div>

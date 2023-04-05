@@ -17,18 +17,17 @@ const FilterSize = ({ filter, page, currentPosts }) => {
     let filterListings = []
     for (let i = 0; i < currentPosts.length; i++) {
         let shoe = currentPosts[i]
-        // console.log(shoe)
-        for (let listing of shoe.listings) {
-            if (listing.size === size) {
-                filterListings.push(shoe)
-                break
+        if (shoe.listings && typeof shoe.listings[Symbol.iterator] === 'function') {
+            for (let listing of shoe.listings) {
+                if (listing.size === size) {
+                    filterListings.push(shoe)
+                    break
+                }
             }
         }
     }
 
-
-
-
+    
 
     const shoeSizes = () => {
 
