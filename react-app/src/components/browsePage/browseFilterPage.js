@@ -9,7 +9,6 @@ import Pagination from '../pagination';
 import FilterForm from './filterForm'
 import FilterSize from './filterSize';
 import FilterPrice from './filterPrice';
-// import { test } from 'mocha';
 
 
 function BrowseFilterPage() {

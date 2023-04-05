@@ -92,7 +92,7 @@ function App() {
           <NavBar />
           <BrowseFilterPage />
         </Route>
-        <Route path='/shoes/:brand' >
+        <Route path='/shoes/:brand' exact={true} >
           <NavBar />
           <BrowsePageBrand />
         </Route>

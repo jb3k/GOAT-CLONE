@@ -13,6 +13,13 @@ def get_all_apparel():
     return {"apparels": [items.to_dict() for items in apparel] }
 
 
+# @apparel_routes.route('/', methods=['GET'])
+# def get_brand_apparel():
+#     apparel = Apparel.query.all()
+#     return {"apparels": [items.to_dict() for items in apparel] }
+
+
+
 @apparel_routes.route('/<int:id>', methods=['GET'])
 def get_apparel(id):
     apparel = Apparel.query.get(id)

@@ -10,7 +10,6 @@ import FilterForm from './filterForm'
 import FilterSize from './filterSize';
 import FilterPrice from './filterPrice';
 import ShoeList from './shoeList';
-// import { test } from 'mocha';
 
 
 function BrowsePage() {
@@ -18,11 +17,10 @@ function BrowsePage() {
     const [isLoaded, setIsLoaded] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
-    const [brandFilter, setBrandFilter] = useState('')
+    const [brandFilter, setBrandFilter] = useState([])
     const [sizeFilter, setSizeFilter] = useState('')
     const [priceFilter, setPriceFilter] = useState('')
 
-    // const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
     const allListings = useSelector(state => Object.values(state.listings))
 
@@ -36,49 +34,16 @@ function BrowsePage() {
     const sortedShoes = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
 
-
-    let formFilter = (data) => {
-        if (brandFilter && sizeFilter && priceFilter) {
-            if (data.brand === brandFilter && data.listings.size === sizeFilter && data.listings.price === priceFilter) {
-                return true
-            }
-        }
-        if (brandFilter && sizeFilter) {
-            if (data.brand === brandFilter && data.listings.size === sizeFilter) {
-                return true
-            }
-        }
-        if (brandFilter && priceFilter) {
-            if (data.brand === brandFilter && data.listings.price === priceFilter) {
-                return true
-            }
-        }
-        if (sizeFilter && priceFilter) {
-            if (data.listings.size === sizeFilter && data.listings.price === priceFilter) {
-                return true
-            }
-        }
-        if (brandFilter) {
-            if (data.brand === brandFilter) return true
-        }
-        if (sizeFilter) {
-            if (data.listings.size === sizeFilter) return true
-        }
-        if (priceFilter) {
-            if (data.listings.price === priceFilter) return true
-        }
-        return false
-    }
-
-
-    const filteredShoes = sortedShoes.filter((formFilter))
     let paginationLength
-    filteredShoes.length > 0 ? paginationLength = filteredShoes.length : paginationLength = allApparel.length
+    brandFilter.length > 0 ? paginationLength = brandFilter.length : paginationLength = allApparel.length
+
 
     let lastPostIndex = currentPage * postsPerPage
     let firstPostIndex = lastPostIndex - postsPerPage
+
+
     let currentPosts
-    filteredShoes.length > 0 ? currentPosts = filteredShoes.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
+    brandFilter.length > 0 ? currentPosts = brandFilter?.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
 
 
     return isLoaded && (
@@ -94,7 +59,7 @@ function BrowsePage() {
                     <div className='browsepage-body'>
                         <div className='browsepage-filter'>
                             <div style={{ marginBottom: '50px' }}>
-                                <FilterForm filter={setBrandFilter} page={setCurrentPage} />
+                                <FilterForm page={setCurrentPage} allApparel={sortedShoes} setBrandFilter={setBrandFilter} />
                             </div>
                             <div style={{ marginBottom: '50px' }}>
                                 <FilterSize filter={setSizeFilter} page={setCurrentPage} allListings={allListings} />
