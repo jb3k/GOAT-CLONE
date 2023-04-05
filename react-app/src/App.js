@@ -24,6 +24,7 @@ import CurrentUserPurchases from './components/userPurchases';
 import Footer from './components/footer';
 import PageNotFound from './components/pageNotFound';
 import ApparelForm from './components/apparelForm/ApparelForm';
+import BrowsePageBrand from './components/browsePage/browsePageBrand';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -66,9 +67,7 @@ function App() {
         <Route path='/shoe/:shoeId' exact={true} >
           <NavBar />
           <ShoeProfilePage />
-          {/* <Footer /> */}
         </Route>
-
         <ProtectedRoute path='/shoe/:shoeId/sell' exact={true} >
           <NavBar />
           <ShoeListingPage />
@@ -93,19 +92,17 @@ function App() {
           <NavBar />
           <BrowseFilterPage />
         </Route>
-
-        {/* <ProtectedRoute path='/broken' exact={true} >
-          <SellPage />
-        </ProtectedRoute> */}
+        <Route path='/shoes/:brand' exact={true} >
+          <NavBar />
+          <BrowsePageBrand />
+        </Route>
         <Route path='/shoes' exact={true} >
           <NavBar />
           <BrowsePage />
         </Route>
-
         <Route path='/' exact={true} >
           <NavBar />
           <MainPage />
-          {/* <Footer /> */}
         </Route>
         <Route>
           <NavBar />

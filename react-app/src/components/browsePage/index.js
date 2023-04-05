@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import { getAllApparelThunk } from '../../store/apparel';
 import { getAllListingsThunk } from '../../store/listings';
 import Footer from '../footer';
@@ -10,7 +9,7 @@ import Pagination from '../pagination';
 import FilterForm from './filterForm'
 import FilterSize from './filterSize';
 import FilterPrice from './filterPrice';
-// import { test } from 'mocha';
+import ShoeList from './shoeList';
 
 
 function BrowsePage() {
@@ -18,98 +17,37 @@ function BrowsePage() {
     const [isLoaded, setIsLoaded] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
-    const [brandFilter, setBrandFilter] = useState('')
-    const [sizeFilter, setSizeFilter] = useState('')
-    const [priceFilter, setPriceFilter] = useState('')
+    const [brandFilter, setBrandFilter] = useState([])
+    const [priceFilter, setPriceFilter] = useState(false)
 
-    // const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
-    const allListings = useSelector(state => Object.values(state.listings))
+    // const allListings = useSelector(state => Object.values(state.listings))
 
     useEffect(() => {
         dispatch(getAllApparelThunk())
-        dispatch(getAllListingsThunk())
+        // dispatch(getAllListingsThunk())
         dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
     }, [dispatch, brandFilter])
 
     const sortedShoes = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
-
-    let formFilter = (data) => {
-        if (filter) {
-            if (data.brand === filter) {
-                return true
-            }
-        }
-        if (brandFilter) {
-            if (data.brand === brandFilter) return true
-        }
-        if (sizeFilter) {
-            if (data.listings.size === sizeFilter) return true
-        }
-        if (priceFilter) {
-            if (data.listings.price === priceFilter) return true
-        }
-        return false
-    }
-
-    const filteredShoes = sortedShoes.filter(formFilter)
-
-    const filteredShoes = sortedShoes.filter((formFilter))
     let paginationLength
-    filteredShoes.length > 0 ? paginationLength = filteredShoes.length : paginationLength = allApparel.length
+    brandFilter.length > 0 ? paginationLength = brandFilter.length : paginationLength = allApparel.length
+
 
     let lastPostIndex = currentPage * postsPerPage
     let firstPostIndex = lastPostIndex - postsPerPage
+
+    let test
+    brandFilter.length > 0 ? test = brandFilter : test = sortedShoes
+
+
     let currentPosts
-    filteredShoes.length > 0 ? currentPosts = filteredShoes.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
+    test.length > 0 ? currentPosts = test.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
 
-
-    const allItems = currentPosts.map((item) => {
-
-        if (!item) return null
-        const { imageUrl, name, listings, id } = item
-
-
-
-        let arr = []
-        if (listings.length === 0) arr.push(0)
-        listings.forEach((shoe) => { arr.push(shoe.price) })
-        let minPrice = Math.min(...arr)
-
-
-
-        let shoes = (
-            <>
-                <NavLink to={`/shoe/${id}`} style={{ textDecoration: 'none' }}>
-                    <div className='mainpage-shoe-containers'>
-                        <div className='mainpage-shoe-listing-image-container'>
-                            <img src={imageUrl} className='mainpage-shoe-listing-image' alt="profile"></img>
-                        </div>
-                        <div className='mainpage-shoe-text-container'>
-                            <div className='mainpage-shoe-name'>
-                                {name}
-                            </div>
-                            <div>
-                                <div className='mainpage-shoe-lowest-ask'>lowest ask</div>
-                                <strong><div className='mainpage-shoe-lowest-price'>{minPrice > 0 ? `$${minPrice}` : 'Sold out'}</div></strong>
-                            </div>
-                        </div>
-                    </div>
-                </NavLink>
-            </>
-        )
-
-        return (
-            <div key={id}>
-                {shoes}
-            </div>
-        )
-    })
-
-
-
+    // console.log(test, currentPosts)
+    console.log(priceFilter)
 
     return isLoaded && (
         <>
@@ -124,17 +62,17 @@ function BrowsePage() {
                     <div className='browsepage-body'>
                         <div className='browsepage-filter'>
                             <div style={{ marginBottom: '50px' }}>
-                                <FilterForm filter={setBrandFilter} page={setCurrentPage} />
+                                <FilterForm page={setCurrentPage} allApparel={sortedShoes} setBrandFilter={setBrandFilter} />
                             </div>
                             <div style={{ marginBottom: '50px' }}>
-                                <FilterSize filter={setSizeFilter} page={setCurrentPage} />
+                                <FilterSize filter={setBrandFilter} page={setCurrentPage} currentPosts={test} />
                             </div>
-                            <div style={{ marginBottom: '50px' }}>
-                                <FilterPrice filter={setPriceFilter} page={setCurrentPage} apparel={allApparel} />
-                            </div>
+                            {/* <div style={{ marginBottom: '50px' }}>
+                                <FilterPrice filter={setBrandFilter} page={setCurrentPage} currentPosts={test} setPriceFilter={setPriceFilter} priceFilter={priceFilter} />
+                            </div> */}
                         </div>
                         <div className='browsepage-grid'>
-                            {allItems}
+                            <ShoeList currentPosts={currentPosts} filteredPosts={test} priceFilter={priceFilter} />
                         </div>
                     </div>
                     <div>
