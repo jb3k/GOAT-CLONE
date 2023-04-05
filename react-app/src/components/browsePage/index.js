@@ -32,7 +32,6 @@ function BrowsePage() {
 
     const sortedShoes = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
-
     let paginationLength
     brandFilter.length > 0 ? paginationLength = brandFilter.length : paginationLength = allApparel.length
 
