@@ -35,7 +35,6 @@ const FilterSize = ({ filter, page, currentPosts }) => {
         let sizeArr = []
         for (let i = 3; i <= 18; i++) {
             sizeArr.push(
-                // <NavLink to={`/shoes/${i}`}>
                 <input
                     className={size === i ? "filterSize-brands-checked" : "filterSize-brands"}
                     type="button"
@@ -45,7 +44,6 @@ const FilterSize = ({ filter, page, currentPosts }) => {
                         page(1)
                     }}
                 />
-                // </NavLink >
             )
         }
 

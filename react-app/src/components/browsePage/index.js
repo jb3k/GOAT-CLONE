@@ -67,7 +67,7 @@ function BrowsePage() {
                                 <FilterSize filter={setBrandFilter} page={setCurrentPage} currentPosts={test} />
                             </div>
                             <div style={{ marginBottom: '50px' }}>
-                                <FilterPrice filter={setBrandFilter} page={setCurrentPage} allListings={allListings} />
+                                <FilterPrice filter={setBrandFilter} page={setCurrentPage} currentPosts={test} />
                             </div>
                         </div>
                         <div className='browsepage-grid'>
