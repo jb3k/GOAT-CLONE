@@ -1,31 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import './filterForm.css'
 import './filterSize.css'
 
 
-const FilterSize = ({ filter, page }) => {
+const FilterSize = ({ filter, page, currentPosts }) => {
 
     const [size, setSize] = useState('')
-    const [checked, setChecked] = useState(false)
-    const [] = useState('')
+
+    useEffect(() => {
+        filter(filterListings)
+    }, [size])
+
+
+    //create a function that spits out an array of all the listings
+    let filterListings = []
+    for (let i = 0; i < currentPosts.length; i++) {
+        let shoe = currentPosts[i]
+        if (shoe.listings && typeof shoe.listings[Symbol.iterator] === 'function') {
+            for (let listing of shoe.listings) {
+                if (listing.size === size) {
+                    filterListings.push(shoe)
+                    break
+                }
+            }
+        }
+    }
+
+    
 
     const shoeSizes = () => {
 
         let sizeArr = []
         for (let i = 3; i <= 18; i++) {
             sizeArr.push(
-                <NavLink to={`/shoes/${i}`}>
-                    <input
-                        className={size === i ? "filterSize-brands-checked" : "filterSize-brands"}
-                        type="button"
-                        value={i}
-                        onClick={() => {
-                            setSize(i)
-                            page(1)
-                        }}
-                    />
-                </NavLink >
+                <input
+                    className={size === i ? "filterSize-brands-checked" : "filterSize-brands"}
+                    type="button"
+                    value={i}
+                    onClick={() => {
+                        setSize(i)
+                        page(1)
+                    }}
+                />
             )
         }
 
@@ -46,6 +63,11 @@ const FilterSize = ({ filter, page }) => {
                 <div className="filterSize-box" >
                     {shoeSizes()}
                 </div>
+                <button onClick={() => {
+                    setSize('')
+                }}
+                    hidden={size === ''}
+                > Reset Size</button>
             </div>
         </>
     );
