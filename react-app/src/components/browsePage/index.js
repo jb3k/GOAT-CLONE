@@ -41,6 +41,8 @@ function BrowsePage() {
     let lastPostIndex = currentPage * postsPerPage
     let firstPostIndex = lastPostIndex - postsPerPage
 
+    let test
+    brandFilter.length > 0 ? test = brandFilter : test = sortedShoes
 
     let currentPosts
     brandFilter.length > 0 ? currentPosts = brandFilter?.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
@@ -62,10 +64,10 @@ function BrowsePage() {
                                 <FilterForm page={setCurrentPage} allApparel={sortedShoes} setBrandFilter={setBrandFilter} />
                             </div>
                             <div style={{ marginBottom: '50px' }}>
-                                <FilterSize filter={setSizeFilter} page={setCurrentPage} allListings={allListings} />
+                                <FilterSize filter={setBrandFilter} page={setCurrentPage} currentPosts={test} />
                             </div>
                             <div style={{ marginBottom: '50px' }}>
-                                <FilterPrice filter={setPriceFilter} page={setCurrentPage} allListings={allListings} />
+                                <FilterPrice filter={setBrandFilter} page={setCurrentPage} allListings={allListings} />
                             </div>
                         </div>
                         <div className='browsepage-grid'>
