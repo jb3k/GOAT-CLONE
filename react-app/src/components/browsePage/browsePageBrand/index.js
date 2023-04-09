@@ -28,7 +28,7 @@ function BrowsePageBrand() {
     // const sessionUser = useSelector((state) => state.session.user);
     const allApparel = useSelector(state => Object.values(state.apparel))
     const allListings = useSelector(state => Object.values(state.listings))
-    console.log(allApparel)
+    // console.log(allApparel)
     useEffect(() => {
         dispatch(getAllApparelThunk())
         dispatch(getAllListingsThunk())
