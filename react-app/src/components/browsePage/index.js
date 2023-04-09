@@ -46,8 +46,6 @@ function BrowsePage() {
     let currentPosts
     test.length > 0 ? currentPosts = test.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
 
-    // console.log(test, currentPosts)
-    // console.log(priceFilter)
 
     return isLoaded && (
         <>
@@ -65,14 +63,14 @@ function BrowsePage() {
                                 <FilterForm page={setCurrentPage} allApparel={sortedShoes} setBrandFilter={setBrandFilter} />
                             </div>
                             <div style={{ marginBottom: '50px' }}>
-                                <FilterSize filter={setBrandFilter} page={setCurrentPage} currentPosts={test} />
+                                <FilterSize setBrandFilter={setBrandFilter} page={setCurrentPage} currentPosts={sortedShoes} />
                             </div>
                             {/* <div style={{ marginBottom: '50px' }}>
-                                <FilterPrice filter={setBrandFilter} page={setCurrentPage} currentPosts={test} setPriceFilter={setPriceFilter} priceFilter={priceFilter} />
+                                <FilterPrice setBrandFilter={setBrandFilter} page={setCurrentPage} currentPosts={test} setPriceFilter={setPriceFilter} priceFilter={priceFilter} />
                             </div> */}
                         </div>
                         <div className='browsepage-grid'>
-                            <ShoeList currentPosts={currentPosts} filteredPosts={test} priceFilter={priceFilter} />
+                            <ShoeList currentPosts={currentPosts} filteredPosts={brandFilter} priceFilter={priceFilter} />
                         </div>
                     </div>
                     <div>

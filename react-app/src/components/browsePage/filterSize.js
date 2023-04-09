@@ -1,33 +1,39 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import './filterForm.css'
 import './filterSize.css'
 
 
-const FilterSize = ({ filter, page, currentPosts }) => {
+const FilterSize = ({ setBrandFilter, page, currentPosts }) => {
 
     const [size, setSize] = useState('')
 
     useEffect(() => {
-        filter(filterListings)
+        setBrandFilter(filterFunc())
     }, [size])
 
 
     //create a function that spits out an array of all the listings
-    let filterListings = []
-    for (let i = 0; i < currentPosts.length; i++) {
-        let shoe = currentPosts[i]
-        if (shoe.listings && typeof shoe.listings[Symbol.iterator] === 'function') {
-            for (let listing of shoe.listings) {
-                if (listing.size === size) {
-                    filterListings.push(shoe)
-                    break
+    const filterFunc = () => {
+        let filterListings = []
+        for (let i = 0; i < currentPosts.length; i++) {
+            let shoe = currentPosts[i]
+            if (shoe.listings) {
+                for (let listing of shoe.listings) {
+                    if (listing.size === size) {
+                        filterListings.push(shoe)
+                        break
+                    }
                 }
             }
         }
+        return filterListings
     }
 
-    
+    const handleSize = (data) => {
+        setSize(data)
+        page(1)
+
+    }
+
 
     const shoeSizes = () => {
 
@@ -39,8 +45,7 @@ const FilterSize = ({ filter, page, currentPosts }) => {
                     type="button"
                     value={i}
                     onClick={() => {
-                        setSize(i)
-                        page(1)
+                        handleSize(i)
                     }}
                 />
             )
