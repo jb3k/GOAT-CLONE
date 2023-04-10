@@ -26,6 +26,7 @@ const FilterForm = ({ page, allApparel, setBrandFilter }) => {
     })
     filterArr = [...jordanFilter, ...nikeFilter, ...adidasFilter]
 
+    console.log(filterArr)
 
     return (
         <>
@@ -67,6 +68,16 @@ const FilterForm = ({ page, allApparel, setBrandFilter }) => {
                     />
                     <label className="label-spacer"> Adidas </label>
                 </div>
+                {filterArr.length > 0 && <div className="reset-button"
+                    onClick={() => {
+                        setJordan(false)
+                        setNike(false)
+                        setAdidas(false)
+                    }}
+                >
+                    <i class="fa-solid fa-xmark" style={{ fontSize: '20px', marginRight: '10px', marginTop: '2px' }}></i>
+                    Reset Brand
+                </div>}
             </div>
         </>
     );
