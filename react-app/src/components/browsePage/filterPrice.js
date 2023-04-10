@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './filterForm.css'
 
 
-const FilterPrice = ({ filter, page, currentPosts, setPriceFilter, priceFilter }) => {
+const FilterPrice = ({ setBrandFilter, page, currentPosts, setPriceFilter, priceFilter }) => {
 
     const [highPrice, setHighPrice] = useState('')
     const [lowPrice, setLowPrice] = useState('')
@@ -13,23 +13,23 @@ const FilterPrice = ({ filter, page, currentPosts, setPriceFilter, priceFilter }
     const [over2000, setOver2000] = useState(false)
 
     useEffect(() => {
-        filter(filterListings)
+        setBrandFilter(filterListings)
     }, [highPrice, lowPrice])
 
     //create a function that spits out an array of all the listings
     let filterListings = []
     for (let i = 0; i < currentPosts.length; i++) {
         let shoe = currentPosts[i]
-        if (shoe.listings && typeof shoe.listings[Symbol.iterator] === 'function') {
+        if (shoe.listings) {
             for (let listing of shoe.listings) {
                 if (listing.price <= highPrice && listing.price >= lowPrice) {
                     filterListings.push(listing)
+                    // filterListings.push(shoe)
+                    // break
                 }
             }
         }
     }
-
-    // console.log(filterListings)
 
     let handleChange = (num) => {
         setPriceFilter(!priceFilter)

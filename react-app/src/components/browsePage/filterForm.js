@@ -11,6 +11,8 @@ const FilterForm = ({ page, allApparel, setBrandFilter }) => {
         setBrandFilter(filterArr)
     }, [jordan, nike, adidas])
 
+
+
     let filterArr = []
     const jordanFilter = allApparel.filter((shoe) => {
         if (jordan) return shoe.brand === 'Jordan'
@@ -23,6 +25,7 @@ const FilterForm = ({ page, allApparel, setBrandFilter }) => {
         if (adidas) return shoe.brand === 'Adidas'
     })
     filterArr = [...jordanFilter, ...nikeFilter, ...adidasFilter]
+
 
     return (
         <>

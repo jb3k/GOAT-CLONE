@@ -30,11 +30,6 @@ function BrowsePage() {
             .then(() => setIsLoaded(true))
     }, [dispatch, brandFilter])
 
-    // useEffect(() => {
-    //     console.log(brandFilter)
-
-    // }, [brandFilter])
-
 
     const sortedShoes = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
@@ -52,9 +47,8 @@ function BrowsePage() {
     let currentPosts
     test.length > 0 ? currentPosts = test.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
 
-    // console.log(test, currentPosts)
-    // console.log(priceFilter)
-
+    // console.log(brandFilter, 'main')
+    
     return isLoaded && (
         <>
             <div className='navbar-spacing'>
@@ -68,17 +62,17 @@ function BrowsePage() {
                     <div className='browsepage-body'>
                         <div className='browsepage-filter'>
                             <div style={{ marginBottom: '50px' }}>
-                                <FilterForm page={setCurrentPage} allApparel={sortedShoes} setBrandFilter={setBrandFilter} />
+                                <FilterForm page={setCurrentPage} allApparel={sortedShoes} setBrandFilter={setBrandFilter}/>
                             </div>
                             <div style={{ marginBottom: '50px' }}>
                                 <FilterSize brandFilter={brandFilter} setBrandFilter={setBrandFilter} page={setCurrentPage} currentPosts={sortedShoes} />
                             </div>
-                            {/* <div style={{ marginBottom: '50px' }}>
+                            <div style={{ marginBottom: '50px' }}>
                                 <FilterPrice setBrandFilter={setBrandFilter} page={setCurrentPage} currentPosts={test} setPriceFilter={setPriceFilter} priceFilter={priceFilter} />
-                            </div> */}
+                            </div>
                         </div>
                         <div className='browsepage-grid'>
-                            <ShoeList currentPosts={currentPosts} filteredPosts={brandFilter} priceFilter={priceFilter} />
+                            <ShoeList currentPosts={currentPosts} filteredPosts={test} priceFilter={priceFilter} />
                         </div>
                     </div>
                     <div>
