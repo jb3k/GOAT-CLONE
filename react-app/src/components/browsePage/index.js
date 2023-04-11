@@ -10,6 +10,7 @@ import FilterForm from './filterForm'
 import FilterSize from './filterSize';
 import FilterPrice from './filterPrice';
 import ShoeList from './shoeList';
+import TagFilter from './tagFilter';
 
 
 function BrowsePage() {
@@ -63,27 +64,7 @@ function BrowsePage() {
                             Every sneaker you want is always available and verified by StockY. Buy and sell new sneakers & shoes from Jordan, Adidas, Nike, Yeezy and more!
                         </p>
                     </div>
-                    <div className='filter-tag-container'>
-                        {filterTags.size > 0 && Array.from(filterTags).map((tag, i) => {
-                            return (
-                                <div key={i} className='filter-tag' onClick={() => {
-                                    if (tag === 'Jordan') {
-                                        setJordan(!jordan)
-                                    } else if (tag === 'Nike') {
-                                        setNike(!nike)
-                                    } else if (tag === 'Adidas') {
-                                        setAdidas(!adidas)
-                                    }
-                                    filterTags.delete(tag)
-                                    setFilterTags(filterTags)
-                                }}>
-                                    <i class="fa-solid fa-xmark" style={{ fontSize: '20px', marginRight: '10px', marginTop: '2px', color: 'black' }}></i>
-                                    {tag}
-                                </div>
-                            )
-
-                        })}
-                    </div>
+                    <TagFilter filterTags={filterTags} jordan={jordan} setJordan={setJordan} nike={nike} setNike={setNike} adidas={adidas} setAdidas={setAdidas} />
                     <div className='browsepage-body'>
                         <div className='browsepage-filter'>
                             <div style={{ marginBottom: '50px' }}>
