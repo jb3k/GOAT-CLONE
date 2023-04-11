@@ -2,36 +2,41 @@ import React, { useState, useEffect } from "react";
 import './filterSize.css'
 
 
-const FilterSize = ({ setBrandFilter, page, currentPosts }) => {
+const FilterSize = ({ setBrandFilter, page, currentPosts, filterTags, setFilterTags }) => {
 
     const [size, setSize] = useState('')
+    const [sizeArr, setSizeArr] = useState([])
 
     useEffect(() => {
         setBrandFilter(filterFunc())
-    }, [size])
+    }, [size, filterTags])
 
 
     //create a function that spits out an array of all the listings
     const filterFunc = () => {
-        let filterListings = []
-        for (let i = 0; i < currentPosts.length; i++) {
-            let shoe = currentPosts[i]
-            if (shoe.listings) {
-                for (let listing of shoe.listings) {
-                    if (listing.size === size) {
-                        filterListings.push(shoe)
-                        break
-                    }
-                }
-            }
-        }
-        return filterListings
+        const filteredListings = currentPosts
+            .filter((shoe) => shoe.listings) // only keep items with a listings property
+            .filter((shoe) => shoe.listings.some((listing) => listing.size === size)) // only keep items with a listing of the desired size
+            .map((shoe) => ({ ...shoe, listings: shoe.listings.filter((listing) => listing.size === size) })); // create a new array that only contains listings of the desired size
+
+        return filteredListings;
+
     }
 
     const handleSize = (data) => {
+        let prev
+        if (sizeArr.length >= 1) {
+            prev = sizeArr.shift()
+            setSizeArr([...sizeArr, data])
+        }
+        setSizeArr([...sizeArr, data])
+        if (filterTags.has(prev)) {
+            filterTags.delete(prev)
+            setFilterTags(filterTags.add(data))
+        }
+        setFilterTags(filterTags.add(data))
         setSize(data)
         page(1)
-
     }
 
 
@@ -50,7 +55,6 @@ const FilterSize = ({ setBrandFilter, page, currentPosts }) => {
                 />
             )
         }
-
 
         return (
             <>

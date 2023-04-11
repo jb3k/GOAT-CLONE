@@ -71,7 +71,7 @@ function BrowsePage() {
                                 <FilterForm page={setCurrentPage} allApparel={sortedShoes} setBrandFilter={setBrandFilter} filterTags={filterTags} setFilterTags={setFilterTags} jordan={jordan} setJordan={setJordan} nike={nike} setNike={setNike} adidas={adidas} setAdidas={setAdidas} />
                             </div>
                             <div style={{ marginBottom: '50px' }}>
-                                <FilterSize setBrandFilter={setBrandFilter} page={setCurrentPage} currentPosts={sortedShoes} />
+                                <FilterSize setBrandFilter={setBrandFilter} page={setCurrentPage} currentPosts={sortedShoes} filterTags={filterTags} setFilterTags={setFilterTags}/>
                             </div>
                             {/* <div style={{ marginBottom: '50px' }}>
                                 <FilterPrice setBrandFilter={setBrandFilter} page={setCurrentPage} currentPosts={test} setPriceFilter={setPriceFilter} priceFilter={priceFilter} />
