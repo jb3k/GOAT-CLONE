@@ -68,11 +68,14 @@ const FilterSize = ({ setBrandFilter, page, currentPosts }) => {
                 <div className="filterSize-box" >
                     {shoeSizes()}
                 </div>
-                <button onClick={() => {
-                    setSize('')
-                }}
-                    hidden={size === ''}
-                > Reset Size</button>
+                {size !== '' && <div className="reset-button"
+                    onClick={() => {
+                        setSize('')
+                    }}
+                >
+                    <i class="fa-solid fa-xmark" style={{ fontSize: '20px', marginRight: '10px', marginTop: '2px' }}></i>
+                    Reset Size
+                </div>}
             </div>
         </>
     );

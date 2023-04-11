@@ -19,6 +19,10 @@ function BrowsePage() {
     const [postsPerPage, setPostsPerPage] = useState(16)
     const [brandFilter, setBrandFilter] = useState([])
     const [priceFilter, setPriceFilter] = useState(false)
+    const [filterTags, setFilterTags] = useState(new Set())
+    const [jordan, setJordan] = useState(false)
+    const [nike, setNike] = useState(false)
+    const [adidas, setAdidas] = useState(false)
 
     const allApparel = useSelector(state => Object.values(state.apparel))
     // const allListings = useSelector(state => Object.values(state.listings))
@@ -28,7 +32,8 @@ function BrowsePage() {
         // dispatch(getAllListingsThunk())
         dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
-    }, [dispatch, brandFilter])
+    }, [dispatch, brandFilter, filterTags])
+
 
     const sortedShoes = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
@@ -46,6 +51,7 @@ function BrowsePage() {
     let currentPosts
     test.length > 0 ? currentPosts = test.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
 
+    // console.log(brandFilter, 'main')
 
     return isLoaded && (
         <>
@@ -54,13 +60,34 @@ function BrowsePage() {
                     <div className='browsepage-header'>
                         <h2 style={{ marginLeft: '30px' }}> Sneakers</h2>
                         <p className='browsepage-header-text'>
-                            Every sneaker you want is always available and verified by StockY. Buy and sell new sneakers & shoes from Jordan, adidas, Nike, Yeezy and more!
+                            Every sneaker you want is always available and verified by StockY. Buy and sell new sneakers & shoes from Jordan, Adidas, Nike, Yeezy and more!
                         </p>
+                    </div>
+                    <div className='filter-tag-container'>
+                        {filterTags.size > 0 && Array.from(filterTags).map((tag, i) => {
+                            return (
+                                <div key={i} className='filter-tag' onClick={() => {
+                                    if (tag === 'Jordan') {
+                                        setJordan(!jordan)
+                                    } else if (tag === 'Nike') {
+                                        setNike(!nike)
+                                    } else if (tag === 'Adidas') {
+                                        setAdidas(!adidas)
+                                    }
+                                    filterTags.delete(tag)
+                                    setFilterTags(filterTags)
+                                }}>
+                                    <i class="fa-solid fa-xmark" style={{ fontSize: '20px', marginRight: '10px', marginTop: '2px', color: 'black' }}></i>
+                                    {tag}
+                                </div>
+                            )
+
+                        })}
                     </div>
                     <div className='browsepage-body'>
                         <div className='browsepage-filter'>
                             <div style={{ marginBottom: '50px' }}>
-                                <FilterForm page={setCurrentPage} allApparel={sortedShoes} setBrandFilter={setBrandFilter} />
+                                <FilterForm page={setCurrentPage} allApparel={sortedShoes} setBrandFilter={setBrandFilter} filterTags={filterTags} setFilterTags={setFilterTags} jordan={jordan} setJordan={setJordan} nike={nike} setNike={setNike} adidas={adidas} setAdidas={setAdidas} />
                             </div>
                             <div style={{ marginBottom: '50px' }}>
                                 <FilterSize setBrandFilter={setBrandFilter} page={setCurrentPage} currentPosts={sortedShoes} />
@@ -70,7 +97,7 @@ function BrowsePage() {
                             </div> */}
                         </div>
                         <div className='browsepage-grid'>
-                            <ShoeList currentPosts={currentPosts} filteredPosts={brandFilter} priceFilter={priceFilter} />
+                            <ShoeList currentPosts={currentPosts} filteredPosts={test} priceFilter={priceFilter} />
                         </div>
                     </div>
                     <div>

@@ -2,27 +2,44 @@ import React, { useEffect, useState } from "react"
 import './filterForm.css'
 
 
-const FilterForm = ({ page, allApparel, setBrandFilter }) => {
-    const [jordan, setJordan] = useState(false)
-    const [nike, setNike] = useState(false)
-    const [adidas, setAdidas] = useState(false)
+const FilterForm = ({ page, allApparel, setBrandFilter, filterTags, setFilterTags, jordan, setJordan, nike, setNike, adidas, setAdidas }) => {
 
     useEffect(() => {
         setBrandFilter(filterArr)
     }, [jordan, nike, adidas])
 
+
     let filterArr = []
     const jordanFilter = allApparel.filter((shoe) => {
-        if (jordan) return shoe.brand === 'Jordan'
+        if (jordan) {
+            setFilterTags(filterTags.add('Jordan'))
+            return shoe.brand === 'Jordan'
+        } else {
+            filterTags.delete('Jordan')
+            setFilterTags(filterTags)
+        }
     })
     const nikeFilter = allApparel.filter((shoe) => {
-        if (nike) return shoe.brand.includes('Nike')
+        if (nike) {
+            setFilterTags(filterTags.add('Nike'))
+            return shoe.brand.includes('Nike')
+        } else {
+            filterTags.delete('Nike')
+            setFilterTags(filterTags)
+        }
 
     })
     const adidasFilter = allApparel.filter((shoe) => {
-        if (adidas) return shoe.brand === 'Adidas'
+        if (adidas) {
+            setFilterTags(filterTags.add('Adidas'))
+            return shoe.brand === 'Adidas'
+        } else {
+            filterTags.delete('Adidas')
+            setFilterTags(filterTags)
+        }
     })
     filterArr = [...jordanFilter, ...nikeFilter, ...adidasFilter]
+
 
     return (
         <>
@@ -64,6 +81,16 @@ const FilterForm = ({ page, allApparel, setBrandFilter }) => {
                     />
                     <label className="label-spacer"> Adidas </label>
                 </div>
+                {filterArr.length > 0 && <div className="reset-button"
+                    onClick={() => {
+                        setJordan(false)
+                        setNike(false)
+                        setAdidas(false)
+                    }}
+                >
+                    <i class="fa-solid fa-xmark" style={{ fontSize: '20px', marginRight: '10px', marginTop: '2px' }}></i>
+                    Reset Brand
+                </div>}
             </div>
         </>
     );
