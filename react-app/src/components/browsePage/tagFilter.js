@@ -1,7 +1,6 @@
 import './tagFilter.css'
 
 function TagFilter({ filterTags, jordan, setJordan, nike, setNike, adidas, setAdidas, size, setSize }) {
-    console.log(filterTags)
 
     return (
         <div className='filter-tag-container'>
