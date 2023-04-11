@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './filterForm.css'
 
 
-const FilterPrice = ({ filter, page, currentPosts, setPriceFilter, priceFilter }) => {
+const FilterPrice = ({ setBrandFilter, page, currentPosts, setPriceFilter, priceFilter }) => {
 
     const [highPrice, setHighPrice] = useState('')
     const [lowPrice, setLowPrice] = useState('')
@@ -13,31 +13,34 @@ const FilterPrice = ({ filter, page, currentPosts, setPriceFilter, priceFilter }
     const [over2000, setOver2000] = useState(false)
 
     useEffect(() => {
-        filter(filterListings)
+        setBrandFilter(filterListings)
     }, [highPrice, lowPrice])
 
     //create a function that spits out an array of all the listings
     let filterListings = []
     for (let i = 0; i < currentPosts.length; i++) {
         let shoe = currentPosts[i]
-        if (shoe.listings && typeof shoe.listings[Symbol.iterator] === 'function') {
+        if (shoe.listings) {
             for (let listing of shoe.listings) {
                 if (listing.price <= highPrice && listing.price >= lowPrice) {
                     filterListings.push(listing)
+                    // filterListings.push(shoe)
+                    // break
                 }
             }
         }
     }
 
-    // console.log(filterListings)
-
     let handleChange = (num) => {
         setPriceFilter(!priceFilter)
         if (num === 1) {
+            setLowPrice(0)
+            setHighPrice(100)
             setbetween100and500(false)
             setbetween500and1000(false)
             setbetween1000and2000(false)
             setOver2000(false)
+            page(1)
         } else if (num === 2) {
             setUnder100(false)
             setbetween500and1000(false)
@@ -72,10 +75,7 @@ const FilterPrice = ({ filter, page, currentPosts, setPriceFilter, priceFilter }
                         checked={under100}
                         onChange={() => {
                             setUnder100(!under100)
-                            setLowPrice(0)
-                            setHighPrice(100)
                             handleChange(1)
-                            page(1)
                         }}
                     />
                     <label className="label-spacer"> Under $100 </label>
