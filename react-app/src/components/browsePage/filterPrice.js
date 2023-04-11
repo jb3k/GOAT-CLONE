@@ -34,10 +34,13 @@ const FilterPrice = ({ setBrandFilter, page, currentPosts, setPriceFilter, price
     let handleChange = (num) => {
         setPriceFilter(!priceFilter)
         if (num === 1) {
+            setLowPrice(0)
+            setHighPrice(100)
             setbetween100and500(false)
             setbetween500and1000(false)
             setbetween1000and2000(false)
             setOver2000(false)
+            page(1)
         } else if (num === 2) {
             setUnder100(false)
             setbetween500and1000(false)
@@ -72,10 +75,7 @@ const FilterPrice = ({ setBrandFilter, page, currentPosts, setPriceFilter, price
                         checked={under100}
                         onChange={() => {
                             setUnder100(!under100)
-                            setLowPrice(0)
-                            setHighPrice(100)
                             handleChange(1)
-                            page(1)
                         }}
                     />
                     <label className="label-spacer"> Under $100 </label>
