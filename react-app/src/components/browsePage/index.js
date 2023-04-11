@@ -24,6 +24,7 @@ function BrowsePage() {
     const [jordan, setJordan] = useState(false)
     const [nike, setNike] = useState(false)
     const [adidas, setAdidas] = useState(false)
+    const [size, setSize] = useState('')
 
     const allApparel = useSelector(state => Object.values(state.apparel))
     // const allListings = useSelector(state => Object.values(state.listings))
@@ -64,14 +65,14 @@ function BrowsePage() {
                             Every sneaker you want is always available and verified by StockY. Buy and sell new sneakers & shoes from Jordan, Adidas, Nike, Yeezy and more!
                         </p>
                     </div>
-                    <TagFilter filterTags={filterTags} jordan={jordan} setJordan={setJordan} nike={nike} setNike={setNike} adidas={adidas} setAdidas={setAdidas} />
+                    <TagFilter filterTags={filterTags} jordan={jordan} setJordan={setJordan} nike={nike} setNike={setNike} adidas={adidas} setAdidas={setAdidas} size={size} setSize={setSize} />
                     <div className='browsepage-body'>
                         <div className='browsepage-filter'>
                             <div style={{ marginBottom: '50px' }}>
                                 <FilterForm page={setCurrentPage} allApparel={sortedShoes} setBrandFilter={setBrandFilter} filterTags={filterTags} setFilterTags={setFilterTags} jordan={jordan} setJordan={setJordan} nike={nike} setNike={setNike} adidas={adidas} setAdidas={setAdidas} />
                             </div>
                             <div style={{ marginBottom: '50px' }}>
-                                <FilterSize setBrandFilter={setBrandFilter} page={setCurrentPage} currentPosts={sortedShoes} filterTags={filterTags} setFilterTags={setFilterTags}/>
+                                <FilterSize size={size} setSize={setSize} setBrandFilter={setBrandFilter} page={setCurrentPage} currentPosts={sortedShoes} filterTags={filterTags} setFilterTags={setFilterTags} />
                             </div>
                             {/* <div style={{ marginBottom: '50px' }}>
                                 <FilterPrice setBrandFilter={setBrandFilter} page={setCurrentPage} currentPosts={test} setPriceFilter={setPriceFilter} priceFilter={priceFilter} />

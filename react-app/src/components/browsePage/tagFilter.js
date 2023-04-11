@@ -1,6 +1,8 @@
 import './tagFilter.css'
 
-function TagFilter({ filterTags, jordan, setJordan, nike, setNike, adidas, setAdidas }) {
+function TagFilter({ filterTags, jordan, setJordan, nike, setNike, adidas, setAdidas, size, setSize }) {
+    console.log(filterTags)
+
     return (
         <div className='filter-tag-container'>
             {filterTags.size > 0 && (
@@ -18,8 +20,9 @@ function TagFilter({ filterTags, jordan, setJordan, nike, setNike, adidas, setAd
                                 case 'Adidas':
                                     setAdidas(!adidas);
                                     break;
-                                // case size:
-                                //     setSize()
+                                case size:
+                                    setSize('')
+                                    filterTags.delete(size)
                                 default:
                                     break;
                             }

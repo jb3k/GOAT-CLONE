@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import './filterSize.css'
 
 
-const FilterSize = ({ setBrandFilter, page, currentPosts, filterTags, setFilterTags }) => {
+const FilterSize = ({ size, setSize, setBrandFilter, page, currentPosts, filterTags, setFilterTags }) => {
 
-    const [size, setSize] = useState('')
     const [sizeArr, setSizeArr] = useState([])
 
     useEffect(() => {
