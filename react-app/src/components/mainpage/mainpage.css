@@ -18,6 +18,7 @@ button:hover {
 .mainpage-body-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
     min-height: 1600px;
@@ -123,6 +124,29 @@ button:hover {
     margin-left: 3px;
 }
 
+.mainpage-shoe-listing-title {
+    width: 90%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.see-all-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 85px;
+}
+
+.see-all-button-container:hover {
+    background-color: rgb(227, 227, 227);
+}
+
+.see-all-button {
+    color: darkgreen;
+    text-decoration: none;
+}
 
 .test {
     display: grid;
@@ -141,7 +165,7 @@ button:hover {
         grid-template-columns: repeat(3, 170px);
         margin-top: 15px;
         width: 100%;
-        max-height: 197px;
+        max-height: 190px;
         overflow: hidden;
 
     }
@@ -161,7 +185,7 @@ button:hover {
         grid-template-columns: repeat(4, 170px);
         margin-top: 15px;
         width: 100%;
-        max-height: 197px;
+        max-height: 190px;
         overflow: hidden;
 
     }
@@ -181,7 +205,7 @@ button:hover {
         grid-template-columns: repeat(5, 170px);
         margin-top: 15px;
         width: 100%;
-        max-height: 197px;
+        max-height: 190px;
         overflow: hidden;
 
     }
