@@ -51,9 +51,7 @@ function MainPage() {
                 </div>
                 <div className='mainpage-body-container'>
                     <div className='mainpage-rotating-img-container'>
-                        {/* <img src={images[imageNumber]} className='actual-rotating-image' alt='rotating-shoes'></img> */}
-                        <img src={image1} className='actual-rotating-image' alt='rotating-shoes'></img>
-
+                        <img src={images[imageNumber]} className='actual-rotating-image' alt='rotating-shoes'></img>
                     </div>
                     <div className='mainpage-shoe-listing-container'>
                         <div style={{ marginTop: '30px' }}>
