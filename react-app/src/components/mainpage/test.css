@@ -1,0 +1,18 @@
+.m {
+    display: flex;
+    flex-direction: column;
+    height: 265px;
+}
+
+
+.t {
+    width: 98%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.te {
+    display: flex;
+}

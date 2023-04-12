@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import './shoeBox.css'
 
 
 function ShoeBox({ allApparel, recentlyViewed, setRecentlyViewed }) {
@@ -70,7 +71,7 @@ function ShoeBox({ allApparel, recentlyViewed, setRecentlyViewed }) {
 
     return (
         <>
-            {allItems.slice(0, 20)}
+            {allItems.slice(0, 6)}
         </>
     )
 

@@ -1,0 +1,46 @@
+.mainpage-shoe-containers {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    height: 185px;
+    margin-right: 20px;
+    width: 145px;
+    margin-bottom: 10px;
+
+}
+
+.mainpage-shoe-listing-image-container {
+    height: 50%;
+    margin-bottom: 20px;
+}
+
+.mainpage-shoe-listing-image {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+
+.mainpage-shoe-text-container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 2px;
+}
+
+
+.mainpage-shoe-name {
+    font-size: 11px;
+    margin-bottom: 10px;
+    margin-left: 3px;
+}
+
+.mainpage-shoe-lowest-ask {
+    font-size: 9px;
+    color: darkgray;
+    margin-left: 3px;
+}
+
+.mainpage-shoe-lowest-price {
+    margin-left: 3px;
+}

@@ -1,29 +1,23 @@
-/* .mainpage-shoe-listing-container {
-    display: flex;
-    border: 1px solid black;
-    width: 200px;
-    height: 200px;
-
-} */
-
 .navbar-spacing {
     margin-top: 71px;
 }
-
 
 button:hover {
     cursor: pointer;
 }
 
+
+
+
+
 .mainpage-body-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
     min-height: 1600px;
 }
-
-
 
 .mainpage-rotating-img-container {
     margin-top: -130px;
@@ -36,7 +30,6 @@ button:hover {
     z-index: -1;
 }
 
-
 .actual-rotating-image {
     height: 100%;
     /* width: 60%; */
@@ -46,85 +39,63 @@ button:hover {
 }
 
 
-.mainpage-header {
+.mainpage-shoe-listing-container {
+    /* display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 72% */
+    display: flex;
+    flex-direction: column;
+    height: 265px;
+}
+
+
+.mainpage-shoe-listing-title {
+    width: 98%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.see-all-button-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -1px;
-    margin-bottom: 50px;
-    margin-left: -10px;
-    height: 40px;
-    width: 105%;
-    background-color: rgb(239, 239, 239);
+    height: 25px;
+    width: 85px;
 }
 
-.mainpage-header-text {
+.see-all-button-container:hover {
+    background-color: rgb(227, 227, 227);
+}
+
+.see-all-button {
+    color: darkgreen;
     text-decoration: none;
-    margin: 0 40px;
-    font-size: 18px;
-    font-weight: 600;
-
 }
 
-
-.mainpage-shoe-listing-container {
+.shoe-container {
     display: flex;
-    flex-direction: column;
-    /* border: 1px solid black; */
-    height: 100%;
-    width: 72%
+
 }
 
-.mainpage-shoe-containers {
+.ad {
     display: flex;
-    flex-direction: column;
-    border: 1px solid lightgray;
-    height: 185px;
-    margin-right: 20px;
-    width: 145px;
-    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 265px;
+    width: 975px;
+    margin-top: 2%;
+    margin-left: -25px;
 
 }
 
-.mainpage-shoe-listing-image-container {
-    height: 50%;
-    margin-bottom: 20px;
-}
-
-.mainpage-shoe-listing-image {
-    height: 100%;
+.ad-image {
     width: 100%;
-    object-fit: fill;
 }
 
 
-.mainpage-shoe-text-container {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    justify-content: space-around;
-    margin-left: 2px;
-}
-
-
-.mainpage-shoe-name {
-    font-size: 11px;
-    margin-bottom: 10px;
-    margin-left: 3px;
-}
-
-.mainpage-shoe-lowest-ask {
-    font-size: 9px;
-    color: darkgray;
-    margin-left: 3px;
-}
-
-.mainpage-shoe-lowest-price {
-    margin-left: 3px;
-}
-
-
-.test {
+/* .test {
     display: grid;
     grid-row: 1;
     grid-template-columns: repeat(6, 170px);
@@ -141,7 +112,7 @@ button:hover {
         grid-template-columns: repeat(3, 170px);
         margin-top: 15px;
         width: 100%;
-        max-height: 197px;
+        max-height: 190px;
         overflow: hidden;
 
     }
@@ -161,7 +132,7 @@ button:hover {
         grid-template-columns: repeat(4, 170px);
         margin-top: 15px;
         width: 100%;
-        max-height: 197px;
+        max-height: 190px;
         overflow: hidden;
 
     }
@@ -181,7 +152,7 @@ button:hover {
         grid-template-columns: repeat(5, 170px);
         margin-top: 15px;
         width: 100%;
-        max-height: 197px;
+        max-height: 190px;
         overflow: hidden;
 
     }
@@ -199,4 +170,4 @@ button:hover {
         width: 999px;
         object-fit: fill;
     }
-}
+} */
