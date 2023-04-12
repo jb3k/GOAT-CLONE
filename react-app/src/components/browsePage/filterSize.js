@@ -38,6 +38,7 @@ const FilterSize = ({ size, setSize, setBrandFilter, page, currentPosts, filterT
         page(1)
     }
 
+    console.log(filterTags)
 
     const shoeSizes = () => {
 
@@ -74,6 +75,7 @@ const FilterSize = ({ size, setSize, setBrandFilter, page, currentPosts, filterT
                 {size !== '' && <div className="reset-button"
                     onClick={() => {
                         setSize('')
+                        setFilterTags(new Set())
                     }}
                 >
                     <i class="fa-solid fa-xmark" style={{ fontSize: '20px', marginRight: '10px', marginTop: '2px' }}></i>

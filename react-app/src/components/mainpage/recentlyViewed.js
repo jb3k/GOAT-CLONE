@@ -1,29 +1,22 @@
+import React, { useEffect } from 'react';
 
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
-
-
-function BrowsePage() {
-    const dispatch = useDispatch();
-    const [isLoaded, setIsLoaded] = useState(false)
-
-    const allApparel = useSelector(state => Object.values(state.apparel))
-
-    //create an array, every onclick add that item that you clicked on into the array. 
-
-
+function RecentlyViewed() {
     useEffect(() => {
-        dispatch(getAllApparelThunk())
-    }, [dispatch])
+        // Get the stored recently viewed shoes from local storage
+        const storedShoes = localStorage.getItem('recentlyViewedShoes');
+        if (storedShoes) {
+            setRecentlyViewed(JSON.parse(storedShoes));
+        }
+    }, []);
 
+    const handleClick = (shoe) => {
+        // Add the clicked shoe to recently viewed shoes
+        const updatedShoes = [shoe, ...recentlyViewed.filter((item) => item.id !== shoe.id)];
+        setRecentlyViewed(updatedShoes);
 
-
-    return isLoaded && (
-        <>
-        </>
-    )
+        // Store the updated recently viewed shoes in local storage
+        localStorage.setItem('recentlyViewedShoes', JSON.stringify(updatedShoes));
+    };
 
 }
-
-export default BrowsePage;
+export default RecentlyViewed;
