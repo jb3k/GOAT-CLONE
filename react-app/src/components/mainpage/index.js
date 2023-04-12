@@ -51,14 +51,16 @@ function MainPage() {
                 </div>
                 <div className='mainpage-body-container'>
                     <div className='mainpage-rotating-img-container'>
-                        <img src={images[imageNumber]} className='actual-rotating-image' alt='rotating-shoes'></img>
+                        {/* <img src={images[imageNumber]} className='actual-rotating-image' alt='rotating-shoes'></img> */}
+                        <img src={image1} className='actual-rotating-image' alt='rotating-shoes'></img>
+
                     </div>
                     <div className='mainpage-shoe-listing-container'>
                         <div style={{ marginTop: '30px' }}>
                             <strong> Recomended for you:</strong>
                         </div>
                         <div className='test'>
-                            <ShoeBox allApparel={sortedShoes} />
+                            <ShoeBox allApparel={sortedShoes} recentlyViewed={recentlyViewed} setRecentlyViewed={setRecentlyViewed} />
                         </div>
                     </div>
                     <div className='mainpage-shoe-listing-container'>
@@ -66,7 +68,7 @@ function MainPage() {
                             <strong> Recently Viewed:</strong>
                         </div>
                         <div className='test'>
-                            <ShoeBox allApparel={sortedShoes} />
+                            <ShoeBox allApparel={recentlyViewed} recentlyViewed={recentlyViewed} setRecentlyViewed={setRecentlyViewed} />
                         </div>
                     </div>
                     <div className='mainpage-shoe-listing-container'>
@@ -81,7 +83,7 @@ function MainPage() {
                             <strong> Popular Jordan Brand Shoes:</strong>
                         </div>
                         <div className='test'>
-                            <ShoeBox allApparel={jordanShoes} />
+                            <ShoeBox allApparel={jordanShoes} recentlyViewed={recentlyViewed} setRecentlyViewed={setRecentlyViewed} />
                         </div>
                     </div>
                     <div className='mainpage-shoe-listing-container' style={{ marginBottom: '100px' }} >
@@ -89,7 +91,7 @@ function MainPage() {
                             <strong> Popular Nike Brand Shoes:</strong>
                         </div>
                         <div className='test'>
-                            <ShoeBox allApparel={nikeShoes} />
+                            <ShoeBox allApparel={nikeShoes} recentlyViewed={recentlyViewed} setRecentlyViewed={setRecentlyViewed} />
                         </div>
                     </div>
                 </div>
