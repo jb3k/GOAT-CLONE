@@ -78,13 +78,11 @@ function MainPage() {
                             <ShoeBox allApparel={recentlyViewed} recentlyViewed={recentlyViewed} setRecentlyViewed={setRecentlyViewed} />
                         </div>
                     </div>
-                    {/* <div className='mainpage-shoe-listing-container'> */}
                     <div className='ad'>
                         <a href='https://www.linkedin.com/in/justin-j-b-kam-4105961a5/' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
                             <img src={ad} className='ad-image' alt='ad'></img>
                         </a>
                     </div>
-                    {/* </div> */}
                     <div className='mainpage-shoe-listing-container'>
                         <div className='mainpage-shoe-listing-title'>
                             <div>
