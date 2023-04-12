@@ -13,6 +13,7 @@ import Footer from '../footer';
 import { searchAllApparelThunk } from '../../store/searchbar';
 import ShoeBox from './ShoesBoxComponent';
 import MenuBar from './menubar';
+import './test.css'
 
 
 function MainPage() {
@@ -65,7 +66,7 @@ function MainPage() {
                                 </NavLink>
                             </div>
                         </div>
-                        <div className='test'>
+                        <div className='shoe-container'>
                             <ShoeBox allApparel={sortedShoes} recentlyViewed={recentlyViewed} setRecentlyViewed={setRecentlyViewed} />
                         </div>
                     </div>
@@ -73,17 +74,17 @@ function MainPage() {
                         <div className='mainpage-shoe-listing-title'>
                             <strong> Recently Viewed:</strong>
                         </div>
-                        <div className='test'>
+                        <div className='shoe-container'>
                             <ShoeBox allApparel={recentlyViewed} recentlyViewed={recentlyViewed} setRecentlyViewed={setRecentlyViewed} />
                         </div>
                     </div>
-                    <div className='mainpage-shoe-listing-container'>
-                        <div style={{ marginTop: '45px', marginBottom: '30px' }}>
-                            <a href='https://www.linkedin.com/in/justin-j-b-kam-4105961a5/' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
-                                <img src={ad} className='ad-image' alt='ad'></img>
-                            </a>
-                        </div>
+                    {/* <div className='mainpage-shoe-listing-container'> */}
+                    <div className='ad'>
+                        <a href='https://www.linkedin.com/in/justin-j-b-kam-4105961a5/' target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+                            <img src={ad} className='ad-image' alt='ad'></img>
+                        </a>
                     </div>
+                    {/* </div> */}
                     <div className='mainpage-shoe-listing-container'>
                         <div className='mainpage-shoe-listing-title'>
                             <div>
@@ -95,7 +96,7 @@ function MainPage() {
                                 </NavLink>
                             </div>
                         </div>
-                        <div className='test'>
+                        <div className='shoe-container'>
                             <ShoeBox allApparel={jordanShoes} recentlyViewed={recentlyViewed} setRecentlyViewed={setRecentlyViewed} />
                         </div>
                     </div>
@@ -110,7 +111,7 @@ function MainPage() {
                                 </NavLink>
                             </div>
                         </div>
-                        <div className='test'>
+                        <div className='shoe-container'>
                             <ShoeBox allApparel={nikeShoes} recentlyViewed={recentlyViewed} setRecentlyViewed={setRecentlyViewed} />
                         </div>
                     </div>

@@ -71,7 +71,7 @@ function ShoeBox({ allApparel, recentlyViewed, setRecentlyViewed }) {
 
     return (
         <>
-            {allItems.slice(0, 20)}
+            {allItems.slice(0, 6)}
         </>
     )
 
