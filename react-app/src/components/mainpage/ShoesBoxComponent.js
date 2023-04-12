@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import './shoeBox.css'
 
 
 function ShoeBox({ allApparel, recentlyViewed, setRecentlyViewed }) {
