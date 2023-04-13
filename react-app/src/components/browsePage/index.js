@@ -19,12 +19,12 @@ function BrowsePage() {
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
     const [brandFilter, setBrandFilter] = useState([])
-    const [priceFilter, setPriceFilter] = useState(false)
     const [filterTags, setFilterTags] = useState(new Set())
     const [jordan, setJordan] = useState(false)
     const [nike, setNike] = useState(false)
     const [adidas, setAdidas] = useState(false)
     const [size, setSize] = useState('')
+    // const [priceFilter, setPriceFilter] = useState(false)
 
     const allApparel = useSelector(state => Object.values(state.apparel))
     // const allListings = useSelector(state => Object.values(state.listings))
@@ -53,7 +53,7 @@ function BrowsePage() {
     let currentPosts
     test.length > 0 ? currentPosts = test.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
 
-    // console.log(brandFilter, 'main')
+    console.log(brandFilter, 'main')
 
     return isLoaded && (
         <>
@@ -79,7 +79,7 @@ function BrowsePage() {
                             </div> */}
                         </div>
                         <div className='browsepage-grid'>
-                            <ShoeList currentPosts={currentPosts} filteredPosts={test} priceFilter={priceFilter} />
+                            <ShoeList currentPosts={currentPosts} filterTags={filterTags} />
                         </div>
                     </div>
                     <div>
