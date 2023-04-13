@@ -38,7 +38,6 @@ const FilterSize = ({ size, setSize, setBrandFilter, page, currentPosts, filterT
         page(1)
     }
 
-    console.log(filterTags)
 
     const shoeSizes = () => {
 

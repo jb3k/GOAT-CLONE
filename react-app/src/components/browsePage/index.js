@@ -19,12 +19,12 @@ function BrowsePage() {
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(16)
     const [brandFilter, setBrandFilter] = useState([])
-    const [priceFilter, setPriceFilter] = useState(false)
     const [filterTags, setFilterTags] = useState(new Set())
     const [jordan, setJordan] = useState(false)
     const [nike, setNike] = useState(false)
     const [adidas, setAdidas] = useState(false)
     const [size, setSize] = useState('')
+    // const [priceFilter, setPriceFilter] = useState(false)
 
     const allApparel = useSelector(state => Object.values(state.apparel))
     // const allListings = useSelector(state => Object.values(state.listings))
@@ -54,6 +54,17 @@ function BrowsePage() {
     test.length > 0 ? currentPosts = test.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
 
     // console.log(brandFilter, 'main')
+    // let combine = (one, two) => {
+    //     let arr = [...one, ...two]
+    //     const id1 = one.map(shoe => shoe.id)
+    //     const id2 = two.map(shoe => shoe.id)
+    //     const unique = id1.filter(id => id2.includes(id))
+    //     arr = one.filter(shoe => unique.includes(shoe.id))
+    //     return arr
+    // }
+
+    // let combined = combine(brandFilter, sizeFilter)
+    // console.log(combined)
 
     return isLoaded && (
         <>
@@ -79,7 +90,7 @@ function BrowsePage() {
                             </div> */}
                         </div>
                         <div className='browsepage-grid'>
-                            <ShoeList currentPosts={currentPosts} filteredPosts={test} priceFilter={priceFilter} />
+                            <ShoeList currentPosts={currentPosts} filterTags={filterTags} />
                         </div>
                     </div>
                     <div>
