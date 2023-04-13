@@ -53,7 +53,18 @@ function BrowsePage() {
     let currentPosts
     test.length > 0 ? currentPosts = test.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
 
-    console.log(brandFilter, 'main')
+    // console.log(brandFilter, 'main')
+    // let combine = (one, two) => {
+    //     let arr = [...one, ...two]
+    //     const id1 = one.map(shoe => shoe.id)
+    //     const id2 = two.map(shoe => shoe.id)
+    //     const unique = id1.filter(id => id2.includes(id))
+    //     arr = one.filter(shoe => unique.includes(shoe.id))
+    //     return arr
+    // }
+
+    // let combined = combine(brandFilter, sizeFilter)
+    // console.log(combined)
 
     return isLoaded && (
         <>
