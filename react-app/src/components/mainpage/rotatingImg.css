@@ -1,0 +1,32 @@
+.image-border {
+    border: 1px solid lightgray;
+    width: 780px;
+    height: 340px;
+    z-index: 1;
+}
+
+.featured {
+    margin-left: 15px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+
+.mainpage-rotating-img-container {
+    margin-top: -440px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    /* border: 1px solid black; */
+    height: 100%;
+    width: 90%;
+    z-index: -1;
+}
+
+.actual-rotating-image {
+    height: 100%;
+    /* width: 60%; */
+    object-fit: cover;
+    transition: all 1s ease-in-out;
+    max-width: 600px;
+}

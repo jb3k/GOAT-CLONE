@@ -10,6 +10,7 @@ button:hover {
 
 
 
+
 .mainpage-body-container {
     display: flex;
     flex-direction: column;
@@ -17,25 +18,6 @@ button:hover {
     align-items: center;
     width: 100%;
     min-height: 1600px;
-}
-
-.mainpage-rotating-img-container {
-    margin-top: -130px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    /* border: 1px solid black; */
-    height: 100%;
-    width: 90%;
-    z-index: -1;
-}
-
-.actual-rotating-image {
-    height: 100%;
-    /* width: 60%; */
-    object-fit: cover;
-    transition: all 1s ease-in-out;
-    max-width: 600px;
 }
 
 

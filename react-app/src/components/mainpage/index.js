@@ -14,6 +14,7 @@ import { searchAllApparelThunk } from '../../store/searchbar';
 import ShoeBox from './ShoesBoxComponent';
 import MenuBar from './menubar';
 import './test.css'
+import RotatingImage from './rotatingImg';
 
 
 function MainPage() {
@@ -52,9 +53,7 @@ function MainPage() {
                     <MenuBar />
                 </div>
                 <div className='mainpage-body-container'>
-                    <div className='mainpage-rotating-img-container'>
-                        <img src={images[imageNumber]} className='actual-rotating-image' alt='rotating-shoes'></img>
-                    </div>
+                    <RotatingImage />
                     <div className='mainpage-shoe-listing-container'>
                         <div className='mainpage-shoe-listing-title'>
                             <div>
