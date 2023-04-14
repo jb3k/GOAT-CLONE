@@ -42,7 +42,6 @@
 * Recently Viewed Feature that tracks your recently viewed shoe from the main page.
 
 ![image](./proposal-img/main2.png)
-![image](./proposal-img/main1.png)
 
 
 ## Browse Page
