@@ -2,12 +2,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 
-export default function ShoeList({ currentPosts, filterTags, allApparel }) {
+export default function ShoeList({ currentPosts, filterTags, allApparel, firstPostIndex, lastPostIndex }) {
 
     let allPosts
 
     if (currentPosts.length === 0 && filterTags.size === 0) {
-        allPosts = allApparel.map((item) => {
+        allPosts = allApparel.slice(firstPostIndex, lastPostIndex).map((item) => {
             if (!item) return null
             const { imageUrl, name, listings, id } = item
 
