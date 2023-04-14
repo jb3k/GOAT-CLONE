@@ -36,11 +36,26 @@
 
 ## Home Page
 
-* Here you can view all of the shoes that are currently in the database. 
 * In the top right corner, you will see `Sign Up` and `Login` buttons to officially list or purchase shoes.
+* There is a search bar feature to search the shoe you want
+* Auto Rotating Image Carousel with clickable links to direct to the featured shoe
+* Recently Viewed Feature that tracks your recently viewed shoe from the main page.
 
 ![image](./proposal-img/main2.png)
 ![image](./proposal-img/main1.png)
+
+
+## Browse Page
+
+* Here you can view all of the shoes that are currently in the database. 
+* Pagination that allows you to look at different pages
+* Filter feature that allows you to look for specific brands and sizes
+
+
+![image](./proposal-img/browse1.png)
+![image](./proposal-img/browse2.png)
+![image](./proposal-img/browse3.png)
+
 
 
 ## Signup / Login Page
