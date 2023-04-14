@@ -27,8 +27,7 @@ function MainPage() {
     const jordanShoes = allApparel.filter((shoe) => shoe.brand === 'Jordan')
     const nikeShoes = allApparel.filter(shoe => shoe.brand.includes('Nike'))
     const [recentlyViewed, setRecentlyViewed] = useState(sortedShoes.slice(4, 10));
-    // recentlyViewed.length < 6 ? recentShoes = sortedShoes.slice(2, 8) : recentShoes = recentlyViewed
-    console.log(recentlyViewed)
+
 
 
     return isLoaded && (
