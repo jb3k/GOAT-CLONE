@@ -90,7 +90,7 @@ function BrowsePage() {
                             </div> */}
                         </div>
                         <div className='browsepage-grid'>
-                            <ShoeList currentPosts={currentPosts} filterTags={filterTags} allApparel={sortedShoes} />
+                            <ShoeList currentPosts={currentPosts} filterTags={filterTags} allApparel={sortedShoes} firstPostIndex={firstPostIndex} lastPostIndex={lastPostIndex} />
                         </div>
                     </div>
                     <div>
