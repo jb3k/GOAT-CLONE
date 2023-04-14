@@ -24,47 +24,47 @@ function BrowsePage() {
     const [nike, setNike] = useState(false)
     const [adidas, setAdidas] = useState(false)
     const [size, setSize] = useState('')
+    const [sizeFilter, setSizeFilter] = useState([])
     // const [priceFilter, setPriceFilter] = useState(false)
 
+
     const allApparel = useSelector(state => Object.values(state.apparel))
-    // const allListings = useSelector(state => Object.values(state.listings))
 
     useEffect(() => {
         dispatch(getAllApparelThunk())
-        // dispatch(getAllListingsThunk())
         dispatch(searchAllApparelThunk())
             .then(() => setIsLoaded(true))
     }, [dispatch, brandFilter, filterTags])
 
-
     const sortedShoes = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-
-    let paginationLength
-    brandFilter.length > 0 ? paginationLength = brandFilter.length : paginationLength = allApparel.length
-
-
     let lastPostIndex = currentPage * postsPerPage
     let firstPostIndex = lastPostIndex - postsPerPage
 
     let test
-    brandFilter.length > 0 ? test = brandFilter : test = sortedShoes
-
-
+    let combine = (one, two) => {
+        let arr = [...one, ...two]
+        //need to add the length conditionals because if not, a blank arr is considered truthy
+        if (one && two && one.length > 0 && two.length > 0) {
+            const id1 = one.map(shoe => shoe.id)
+            const id2 = two.map(shoe => shoe.id)
+            const unique = id1.filter(id => id2.includes(id))
+            arr = one.filter(shoe => unique.includes(shoe.id))
+            return arr
+        } else {
+            return arr
+        }
+    }
+    //combine both filtered arrays
+    let combined = combine(brandFilter, sizeFilter)
+    combined.length > 0 ? test = combined : test = []
+    // create the amount of pages in the pagination
+    let paginationLength
+    combined.length > 0 ? paginationLength = combined.length : paginationLength = allApparel.length
+    // slice the posts based on the page
     let currentPosts
-    test.length > 0 ? currentPosts = test.slice(firstPostIndex, lastPostIndex) : currentPosts = sortedShoes.slice(firstPostIndex, lastPostIndex)
+    test.length > 0 ? currentPosts = test.slice(firstPostIndex, lastPostIndex) : currentPosts = []
 
-    // console.log(brandFilter, 'main')
-    // let combine = (one, two) => {
-    //     let arr = [...one, ...two]
-    //     const id1 = one.map(shoe => shoe.id)
-    //     const id2 = two.map(shoe => shoe.id)
-    //     const unique = id1.filter(id => id2.includes(id))
-    //     arr = one.filter(shoe => unique.includes(shoe.id))
-    //     return arr
-    // }
 
-    // let combined = combine(brandFilter, sizeFilter)
-    // console.log(combined)
 
     return isLoaded && (
         <>
@@ -83,14 +83,14 @@ function BrowsePage() {
                                 <FilterForm page={setCurrentPage} allApparel={sortedShoes} setBrandFilter={setBrandFilter} filterTags={filterTags} setFilterTags={setFilterTags} jordan={jordan} setJordan={setJordan} nike={nike} setNike={setNike} adidas={adidas} setAdidas={setAdidas} />
                             </div>
                             <div style={{ marginBottom: '50px' }}>
-                                <FilterSize size={size} setSize={setSize} setBrandFilter={setBrandFilter} page={setCurrentPage} currentPosts={sortedShoes} filterTags={filterTags} setFilterTags={setFilterTags} />
+                                <FilterSize size={size} setSize={setSize} setBrandFilter={setSizeFilter} page={setCurrentPage} currentPosts={sortedShoes} filterTags={filterTags} setFilterTags={setFilterTags} />
                             </div>
                             {/* <div style={{ marginBottom: '50px' }}>
                                 <FilterPrice setBrandFilter={setBrandFilter} page={setCurrentPage} currentPosts={test} setPriceFilter={setPriceFilter} priceFilter={priceFilter} />
                             </div> */}
                         </div>
                         <div className='browsepage-grid'>
-                            <ShoeList currentPosts={currentPosts} filterTags={filterTags} />
+                            <ShoeList currentPosts={currentPosts} filterTags={filterTags} allApparel={sortedShoes} />
                         </div>
                     </div>
                     <div>
