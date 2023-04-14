@@ -3,17 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllApparelThunk } from '../../store/apparel';
 import { NavLink } from 'react-router-dom';
 import './mainpage.css'
-import image1 from '../../assets/1.jpeg'
-import image2 from '../../assets/2.jpeg'
-import image3 from '../../assets/3.jpeg'
-import image4 from '../../assets/4.jpeg'
-import image5 from '../../assets/5.jpeg'
 import ad from '../../assets/ad.png'
 import Footer from '../footer';
 import { searchAllApparelThunk } from '../../store/searchbar';
 import ShoeBox from './ShoesBoxComponent';
 import MenuBar from './menubar';
-import './test.css'
 import RotatingImage from './rotatingImg';
 
 
@@ -21,9 +15,6 @@ function MainPage() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false)
     const allApparel = useSelector(state => Object.values(state.apparel))
-    const [imageNumber, setImageNumber] = useState(0)
-    const images = [image1, image2, image3, image4, image5]
-    const [recentlyViewed, setRecentlyViewed] = useState([]);
 
     useEffect(() => {
         dispatch(getAllApparelThunk())
@@ -31,19 +22,13 @@ function MainPage() {
             .then(() => setIsLoaded(true))
     }, [dispatch])
 
-    useEffect(() => {
-        const imageInterval = setInterval(() => {
-            setImageNumber((num) => ++num % images.length)
-        }, 4000)
-        return () => {
-            clearInterval(imageInterval)
-        }
-    }, [images])
-
 
     const sortedShoes = allApparel.filter(shoe => new Date() > new Date(shoe.createdAt)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     const jordanShoes = allApparel.filter((shoe) => shoe.brand === 'Jordan')
     const nikeShoes = allApparel.filter(shoe => shoe.brand.includes('Nike'))
+    const [recentlyViewed, setRecentlyViewed] = useState(sortedShoes.slice(4, 10));
+    // recentlyViewed.length < 6 ? recentShoes = sortedShoes.slice(2, 8) : recentShoes = recentlyViewed
+    console.log(recentlyViewed)
 
 
     return isLoaded && (
